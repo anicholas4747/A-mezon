@@ -58,24 +58,31 @@ It is called **`Aにmezon`** [A-meh-zon].
 
 `Tables:`
 - Users
-    - profile_pic
+    - profile_pic?
     - username
     - email
     - password_digest
     - session_token
+    - created_at
+    - updated_at
 - Carts
     - user_id
     - anime_id
+    - created_at
+    - updated_at
 - Reviews
     - title
     - body
     - rating
     - author_id
     - anime_id
+    - created_at
+    - updated_at
 - Anime
     - title
     - description
     - genre
+    - release_year
     - price
     - studio_id
 - Trailers
@@ -86,12 +93,13 @@ It is called **`Aにmezon`** [A-meh-zon].
     - anime_id
 - Studios
     - name
+    - description
     - site_url
 
 `Associations:`
 - Users have many items in their cart
-- Carts are join tables linking users to the anime they have in their cart
 - Users have many authored reviews
+- Carts are join tables linking users to the anime they have in their cart
 - Reviews belong to a specific user
 - Reviews belong to a specific anime
 - Anime have many reviews
