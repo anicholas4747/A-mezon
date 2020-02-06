@@ -1,11 +1,15 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import App from './app';
 
-const Root = () => {
+const Root = ({store}) => {
     return (
-        <div>
-            <h1>Hello from the Root</h1>
-            <p>checking it still works lol</p>
-        </div>
+        <BrowserRouter>
+            <Provider store={store}>
+                <App />
+            </Provider>
+        </BrowserRouter>
     );
 };
 
