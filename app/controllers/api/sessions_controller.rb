@@ -1,10 +1,7 @@
-class  SessionsController < ApplicationController
+class  Api::SessionsController < ApplicationController
 
     before_action :ensure_logged_in, only: [:destroy]
-    def new
-        render :new
-    end
-    
+
     def create
         @user = User.find_by_credentials(
             params[:user][:un_or_email],
@@ -12,15 +9,14 @@ class  SessionsController < ApplicationController
         )
         if @user
             log_in(@user)
-            render :users_url
+            render json: {}
         else
-            flash.now[:errors] = ["Invalid Credentials, Please Try Again..."]
-            render :new
+            render json: ["Invalid Credentials, Please Try Again..."], status: 401
         end
     end
 
     def destroy
         logout
-        redirect_to new_session_url
+        render json: {message: "Logout Successful!"}
     end
 end

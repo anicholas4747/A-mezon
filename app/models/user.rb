@@ -23,8 +23,9 @@ class User < ApplicationRecord
     validates :password, length: {minimum: 6}, allow_nil: true
     
     def find_by_credentials(un_or_email,pw)
-        user = User.find_by(username: un_or_email)
-        user = User.find_by(email: un_or_email) if user.nil?
+        likeEmail = false
+        likeEmail = true if (un_or_email.split("@").length ==  2) && (!un_or_email.split("@")[0].include?(".")) && (un_or_email.split("@")[1].split(".").length == 2)
+        user = likeEmail ? User.find_by(email: un_or_email) : User.find_by(username: un_or_email)
         return nil if user.nil?
         user.is_password?(pw) ? user : nil
     end
