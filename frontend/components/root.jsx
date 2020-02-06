@@ -2,7 +2,10 @@ import React from 'react';
 
 const Root = () => {
     return (
-        <h1>Hello from the Root</h1>
+        <div>
+            <h1>Hello from the Root</h1>
+            <p>checking it still works lol</p>
+        </div>
     );
 };
 
