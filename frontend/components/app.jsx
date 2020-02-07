@@ -1,20 +1,28 @@
 import React from 'react';
-import Home from './home_page/home';
+import Home from './home_page/home_container';
 import { Route, Switch } from 'react-router-dom';
 import SignUp from './session/signup/signup_container';
 import LogIn from './session/login/login_container';
+import { AuthRoute } from '../util/route_util';
+import NotFoundPage from './404_page/not_found';
 
 const App = () => {
     return(
         <div>
-            <h1>hello from the App</h1>
+            <Switch>
+                <AuthRoute path="/register" component={() => (null)} />
+                <AuthRoute path="/signin" component={() => (null)} />
+                {/* <Route component={NavBar}/> */}
+            </Switch>
             <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route path="/signup" component={SignUp}/>
-                <Route path="/login" component={LogIn}/>
+                <AuthRoute path="/register" component={SignUp} />
+                <AuthRoute path="/signin" component={LogIn} />
+                <Route component={NotFoundPage}/>
             </Switch>
         </div>
     )
 };
 
 export default App;
+

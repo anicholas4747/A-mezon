@@ -27,22 +27,27 @@ class LogIn extends Component {
 
     render(){
         return (
-            <div>
-                <Link to="/"><img src="" alt="Amezon Logo" /></Link>
+            <div className="auth-div">
+                <span>
+                    <Link to="/" className="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amezon Logo" /></Link>
+                </span>
                 <form onSubmit={this.handleSubmit} className="auth-form">
                     <h2>Sign-In</h2>
                     <label>Email (or username)
                         <input type="text" onChange={this.handleInput("un_or_email")} value={this.state.email}/>
                     </label>
+                    <br/>
                     <label>Password
-                        <input type="password" onChange={this.handleInput("password")} value={this.state.password} placeholder="At least 6 characters"/>
+                        <input type="password" onChange={this.handleInput("password")} value={this.state.password}/>
                     </label>
+                    <br/>
                     <button>Sign-In</button>
                 </form>
                 <br/>
-                <p>--- New to Aにmezon? ---</p>
+                <div className="new-to-site"></div>
+                <p className="new-to-site">New to Aにmezon?</p>
                 <br/>
-                <Link to="/signup">Create your Aにmezon account</Link>
+                <Link to="/register" className="new-to-site">Create your Aにmezon account</Link>
 
             </div>
         )

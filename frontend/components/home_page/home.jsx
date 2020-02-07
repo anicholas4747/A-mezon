@@ -3,15 +3,27 @@ import { Link } from 'react-router-dom';
 
 class Home extends Component {
     constructor(props){
-        super(props)
+        super(props);
+        this.signout = this.signout.bind(this);
+    }
+
+    signout(e){
+        e.preventDefault();
+        this.props.logout()
+            .then(() => (this.props.history.push("/signin")));
     }
 
     render(){
+        const authButton = this.props.isLoggedIn ? (
+            <button onClick={this.signout}>Sign Out</button>
+        ) : (
+            <Link to="/signin">Sign in</Link>
+        );
+
         return (
             <div>
-                <h1>Amezon Home Page</h1>
-                <Link to="/login">Sign in</Link>
-
+                <h1>Aにmezon Home Page</h1>
+                {authButton}
             </div>
         )
     }

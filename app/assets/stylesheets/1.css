@@ -1,0 +1,156 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+button {
+    background: #f0c14b;
+    border-color: #c59f3d #9c7e31 #846a29;
+    color: #111;
+    text-align: center;
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+button:hover{
+    cursor: pointer;
+    background: #e7ba48;
+    border-color: #a88734 #9c7e31 #846a29;
+}
+
+.auth-form {
+    border: 1px #ddd solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-top: 2px;
+}
+
+.auth-div {
+    margin: 0 auto;
+    width: 350px;
+}
+.auth-div.logo {
+    height: 31px;
+    width: 103px;
+    vertical-align: top;
+    display: inline-block;
+    cursor: pointer;
+    margin: 10px;
+}
+.auth-div span{
+    margin: auto;
+    display: block;
+    padding: 9px;
+    text-align: center;
+}
+.auth-div img {
+    height: 31px;
+    width: 103px;
+    vertical-align: top;
+    display: inline-block;
+    cursor: pointer;
+    content: "";
+    text-align: center;
+}
+
+.auth-div img:hover {
+    cursor: pointer;
+}
+
+.auth-div h2 {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.2;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.auth-div label {
+    display: block;
+    font-weight: 900;
+    font-size: 13px;
+    line-height: 19px;
+    margin: auto;
+}
+.auth-div input {
+    display: block;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 19px;
+    background-color: #fff;
+    height: 31px;
+    padding: 3px 7px;
+    line-height: normal;
+    border: 1px solid #a6a6a6;
+    border-radius: 3px;
+    width: 100%;
+    margin: auto;
+    outline: none;
+}
+.auth-div input:focus {
+    border-color: #e77600;
+    box-shadow: 0 0 3px 2px rgba(228,121,17,.5);
+}
+
+
+.already-have-account {
+    font-size: 13px;
+}
+
+.new-to-site {
+    line-height: 1;
+    font-size: 12px;
+    color: #767676;
+    font-weight: 400;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+div.new-to-site {
+    border-bottom: 1px solid #767676;
+    height: 1px;
+}
+
+p.new-to-site {
+    position: relative;
+    top: -12px;
+    left: 120px;
+    padding: 5px;
+    background-color: white;
+    width: auto;    
+    display: inline-block;
+}
+
+a.new-to-site {
+    background: #e7e9ec;
+    border-radius: 3px;
+    border-color: #adb1b8 #a2a6ac #8d9096;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    padding: 5px;
+    font-size: 13px;
+    color: #111;
+}
+
+a.new-to-site:hover {
+    background: #d3d5d8;
+}
+
+.already-have-account {
+    display: inline-block;
+}
+
+a.already-have-account {
+    text-decoration: none;
+    margin-left: 5px;
+}

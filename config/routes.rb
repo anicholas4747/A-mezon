@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   end
 
   root to: "root#root"
+  get "/logo", to: "root#logo"
 end

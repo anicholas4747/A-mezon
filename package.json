@@ -28,5 +28,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@svgr/webpack": "^5.1.0",
+    "svg-url-loader": "^4.0.0"
+  }
 }
