@@ -30,11 +30,9 @@ class SearchBar extends Component{
         if (this.props.genres.length === 0) return (
             <form className="searchbar" onSubmit={this.handleSubmit}>
                 <select id="genre-select">
-                    <option value="All" defaultValue="selected">All ▾</option>
-                    <option value="TEST">TEST</option>
-                    <option value="TESTTEST">TESTTEST</option>
-                    <option value="TESTTESTTESTTEST">TESTTESTTESTTEST</option>
-                    <option value="T">T</option>
+                    <option value="All" defaultValue="selected">All  ▾</option>
+                    <option value="test">test</option>
+                    <option value="testtest">testtes</option>
                 </select>
                 <div>
                     <input type="text" onChange={this.handleInput("searchTerm")} value={this.state.searchTerm} />
@@ -50,7 +48,7 @@ class SearchBar extends Component{
         return (
             <form className="searchbar" onSubmit={this.handleSubmit}>
                 <select id="genre-select">
-                    <option value="All" defaultValue="selected">All ▾</option>
+                    <option value="All" defaultValue="selected">All  ▾</option>
                     {genreOptions}
                 </select>
                 <div>

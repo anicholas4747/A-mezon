@@ -72,6 +72,7 @@
     background: #ebb43d;
     height: inherit;
 }
+
 .searchbar button:hover {
     background: #e79f1a;
 }
@@ -88,16 +89,22 @@
     -moz-box-shadow: none;
     box-shadow: transparent;
     font-family: 'Lato', sans-serif;
-    padding: 10px;
-    font-size: 13px;
-    box-sizing: border-box;
+    padding: 5px 2px 5px 8px;
+    font-size: 12px;
     border-right: 1px solid #a6a6a685;
     height: inherit;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+#genre-select option {
+    overflow-wrap: break-word;
 }
 
 #genre-select:hover {
     cursor: pointer;
     background-color: #cccaca;
+    color: #111;
 }
 
 #genre-select:focus {
@@ -188,7 +195,7 @@
     padding: 2px 5px;
     color: #a6a6a6;
     border: 1px solid transparent;
-    font-size: 13px;
+    font-size: 12px;
     box-sizing: border-box;
     margin-right: 10px;
 }
