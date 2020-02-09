@@ -1,0 +1,23 @@
+<svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <line stroke="#000" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_1" y2="264.742065" x2="156.963672" y1="79.164182" x1="71.036329" stroke-width="27.5" fill="none"/>
+  <line stroke="#000" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_3" y2="87.453125" x2="83.5" y1="86.453125" x1="10.499999" fill-opacity="null" stroke-opacity="null" stroke-width="27.5" fill="none"/>
+  <line stroke="#000" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_5" y2="259.640106" x2="345.503384" y1="256.640106" x1="144.501128" fill-opacity="null" stroke-opacity="null" stroke-width="27.5" fill="none"/>
+  <line stroke="#000" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_7" y2="115.453129" x2="396.499998" y1="268.453123" x1="333.499998" fill-opacity="null" stroke-opacity="null" stroke-width="27.5" fill="none"/>
+  <ellipse ry="13" rx="14.5" id="svg_14" cy="308.453125" cx="317" stroke-opacity="null" stroke-width="27.5" stroke="#000" fill="none"/>
+  <ellipse ry="13" rx="14.5" id="svg_16" cy="309.453125" cx="153" stroke-opacity="null" stroke-width="27.5" stroke="#000" fill="none"/>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="92" id="svg_19" y="104.453125" x="456.5" stroke-width="0" stroke="#ff0000" fill="#000000">カ</text>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="92" id="svg_20" y="320.453125" x="462.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">ト</text>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_21" y2="216.453125" x2="506.5" y1="146.453125" x1="506.5" fill-opacity="null" stroke-opacity="null" stroke-width="10.5" stroke="#000" fill="none"/>
+ </g>
+</svg>

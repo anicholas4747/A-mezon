@@ -30,7 +30,7 @@ class SignUp extends Component {
         return (
             <div className="auth-div">
                 <span>
-                    <Link to="/"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amezon Logo" /></Link>
+                    <Link to="/"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amezon Logo" className="logo" /></Link>
                 </span>
                 <form onSubmit={this.handleSubmit} className="auth-form">
                     <h2>Create account</h2>

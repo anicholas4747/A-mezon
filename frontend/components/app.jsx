@@ -5,6 +5,7 @@ import SignUp from './session/signup/signup_container';
 import LogIn from './session/login/login_container';
 import { AuthRoute } from '../util/route_util';
 import NotFoundPage from './404_page/not_found';
+import NavBar from './navbar/navbar_container';
 
 const App = () => {
     return(
@@ -12,7 +13,7 @@ const App = () => {
             <Switch>
                 <AuthRoute path="/register" component={() => (null)} />
                 <AuthRoute path="/signin" component={() => (null)} />
-                {/* <Route component={NavBar}/> */}
+                <Route component={NavBar}/>
             </Switch>
             <Switch>
                 <Route exact path="/" component={Home}/>

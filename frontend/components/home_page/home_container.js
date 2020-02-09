@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Home from "./home";
 
 const mapStateToProps = (state) => ({
-    isLoggedIn: Boolean(state.session.id)
+    isLoggedIn: Boolean(state.session.currentUser.id)
 });
 
 const mapDispatchToProps = (dispatch) => ({

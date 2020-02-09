@@ -7,13 +7,8 @@ export const configureStore = () => {
     let preloadedState = {};
     if (Boolean(window.currentUser)) {
         preloadedState = {
-            entities: {
-                users: {
-                    [window.currentUser.id]: window.currentUser
-                }
-            },
             session: {
-                id: window.currentUser.id
+                currentUser: window.currentUser
             }
         };
     }
