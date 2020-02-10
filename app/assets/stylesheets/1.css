@@ -59,7 +59,7 @@ a:hover {
 }
 
 .logo {
-    transform: scale(1,2.5);
+    transform: scale(1.1,2.5);
     height: 40px;
     width: 103px;
     display: inline-block;
