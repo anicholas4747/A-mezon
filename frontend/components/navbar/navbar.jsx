@@ -22,13 +22,13 @@ class NavBar extends Component {
             profileLink = <Link to="/profile">{profileLinkText}</Link>;
         }
 
-        let lang = "EN"; //add to state
+        let lang = "EN"; //add toggle to state
 
         return(
             <>
                 <div className="nav-top-line">
                     <img id="sidebar" src="https://i.ya-webdesign.com/images/hamburger-icon-white-png-1.png" alt="SideBar"/>
-                    <Link to="/" className="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amezon Logo"/></Link>
+                    <Link to="/" className="logo"><img src={window.logoWhite} alt="Amezon Logo"/></Link>
                     <SearchBar />
                     <Link to="/language-select" id="language-toggle">
                         {lang}
@@ -42,7 +42,10 @@ class NavBar extends Component {
                         <p>Returns</p>
                         <h4>& Orders</h4>
                     </Link>
-                    <Link to="/cart" id="cart"><img src="https://mircenza.com/wp-content/uploads/2018/05/White_Cart_Icon.png" alt="cart"/></Link>
+                    <Link to="/cart" id="cart">
+                        <h4>0</h4>
+                        <img src="https://mircenza.com/wp-content/uploads/2018/05/White_Cart_Icon.png" alt="cart"/>
+                    </Link>
                 </div>
 
                 <div className="nav-bottom-line">

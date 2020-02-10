@@ -11,7 +11,7 @@ class AccountDropdown extends Component{
         if (Boolean(this.props.currentUser.id)){
             this.props.history.push("/profile");
         } else {
-            this.props.history.push("/signin");
+            this.props.history.push("/signin?verify_email");
         }
     }
 

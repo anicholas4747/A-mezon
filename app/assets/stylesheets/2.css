@@ -20,11 +20,12 @@
 }
 
 .nav-top-line .logo img {
-    height: 30px;
+    height: 40px;
     width: 125px;
-    position: relative;
-    top: 5px;
-    left: -10px;
+}
+.nav-top-line .logo a {
+    height: 45px;
+    width: 145px;
 }
 
 .nav-top-line .logo:hover {
@@ -69,12 +70,12 @@
     border: none;
     width: 45px;
     box-sizing: border-box;
-    background: #ebb43d;
+    background: #febd69;
     height: inherit;
 }
 
 .searchbar button:hover {
-    background: #e79f1a;
+    background: #f3a847;
 }
 
 #genre-select {
@@ -131,12 +132,23 @@
     height: 40px;
     box-sizing: border-box;
     border: 1px solid transparent;
+    text-decoration: none;
+    display: flex;
 }
 
 #cart:hover {
     cursor: pointer;
     border: 1px solid #f1f1f1;
     border-radius: 3px;
+}
+
+#cart h4 {
+    position: fixed;
+    top: 0.1%;
+    left: 97.5%;
+    font-size: 18px;
+    color: #f08804;
+    z-index: 2;
 }
 
 #cart img{
@@ -222,7 +234,7 @@
     margin-right: 5px;
     padding: 2px 5px;
     height: 40px;
-    width: 125px;
+    width: 135px;
     box-sizing: border-box;
     border: 1px solid transparent;
 }
@@ -245,11 +257,12 @@
     padding: 0px;
 }
 
-#account-dropdown h4 {
+h4 {
     color: #ffffff;
     font-size: 14px;
     margin: 0px;
     padding: 0px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #order-history {

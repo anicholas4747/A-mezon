@@ -8,7 +8,12 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <script>
+      window.logoWhite = "<%= image_url("animezon_logo_white_bold.svg") %>"
+      window.logoBlack = "<%= image_url("animezon_logo_bold.svg") %>"
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans:700&display=swap" rel="stylesheet">
 
     <% if current_user%>
       <script>

@@ -14,6 +14,15 @@ button {
     font-size: 13px;
 }
 
+button:focus {
+    -webkit-appearance: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: transparent;
+    outline: none;
+    box-shadow: 0 0 2px 4px rgb(224, 153, 47);
+}
+
 button:hover{
     cursor: pointer;
     background: #e7ba48;
@@ -23,6 +32,7 @@ button:hover{
 a {
     text-decoration: none;
     margin-left: 5px;
+    color: #0066c0;
 }
 
 a:hover {
@@ -35,8 +45,12 @@ a:hover {
     border: 1px #ddd solid;
     border-radius: 4px;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 20px 26px;
     margin-top: 2px;
+}
+
+.auth-form label{
+    font-family: 'Open Sans', sans-serif;
 }
 
 .auth-div {
@@ -45,7 +59,8 @@ a:hover {
 }
 
 .logo {
-    height: 31px;
+    transform: scale(1,2.5);
+    height: 40px;
     width: 103px;
     display: inline-block;
     cursor: pointer;
@@ -58,6 +73,7 @@ a:hover {
     text-align: center;
 }
 .auth-div img {
+    transform: scale(1.25,3.5);
     height: 31px;
     width: 103px;
     vertical-align: top;
@@ -164,3 +180,31 @@ a.new-to-site:hover {
     display: inline-block;
 }
 
+#auth-email {
+    display: inline-block;
+    font-size: 13px;
+}
+
+#pw-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+#pw-section a {
+    font-family: 'Lato', sans-serif;
+}
+
+#keep-signed-in p {
+    margin: 0px;
+    display: inline-block;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+#keep-signed-in input {
+    margin: 0px;
+    height: 16px;
+    width: 20px;
+    display: inline-block;
+    box-sizing: border-box;
+}

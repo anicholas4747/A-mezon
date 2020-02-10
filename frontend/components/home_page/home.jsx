@@ -17,7 +17,7 @@ class Home extends Component {
         const authButton = this.props.isLoggedIn ? (
             <button onClick={this.signout}>Sign Out</button>
         ) : (
-            <Link to="/signin">Sign in</Link>
+                <Link to="/signin?verify_email">Sign in</Link>
         );
 
         return (
