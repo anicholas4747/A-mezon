@@ -30,6 +30,13 @@ class User < ApplicationRecord
         user.is_password?(pw) ? user : nil
     end
 
+    def self.has_an_account(un_or_email)
+        likeEmail = false
+        likeEmail = true if (un_or_email.split("@").length ==  2) && (!un_or_email.split("@")[0].include?(".")) && (un_or_email.split("@")[1].split(".").length == 2)
+        user = likeEmail ? User.find_by(email: un_or_email) : User.find_by(username: un_or_email)
+        user.nil? ? nil : user
+    end
+
     def is_password?(pw)
         BCrypt::Password.new(self.password_digest).is_password?(pw)
     end

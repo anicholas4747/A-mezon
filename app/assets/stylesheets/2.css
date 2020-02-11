@@ -1,9 +1,10 @@
 .nav-top-line {
     display: flex;
     align-items: center;
-    background-color: #232F3E;
-    padding-top: 0px;
+    background-color: #131921;
+    padding-top: 5px;
     margin-top: 0px;
+    padding-bottom: 5px;
 }
 
 .nav-top-line h1 {
@@ -19,17 +20,29 @@
     padding: 2px 5px;
 }
 
-.nav-top-line .logo img {
-    
+.nav-top-line img.logo {
     height: 40px;
     width: 125px;
+    margin: 10px 40px 0px 10px;
+    padding: 0px;
 }
 .nav-top-line .logo a {
     height: 45px;
     width: 145px;
 }
 
-.nav-top-line .logo:hover {
+.nav-top-line #logo-div {
+    color: transparent;
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    top: 5px;
+    left: 57px;
+    height: 50px;
+    width: 165px;
+}
+
+.nav-top-line #logo-div:hover {
     border: 1px solid #f1f1f1;
 }
 
@@ -41,7 +54,7 @@
 .searchbar {
     display: flex;
     height: 40px;
-    width: 60%;
+    width: 50%;
     border-radius: 4px;
     margin-right: 10px;
     box-sizing: border-box;
@@ -129,7 +142,7 @@
 
 #cart {
     margin: 0px;
-    padding: 2px 5px;
+    padding: 0px 5px;
     height: 40px;
     box-sizing: border-box;
     border: 1px solid transparent;
@@ -144,35 +157,37 @@
 }
 
 #cart h4 {
-    position: fixed;
-    top: 0.1%;
-    left: 97.5%;
+    position: relative;
+    left: 30px;
     font-size: 18px;
     color: #f08804;
     z-index: 2;
 }
 
 #cart img{
-    height: 35px;
-    width: 35px;
+    transform: scale(1.1,1.5);
+    height: 40px;
+    width: 85px;
 }
 
 .nav-bottom-line {
     display: flex;
     align-items: center;
     background-color: #232F3E;
-    padding-bottom: 5px;
+    padding: 5px;
     box-sizing: border-box;
+    height: 40px;
 }
 
 .nav-bottom-line a {
-    padding: 10px;
+    padding: 5px;
     font-size: 13px;
     color: #a6a6a6;
     background-color: transparent;
     text-decoration: none;
     margin-right: 45px;
     border: 1px solid transparent;
+    vertical-align: center;
 }
 
 .nav-bottom-line a:hover {
@@ -184,6 +199,9 @@
     margin-left: 25px;
     margin-right: 100px;
     font-size: 15px;
+    padding: 5px 10px;
+    font-family: 'Open Sans', sans-serif;
+    z-index: 4;
 }
 
 #sidebar {
@@ -269,7 +287,7 @@ h4 {
 #order-history {
     text-decoration: none;
     margin: 0px;
-    margin-right: 10px;
+    margin-right: 5px;
     padding: 2px 5px;
     height: 40px;
     width: 75px;
@@ -291,6 +309,37 @@ h4 {
 }
 
 #order-history h4 {
+    color: #ffffff;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#prime {
+    text-decoration: none;
+    margin: 0px;
+    margin-right: 10px;
+    padding: 2px 5px;
+    height: 40px;
+    width: 95px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+
+#prime:hover {
+    cursor: pointer;
+    border: 1px solid #f1f1f1;
+    border-radius: 3px;
+}
+
+#prime p {
+    color: transparent;
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#prime h4 {
     color: #ffffff;
     font-size: 14px;
     margin: 0px;

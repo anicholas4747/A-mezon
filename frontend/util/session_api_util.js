@@ -20,3 +20,11 @@ export const logout = () => (
         url: "/api/session"
     })
 );
+
+export const checkUser = (un_or_email) => (
+    $.ajax({
+        method: "GET",
+        url: "/api/users/exists",
+        data: { un_or_email }
+    })
+)

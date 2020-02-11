@@ -28,7 +28,9 @@ class NavBar extends Component {
             <>
                 <div className="nav-top-line">
                     <img id="sidebar" src="https://i.ya-webdesign.com/images/hamburger-icon-white-png-1.png" alt="SideBar"/>
-                    <Link to="/" className="logo"><img src={window.logoWhite} alt="Amezon Logo"/></Link>
+                    <Link to="/"><div id="logo-div"></div></Link>
+                    
+                    <img className="logo" src={window.logoWhite} alt="Amezon Logo"/>
                     <SearchBar />
                     <Link to="/language-select" id="language-toggle">
                         {lang}
@@ -42,9 +44,13 @@ class NavBar extends Component {
                         <p>Returns</p>
                         <h4>& Orders</h4>
                     </Link>
+                    <Link to="/" id="prime">
+                        <p>.</p>
+                        <h4>Try Prime ▾</h4>
+                    </Link>
                     <Link to="/cart" id="cart">
                         <h4>0</h4>
-                        <img src="https://mircenza.com/wp-content/uploads/2018/05/White_Cart_Icon.png" alt="cart"/>
+                        <img src={window.cart} alt="cart"/>
                     </Link>
                 </div>
 

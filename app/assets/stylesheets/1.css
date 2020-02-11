@@ -59,7 +59,7 @@ a:hover {
 }
 
 .logo {
-    transform: scale(1.1,2.5);
+    transform: scale(1.05,2.85);
     height: 40px;
     width: 103px;
     display: inline-block;
@@ -199,12 +199,13 @@ a.new-to-site:hover {
     display: inline-block;
     font-size: 13px;
     box-sizing: border-box;
+    padding-left: 5px;
 }
 
 #keep-signed-in input {
     margin: 0px;
-    height: 16px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
     display: inline-block;
     box-sizing: border-box;
 }

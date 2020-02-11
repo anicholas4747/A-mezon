@@ -26,6 +26,10 @@ class SignUp extends Component {
             .then( ()=> this.props.history.push("/") );
     }
 
+    componentDidMount() {
+        this.nameInput.focus();
+    }
+
     render(){
         return (
             <div className="auth-div">
@@ -35,7 +39,7 @@ class SignUp extends Component {
                 <form onSubmit={this.handleSubmit} className="auth-form">
                     <h2>Create account</h2>
                     <label>Username
-                        <input type="text" onChange={this.handleInput("username")} value={this.state.username}/>
+                        <input type="text" onChange={this.handleInput("username")} value={this.state.username} ref={(input) => { this.nameInput = input; }}/>
                     </label>
                     <br/>
                     <label>Email
@@ -52,7 +56,7 @@ class SignUp extends Component {
                     <br/>
                     <div className="already-have-account">
                         <p className="already-have-account">Already have an account?   </p>
-                        <Link to="/signin" className="already-have-account">Sign-In ▸</Link>
+                        <Link to="/signin?verify_email" className="already-have-account">Sign-In ▸</Link>
                     </div>
                 </form>
             </div>

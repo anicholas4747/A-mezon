@@ -38,3 +38,10 @@ export const logout = () => dispatch => {
     return APIUtil.logout()
         .then( () => dispatch(logoutCurrentUser()) );
 };
+
+export const checkUser = (un_or_email) => dispatch => {
+    return APIUtil.checkUser(un_or_email)
+        .then(result => {
+            dispatch(recieveCurrentUser(result));
+        });
+};

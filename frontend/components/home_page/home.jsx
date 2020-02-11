@@ -10,7 +10,7 @@ class Home extends Component {
     signout(e){
         e.preventDefault();
         this.props.logout()
-            .then(() => (this.props.history.push("/signin")));
+            .then(() => (this.props.history.push("/signin?verify_email")));
     }
 
     render(){
@@ -23,6 +23,8 @@ class Home extends Component {
         return (
             <div>
                 <h1>Aにmezon Home Page</h1>
+                <Link to="/Cowboy-Bebop">Test Product Show Page</Link>
+                <br/><br/>
                 {authButton}
             </div>
         )
