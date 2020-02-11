@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_145500) do
+ActiveRecord::Schema.define(version: 2020_02_11_141207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "anime", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description"
+    t.string "genre"
+    t.integer "release_year", null: false
+    t.float "price", null: false
+    t.integer "studio_id", null: false
+    t.index ["studio_id"], name: "index_anime_on_studio_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body", null: false
+    t.integer "rating", null: false
+    t.integer "author_id", null: false
+    t.integer "anime_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["anime_id"], name: "index_reviews_on_anime_id"
+    t.index ["author_id"], name: "index_reviews_on_author_id"
+  end
+
+  create_table "studios", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.string "site_url"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false

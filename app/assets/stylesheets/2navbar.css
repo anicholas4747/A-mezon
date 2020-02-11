@@ -1,7 +1,8 @@
 .nav-top-line {
     display: flex;
     align-items: center;
-    background-color: #131921;
+    /* background-color: #131921; <- top line is darker in incognito mode, wow*/
+    background-color: #232F3E;
     padding-top: 5px;
     margin-top: 0px;
     padding-bottom: 5px;
