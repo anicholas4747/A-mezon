@@ -59,4 +59,13 @@ class User < ApplicationRecord
         self.save!
         self.session_token
     end
+
+    has_many :authored_reviews,
+    class_name: :Review,
+    primary_key: :id,
+    foreign_key: :author_id
+
+    has_many :reviewed_anime,
+    through: :reviews,
+    source: :anime
 end
