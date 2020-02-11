@@ -27,7 +27,7 @@ class NavBar extends Component {
         return(
             <>
                 <div className="nav-top-line">
-                    <img id="sidebar" src="https://i.ya-webdesign.com/images/hamburger-icon-white-png-1.png" alt="SideBar"/>
+                    <img id="sidebar" src={window.hamburgerMenu} alt="SideBar"/>
                     <Link to="/"><div id="logo-div"></div></Link>
                     
                     <img className="logo" src={window.logoWhite} alt="Amezon Logo"/>
@@ -35,7 +35,7 @@ class NavBar extends Component {
                     <Link to="/language-select" id="language-toggle">
                         {lang}
                         <div>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/White_Globe_Icon.png/1200px-White_Globe_Icon.png" alt="" />
+                            <img src={window.globe} alt="" />
                             {"▾"}
                         </div>
                     </Link>

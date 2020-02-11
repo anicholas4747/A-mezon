@@ -36,7 +36,7 @@ class SearchBar extends Component{
                 </select>
                 <div>
                     <input type="text" onChange={this.handleInput("searchTerm")} value={this.state.searchTerm} />
-                    <button><img id="search-icon" src="https://icons-for-free.com/iconfiles/png/512/search+icon-1320166084960893021.png" alt="Search" /></button>
+                    <button><img id="search-icon" src={window.magnifyingGlass} alt="Search" /></button>
                 </div>            
             </form>
         );
@@ -53,7 +53,7 @@ class SearchBar extends Component{
                 </select>
                 <div>
                     <input type="text" onChange={this.handleInput("searchTerm")} value={this.state.searchTerm}/>
-                    <button><img id="search-icon" src="https://icons-for-free.com/iconfiles/png/512/search+icon-1320166084960893021.png" alt="Search" /></button>
+                    <button><img id="search-icon" src={window.magnifyingGlass} alt="Search" /></button>
                 </div>
             </form>
         )
