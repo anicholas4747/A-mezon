@@ -1,4 +1,9 @@
-class StudiosController < ApplicationController
+class Api::StudiosController < ApplicationController
+
+    def index
+        @studios = Studio.all
+        render :index
+    end
 
     def show
         formatted_name = params[:name].split("-").join(" ")

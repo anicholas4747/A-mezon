@@ -23,7 +23,7 @@ class Home extends Component {
         return (
             <div>
                 <h1>Aにmezon Home Page</h1>
-                <Link to="/Cowboy-Bebop">Test Product Show Page</Link>
+                <Link to="/anime?Kill-la-Kill">Test Product Show Page</Link>
                 <br/><br/>
                 {authButton}
             </div>

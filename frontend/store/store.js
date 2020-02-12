@@ -6,11 +6,9 @@ import {logger} from 'redux-logger';
 export const configureStore = () => {
     let preloadedState = {};
     if (Boolean(window.currentUser)) {
-        preloadedState = {
-            session: {
+        preloadedState[session] = {
                 currentUser: window.currentUser
-            }
-        };
+            };
     }
 
     return createStore(

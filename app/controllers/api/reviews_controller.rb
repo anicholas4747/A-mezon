@@ -1,4 +1,4 @@
-class Controller < ApplicationController
+class Api::ReviewsController < ApplicationController
     before_action :ensure_logged_in, except: [:index]
 
     def index

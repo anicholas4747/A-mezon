@@ -19,6 +19,7 @@
     box-sizing: border-box;
     margin: 10px 5px;
     padding: 2px 5px;
+    z-index: 1;
 }
 
 .nav-top-line img.logo {
@@ -26,6 +27,7 @@
     width: 125px;
     margin: 10px 40px 0px 10px;
     padding: 0px;
+    pointer-events: none;
 }
 .nav-top-line .logo a {
     height: 45px;
@@ -198,11 +200,17 @@
 
 #search-by-studio {
     margin-left: 25px;
-    margin-right: 100px;
+    margin-right: 0px;
     font-size: 15px;
     padding: 5px 10px;
     font-family: 'Open Sans', sans-serif;
-    z-index: 4;
+    z-index: 5;
+}
+
+#nav-bump {
+    color: transparent;
+    margin-right: 100px;
+    display: inline-block;
 }
 
 #sidebar {
@@ -345,4 +353,47 @@ h4 {
     font-size: 14px;
     margin: 0px;
     padding: 0px;
+}
+
+#search-by-studio-ul {
+    visibility: hidden;
+    float: left;
+    list-style: none;
+    position: absolute;
+    padding: 10px 50px;
+    top: 10.5%;
+    left: 2%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ddd;
+    box-shadow: 0 0 1px 1px #ddd inset;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 250px;
+    transition: 0s visibility;
+}
+
+#search-by-studio-span:hover #search-by-studio-ul{
+    visibility: visible;
+    transition-delay: 0.15s;
+}
+
+#search-by-studio-ul li {
+    padding: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#search-by-studio-ul li > a {
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-size: 17px;
+    display: inline-block;
+    color: rgba(1, 1, 1, 0.904);
+    border: none;
+}
+
+#search-by-studio-ul li > a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #e77600;
 }

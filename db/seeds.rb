@@ -17,6 +17,12 @@ trigger = Studio.create!(
     site_url: "http://www.st-trigger.co.jp/"
 )
 
+kyo_ani = Studio.create!(
+    name: "Kyoto Animation",
+    description: "Kyoto Animation Co., Ltd., abbreviated KyoAni, is a Japanese animation studio and a light novel publisher located in Uji, Kyoto Prefecture, Japan. It was established in 1981 by former Mushi Pro staff. Presided by Hideaki Hatta, the company is also affiliated with studio Animation Do.",
+    site_url: "https://www.kyotoanimation.co.jp/en/"
+)
+
 trigger.produced_anime.create!(
     title: "Tengen Toppa Gurren Lagann",
     description: "This Japanese anime is set in a make-believe future in which humans have been forced to live in isolated underground villages, where they constantly must burrow deeper into the Earth to escape the frequent earthquakes that wreak havoc on their way of life. In this world, two orphans named Simon and Kamina resolve to find a way to dig their way back to the surface, where they hope to make peace with the Beastmen and their robots who terrorize their human prey.",
@@ -31,4 +37,12 @@ trigger.produced_anime.create!(
     genre: "Action/Adventure Comedy",
     release_year: 2013,
     price: 35
+)
+
+kyo_ani.produced_anime.create!(
+    title: "Miss Kobayashi's Dragon Maid",
+    description: "As Kobayashi sets off for another day at work, she opens her apartment door only to be met by an unusually frightening sight—the head of a dragon, staring at her from across the balcony. The dragon immediately transforms into a cute, busty, and energetic young girl dressed in a maid outfit, introducing herself as Tooru.",
+    genre: "Comedy Fantasy",
+    release_year: 2017,
+    price: 30
 )

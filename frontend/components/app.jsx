@@ -6,6 +6,8 @@ import LogIn from './session/login/login_container';
 import { AuthRoute } from '../util/route_util';
 import NotFoundPage from './404_page/not_found';
 import NavBar from './navbar/navbar_container';
+import StudioShow from './studio_page/studio_container';
+import AnimeShow from './product_page/anime_show_container';
 
 const App = () => {
     return(
@@ -19,6 +21,8 @@ const App = () => {
                 <Route exact path="/" component={Home}/>
                 <AuthRoute path="/register" component={SignUp} />
                 <AuthRoute path="/signin" component={LogIn} />
+                <Route path="/studio" component={StudioShow} />
+                <Route path="/anime" component={AnimeShow} />
                 <Route component={NotFoundPage}/>
             </Switch>
         </div>
