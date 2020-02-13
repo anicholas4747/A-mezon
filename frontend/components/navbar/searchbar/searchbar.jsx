@@ -19,21 +19,23 @@ class SearchBar extends Component{
     }
 
     handleInput(field){
-        return (e) => (
+        return (e) => {
+            (e.target.value === "") ? this.props.startSearch(false) : this.props.startSearch(true);
             this.setState({
                 [field]: e.target.value
-            })
-        );
+            });
+        };
     }
 
     render(){
         if (this.props.genres.length === 0) return (
             <form className="searchbar" onSubmit={this.handleSubmit}>
+                
                 <select id="genre-select">
-                    <option value="All" defaultValue="selected">All  ▾</option>
-                    <option value="test">test</option>
-                    <option value="testtest">testtes</option>
+                    <option value="All" defaultValue="selected">All▾</option>
+                    <option value="Action Adventure">A/A - Action/Adventure</option>
                 </select>
+                
                 <div>
                     <input type="text" onChange={this.handleInput("searchTerm")} value={this.state.searchTerm} />
                     <button><img id="search-icon" src={window.magnifyingGlass} alt="Search" /></button>

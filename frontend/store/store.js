@@ -4,9 +4,14 @@ import thunk from '../middleware/thunk';
 import {logger} from 'redux-logger';
 
 export const configureStore = () => {
-    let preloadedState = {};
+    let preloadedState = {
+        session: {
+            currentUser: {id: null}
+        }
+    };
+
     if (Boolean(window.currentUser)) {
-        preloadedState[session] = {
+        preloadedState.session = {
                 currentUser: window.currentUser
             };
     }

@@ -24,12 +24,15 @@ class StudioShow extends Component{
             </li>
         ))
 
+        const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
+
         return (
             <div>
+                <div className={modalToggle}>.</div>
                 <h1>Studio Show Page</h1>
                 <a href={site_url}><h2>{name}</h2></a>
                 <h3>{description}</h3>
-                <br/><br/>
+                <br /><br />
                 <ul>
                     {producedAnime}
                 </ul>

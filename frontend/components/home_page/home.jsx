@@ -13,19 +13,18 @@ class Home extends Component {
             .then(() => (this.props.history.push("/signin?verify_email")));
     }
 
+    componentDidMount(){
+        this.props.navDropdown(false);
+    }
+
     render(){
-        const authButton = this.props.isLoggedIn ? (
-            <button onClick={this.signout}>Sign Out</button>
-        ) : (
-                <Link to="/signin?verify_email">Sign in</Link>
-        );
+        const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
 
         return (
             <div>
+                <div className={modalToggle}>.</div>
                 <h1>Aにmezon Home Page</h1>
                 <Link to="/anime?Kill-la-Kill">Test Product Show Page</Link>
-                <br/><br/>
-                {authButton}
             </div>
         )
     }

@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Amezon</title>
+    <title>A-mezon</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
 
     <script>
       window.logoWhite = "<%= image_url("animezon_logo_white_bold.svg") %>"
@@ -12,6 +15,7 @@
       window.globe = "<%= image_url("White_Globe_Icon.png") %>"
       window.magnifyingGlass = "<%= image_url("magnifying_glass.png") %>"
       window.hamburgerMenu = "<%= image_url("hamburger-icon-white.png") %>"
+      window.hazard = "<%= image_url("hazard.svg") %>"
       window.animePH = "<%= image_url("anime-dancing-gif-png-2.gif") %>"
     </script>
 

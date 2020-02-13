@@ -31,8 +31,8 @@ class StudioDropdown extends Component{
         }
         
         return (
-            <div>
-                <span id="search-by-studio-span">
+            <div className="search-by-studio">
+                <span id="search-by-studio-span" onMouseOver={() => this.props.navDropdown(true)} onMouseLeave={() => this.props.navDropdown(false)}>
                     <Link to="/s" id="search-by-studio">Search by Studio ▾</Link>
                     <ul id="search-by-studio-ul">{studios}</ul>
                 </span>

@@ -4,8 +4,8 @@ import { Route, Switch } from 'react-router-dom';
 import SignUp from './session/signup/signup_container';
 import LogIn from './session/login/login_container';
 import { AuthRoute } from '../util/route_util';
-import NotFoundPage from './404_page/not_found';
-import NavBar from './navbar/navbar_container';
+import NotFoundPage from './404_page/not_found_container';
+import NavBar from './navbar/navbar_container.js';
 import StudioShow from './studio_page/studio_container';
 import AnimeShow from './product_page/anime_show_container';
 

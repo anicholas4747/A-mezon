@@ -6,8 +6,11 @@ class AnimeShow  extends Component{
     }
 
     render(){
+        const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
+
         return (
             <div>
+                <div className={modalToggle}>.</div>
                 <h1>Anime Show Page</h1>
             </div>
         )

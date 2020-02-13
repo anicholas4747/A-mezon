@@ -46,3 +46,11 @@ kyo_ani.produced_anime.create!(
     release_year: 2017,
     price: 30
 )
+
+demo_user = User.new(
+    username: "anime_lover123",
+    email: "demo_user@gmail.com",
+    password: "mypwishunter12"
+)
+
+demo_user.save!
