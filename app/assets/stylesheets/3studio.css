@@ -1,0 +1,41 @@
+.modal-on {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    overflow: hidden;
+}
+
+.modal-off {
+    display: none;
+}
+
+.anime-lis {
+    width: 225px;
+    height: 400px;
+    text-align: center;
+    font-size: 13px;
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.anime-lis img {
+    width: 225px;
+    height: 300px;
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+
+.anime-lis h4{
+    color: #111111;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.anime-lis h4:hover{
+    color: #c45500;
+}

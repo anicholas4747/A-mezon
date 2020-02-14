@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class LogIn extends Component {
     constructor(props){
@@ -12,23 +12,88 @@ class LogIn extends Component {
             errors: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemoUser = this.handleDemoUser.bind(this);
     }
 
     handleInput(field){
         return ((e) => {
-            this.setState({
-                userInfo: {
-                    [field]: e.target.value
-                }
-            });
+            if(field === "un_or_email"){
+                this.setState({
+                    userInfo: {
+                        [field]: e.target.value,
+                        password: this.state.userInfo.password
+                    }
+                });
+            } else {
+                this.setState({
+                    userInfo: {
+                        username: this.state.userInfo.username,
+                        [field]: e.target.value
+                    }
+                });
+            }
         });
+    }
+
+    handleDemoUser(e){
+        e.preventDefault();
+
+        const demoUsername = "anime_lover123";
+        const demoPassword = "mypwishunter12";
+        let i = 0;
+        let j = 0;
+
+        const demoUNLogin = () => {
+            if(i < demoUsername.length){
+                this.setState({userInfo: {
+                    un_or_email: demoUsername.slice(0,i),
+                    password: ""
+                    }},
+                    () => {
+                        i++;
+                        setTimeout(demoUNLogin, 120);
+                    }
+                );
+            } else {
+                this.props.history.push({
+                    pathname: "/signin",
+                    state: { un_or_email: demoUsername }
+                });
+
+                this.setState(
+                    { userInfo: { un_or_email: demoUsername, password: demoPassword.slice(0, j) } },
+                    demoPWLogin
+                );
+            }
+        };
+
+        const demoPWLogin = () => {
+            if(j < demoPassword.length){
+                this.setState({ userInfo: {un_or_email: demoUsername, password: demoPassword.slice(0,j)}},
+                    () => {
+                        j++;
+                        setTimeout(demoPWLogin, 120);
+                    }
+                );
+            } else {
+                let userCredentials = {
+                    un_or_email: demoUsername,
+                    password: demoPassword
+                };
+
+                this.props.login(userCredentials)
+                    .then(() => this.props.history.push("/"));
+            }
+        };
+
+        this.setState({ userInfo: { un_or_email: demoUsername.slice(0, i) } }, demoUNLogin);
     }
 
     handleSubmit(e){
         e.preventDefault();
         if (this.state.userInfo.un_or_email === "") {
             this.setState({
-                errors: <h4 className="no-entry">! Please enter your email or username.</h4>
+                errors: <h4 className="no-entry">! Enter your email or username</h4>
             })
         } else if (this.props.location.search.includes("?verify_email")) {
             //search database for user
@@ -54,6 +119,10 @@ class LogIn extends Component {
                         })))
                     }
                 })
+        } else if (this.state.userInfo.password === "") {
+            this.setState({
+                errors: <h4 className="no-entry">! Enter your password</h4>
+            })
         } else {
             let userCredentials = {
                 un_or_email: this.props.location.state.un_or_email,
@@ -63,20 +132,23 @@ class LogIn extends Component {
                 .then(
                     () => this.props.history.push("/"),
                     () => this.setState({errors: "bad password"})
-                );
+            );
         }
     }
 
-    componentDidMount(){
-        this.nameInput.focus();
+    componentWillUnmount(){
+        this.props.switchPage();
     }
 
     render(){
 
         const noUser = (this.props.currentUser.exists === 1 || this.props.currentUser.exists === undefined) ? null : (
             <div className="auth-errors">
-                <h4>There was a problem</h4>
-                <h5>We cannot find an account with that email or username</h5>
+                <div><img src={window.hazard} alt="hazard" /></div>
+                <span>
+                    <h4>There was a problem</h4>
+                    <h5>We cannot find an account with that email or username</h5>
+                </span>
             </div>
         );
 
@@ -90,14 +162,16 @@ class LogIn extends Component {
                         <Link to="/"><img src={window.logoBlack} alt="Amezon Logo" className="logo"/></Link>
                     </span>
                     {noUser}
-                    <form onSubmit={this.handleSubmit} className="auth-form">
+                    <form className="auth-form">
                         <h2>Sign-In</h2>
                         <label>Email (or username)
-                            <input className={inputColor} type="text" onChange={this.handleInput("un_or_email")} value={this.state.email} ref={(input) => { this.nameInput = input; }}/>
+                            <input className={inputColor} type="text" onChange={this.handleInput("un_or_email")} value={this.state.userInfo.un_or_email} autoFocus/>
                         </label>
                         {(this.state.userInfo.un_or_email === "") ? this.state.errors : null}
                         <br/>
-                        <button>Continue</button>
+                        <button onClick={this.handleSubmit}>Continue</button>
+                        <br />
+                        <button onClick={this.handleDemoUser} id="demo-button">Log In as Demo User</button>
                     </form>
                     <br/>
                     <div className="new-to-site"></div>
@@ -110,8 +184,11 @@ class LogIn extends Component {
             // verify password
             const badPW = (this.state.errors !== "bad password") ? null : (
                 <div className="auth-errors">
-                    <h4>There was a problem</h4>
-                    <h5>Your password is incorrect</h5>
+                    <div><img src={window.hazard} alt="hazard" /></div>
+                    <span>
+                        <h4>There was a problem</h4>
+                        <h5>Your password is incorrect</h5>
+                    </span>
                 </div>
             )
             return (
@@ -120,7 +197,7 @@ class LogIn extends Component {
                         <Link to="/"><img src={window.logoBlack} alt="Amezon Logo" className="logo" /></Link>
                     </span>
                     {badPW}
-                    <form onSubmit={this.handleSubmit} className="auth-form">
+                    <form className="auth-form">
                         <h2>Sign-In</h2>
                         <div id="auth-email">
                             {this.props.location.state.un_or_email}
@@ -132,10 +209,11 @@ class LogIn extends Component {
                                 Password
                                 <Link to="/register">Forgot your Password?</Link>
                             </div>
-                            <input type="password" onChange={this.handleInput("password")} value={this.state.password} autoFocus />
+                            <input className={inputColor} type="password" onChange={this.handleInput("password")} value={this.state.userInfo.password} autoFocus />
                         </label>
+                        {(this.state.userInfo.password === "" && this.state.errors !== "bad password") ? this.state.errors : null}
                         <br />
-                        <button>Sign-In</button>
+                        <button onClick={this.handleSubmit}>Sign-In</button>
                         <br/>
                         <br/>
                         <div id="keep-signed-in">

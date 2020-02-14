@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Amezon</title>
+    <title>A-mezon</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
 
     <script>
       window.logoWhite = "<%= image_url("animezon_logo_white_bold.svg") %>"
       window.logoBlack = "<%= image_url("animezon_logo_bold.svg") %>"
       window.cart = "<%= image_url("cart_white.svg") %>"
       window.globe = "<%= image_url("White_Globe_Icon.png") %>"
-      window.magnifyingGlass = "<%= image_url("magnifying_glass.png") %>"
-      window.hamburgerMenu = "<%= image_url("hamburger-icon-white.png") %>"
+      window.magnifyingGlass = "<%= image_url("search_icon.svg") %>"
+      window.hamburgerMenu = "<%= image_url("hamburger-icon-white.svg") %>"
+      window.hazard = "<%= image_url("hazard.svg") %>"
+      window.starClicked = "<%= image_url("clicked_star.svg") %>"
+      window.starUnclicked = "<%= image_url("unclicked_star.svg") %>"
+      window.animePH = "<%= image_url("anime-dancing-gif-png-2.gif") %>"
     </script>
 
     <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans:700&display=swap" rel="stylesheet">

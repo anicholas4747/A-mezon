@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from './searchbar/searchbar_container';
 import AccountDropdown from './account_dropdown/account_dropdown_container';
+import StudioDropdown from './studio_dropdown/studio_dropdown_container';
 
 class NavBar extends Component {
     constructor(props){
@@ -55,7 +56,7 @@ class NavBar extends Component {
                 </div>
 
                 <div className="nav-bottom-line">
-                    <Link to="/s" id="search-by-studio">Search by Studio ▾</Link>
+                    <StudioDropdown />
                     {profileLink}
                     <Link to="/s" >Search by Filters</Link>
                     <a href="#" onClick={this.randomAnimePage}>Surprise Me!</a>

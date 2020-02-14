@@ -8,6 +8,12 @@ class Api::UsersController < ApplicationController
             render json: {message: @user.errors.full_messages}, status: 422
         end
     end
+
+    def show
+        @user = User.find_by(id: params[:id])
+        render :show
+    end
+
     def exists
         user = User.has_an_account(params[:un_or_email])
         @result = {exists: (user ? 1 : 0)}
