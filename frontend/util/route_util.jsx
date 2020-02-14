@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 
 const mapStateToProps = (state) => {
     return ({
-        isLoggedIn: Boolean(state.session.id)
+        isLoggedIn: Boolean(state.session.currentUser.id)
     });
 };
 

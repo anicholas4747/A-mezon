@@ -1,0 +1,18 @@
+a.create-review {
+    background-image: linear-gradient(rgb(247, 248, 250), rgb(231, 233, 236));
+    border-radius: 3px;
+    border-color: #adb1b8 #a2a6ac #8d9096;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 13px;
+    color: #111;
+}
+
+a.create-review:hover {
+    text-decoration: none;
+    background-image: linear-gradient(rgb(231, 234, 240), rgb(217, 220, 225));
+}

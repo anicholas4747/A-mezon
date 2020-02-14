@@ -2,6 +2,10 @@ body {
     font-family: 'Lato', sans-serif;
     margin: 0;
 }
+/* body {
+    font-family: "Amazon Ember",Arial,sans-serif;;
+    margin: 0;
+} */
 
 button {
     background: rgb(255,255,255);
@@ -173,7 +177,7 @@ p.new-to-site {
 }
 
 a.new-to-site {
-    background: #e7e9ec;
+    background-image: linear-gradient(rgb(247, 248, 250), rgb(231, 233, 236));
     border-radius: 3px;
     border-color: #adb1b8 #a2a6ac #8d9096;
     border-style: solid;
@@ -181,7 +185,7 @@ a.new-to-site {
     cursor: pointer;
     text-align: center;
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     font-size: 13px;
     color: #111;
 }
@@ -189,7 +193,7 @@ a.new-to-site {
 a.new-to-site:hover {
     margin: 0px;
     text-decoration: none;
-    background: #d3d5d8;
+    background-image: linear-gradient(rgb(231, 234, 240), rgb(217, 220, 225));
 }
 
 .already-have-account {

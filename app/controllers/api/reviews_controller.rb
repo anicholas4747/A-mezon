@@ -6,10 +6,14 @@ class Api::ReviewsController < ApplicationController
         render :index
     end
 
+    def show
+        @review = Review.find_by(id: params[:id])
+        render :show
+    end
+
     def create
         @review = Review.new(review_params)
         @review.author_id = current_user.id
-        @review.anime_id = Anime.find_by(title: params(:title)).id
 
         if @review.save
             render "api/anime/#{params(:title)}"
@@ -33,6 +37,6 @@ class Api::ReviewsController < ApplicationController
 
     private
     def review_params
-        params.require(:review).permit(:title, :body, :rating)
+        params.require(:review).permit(:title, :body, :rating, :anime_id)
     end
 end

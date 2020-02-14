@@ -74,7 +74,7 @@ class SignUp extends Component {
         let matchError = "";
 
         if (this.state.userInfo.username === "") {
-            unError =<h4 className="no-entry">! Enter your username</h4>
+            unError = <h4 className="no-entry">! Enter your username</h4>
             errs++;
         }
         if (this.state.userInfo.email === "") {
@@ -128,22 +128,22 @@ class SignUp extends Component {
                     <label>Username
                         <input className={unInputColor} type="text" onChange={this.handleInput("username")} value={this.state.userInfo.username} autoFocus/>
                     </label>
-                    {this.state.errors.username}
+                    {(this.state.userInfo.username === "") ? this.state.errors.username : null}
                     <br/>
                     <label>Email
                         <input className={emInputColor} type="email" onChange={this.handleInput("email")} value={this.state.userInfo.email}/>
                     </label>
-                    {this.state.errors.email}
+                    {(this.state.userInfo.email === "") ? this.state.errors.email : null}
                     <br/>
                     <label>Password
                         <input className={pwInputColor} type="password" onChange={this.handleInput("password")} value={this.state.userInfo.password} placeholder="At least 6 characters"/>
                     </label>
-                    {this.state.errors.password}
+                    {(this.state.userInfo.password.length >= 6) ? null : this.state.errors.password}
                     <br/>
                     <label>Re-enter password
                         <input className={pwReInputColor} type="password" onChange={this.handleInput("passwordRe")} value={this.state.userInfo.passwordRe}/>
                     </label>
-                    {this.state.errors.passwordRe}
+                    {(this.state.userInfo.passwordRe === "") ? this.state.errors.passwordRe : null}
                     {this.state.errors.match}
                     <br/>
                     <button>Create your Aにmezon account</button>

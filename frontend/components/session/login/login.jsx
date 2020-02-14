@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class LogIn extends Component {
     constructor(props){
@@ -211,7 +211,7 @@ class LogIn extends Component {
                             </div>
                             <input className={inputColor} type="password" onChange={this.handleInput("password")} value={this.state.userInfo.password} autoFocus />
                         </label>
-                        {(this.state.userInfo.password === "") ? this.state.errors : null}
+                        {(this.state.userInfo.password === "" && this.state.errors !== "bad password") ? this.state.errors : null}
                         <br />
                         <button onClick={this.handleSubmit}>Sign-In</button>
                         <br/>

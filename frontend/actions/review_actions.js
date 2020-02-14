@@ -1,3 +1,4 @@
+import * as ReviewAPIUtil from '../util/review_api_util';
 
 export const RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
@@ -19,17 +20,26 @@ export const removeReview = (reviewId) => ({
 });
 
 export const fetchReviews = (anime_title) => dispatch => (
-
+    ReviewAPIUtil.fetchReviews(anime_title)
+        .then((reviews) => dispatch(receiveReviews(reviews)))
 );
 
-export const createReview = (anime_title) => dispatch => (
-
+export const fetchReview = (reviewId) => dispatch => (
+    ReviewAPIUtil.fetchReview(reviewId)
+        .then((review) => dispatch(receiveReview(review)))
 );
 
-export const updateReviews = (anime_title) => dispatch => (
-
+export const createReview = (reviewForm) => dispatch => (
+    ReviewAPIUtil.createReview(reviewForm)
+        .then((review) => dispatch(receiveReview(review)))
 );
 
-export const deleteReview = (anime_title) => dispatch => (
+export const updateReview = (reviewForm) => dispatch => (
+    ReviewAPIUtil.updateReview(reviewForm)
+        .then((review) => dispatch(receiveReview(review)))
+);
 
+export const deleteReview = (reviewId) => dispatch => (
+    ReviewAPIUtil.deleteReview(reviewId)
+        .then(() => dispatch(removeReview(reviewId)))
 );

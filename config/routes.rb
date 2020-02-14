@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get "/studio/:name", to: "studios#show"
     resources :studios, only: [:index]
 
-    resources :reviews, only: [:create, :update, :destroy]
+    resources :reviews, only: [:show, :create, :update, :destroy]
     get "/anime/:title/reviews", to: "reviews#index"
 
     get "/users/exists", to: "users#exists"

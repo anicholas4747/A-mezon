@@ -1,4 +1,5 @@
 import { RECEIVE_STUDIOS, RECEIVE_STUDIO } from "../actions/studio_actions";
+import { RECEIEVE_ONE_ANIME } from "../actions/anime_actions";
 
 const defaultState = {
     all: [],
@@ -12,7 +13,10 @@ const studiosReducer = (state = defaultState,action) => {
             return Object.assign( 
                 {}, 
                 state, 
-                { all: Object.values(action.studios) } 
+                { 
+                    all: Object.values(action.studios),
+                    display: null 
+                } 
             );
         case(RECEIVE_STUDIO):
             let newDisplay = action.studio;
@@ -22,6 +26,8 @@ const studiosReducer = (state = defaultState,action) => {
                 state, 
                 { display: newDisplay} 
             );
+        case(RECEIEVE_ONE_ANIME):
+            return Object.assign({},state,{display: {name: action.anime.studio}});
         default:
             return state;
     }

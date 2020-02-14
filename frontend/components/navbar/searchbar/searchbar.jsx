@@ -32,8 +32,9 @@ class SearchBar extends Component{
             <form className="searchbar" onSubmit={this.handleSubmit}>
                 
                 <select id="genre-select">
-                    <option value="All" defaultValue="selected">All▾</option>
+                    <option value="All" defaultValue="selected">All ▾</option>
                     <option value="Action Adventure">A/A - Action/Adventure</option>
+                    <option value="Comedy">Cm - Comedy</option>
                 </select>
                 
                 <div>
