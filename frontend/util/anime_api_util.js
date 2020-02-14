@@ -3,4 +3,11 @@ export const fetchOneAnime = (animeTitle) => (
         method: "GET",
         url: `/api/anime/${animeTitle}`
     })
-)
+);
+
+export const fetchAnimeTitles = () => (
+    $.ajax({
+        method: "GET",
+        url: `/api/anime/titles`
+    })
+);

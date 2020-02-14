@@ -12,9 +12,15 @@ class NavBar extends Component {
 
     randomAnimePage(e){
         e.preventDefault();
-        const { anime } = this.props;
-        const randomAnime = anime[Math.floor(Math.random()*anime.length)] //sb an arr of objects (object.values(fetched anime))
-        this.props.history.push(`/${randomAnime.title.split(" ").join("-")}`);
+        // fetch all anime titles (non-restful action, make new action on frontend too), return json as an array then pick a random title to .then push the user to
+        // same logic as search bar, only care about names until you actually search
+        // search by studio and search by filters will give all details (limit 12) displaying grid like studio show page or block (default), make a toggle in ui slice of state to switch onclick of a button
+        this.props.fetchAnimeTitles().then(() => {
+            const titlesArray = this.props.anime;
+            const randomAnime = titlesArray[Math.floor(Math.random() * titlesArray.length)] //sb an arr of objects (object.values(fetched anime))
+            this.props.history.push(`/${randomAnime.title.split(" ").join("-")}`);
+        });
+        
     }
     render(){
         let profileLink = null;
