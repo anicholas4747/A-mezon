@@ -7,7 +7,8 @@ const mSTP = (state) => ({
     shouldGreyOut: Boolean(state.ui.navDropdown),
     isLoggedIn: Boolean(state.session.currentUser.id),
     anime: state.entities.anime,
-    studio: state.entities.studios.display 
+    studio: state.entities.studios.display,
+    reviews: state.entities.reviews.animeSpecific
 });
 
 const mDTP = (dispatch) => ({

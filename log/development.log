@@ -34113,3 +34113,5 @@ Processing by Api::StudiosController#index as JSON
 Completed 200 OK in 63ms (Views: 36.2ms | ActiveRecord: 26.4ms)
 
 
+  [1m[36mReview Load (1.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  [1m[36mReview Load (0.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m

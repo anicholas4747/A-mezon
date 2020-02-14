@@ -8,7 +8,7 @@ export const fetchReviews = (anime_title) => (
 export const fetchReview = (reviewId) => (
     $.ajax({
         method: "GET",
-        url: `/reviews/${reviewId}`
+        url: `/api/reviews/${reviewId}`
     })
 );
 
@@ -16,7 +16,14 @@ export const createReview = (review) => (
     $.ajax({
         method: "POST",
         url: "/api/reviews",
-        data: { review }
+        data: {
+            review: {
+                title: review.title,
+                body: review.body,
+                rating: review.rating,
+                anime_id: review.animeId
+            }
+        }
     })
 );
 
@@ -35,9 +42,10 @@ export const updateReview = (review) => (
     })
 );
     
-export const deleteReview = (reviewId) => (
+export const deleteReview = (review) => (
     $.ajax({
         method: "DELETE",
-        url: `/api/reviews/${reviewId}`
+        url: `/api/reviews/${review.id}`,
+        data: { review }
     })
 );
