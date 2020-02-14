@@ -1,14 +1,20 @@
 import { RECEIVE_STUDIO } from "../actions/studio_actions";
-import { RECEIEVE_ONE_ANIME } from "../actions/anime_actions";
+import { RECEIEVE_ONE_ANIME, RECEIVE_ANIME_TITLES } from "../actions/anime_actions";
 
+const defaultState = {
+    display: {},
+    allTitles: []
+};
 
-const animeReducer = (state = {}, action) => {
+const animeReducer = (state = defaultState, action) => {
     Object.freeze(state);
     switch(action.type){
         case(RECEIVE_STUDIO):
-            return action.studio.anime;
+            return Object.assign({},state,{display: action.studio.anime});
         case(RECEIEVE_ONE_ANIME):
-            return action.anime.details;
+            return Object.assign({}, state, { display: action.anime.details });
+        case (RECEIVE_ANIME_TITLES):
+            return Object.assign({}, state, { allTitles: action.allTitles});
         default:
             return state;
     }

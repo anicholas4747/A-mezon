@@ -4,7 +4,7 @@ import { fetchOneAnime } from "../../actions/anime_actions";
 
 const mSTP = (state) => ({
     studio: state.entities.studios.display,
-    anime: Object.values(state.entities.anime),
+    anime: Object.values(state.entities.anime.display),
     shouldGreyOut: Boolean(state.ui.navDropdown)
 });
 

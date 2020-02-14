@@ -5,6 +5,11 @@ class Api::AnimeController < ApplicationController
         render :index
     end
 
+    def titles
+        @anime = Anime.all
+        render :titles
+    end
+
     def show
         formatted_title = params[:title].split("-").join(" ")
         @anime = Anime.includes(:studio, reviews: [:author]).find_by(title: formatted_title)
