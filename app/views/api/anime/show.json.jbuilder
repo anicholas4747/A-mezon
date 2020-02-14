@@ -3,8 +3,9 @@ json.details do
 end
 json.studio @anime.studio.name
 json.reviews do
-    @anime.reviews.each do |review|
-        json.extract! review, :title, :body, :rating
+    json.array! @anime.reviews do |review|
+        json.extract! review, :id, :title, :body, :rating, :updated_at
         json.author review.author.username
+        json.anime @anime.title
     end
 end

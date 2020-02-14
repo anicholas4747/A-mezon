@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Reviews from './reviews/reviews';
 
 class AnimeShow  extends Component{
     constructor(props){
@@ -54,6 +55,7 @@ class AnimeShow  extends Component{
                     <p>Share your thoughts with other customers</p>
                     {reviewButton}
                 </section>
+                <Reviews reviews={this.props.reviews} />
             </div>
         )
     }

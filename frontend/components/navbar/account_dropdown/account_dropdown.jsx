@@ -26,7 +26,7 @@ class AccountDropdown extends Component{
     render(){
         let displayMessage = (Boolean(this.props.currentUser.id)) ? this.props.currentUser.username : "Sign in";
         let authSection = (Boolean(this.props.currentUser.id)) ? (
-            <Link onClick={this.signout}>Sign Out</Link>
+            <a onClick={this.signout}>Sign Out</a>
         ) : (
             <div>
                 <button onClick={this.handleClick}>Sign in</button><br/>

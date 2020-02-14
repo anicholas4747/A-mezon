@@ -61,6 +61,8 @@ class ReviewForm extends Component{
             animeId: this.props.anime.id
         };
 
+        if (this.props.formType === "Edit Review") reviewForm.id = this.props.review.id;
+
         let errs = 0;
         let tErrors = "";
         let bErrors = "";
@@ -94,12 +96,16 @@ class ReviewForm extends Component{
     }
 
     componentDidMount(){
-        if(Boolean(this.props.review.id)){
-            this.props.fetchReview(this.props.review.id);
+        if(Boolean(this.props.review) === false){
+            this.props.fetchReview(this.props.history.location.search.split(1));
         }
     }
 
     render(){
+        if (Boolean(this.props.review) === false) {
+            return <div>Loading...</div>;
+        }
+
 
         let stars = [];
         for (let i = 1; i < 6; i++){

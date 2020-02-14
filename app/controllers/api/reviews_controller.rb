@@ -14,25 +14,29 @@ class Api::ReviewsController < ApplicationController
     def create
         @review = Review.new(review_params)
         @review.author_id = current_user.id
-
+        
         if @review.save
-            render "api/anime/#{params(:title)}"
+            @anime = Anime.find_by(id: params[:review][:anime_id])
+            render "api/anime/show"
         else
             render json: @review.errors.full_messages, status: 422
         end
     end
 
     def update
+        @review = Review.find_by(id: params[:id])
         if @review.update(review_params)
-            render "api/anime/#{params(:title)}"
+            @anime = Anime.find_by(id: params[:review][:anime_id])
+            render "api/anime/show"
         else
             render @review.errors.full_messages, status: 422
         end
     end
-
+    
     def destroy
-        @review.destroy
-        render "api/anime/#{params(:title)}"
+        @review = Review.find_by(id: params[:id]).destroy
+        @anime = Anime.find_by(title: params[:review][:anime])
+        render "api/anime/show"
     end
 
     private
