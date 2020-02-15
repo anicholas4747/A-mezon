@@ -6,6 +6,7 @@ export const navDropdown = (bool) => ({
     bool
 });
 
-export const navLiClicked = () => ({
-    type: NAV_LI_CLICKED
+export const navLiClicked = (bool) => ({
+    type: NAV_LI_CLICKED,
+    bool
 });

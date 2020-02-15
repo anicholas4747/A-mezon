@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import NavBar from "./navbar";
-import { fetchAnimeTitles } from "../../actions/anime_actions";
+import { fetchAnimeTitles, fetchOneAnime } from "../../actions/anime_actions";
 
 
 const mapStateToProps = (state) => ({
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchAnimeTitles: () => dispatch(fetchAnimeTitles())
+    fetchAnimeTitles: () => dispatch(fetchAnimeTitles()),
+    fetchOneAnime: (animeTitle) => dispatch(fetchOneAnime(animeTitle))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

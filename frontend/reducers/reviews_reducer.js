@@ -6,7 +6,7 @@ const defaultState = {
     display: {}
 };
 
-const reviewsReducer = (state = {}, action) => {
+const reviewsReducer = (state = defaultState, action) => {
     Object.freeze(state);
     switch(action.type){
         case(RECEIEVE_ONE_ANIME):

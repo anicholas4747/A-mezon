@@ -96,8 +96,9 @@ class ReviewForm extends Component{
     }
 
     componentDidMount(){
-        if(Boolean(this.props.review) === false){
-            this.props.fetchReview(this.props.history.location.search.split(1));
+        if(this.props.review.title === undefined){
+            this.props.fetchReview(this.props.history.location.search.slice(1))
+                .then(() => this.setState({ reviewInfo: this.props.review }));
         }
     }
 
@@ -125,27 +126,32 @@ class ReviewForm extends Component{
             stars.push(star);
         }
 
+        const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
+
         return (
-            <div id="review-form">
-                <h2>{this.props.formType}</h2>
-                <span>
-                    <img src={window.animePH} />
-                    <p>{this.props.anime.title}</p>
-                </span>
-                <form onSubmit={this.handleSubmit}>
-                    <h3>Overall rating</h3>
-                    <section>
-                        {stars}
-                        {(this.state.reviewInfo.rating === 0) ? this.state.errors.rating : null}
-                    </section>
-                    <h3>Add a headline</h3>
-                    <input type="text" onChange={this.handleInput("title")} value={this.state.reviewInfo.title} placeholder="What's most important to know?"/>
-                    {(this.state.reviewInfo.title === "") ? this.state.errors.title : null}
-                    <h3>Write your review</h3>
-                    <textarea onChange={this.handleInput("body")} value={this.state.reviewInfo.body} placeholder="What did you like or dislike? No spoilers!"></textarea>
-                    {(this.state.reviewInfo.body === "") ? this.state.errors.body : null}
-                    <div><button>Submit</button></div>
-                </form>
+            <div className="review-form">
+                <div className={modalToggle}>.</div>
+                <div id="review-form">
+                    <h2>{this.props.formType}</h2>
+                    <span>
+                        <img src={window.animePH} />
+                        <p>{this.props.anime.title}</p>
+                    </span>
+                    <form onSubmit={this.handleSubmit}>
+                        <h3>Overall rating</h3>
+                        <section>
+                            {stars}
+                            {(this.state.reviewInfo.rating === 0) ? this.state.errors.rating : null}
+                        </section>
+                        <h3>Add a headline</h3>
+                        <input type="text" onChange={this.handleInput("title")} value={this.state.reviewInfo.title} placeholder="What's most important to know?"/>
+                        {(this.state.reviewInfo.title === "") ? this.state.errors.title : null}
+                        <h3>Write your review</h3>
+                        <textarea onChange={this.handleInput("body")} value={this.state.reviewInfo.body} placeholder="What did you like or dislike? No spoilers!"></textarea>
+                        {(this.state.reviewInfo.body === "") ? this.state.errors.body : null}
+                        <div><button>Submit</button></div>
+                    </form>
+                </div>
             </div>
         )
     }

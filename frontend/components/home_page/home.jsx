@@ -24,7 +24,6 @@ class Home extends Component {
             <div>
                 <div className={modalToggle}>.</div>
                 <h1>Aにmezon Home Page</h1>
-                <Link to="/anime?Kill-la-Kill">Test Product Show Page</Link>
             </div>
         )
     }

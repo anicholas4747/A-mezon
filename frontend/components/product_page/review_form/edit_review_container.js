@@ -5,7 +5,8 @@ import { updateReview, fetchReview } from "../../../actions/review_actions";
 const mSTP = state => ({
     formType: "Edit Review",
     review: state.entities.reviews.display,
-    anime: state.entities.anime
+    anime: state.entities.anime.display,
+    shouldGreyOut: Boolean(state.ui.navDropdown)
 });
 
 const mDTP = dispatch => ({

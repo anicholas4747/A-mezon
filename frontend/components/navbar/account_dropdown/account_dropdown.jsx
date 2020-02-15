@@ -6,6 +6,7 @@ class AccountDropdown extends Component{
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.signout = this.signout.bind(this);
+        this.handleMouseOver = this.handleMouseOver.bind(this);
     }
 
     signout(e) {
@@ -23,6 +24,11 @@ class AccountDropdown extends Component{
         }
     }
 
+    handleMouseOver() {
+        this.props.navDropdown(true);
+        this.props.navLiClicked(false);
+    }
+
     render(){
         let displayMessage = (Boolean(this.props.currentUser.id)) ? this.props.currentUser.username : "Sign in";
         let authSection = (Boolean(this.props.currentUser.id)) ? (
@@ -35,7 +41,7 @@ class AccountDropdown extends Component{
         )
 
         return (
-            <div id="account-dropdown" onMouseOver={() => this.props.navDropdown(true)} onMouseLeave={() => this.props.navDropdown(false)}>
+            <div id="account-dropdown" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
                 <span onClick={this.handleClick}>
                     <p>Hello, {displayMessage}</p>
                     <h4>Account & Lists ▾</h4>

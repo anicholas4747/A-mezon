@@ -9,7 +9,8 @@ const mSTP = state => ({
         body: "",
         rating: 0
     },
-    anime: state.entities.anime,
+    anime: state.entities.anime.display,
+    shouldGreyOut: Boolean(state.ui.navDropdown)
 });
 
 const mDTP = dispatch => ({

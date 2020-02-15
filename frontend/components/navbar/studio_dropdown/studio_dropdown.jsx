@@ -5,13 +5,23 @@ class StudioDropdown extends Component{
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleMouseOver = this.handleMouseOver.bind(this);
     }
 
     handleClick(e){
         e.preventDefault();
         const studioName = e.target.innerText.split(" ").join("-");
+
         this.props.fetchStudio(studioName)
-            .then(() => this.props.history.push(`/studio?${studioName}`));
+                .then(() => {
+                    this.props.navLiClicked(true);
+                    this.props.history.push(`/studio?${studioName}`);
+                });
+    }
+
+    handleMouseOver(){
+        this.props.navDropdown(true);
+        this.props.navLiClicked(false);
     }
 
     componentDidMount(){
@@ -29,12 +39,14 @@ class StudioDropdown extends Component{
                 )
             });
         }
+
+        const ulClass = (this.props.liClicked) ? "search-by-studio-ul HIDDEN" : "search-by-studio-ul";
         
         return (
             <div className="search-by-studio">
-                <span id="search-by-studio-span" onMouseOver={() => this.props.navDropdown(true)} onMouseLeave={() => this.props.navDropdown(false)}>
+                <span id="search-by-studio-span" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
                     <Link to="/s" id="search-by-studio">Search by Studio ▾</Link>
-                    <ul id="search-by-studio-ul">{studios}</ul>
+                    <ul className={ulClass}>{studios}</ul>
                 </span>
                 <div id="nav-bump">.</div>
             </div>

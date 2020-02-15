@@ -10,15 +10,18 @@ import StudioShow from './studio_page/studio_container';
 import AnimeShow from './product_page/anime_show_container';
 import CreateReviewForm from './product_page/review_form/new_review_container';
 import EditReviewForm from './product_page/review_form/edit_review_container';
+import Footer from './footer/footer';
 
 const App = () => {
+
     return(
-        <div>
+        <div id="app">
             <Switch>
                 <AuthRoute path="/register" component={() => (null)} />
                 <AuthRoute path="/signin" component={() => (null)} />
                 <Route component={NavBar}/>
             </Switch>
+
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <AuthRoute path="/register" component={SignUp} />
@@ -28,6 +31,12 @@ const App = () => {
                 <ProtectedRoute path="/review/create-review" component={CreateReviewForm} />
                 <ProtectedRoute path="/review/edit-review" component={EditReviewForm} />
                 <Route component={NotFoundPage}/>
+            </Switch>
+
+            <Switch>
+                <AuthRoute path="/register" component={() => (null)} />
+                <AuthRoute path="/signin" component={() => (null)} />
+                <Route component={Footer} />
             </Switch>
         </div>
     )
