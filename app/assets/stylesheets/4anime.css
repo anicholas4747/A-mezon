@@ -330,6 +330,7 @@ a.create-review:hover {
     display: block;
     margin: 15px 5px;
     width: fit-content;
+    font-size: 16px;
 }
 
 .review-item span img {

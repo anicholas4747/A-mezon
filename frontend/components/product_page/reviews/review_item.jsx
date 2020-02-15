@@ -47,7 +47,7 @@ class ReviewItem extends Component{
             stars.push(star);
         }
 
-        const reviewTimestamp = new Date(review.updated_at.slice(0, 10)).toDateString();
+        const reviewTimestamp = new Date(review.updated_at).toDateString();
 
         return (
             <div>

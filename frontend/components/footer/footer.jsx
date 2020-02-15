@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
-import NavBar from '../navbar/navbar';
 
 class Footer extends Component {
 
@@ -11,11 +9,10 @@ class Footer extends Component {
     }
     
     handleClick(){
-        console.log("SCROLL YOU!!");
-        // window.scrollTo({
-        //     top: 0,
-        //     behavior: "smooth"
-        // });
+        this.props.refPos.current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+        });
     }
 
 

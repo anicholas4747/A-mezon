@@ -14,8 +14,10 @@ import Footer from './footer/footer';
 
 const App = () => {
 
+    const ref = React.createRef();
+
     return(
-        <div id="app">
+        <div id="app" ref={ref}>
             <Switch>
                 <AuthRoute path="/register" component={() => (null)} />
                 <AuthRoute path="/signin" component={() => (null)} />
@@ -36,7 +38,7 @@ const App = () => {
             <Switch>
                 <AuthRoute path="/register" component={() => (null)} />
                 <AuthRoute path="/signin" component={() => (null)} />
-                <Route component={Footer} />
+                <Route render={() => <Footer refPos={ref} />}/>
             </Switch>
         </div>
     )

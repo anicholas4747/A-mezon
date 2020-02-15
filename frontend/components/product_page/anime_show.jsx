@@ -6,6 +6,7 @@ class AnimeShow  extends Component{
     constructor(props){
         super(props);
         this.handleStudioClick = this.handleStudioClick.bind(this);
+        this.ref = React.createRef();
     }
 
     handleStudioClick(e) {
@@ -16,11 +17,11 @@ class AnimeShow  extends Component{
     }
 
     componentDidMount(){
-        this.props.fetchOneAnime(this.props.history.location.search.slice(1));
+        this.props.fetchOneAnime(this.props.history.location.search.slice(1))
     }
 
     render(){
-        if(this.props.anime.title === undefined) return <div></div>;
+        if (this.props.anime.title === undefined) return <div ref={this.ref}></div>;
 
         const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
         const {title, description, genre, release_year, price} = this.props.anime;
@@ -42,7 +43,7 @@ class AnimeShow  extends Component{
         }
 
         return (
-            <div>
+            <div ref={this.ref}>
                 <div className={modalToggle}>.</div>
                 
                 <section id="product-top-line">
