@@ -11,7 +11,7 @@ const Reviews = ({reviews}) => {
     });
 
     return (
-        <section>
+        <section id="cust-reviews">
             <h3>{`${reviews.length} customer reviews`}</h3>
             <ul>{reviewLis}</ul>
         </section>

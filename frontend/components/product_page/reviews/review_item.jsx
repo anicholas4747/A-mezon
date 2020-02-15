@@ -23,9 +23,12 @@ class ReviewItem extends Component{
     render(){
 
         const options = (
-            <ul>
-                <li key="edit1"><a onClick={this.handleEdit}>Edit Review</a></li>
-                <li key="delete1"><a onClick={this.handleDelete}>Delete Review</a></li>
+            <ul id="review-options">
+                <img src={window.ellipsis}/>
+                <span>
+                    <li key="edit1"><a onClick={this.handleEdit}>Edit Review</a></li>
+                    <li key="delete1"><a onClick={this.handleDelete}>Delete Review</a></li>
+                </span>
             </ul>
         )
 
@@ -48,7 +51,8 @@ class ReviewItem extends Component{
 
         return (
             <div>
-                <section>
+                {(this.props.review.author === this.props.currentUser) ? options : null}
+                <section className="review-item">
                     <Link to={`/profile?${review.author.split(" ").join("-")}`}>    
                         {review.author}
                     </Link>
@@ -59,7 +63,6 @@ class ReviewItem extends Component{
                     <h4>{reviewTimestamp}</h4>
                     <p>{review.body}</p>
                 </section>
-                {(this.props.review.author === this.props.currentUser) ? options : null}
             </div>
         )
     }

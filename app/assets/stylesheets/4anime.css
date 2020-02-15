@@ -10,7 +10,7 @@
     vertical-align: top;
     width: 365px;
     min-width: 365px;
-    height: 325px;
+    height: 425px;
     margin: 15px;
     position: relative;
     left: 0px;
@@ -31,9 +31,9 @@
 }
 
 .media img {
-    object-fit: cover;
+    object-fit: contain;
     max-height: 100%;
-    max-width: 100%;
+    max-width: 85%;
     min-width: 250px;
     height: 95% !important;
     width: auto!important;
@@ -47,7 +47,7 @@
     display: inline-block;
     vertical-align: top;
     margin: 15px 0px;
-    height: 325px;
+    height: 100%;
     width: 38%;
     min-width: 365px;
     padding: 0 15px;
@@ -82,6 +82,19 @@
     color: #555555;
     display: inline-block;
     margin: 10px 5px 10px 0;
+}
+
+.details ul {
+    width: 90%;
+    font-size: 13px;
+    padding-left: 20px;
+    line-height: 1.3;
+}
+
+.details li {
+    width: 100%;
+    white-space: normal;
+    margin: 5px;
 }
 
 #product-top-line h5#amount {
@@ -185,6 +198,11 @@ h5#calc-price {
     margin: 0 5px 0 18px;
 }
 
+#stock {
+    color: #007600;
+    font-size: 17px;;
+}
+
 #qty {
     background-image: linear-gradient(rgb(247, 248, 250), rgb(231, 233, 236));
     border-radius: 3px;
@@ -216,7 +234,7 @@ h5#calc-price {
 #description {
     border-top: 1px solid #e7e7e7;
     margin: 15px;
-    width: 80%;
+    width: 81%;
     padding: 15px;
 }
 
@@ -230,13 +248,24 @@ h5#calc-price {
     margin: 25px;
 }
 
-#review-prod {
+#description + h2 {
+    font-size: 22px;
+    margin: 15px;
+    padding: 15px;
     border-top: 1px solid #e7e7e7;
+    width: 81%;
+}
+
+#review-prod {
     margin: 15px;
     width: 300px;
+    height: 300px;
     padding: 15px;
     display: inline-block;
     box-sizing: border-box;
+    vertical-align: top;
+    position: relative;
+    border-top: 1px solid #e7e7e7;
 }
 
 #review-prod h3 {
@@ -259,11 +288,143 @@ a.create-review {
     padding: 10px;
     font-size: 13px;
     color: #111;
-    width: 100%;
+    width: 90%;
     margin: 15px 0;
+    position: absolute;
+    box-sizing: border-box;
 }
 
 a.create-review:hover {
     text-decoration: none;
     background-image: linear-gradient(rgb(231, 234, 240), rgb(217, 220, 225));
+}
+
+#cust-reviews {
+    width: 50%;
+    display: inline-block;
+    margin: 15px;
+    padding: 15px;
+    position: relative;
+    top: -82px;
+    font-size: 14px;
+}
+
+#cust-reviews > h3 {
+    margin: 0;
+}
+
+#cust-reviews > ul {
+    margin: 15px;
+    margin-left: 5px;
+    list-style: none;
+    padding: 2px;
+}
+
+.review-item {
+    width: 90%;
+    font-size: 13px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.review-item a {
+    display: block;
+    margin: 15px 5px;
+    width: fit-content;
+}
+
+.review-item span img {
+    height: 18px;
+}
+
+.review-item span h3 {
+    display: inline-block;
+    margin: 0px 5px;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.review-item h4 {
+    color: #555555;
+    padding: 5px;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+}
+
+.review-item p {
+    word-wrap: break-word;
+    white-space: normal;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+#review-options {
+    list-style: none;
+    background-image: linear-gradient(rgb(247, 248, 250), rgb(231, 233, 236));
+    border-radius: 3px;
+    border-color: #adb1b8 #a2a6ac #8d9096;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
+    width: 50px;
+    box-sizing: border-box;
+    height: 25px;
+    margin: 0px;
+    position: relative;
+    left: 75%;
+    top: 36px;
+}
+
+#review-options:hover {
+    cursor: pointer;
+    background-image: linear-gradient(rgb(231, 234, 240), rgb(217, 220, 225));
+}
+
+#review-options img {
+    width: 30px;
+    left: 4px;
+    top: -8px;
+    position: relative;
+}
+
+#review-options:hover span {
+    display: block;
+}
+#review-options:hover li {
+    display: block;
+}
+
+#review-options span {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ddd;
+    box-shadow: 0 0 1px 1px #ddd;
+    display: none;
+    width: 110px;
+    margin: 0px;
+    padding: 5px 1px;
+    border-radius: 4px;
+    position: relative;
+    top: -13px;
+    box-sizing: border-box;
+}
+
+#review-options li {
+    display: none;
+    box-sizing: border-box;
+    padding: 5px;
+    color: #111;
+    white-space: nowrap;
+}
+#review-options li a{
+    color: #111;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+#review-options li:hover {
+    cursor: pointer;
+}
+
+#review-options li:hover a {
+    cursor: pointer;
+    color: #c45500;
 }

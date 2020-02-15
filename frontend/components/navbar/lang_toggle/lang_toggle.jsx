@@ -29,7 +29,7 @@ class LangToggle extends  Component{
                     </div>
                 </Link>
                 <ul id="lang-toggle-ul">
-                    <li>{enStatus}<a>Englsih - EN</a></li>
+                    <li>{enStatus}<a>English - EN</a></li>
                     <li>{jpStatus}<a>日本語 - JP</a></li>
                 </ul>
             </div>

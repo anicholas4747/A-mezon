@@ -26,6 +26,10 @@ class AnimeShow  extends Component{
         const {title, description, genre, release_year, price} = this.props.anime;
         const studioName = this.props.studio.name;
 
+        const descriptionLis = description.split(".").map((sent,idx) => {
+            if(sent !== "" && idx < 4) return <li key={`${idx}${sent[0]}`}>{sent}</li>
+        });
+
         const reviewButton = (this.props.isLoggedIn) ? (
             <Link className="create-review" to={`/review/create-review?${title.split(" ").join("-")}`}>Write a customer review</Link>
         ) : (
@@ -53,11 +57,13 @@ class AnimeShow  extends Component{
                         <span id="pricing"><h6>Price:</h6><h5 id="amount">${price.toFixed(2)}</h5><h4>& FREE Shipping</h4></span>
                         <h4>Release Year: <Link to={`/s?year=${release_year}`}>{release_year}</Link></h4>
                         <h4>Genre: <Link to={`/s?genre=${genre}`}>{genre}</Link></h4>
+                        <ul id="description-ul">{descriptionLis}</ul>
                     </span>
                     <span className="purchase-actions">
                         <h5 id="purchase-amount">${price.toFixed(2)}</h5>
                         <h4>& FREE Shipping</h4>
                         <br/>
+                        <p id="stock">In Stock.</p>
                         <select id="qty">
                             {qtyOptions}
                         </select>
@@ -78,6 +84,7 @@ class AnimeShow  extends Component{
                     <h3>Product description</h3>
                     <p>{description}</p>
                 </section>
+                <h2>Customer reviews</h2>
                 <section id="review-prod">
                     <h3>Review this product</h3>
                     <p>Share your thoughts with other customers</p>
