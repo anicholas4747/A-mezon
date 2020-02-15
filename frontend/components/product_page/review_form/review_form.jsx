@@ -96,8 +96,20 @@ class ReviewForm extends Component{
     }
 
     componentDidMount(){
+        if (this.props.refPos.current !== null) {
+            this.props.refPos.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        };
         if(this.props.review.title === undefined){
+            // edit form data
             this.props.fetchReview(this.props.history.location.search.slice(1))
+                .then(() => this.props.fetchOneAnime(this.props.review.anime) 
+                    .then(() => this.setState({ reviewInfo: this.props.review })));
+        } else if(this.props.anime.title === undefined){
+            // new form data
+            this.props.fetchOneAnime(this.props.history.location.search.slice(1))
                 .then(() => this.setState({ reviewInfo: this.props.review }));
         }
     }
@@ -144,10 +156,11 @@ class ReviewForm extends Component{
                             {(this.state.reviewInfo.rating === 0) ? this.state.errors.rating : null}
                         </section>
                         <h3>Add a headline</h3>
+                        {/* getting weird error on page refresh, it IS controlled, i'm not changing it from uncontrolled to controlled */}
                         <input type="text" onChange={this.handleInput("title")} value={this.state.reviewInfo.title} placeholder="What's most important to know?"/>
                         {(this.state.reviewInfo.title === "") ? this.state.errors.title : null}
                         <h3>Write your review</h3>
-                        <textarea onChange={this.handleInput("body")} value={this.state.reviewInfo.body} placeholder="What did you like or dislike? No spoilers!"></textarea>
+                        <textarea onChange={this.handleInput("body")} value={this.state.reviewInfo.body} placeholder="What did you like or dislike? Remember, no spoilers!"></textarea>
                         {(this.state.reviewInfo.body === "") ? this.state.errors.body : null}
                         <div><button>Submit</button></div>
                     </form>

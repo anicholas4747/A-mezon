@@ -25,14 +25,14 @@ const App = () => {
             </Switch>
 
             <Switch>
-                <Route exact path="/" component={Home}/>
+                <Route exact path="/" render={(props) => <Home refPos= { ref } {...props}/>} />
                 <AuthRoute path="/register" component={SignUp} />
                 <AuthRoute path="/signin" component={LogIn} />
-                <Route path="/studio" component={StudioShow} />
-                <Route path="/anime" component={AnimeShow} />
-                <ProtectedRoute path="/review/create-review" component={CreateReviewForm} />
-                <ProtectedRoute path="/review/edit-review" component={EditReviewForm} />
-                <Route component={NotFoundPage}/>
+                <Route path="/studio" render={(props) => <StudioShow refPos= { ref } {...props} />} />
+                <Route path="/anime" render={(props) => <AnimeShow refPos= { ref } {...props} />} />
+                <ProtectedRoute path="/review/create-review" render={(props) => <CreateReviewForm refPos= { ref } {...props} />} />
+                <ProtectedRoute path="/review/edit-review" render={(props) => <EditReviewForm refPos= { ref } {...props} />} />
+                <Route render={(props) => <NotFoundPage refPos= { ref } {...props} />}/>
             </Switch>
 
             <Switch>

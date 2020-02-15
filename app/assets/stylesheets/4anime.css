@@ -144,12 +144,17 @@ h4#calc-price {
 
 .purchase-actions button {
     display: block;
-    margin: 15px 0;
+    margin: 5px 0;
     height: 30px;
     font-weight: 600;
     position: relative;
     text-align: center;
     padding: 9px 0;
+}
+
+#button-sep {
+    height: 1px;
+    color: transparent;
 }
 
 .purchase-actions button img {

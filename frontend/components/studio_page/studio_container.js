@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import StudioShow from "./studio";
 import { fetchOneAnime } from "../../actions/anime_actions";
 import { navLiClicked } from "../../actions/ui_actions";
+import { fetchStudio } from "../../actions/studio_actions";
 
 const mSTP = (state) => ({
     studio: state.entities.studios.display,
@@ -10,6 +11,7 @@ const mSTP = (state) => ({
 });
 
 const mDTP = (dispatch) => ({
+    fetchStudio: (studioName) => dispatch(fetchStudio(studioName)),
     fetchAnime: (animeTitle) => dispatch(fetchOneAnime(animeTitle)),
     navLiClicked: (bool) => dispatch(navLiClicked(bool))
 });

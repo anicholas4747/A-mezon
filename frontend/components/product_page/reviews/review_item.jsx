@@ -17,7 +17,14 @@ class ReviewItem extends Component{
     handleDelete(e){
         e.preventDefault();
         this.props.deleteReview(this.props.review)
-            .then(() => this.props.history.push(`/anime?${this.props.review.anime.split(" ").join("-")}`));
+            .then(() => {
+                if (this.props.refPos.current !== null) {
+                    this.props.refPos.current.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                    });
+                };
+            });
     }
 
     render(){

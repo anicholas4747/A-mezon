@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import ReviewForm from "./review_form";
 import { createReview } from "../../../actions/review_actions";
+import { fetchOneAnime } from "../../../actions/anime_actions";
 
 const mSTP = state => ({
     formType: "Create Review",
@@ -14,7 +15,8 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-    action: (reviewForm) => dispatch(createReview(reviewForm))
+    action: (reviewForm) => dispatch(createReview(reviewForm)),
+    fetchOneAnime: (animeTitle) => dispatch(fetchOneAnime(animeTitle))
 });
 
 const CreateReviewForm = connect(mSTP, mDTP)(ReviewForm);

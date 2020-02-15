@@ -1,11 +1,11 @@
 import React from 'react';
 import ReviewItem from './review_item_container';
 
-const Reviews = ({reviews}) => {
+const Reviews = ({reviews, refPos}) => {
     const reviewLis = reviews.map( (review) => {
         return (
             <li key={review.id}>
-                <ReviewItem review={review}/>
+                <ReviewItem review={review} refPos={refPos}/>
             </li>
         );
     });

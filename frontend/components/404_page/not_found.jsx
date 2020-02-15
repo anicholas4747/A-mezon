@@ -5,6 +5,15 @@ const NotFoundPage = (props) => {
     // do a giphy api request to get a PG anime gif to display
     const modalToggle = ((props.shouldGreyOut) ? "modal-on" : "modal-off");
 
+    
+    if (props.refPos.current !== null) {
+        props.refPos.current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+        });
+    };
+    
+
     return (
         <div>
             <div className={modalToggle}>.</div>

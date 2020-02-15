@@ -17,7 +17,13 @@ class AnimeShow  extends Component{
     }
 
     componentDidMount(){
-        this.props.fetchOneAnime(this.props.history.location.search.slice(1))
+        if (this.props.refPos.current !== null) {
+            this.props.refPos.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        };
+        this.props.fetchOneAnime(this.props.history.location.search.slice(1));
     }
 
     render(){
@@ -74,6 +80,7 @@ class AnimeShow  extends Component{
                             <img src={window.addToCart}/>
                             <p>Add to Cart</p>   
                         </button>
+                        <div id="button-sep">.</div>
                         <button id="buy-now">
                             <img src={window.buyNow}/>
                             <p>Buy Now</p>
@@ -91,7 +98,7 @@ class AnimeShow  extends Component{
                     <p>Share your thoughts with other customers</p>
                     {reviewButton}
                 </section>
-                <Reviews reviews={this.props.reviews} />
+                <Reviews reviews={this.props.reviews} refPos={this.props.refPos}/>
             </div>
         )
     }

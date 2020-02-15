@@ -13,8 +13,18 @@ class StudioShow extends Component{
             .then(() => this.props.history.push(`/anime?${animeTitle}`));
     }
 
+    componentDidMount() {
+        if (this.props.refPos.current !== null){
+            this.props.refPos.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        };
+        this.props.fetchStudio(this.props.history.location.search.slice(1));
+    }
+
     render(){
-        if (this.props.studio.name === undefined) return <div></div>;
+        if (this.props.studio === null || this.props.studio.name === undefined) return <div></div>;
         const {name, description, site_url} = this.props.studio;
         const producedAnime = this.props.anime.map((show) => (
             <li className="anime-lis" key={`${Date.now()+Math.random()}ani`}>

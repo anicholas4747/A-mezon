@@ -7,7 +7,7 @@ class Api::ReviewsController < ApplicationController
     end
 
     def show
-        @review = Review.find_by(id: params[:id])
+        @review = Review.includes(:anime).find_by(id: params[:id])
         render :show
     end
 

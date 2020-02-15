@@ -14,8 +14,7 @@ const studiosReducer = (state = defaultState,action) => {
                 {}, 
                 state, 
                 { 
-                    all: Object.values(action.studios),
-                    display: null 
+                    all: Object.values(action.studios)
                 } 
             );
         case(RECEIVE_STUDIO):
