@@ -141,7 +141,7 @@ class ReviewForm extends Component{
         const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
 
         return (
-            <div className="review-form">
+            <div className="review-form" className="outermost">
                 <div className={modalToggle}>.</div>
                 <div id="review-form">
                     <h2>{this.props.formType}</h2>

@@ -49,7 +49,7 @@ class AnimeShow  extends Component{
         }
 
         return (
-            <div ref={this.ref}>
+            <div className="outermost">
                 <div className={modalToggle}>.</div>
                 
                 <section id="product-top-line">

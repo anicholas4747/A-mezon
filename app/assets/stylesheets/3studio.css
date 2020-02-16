@@ -1,15 +1,23 @@
 .modal-on {
     position: fixed;
+    transition: 0.4s ease;
     top: 0px;
     bottom: 0px;
     left: 0px;
     right: 0px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 2;
 }
 
 .modal-off {
-    display: none;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: transparent;
+    z-index: 0;
+    transition: 0.125s ease; 
 }
 
 .anime-lis {

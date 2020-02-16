@@ -21,7 +21,7 @@ class Home extends Component {
         const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
 
         return (
-            <div>
+            <div className="outermost">
                 <div className={modalToggle}>.</div>
                 <h1>Aにmezon Home Page</h1>
             </div>

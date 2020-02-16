@@ -168,17 +168,17 @@
 
 #cart h4 {
     position: relative;
-    left: 29px;
+    left: 30px;
     font-size: 18px;
     color: #f08804;
     z-index: 2;
 }
 
 #cart img{
-    transform: scale(1.1,1.5);
+    object-fit: cover;
     height: 40px;
-    width: 85px;
-    min-width: 85px;
+    width: 84px;
+    min-width: 84px;
 }
 
 .nav-bottom-line {
@@ -317,13 +317,12 @@ div.search-by-studio {
     box-sizing: border-box;
     width: 240px;
     min-width: 240px;
-    transition: 0s visibility;
-    transition-delay: 0.125s;
+    transition: 0.125s ease;
 }
 
 .lang-toggle-div:hover #lang-toggle-ul {
     visibility: visible;
-    transition-delay: 0.125s;
+    transition: 0.125s ease;
 }
 
 #lang-toggle-ul {
@@ -386,13 +385,12 @@ div.search-by-studio {
     box-sizing: border-box;
     width: 500px;
     min-width: 500px;
-    transition: 0s visibility;
-    transition-delay: 0.125s;
+    transition: 0.125s ease;
 }
 
 #account-dropdown:hover #account-dropdown-ul{
     visibility: visible;
-    transition-delay: 0.125s;
+    transition: 0.125s ease;
 }
 
 #account-dropdown-ul li {
@@ -472,6 +470,10 @@ h4 {
 
 #prime {
     text-decoration: none;
+}
+
+#try-prime {
+    text-decoration: none;
     margin: 0px;
     padding: 2px 5px;
     height: 40px;
@@ -481,7 +483,7 @@ h4 {
     border: 1px solid transparent;
 }
 
-#prime:hover {
+#try-prime:hover {
     cursor: pointer;
     border: 1px solid #f1f1f1;
     border-radius: 3px;
@@ -498,7 +500,27 @@ h4 {
     color: #ffffff;
     font-size: 14px;
     margin: 0px;
+    position: absolute;
     padding: 0px;
+    top: 28px;
+}
+
+#search-by-studio-span:after{
+    content: "";    
+    visibility: hidden;    
+    position: absolute;
+    left: 189px;
+    transform: translateX(-50%);
+    top: 26px;
+    border-top: 0;
+    z-index: 9005;
+    border-bottom: 15px solid rgb(255, 255, 255);
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+}
+
+#search-by-studio-span:hover:after{
+    visibility: visible;
 }
 
 .search-by-studio-ul {
@@ -516,13 +538,12 @@ h4 {
     box-sizing: border-box;
     width: 250px;
     min-width: 250px;
-    transition: 0s visibility;
-    transition-delay: 0.125s;
+    transition: 0.125s ease;
 }
 
 #search-by-studio-span:hover .search-by-studio-ul{
     visibility: visible;
-    transition-delay: 0.125s;
+    transition: 0.125s ease;
 }
 
 .HIDDEN{
@@ -550,4 +571,96 @@ h4 {
     cursor: pointer;
     text-decoration: underline;
     color: #e77600;
+}
+
+#language-toggle:before{
+    content: "";
+    display: block;    
+    position: absolute;
+    right: 414px;
+    transform: translateX(-50%);
+    top: 42px;
+    border-top: 0;
+    z-index: 9005;
+    border-bottom: 10px solid rgb(255, 255, 255);
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    opacity: 0%;
+}
+
+#language-toggle:hover:before{
+    opacity: 100%; 
+}
+
+#account-dropdown:before{
+    content: "";
+    display: block;    
+    position: absolute;
+    right: 280px;
+    transform: translateX(-50%);
+    top: 43px;
+    border-top: 0;
+    z-index: 9005;
+    border-bottom: 10px solid rgb(255, 255, 255);
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    opacity: 0%;
+}
+
+#account-dropdown:hover:before{
+    opacity: 100%; 
+}
+
+#try-prime ul {
+    visibility: hidden;
+    float: left;
+    list-style: none;
+    position: absolute;
+    padding: 15px;
+    top: 57%;
+    right: 80px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ddd;
+    box-shadow: 0 0 1px 1px #ddd inset;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 200px;
+    min-width: 200px;
+    transition: 0.15s ease;
+}
+
+#try-prime:hover ul{
+    visibility: visible;
+    transition: 0.125s ease;
+}
+
+#try-prime ul li a {
+    color: #111;
+}
+
+#try-prime ul li a:hover {
+    color: #e77600;
+}
+
+#try-prime:before{
+    content: "";
+    display: block;    
+    position: absolute;
+    right: 100px;
+    transform: translateX(-50%);
+    top: 43px;
+    border-top: 0;
+    z-index: 9005;
+    border-bottom: 10px solid rgb(255, 255, 255);
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    opacity: 0%;
+}
+
+#try-prime:hover:before{
+    opacity: 100%; 
+}
+
+.outermost {
+    position: relative;
 }

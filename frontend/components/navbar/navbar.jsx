@@ -9,6 +9,7 @@ class NavBar extends Component {
     constructor(props){
         super(props);
         this.randomAnimePage = this.randomAnimePage.bind(this);
+        this.handleMouseOver = this.handleMouseOver.bind(this);
     }
 
     randomAnimePage(e){
@@ -23,6 +24,15 @@ class NavBar extends Component {
             this.props.fetchOneAnime(randomAnime.title.split(" ").join("-"))
                 .then(() => this.props.history.push(`/anime?${randomAnime.title.split(" ").join("-")}`));
         });  
+    }
+
+    handleMouseOver() {
+        this.props.navDropdown(true);
+        this.props.navLiClicked(false);
+    }
+
+    handlePrimeClick(){
+        this.props.navLiClicked(true);
     }
     
     render(){
@@ -46,10 +56,13 @@ class NavBar extends Component {
                         <p>Returns</p>
                         <h4>& Orders</h4>
                     </Link>
-                    <Link to="/" id="prime">
-                        <p>.</p>
-                        <h4>Try Prime ▾</h4>
-                    </Link>
+                    <div id="try-prime" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
+                        <Link to="/" id="prime">
+                            {/* <p>.</p> */}
+                            <h4>Try Prime ▾</h4>
+                        </Link>
+                        <ul><li><Link to="/">Feature Coming Soon...</Link></li></ul>
+                    </div>
                     <Link to="/cart" id="cart">
                         <h4>0</h4>
                         <img src={window.cart} alt="cart"/>
