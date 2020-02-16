@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import ReviewForm from "./review_form";
 import { createReview } from "../../../actions/review_actions";
 import { fetchOneAnime } from "../../../actions/anime_actions";
+import { withRouter } from "react-router-dom";
 
 const mSTP = state => ({
     formType: "Create Review",
@@ -19,5 +20,5 @@ const mDTP = dispatch => ({
     fetchOneAnime: (animeTitle) => dispatch(fetchOneAnime(animeTitle))
 });
 
-const CreateReviewForm = connect(mSTP, mDTP)(ReviewForm);
+const CreateReviewForm = withRouter(connect(mSTP, mDTP)(ReviewForm));
 export default CreateReviewForm;

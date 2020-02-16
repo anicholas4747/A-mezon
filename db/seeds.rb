@@ -25,15 +25,9 @@ kyo_ani = Studio.create!(
 )
 
 pa_works = Studio.create!(
-    name: "P.A.Works",
+    name: "PA Works",
     description: "P.A.Works, Inc. is a Japanese animation studio founded on November 10, 2000 in Nanto, Toyama.",
     site_url: "https://www.pa-works.jp/en/"
-)
-
-kyo_ani = Studio.create!(
-    name: "Kyoto Animation",
-    description: "Kyoto Animation Co., Ltd., abbreviated KyoAni, is a Japanese animation studio and a light novel publisher located in Uji, Kyoto Prefecture, Japan. It was established in 1981 by former Mushi Pro staff. Presided by Hideaki Hatta, the company is also affiliated with studio Animation Do.",
-    site_url: "https://www.kyotoanimation.co.jp/en/"
 )
 
 manglobe = Studio.create!(

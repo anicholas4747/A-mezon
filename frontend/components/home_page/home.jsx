@@ -21,12 +21,12 @@ class Home extends Component {
             let recs = {};
             let i= 0;
 
-            while (i < 10){
+            while (i < 8){
                 let randomAnime = titlesArray[Math.floor(Math.random() * titlesArray.length)]; //sb an arr of objects (object.values(fetched anime))
-                // if (!recs.includes(randomAnime)){
+                if (!Object.values(recs).includes(randomAnime.title)){
                     recs[i] = randomAnime.title;
                     i++;
-                // }
+                }
             }
 
             this.props.fetchRecs(recs);
@@ -40,7 +40,7 @@ class Home extends Component {
         let deals = [];
 
         this.props.recs.forEach((anime, idx) => {
-            if(idx < 5){
+            if(idx < 4){
                 recs.push(
                     <li className="anime-lis" key={`${idx}${anime.title}`}>
                         <img src={window.animePH} alt="" data-anime={anime.title} onClick={this.handleClick} />
@@ -73,22 +73,11 @@ class Home extends Component {
                 <h2>{recLang}</h2>
                 <ul>
                     {recs}
-                    <li className="anime-lis" key={`fdxgchvbjn`}>
-                        <img src={window.animePH} alt="" onClick={this.handleClick} />
-                    </li>
                 </ul>
 
                 <h2>{dealLang}</h2>
                 <ul>
                     {deals}
-                    <li className="anime-lis" key={`fdxgchvbjn`}>
-                        <img src={window.animePH} alt="" onClick={this.handleClick} />
-                        <span id="list-price"><h6>List Price:</h6>${((35 * 1.5) + 0.99).toFixed(2)}</span>
-                        <span className="details"><h6>Price:</h6><h5 id="amount">${(35).toFixed(2)}</h5></span>
-                    </li>
-                    <li className="anime-lis" key={`fdxgcfbhvbjn`}>
-                        <img src={window.animePH} alt="" onClick={this.handleClick} />
-                    </li>
                 </ul>
             </div>
         )

@@ -34314,3 +34314,382 @@ Completed 200 OK in 63ms (Views: 36.2ms | ActiveRecord: 26.4ms)
   ↳ db/seeds.rb:114
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:114
+  [1m[36mAnime Load (0.8ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mStudio Load (0.8ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mStudio Destroy (0.7ms)[0m  [1m[31mDELETE FROM "studios" WHERE "studios"."id" = $1[0m  [["id", 6]]
+  ↳ db/seeds.rb:11
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mStudio Destroy (0.3ms)[0m  [1m[31mDELETE FROM "studios" WHERE "studios"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mStudio Destroy (0.2ms)[0m  [1m[31mDELETE FROM "studios" WHERE "studios"."id" = $1[0m  [["id", 8]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mStudio Destroy (0.3ms)[0m  [1m[31mDELETE FROM "studios" WHERE "studios"."id" = $1[0m  [["id", 9]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mStudio Destroy (0.2ms)[0m  [1m[31mDELETE FROM "studios" WHERE "studios"."id" = $1[0m  [["id", 10]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[36mAnime Load (0.7ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (1.1ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 9]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (0.4ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 10]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (0.3ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 11]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (0.2ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 12]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (0.2ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 13]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (0.2ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 14]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (0.2ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 15]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (0.3ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 16]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Destroy (2.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 9]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mStudio Create (1.9ms)[0m  [1m[32mINSERT INTO "studios" ("name", "description", "site_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Studio Trigger"], ["description", "Trigger Inc., also known as Studio Trigger, is a Japanese animation studio founded by former Gainax employees Hiroyuki Imaishi and Masahiko Ōtsuka in August 2011."], ["site_url", "http://www.st-trigger.co.jp/"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mStudio Create (0.4ms)[0m  [1m[32mINSERT INTO "studios" ("name", "description", "site_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Kyoto Animation"], ["description", "Kyoto Animation Co., Ltd., abbreviated KyoAni, is a Japanese animation studio and a light novel publisher located in Uji, Kyoto Prefecture, Japan. It was established in 1981 by former Mushi Pro staff. Presided by Hideaki Hatta, the company is also affiliated with studio Animation Do."], ["site_url", "https://www.kyotoanimation.co.jp/en/"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mStudio Create (0.3ms)[0m  [1m[32mINSERT INTO "studios" ("name", "description", "site_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "P.A.Works"], ["description", "P.A.Works, Inc. is a Japanese animation studio founded on November 10, 2000 in Nanto, Toyama."], ["site_url", "https://www.pa-works.jp/en/"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:33
+  [1m[36mStudio Create (0.3ms)[0m  [1m[32mINSERT INTO "studios" ("name", "description") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Studio Manglobe"], ["description", "Manglobe Inc. was a Japanese animation studio and production enterprise, active from 2002 to 2015. Manglobe was formed on February 7, 2002 by Sunrise producers Shinichirō Kobayashi and Takashi Kochiyama."]]
+  ↳ db/seeds.rb:33
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mStudio Load (0.3ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:38
+  [1m[36mAnime Create (0.5ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Tengen Toppa Gurren Lagann"], ["description", "This Japanese anime is set in a make-believe future in which humans have been forced to live in isolated underground villages, where they constantly must burrow deeper into the Earth to escape the frequent earthquakes that wreak havoc on their way of life. In this world, two orphans named Simon and Kamina resolve to find a way to dig their way back to the surface, where they hope to make peace with the Beastmen and their robots who terrorize their human prey."], ["genre", "Action/Adventure"], ["release_year", 2007], ["price", 25.0], ["studio_id", 11]]
+  ↳ db/seeds.rb:38
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:46
+  [1m[36mStudio Load (0.2ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:46
+  [1m[36mAnime Create (0.3ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Kill la Kill"], ["description", "Student council president Satsuki Kiryuin and her underlings, dubbed the Elite Four, rule Honnouji Academy. They have the school under complete control thanks to their special outfits -- Goku Uniforms -- that give them superhuman abilities. When transfer student Ryuko Matoi, who is searching for her father's killer, comes to Hannouji, she challenges the Elite Four to a battle that quickly consumes the school. When Satsuki recognizes Ryuko's scissor-shaped sword, she wonders if their encounter is just a coincidence or if it's fate."], ["genre", "Action/Adventure Comedy"], ["release_year", 2013], ["price", 35.0], ["studio_id", 11]]
+  ↳ db/seeds.rb:46
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:46
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mStudio Load (0.2ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:54
+  [1m[36mAnime Create (0.3ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Darling in the FranXX"], ["description", "In the distant future, humanity has been driven to near-extinction by giant beasts known as Klaxosaurs, forcing the surviving humans to take refuge in massive fortress cities called Plantations. Children raised here are trained to pilot giant mechas known as FranXX—the only weapons known to be effective against the Klaxosaurs—in boy-girl pairs. Bred for the sole purpose of piloting these machines, these children know nothing of the outside world and are only able to prove their existence by defending their race. Hiro, an aspiring FranXX pilot, has lost his motivation and self-confidence after failing an aptitude test. Skipping out on his class' graduation ceremony, Hiro retreats to a forest lake, where he encounters a mysterious girl with two horns growing out of her head. She introduces herself by her codename Zero Two, which is known to belong to an infamous FranXX pilot known as the 'Partner Killer.' Before Hiro can digest the encounter, the Plantation is rocked by a sudden Klaxosaur attack. Zero Two engages the creature in her FranXX, but it is heavily damaged in the skirmish and crashes near Hiro. Finding her partner dead, Zero Two invites Hiro to pilot the mecha with her, and the duo easily defeats the Klaxosaur in the ensuing fight. With a new partner by his side, Hiro has been given a chance at redemption for his past failures, but at what cost?"], ["genre", "Action/Adventure Drama"], ["release_year", 2018], ["price", 30.0], ["studio_id", 11]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:62
+  [1m[36mStudio Load (0.3ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:62
+  [1m[36mAnime Create (1.9ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Little Witch Academia"], ["description", "'A believing heart is your magic!'—these were the words that Atsuko 'Akko' Kagari's idol, the renowned witch Shiny Chariot, said to her during a magic performance years ago. Since then, Akko has lived by these words and aspired to be a witch just like Shiny Chariot, one that can make people smile. Hence, even her non-magical background does not stop her from enrolling in Luna Nova Magical Academy. However, when an excited Akko finally sets off to her new school, the trip there is anything but smooth. After her perilous journey, she befriends the shy Lotte Yansson and the sarcastic Sucy Manbavaran. To her utmost delight, she also discovers Chariot's wand, the Shiny Rod, which she takes as her own. Unfortunately, her time at Luna Nova will prove to more challenging than Akko could ever believe. She absolutely refuses to stay inferior to the rest of her peers, especially to her self-proclaimed rival, the beautiful and gifted Diana Cavendish, so she relies on her determination to compensate for her reckless behavior and ineptitude in magic. In a time when wizardry is on the decline, Little Witch Academia follows the magical escapades of Akko and her friends as they learn the true meaning of being a witch."], ["genre", "Comedy"], ["release_year", 2017], ["price", 30.0], ["studio_id", 11]]
+  ↳ db/seeds.rb:62
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:62
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:70
+  [1m[36mStudio Load (0.3ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:70
+  [1m[36mAnime Create (0.3ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Miss Kobayashi's Dragon Maid"], ["description", "As Kobayashi sets off for another day at work, she opens her apartment door only to be met by an unusually frightening sight—the head of a dragon, staring at her from across the balcony. The dragon immediately transforms into a cute, busty, and energetic young girl dressed in a maid outfit, introducing herself as Tooru."], ["genre", "Comedy Fantasy"], ["release_year", 2017], ["price", 30.0], ["studio_id", 12]]
+  ↳ db/seeds.rb:70
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:70
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:78
+  [1m[36mStudio Load (0.2ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:78
+  [1m[36mAnime Create (0.3ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Angel Beats!"], ["description", "Otonashi awakens only to learn he is dead. A rifle-toting girl named Yuri explains that they are in the afterlife, and Otonashi realizes the only thing he can remember about himself is his name. Yuri tells him that she leads the Shinda Sekai Sensen (Afterlife Battlefront) and wages war against a girl named Tenshi. Unable to believe Yuri's claims that Tenshi is evil, Otonashi attempts to speak with her, but the encounter doesn't go as he intended. Otonashi decides to join the SSS and battle Tenshi, but he finds himself oddly drawn to her. While trying to regain his memories and understand Tenshi, he gradually unravels the mysteries of the afterlife."], ["genre", "Comedy Drama"], ["release_year", 2010], ["price", 20.0], ["studio_id", 13]]
+  ↳ db/seeds.rb:78
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:78
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:86
+  [1m[36mStudio Load (0.2ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:86
+  [1m[36mAnime Create (0.3ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Shirobako"], ["description", "It all started in Kaminoyama High School, when five best friends—Aoi Miyamori, Ema Yasuhara, Midori Imai, Shizuka Sakaki, and Misa Toudou—discovered their collective love for all things anime and formed the animation club. After making their first amateur anime together and showcasing it at the culture festival, the group vow to pursue careers in the industry, aiming to one day work together and create their own mainstream show. Two and a half years later, Aoi and Ema have managed to land jobs at the illustrious Musashino Animation production company. The others, however, are finding it difficult to get their dream jobs. Shizuka is feeling the weight of not being recognized as a capable voice actor, Misa has a secure yet unsatisfying career designing 3D models for a car company, and Midori is a university student intent on pursuing her dream as a story writer. These five girls will learn that the path to success is one with many diversions, but dreams can still be achieved through perseverance and a touch of eccentric creativity."], ["genre", "Comedy Drama"], ["release_year", 2014], ["price", 20.0], ["studio_id", 13]]
+  ↳ db/seeds.rb:86
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:94
+  [1m[36mStudio Load (0.2ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:94
+  [1m[36mAnime Create (0.3ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Samurai Champloo"], ["description", "Fuu Kasumi is a young and clumsy waitress who spends her days peacefully working in a small teahouse. That is, until she accidentally spills a drink all over one of her customers! With a group of samurai now incessantly harassing her, Fuu desperately calls upon another samurai in the shop, Mugen, who quickly defeats them with his wild fighting technique, utilizing movements reminiscent to that of breakdancing. Unfortunately, Mugen decides to pick a fight with the unwilling ronin Jin, who wields a more precise and traditional style of swordfighting, and the latter proves to be a formidable opponent. The only problem is, they end up destroying the entire shop as well as accidentally killing the local magistrate's son. For their crime, the two samurai are captured and set to be executed. However, they are rescued by Fuu, who hires the duo as her bodyguards. Though she no longer has a place to return to, the former waitress wishes to find a certain samurai who smells of sunflowers and enlists the help of the now exonerated pair to do so. Despite initially disapproving of this idea, the two eventually agree to assist the girl in her quest; thus, the trio embark upon an adventure to find this mysterious warrior—that is, if Fuu can keep Mugen and Jin from killing each other. Set in an alternate Edo Period of Japan, Samurai Champloo follows the journey of these three eccentric individuals in an epic quest full of action, comedy, and dynamic sword fighting, all set to the beat of a unique hip-hop infused soundtrack."], ["genre", "Action/Adventure Drama"], ["release_year", 2004], ["price", 35.0], ["studio_id", 14]]
+  ↳ db/seeds.rb:94
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:94
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:108
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "anime_lover123"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:108
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo_user@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:108
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "KgGHKdVfVkdE1oKOfUvomQ"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:108
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "anime_lover123"], ["email", "demo_user@gmail.com"], ["password_digest", "$2a$12$rdsT0.Zs/X0J03LP3kKJd.zEWhyZRCHBzT2S8aql7jfq/EHaTlEuC"], ["session_token", "KgGHKdVfVkdE1oKOfUvomQ"], ["created_at", "2020-02-16 19:59:14.106317"], ["updated_at", "2020-02-16 19:59:14.106317"]]
+  ↳ db/seeds.rb:108
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:108
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mStudio Load (0.6ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mStudio Destroy (0.5ms)[0m  [1m[31mDELETE FROM "studios" WHERE "studios"."id" = $1[0m  [["id", 11]]
+  ↳ db/seeds.rb:11
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mStudio Destroy (0.3ms)[0m  [1m[31mDELETE FROM "studios" WHERE "studios"."id" = $1[0m  [["id", 12]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mStudio Destroy (0.3ms)[0m  [1m[31mDELETE FROM "studios" WHERE "studios"."id" = $1[0m  [["id", 13]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mStudio Destroy (0.2ms)[0m  [1m[31mDELETE FROM "studios" WHERE "studios"."id" = $1[0m  [["id", 14]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[36mAnime Load (0.6ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (0.2ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 17]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (0.2ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 18]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (0.3ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 19]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (0.2ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 20]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (0.2ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 21]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (0.3ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 22]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (0.2ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 23]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnime Destroy (0.3ms)[0m  [1m[31mDELETE FROM "anime" WHERE "anime"."id" = $1[0m  [["id", 24]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 10]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mStudio Create (0.5ms)[0m  [1m[32mINSERT INTO "studios" ("name", "description", "site_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Studio Trigger"], ["description", "Trigger Inc., also known as Studio Trigger, is a Japanese animation studio founded by former Gainax employees Hiroyuki Imaishi and Masahiko Ōtsuka in August 2011."], ["site_url", "http://www.st-trigger.co.jp/"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mStudio Create (0.3ms)[0m  [1m[32mINSERT INTO "studios" ("name", "description", "site_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Kyoto Animation"], ["description", "Kyoto Animation Co., Ltd., abbreviated KyoAni, is a Japanese animation studio and a light novel publisher located in Uji, Kyoto Prefecture, Japan. It was established in 1981 by former Mushi Pro staff. Presided by Hideaki Hatta, the company is also affiliated with studio Animation Do."], ["site_url", "https://www.kyotoanimation.co.jp/en/"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mStudio Create (0.3ms)[0m  [1m[32mINSERT INTO "studios" ("name", "description", "site_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "PA Works"], ["description", "P.A.Works, Inc. is a Japanese animation studio founded on November 10, 2000 in Nanto, Toyama."], ["site_url", "https://www.pa-works.jp/en/"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:33
+  [1m[36mStudio Create (0.2ms)[0m  [1m[32mINSERT INTO "studios" ("name", "description") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Studio Manglobe"], ["description", "Manglobe Inc. was a Japanese animation studio and production enterprise, active from 2002 to 2015. Manglobe was formed on February 7, 2002 by Sunrise producers Shinichirō Kobayashi and Takashi Kochiyama."]]
+  ↳ db/seeds.rb:33
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:33
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mStudio Load (0.3ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ db/seeds.rb:38
+  [1m[36mAnime Create (0.5ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Tengen Toppa Gurren Lagann"], ["description", "This Japanese anime is set in a make-believe future in which humans have been forced to live in isolated underground villages, where they constantly must burrow deeper into the Earth to escape the frequent earthquakes that wreak havoc on their way of life. In this world, two orphans named Simon and Kamina resolve to find a way to dig their way back to the surface, where they hope to make peace with the Beastmen and their robots who terrorize their human prey."], ["genre", "Action/Adventure"], ["release_year", 2007], ["price", 25.0], ["studio_id", 15]]
+  ↳ db/seeds.rb:38
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:46
+  [1m[36mStudio Load (0.2ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ db/seeds.rb:46
+  [1m[36mAnime Create (0.3ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Kill la Kill"], ["description", "Student council president Satsuki Kiryuin and her underlings, dubbed the Elite Four, rule Honnouji Academy. They have the school under complete control thanks to their special outfits -- Goku Uniforms -- that give them superhuman abilities. When transfer student Ryuko Matoi, who is searching for her father's killer, comes to Hannouji, she challenges the Elite Four to a battle that quickly consumes the school. When Satsuki recognizes Ryuko's scissor-shaped sword, she wonders if their encounter is just a coincidence or if it's fate."], ["genre", "Action/Adventure Comedy"], ["release_year", 2013], ["price", 35.0], ["studio_id", 15]]
+  ↳ db/seeds.rb:46
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:46
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mStudio Load (0.3ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ db/seeds.rb:54
+  [1m[36mAnime Create (0.3ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Darling in the FranXX"], ["description", "In the distant future, humanity has been driven to near-extinction by giant beasts known as Klaxosaurs, forcing the surviving humans to take refuge in massive fortress cities called Plantations. Children raised here are trained to pilot giant mechas known as FranXX—the only weapons known to be effective against the Klaxosaurs—in boy-girl pairs. Bred for the sole purpose of piloting these machines, these children know nothing of the outside world and are only able to prove their existence by defending their race. Hiro, an aspiring FranXX pilot, has lost his motivation and self-confidence after failing an aptitude test. Skipping out on his class' graduation ceremony, Hiro retreats to a forest lake, where he encounters a mysterious girl with two horns growing out of her head. She introduces herself by her codename Zero Two, which is known to belong to an infamous FranXX pilot known as the 'Partner Killer.' Before Hiro can digest the encounter, the Plantation is rocked by a sudden Klaxosaur attack. Zero Two engages the creature in her FranXX, but it is heavily damaged in the skirmish and crashes near Hiro. Finding her partner dead, Zero Two invites Hiro to pilot the mecha with her, and the duo easily defeats the Klaxosaur in the ensuing fight. With a new partner by his side, Hiro has been given a chance at redemption for his past failures, but at what cost?"], ["genre", "Action/Adventure Drama"], ["release_year", 2018], ["price", 30.0], ["studio_id", 15]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:62
+  [1m[36mStudio Load (0.3ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ db/seeds.rb:62
+  [1m[36mAnime Create (1.6ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Little Witch Academia"], ["description", "'A believing heart is your magic!'—these were the words that Atsuko 'Akko' Kagari's idol, the renowned witch Shiny Chariot, said to her during a magic performance years ago. Since then, Akko has lived by these words and aspired to be a witch just like Shiny Chariot, one that can make people smile. Hence, even her non-magical background does not stop her from enrolling in Luna Nova Magical Academy. However, when an excited Akko finally sets off to her new school, the trip there is anything but smooth. After her perilous journey, she befriends the shy Lotte Yansson and the sarcastic Sucy Manbavaran. To her utmost delight, she also discovers Chariot's wand, the Shiny Rod, which she takes as her own. Unfortunately, her time at Luna Nova will prove to more challenging than Akko could ever believe. She absolutely refuses to stay inferior to the rest of her peers, especially to her self-proclaimed rival, the beautiful and gifted Diana Cavendish, so she relies on her determination to compensate for her reckless behavior and ineptitude in magic. In a time when wizardry is on the decline, Little Witch Academia follows the magical escapades of Akko and her friends as they learn the true meaning of being a witch."], ["genre", "Comedy"], ["release_year", 2017], ["price", 30.0], ["studio_id", 15]]
+  ↳ db/seeds.rb:62
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:62
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:70
+  [1m[36mStudio Load (0.3ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ db/seeds.rb:70
+  [1m[36mAnime Create (0.3ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Miss Kobayashi's Dragon Maid"], ["description", "As Kobayashi sets off for another day at work, she opens her apartment door only to be met by an unusually frightening sight—the head of a dragon, staring at her from across the balcony. The dragon immediately transforms into a cute, busty, and energetic young girl dressed in a maid outfit, introducing herself as Tooru."], ["genre", "Comedy Fantasy"], ["release_year", 2017], ["price", 30.0], ["studio_id", 16]]
+  ↳ db/seeds.rb:70
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:70
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:78
+  [1m[36mStudio Load (0.3ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ db/seeds.rb:78
+  [1m[36mAnime Create (0.3ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Angel Beats!"], ["description", "Otonashi awakens only to learn he is dead. A rifle-toting girl named Yuri explains that they are in the afterlife, and Otonashi realizes the only thing he can remember about himself is his name. Yuri tells him that she leads the Shinda Sekai Sensen (Afterlife Battlefront) and wages war against a girl named Tenshi. Unable to believe Yuri's claims that Tenshi is evil, Otonashi attempts to speak with her, but the encounter doesn't go as he intended. Otonashi decides to join the SSS and battle Tenshi, but he finds himself oddly drawn to her. While trying to regain his memories and understand Tenshi, he gradually unravels the mysteries of the afterlife."], ["genre", "Comedy Drama"], ["release_year", 2010], ["price", 20.0], ["studio_id", 17]]
+  ↳ db/seeds.rb:78
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:78
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:86
+  [1m[36mStudio Load (0.1ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ db/seeds.rb:86
+  [1m[36mAnime Create (0.3ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Shirobako"], ["description", "It all started in Kaminoyama High School, when five best friends—Aoi Miyamori, Ema Yasuhara, Midori Imai, Shizuka Sakaki, and Misa Toudou—discovered their collective love for all things anime and formed the animation club. After making their first amateur anime together and showcasing it at the culture festival, the group vow to pursue careers in the industry, aiming to one day work together and create their own mainstream show. Two and a half years later, Aoi and Ema have managed to land jobs at the illustrious Musashino Animation production company. The others, however, are finding it difficult to get their dream jobs. Shizuka is feeling the weight of not being recognized as a capable voice actor, Misa has a secure yet unsatisfying career designing 3D models for a car company, and Midori is a university student intent on pursuing her dream as a story writer. These five girls will learn that the path to success is one with many diversions, but dreams can still be achieved through perseverance and a touch of eccentric creativity."], ["genre", "Comedy Drama"], ["release_year", 2014], ["price", 20.0], ["studio_id", 17]]
+  ↳ db/seeds.rb:86
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:94
+  [1m[36mStudio Load (0.2ms)[0m  [1m[34mSELECT  "studios".* FROM "studios" WHERE "studios"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ db/seeds.rb:94
+  [1m[36mAnime Create (0.3ms)[0m  [1m[32mINSERT INTO "anime" ("title", "description", "genre", "release_year", "price", "studio_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Samurai Champloo"], ["description", "Fuu Kasumi is a young and clumsy waitress who spends her days peacefully working in a small teahouse. That is, until she accidentally spills a drink all over one of her customers! With a group of samurai now incessantly harassing her, Fuu desperately calls upon another samurai in the shop, Mugen, who quickly defeats them with his wild fighting technique, utilizing movements reminiscent to that of breakdancing. Unfortunately, Mugen decides to pick a fight with the unwilling ronin Jin, who wields a more precise and traditional style of swordfighting, and the latter proves to be a formidable opponent. The only problem is, they end up destroying the entire shop as well as accidentally killing the local magistrate's son. For their crime, the two samurai are captured and set to be executed. However, they are rescued by Fuu, who hires the duo as her bodyguards. Though she no longer has a place to return to, the former waitress wishes to find a certain samurai who smells of sunflowers and enlists the help of the now exonerated pair to do so. Despite initially disapproving of this idea, the two eventually agree to assist the girl in her quest; thus, the trio embark upon an adventure to find this mysterious warrior—that is, if Fuu can keep Mugen and Jin from killing each other. Set in an alternate Edo Period of Japan, Samurai Champloo follows the journey of these three eccentric individuals in an epic quest full of action, comedy, and dynamic sword fighting, all set to the beat of a unique hip-hop infused soundtrack."], ["genre", "Action/Adventure Drama"], ["release_year", 2004], ["price", 35.0], ["studio_id", 18]]
+  ↳ db/seeds.rb:94
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:94
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:108
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "anime_lover123"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:108
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo_user@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:108
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "lyNY-j8lY11GQhRYemb9JQ"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:108
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "anime_lover123"], ["email", "demo_user@gmail.com"], ["password_digest", "$2a$12$6iUrALJ5rnIsiJMeZCal5.8gtg1r98sTHA1btZdPVCwqb145bzLWe"], ["session_token", "lyNY-j8lY11GQhRYemb9JQ"], ["created_at", "2020-02-16 20:01:51.332235"], ["updated_at", "2020-02-16 20:01:51.332235"]]
+  ↳ db/seeds.rb:108
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:108
