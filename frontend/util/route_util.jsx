@@ -28,7 +28,13 @@ const Auth = ({ component: Component, path, exact, isLoggedIn, render}) => {
             <Route
                 path={path}
                 exact={exact}
-                render={render}
+                render={() => (
+                    isLoggedIn ? (
+                        <Redirect to="/" />
+                    ) : (
+                        render
+                    ) 
+                )}
             />
         ) 
     }
@@ -44,7 +50,7 @@ const Protected = ({component: Component, path, exact, isLoggedIn, render}) => {
                     isLoggedIn ? (
                         <Component {...props}/>
                     ) : (
-                            <Redirect to="/signin" />
+                        <Redirect to="/signin?verify_email" />
                     )
                 )}
             />
@@ -54,7 +60,13 @@ const Protected = ({component: Component, path, exact, isLoggedIn, render}) => {
             <Route
                 path={path}
                 exact={exact}
-                render={render}
+                render={() => (
+                    isLoggedIn ? (
+                        render()
+                    ) : (
+                        <Redirect to="/signin?verify_email" />
+                    ) 
+                )}
             />
         ) 
     }

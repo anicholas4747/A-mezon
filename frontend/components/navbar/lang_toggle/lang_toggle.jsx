@@ -13,7 +13,6 @@ class LangToggle extends  Component{
     }
 
     render(){
-
         const lang = this.props.language || "EN";
 
         const enStatus = (this.props.language === "EN") ? <img src={window.clickedRB} /> : <img src={window.uncheckedRB} id="unchecked-radio" />;
@@ -27,7 +26,7 @@ class LangToggle extends  Component{
                         <img src={window.globe} alt="" />
                         {"▾"}
                     </div>
-                    <ul id="lang-toggle-ul">
+                    <ul onClick={() => this.props.navDropdown(false)} id="lang-toggle-ul">
                         <li>{enStatus}<p>English - EN</p></li>
                         <li>{jpStatus}<p>日本語 - JP</p></li>
                     </ul>

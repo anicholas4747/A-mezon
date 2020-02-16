@@ -442,7 +442,8 @@ h4 {
 }
 
 #jp-acct p {
-    font-size: 9px;
+    font-size: 10px;
+    padding-top: 5px;
 }
 
 #jp-acct h4 {
@@ -676,4 +677,8 @@ h4 {
 
 .outermost {
     position: relative;
+}
+
+#accts-adotcom {
+    cursor: pointer;
 }

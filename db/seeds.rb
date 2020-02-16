@@ -10,6 +10,7 @@
 
 Studio.destroy_all
 Anime.destroy_all
+User.destroy_all
 
 trigger = Studio.create!(
     name: "Studio Trigger",

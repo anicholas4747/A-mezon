@@ -18,7 +18,9 @@ class AccountDropdown extends Component{
     handleClick(e){
         e.preventDefault();
         if (Boolean(this.props.currentUser.id)){
-            this.props.history.push(`/profile?${this.props.currentUser.username}`);
+            const profileWDashes = this.props.currentUser.username.split(" ").join("-");
+            this.props.fetchProfile(profileWDashes)
+                .then(this.props.history.push(`/profile?${profileWDashes}`));
         } else {
             this.props.history.push("/signin?verify_email");
         }
@@ -39,12 +41,11 @@ class AccountDropdown extends Component{
                 New customer? <Link to="/register">Start here.</Link>
             </div>
         )
-
         const acctLang = (this.props.language === "EN") ? null : "jp-acct";
 
         if (this.props.language === "EN") {
             return (
-                <div id="account-dropdown" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
+                <div id="account-dropdown" onClick={() => this.props.navLiClicked(true)} onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
                     <span onClick={this.handleClick}>
                         <p>Hello, {displayMessage}</p>
                         <h4>Account & Lists ▾</h4>
@@ -56,9 +57,9 @@ class AccountDropdown extends Component{
             )
         } else {
             return (
-                <div id="account-dropdown" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
+                <div id="account-dropdown" onClick={() => this.props.navLiClicked(true)} onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
                     <span id={acctLang} onClick={this.handleClick}>
-                        <p>こんにちは、{displayMessage}</p>
+                        <p>ようこそ、{displayMessage}</p>
                         <h4>アカウント&リスト ▾</h4>
                     </span>
                     <ul id="account-dropdown-ul">

@@ -4,6 +4,7 @@ import { fetchProfile } from "../../actions/profile_actions";
 
 const mSTP = state => ({
     shouldGreyOut: Boolean(state.ui.navDropdown),
+    currentUser: state.session.currentUser,
     user: state.entities.profile
 });
 

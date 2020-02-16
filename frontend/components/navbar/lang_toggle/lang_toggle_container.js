@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import LangToggle from "./lang_toggle";
 
 const mapStateToProps = (state) => ({
-    language: state.ui.language
+    language: state.ui.language,
+    liClicked: Boolean(state.ui.navLiClicked)
 });
 
 const mapDispatchToProps = (dispatch) => ({
