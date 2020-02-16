@@ -14,6 +14,11 @@
 class Anime < ApplicationRecord 
     validates :title, :release_year, :price, :studio_id, presence: true
 
+    def self.pull_recs(recs_hash)
+        titles = recs_hash.values
+        Anime.where("title IN (?)",titles)
+    end
+
     has_many :reviews,
     class_name: :Review,
     primary_key: :id,

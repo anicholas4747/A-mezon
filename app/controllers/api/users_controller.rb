@@ -20,6 +20,11 @@ class Api::UsersController < ApplicationController
         render :exists
     end
 
+    def reviews
+        @user = User.includes(authored_reviews: :anime).find_by(username: params[:username])
+        render :profile
+    end
+
     private
     def user_params
         params.require(:user).permit(:username,:email,:password)

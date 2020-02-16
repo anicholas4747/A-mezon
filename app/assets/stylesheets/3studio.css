@@ -16,22 +16,24 @@
     left: 0px;
     right: 0px;
     background: transparent;
-    z-index: 0;
+    z-index: -1;
     transition: 0.125s ease; 
 }
 
 .anime-lis {
+    max-width: 20%;
     width: 225px;
     height: 400px;
     text-align: center;
     font-size: 13px;
-    padding: 20px;
     margin: 20px;
     display: inline-block;
+    vertical-align: top;
 }
 
 .anime-lis img {
-    width: 225px;
+    object-fit: contain;
+    width: 100%;
     height: 300px;
     background-color: #f8f8f8;
     cursor: pointer;

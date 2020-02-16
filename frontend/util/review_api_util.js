@@ -49,3 +49,10 @@ export const deleteReview = (review) => (
         data: { review }
     })
 );
+
+export const fetchUserReviews = (username) => (
+    $.ajax({
+        method: "GET",
+        url: `/api/user/${username}/reviews`
+    })
+);

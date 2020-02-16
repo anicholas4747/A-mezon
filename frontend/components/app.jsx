@@ -11,6 +11,8 @@ import AnimeShow from './product_page/anime_show_container';
 import CreateReviewForm from './product_page/review_form/new_review_container';
 import EditReviewForm from './product_page/review_form/edit_review_container';
 import Footer from './footer/footer';
+import ProfilePage from './profile_page/profile_page_container';
+import LangSelect from './lang_select_page/lang_select_container';
 
 const App = () => {
 
@@ -30,6 +32,8 @@ const App = () => {
                 <AuthRoute path="/signin" component={LogIn} />
                 <Route path="/studio" render={(props) => <StudioShow refPos= { ref } {...props} />} />
                 <Route path="/anime" render={(props) => <AnimeShow refPos= { ref } {...props} />} />
+                <Route path="/profile" render={(props) => <ProfilePage refPos= { ref } {...props} />} />
+                <Route path="/language-select" render={(props) => <LangSelect refPos= { ref } {...props} />} />
                 <ProtectedRoute path="/review/create-review" render={(props) => <CreateReviewForm refPos= { ref } {...props} />} />
                 <ProtectedRoute path="/review/edit-review" render={(props) => <EditReviewForm refPos= { ref } {...props} />} />
                 <Route render={(props) => <NotFoundPage refPos= { ref } {...props} />}/>

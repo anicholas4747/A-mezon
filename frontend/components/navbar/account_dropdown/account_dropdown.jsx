@@ -18,7 +18,7 @@ class AccountDropdown extends Component{
     handleClick(e){
         e.preventDefault();
         if (Boolean(this.props.currentUser.id)){
-            this.props.history.push("/profile");
+            this.props.history.push(`/profile?${this.props.currentUser.username}`);
         } else {
             this.props.history.push("/signin?verify_email");
         }
@@ -40,17 +40,33 @@ class AccountDropdown extends Component{
             </div>
         )
 
-        return (
-            <div id="account-dropdown" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
-                <span onClick={this.handleClick}>
-                    <p>Hello, {displayMessage}</p>
-                    <h4>Account & Lists ▾</h4>
-                </span>
-                <ul id="account-dropdown-ul">
-                    <li>{authSection}</li>
-                </ul>
-            </div>
-        )
+        const acctLang = (this.props.language === "EN") ? null : "jp-acct";
+
+        if (this.props.language === "EN") {
+            return (
+                <div id="account-dropdown" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
+                    <span onClick={this.handleClick}>
+                        <p>Hello, {displayMessage}</p>
+                        <h4>Account & Lists ▾</h4>
+                    </span>
+                    <ul id="account-dropdown-ul">
+                        <li>{authSection}</li>
+                    </ul>
+                </div>
+            )
+        } else {
+            return (
+                <div id="account-dropdown" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
+                    <span id={acctLang} onClick={this.handleClick}>
+                        <p>こんにちは、{displayMessage}</p>
+                        <h4>アカウント&リスト ▾</h4>
+                    </span>
+                    <ul id="account-dropdown-ul">
+                        <li>{authSection}</li>
+                    </ul>
+                </div>
+            )
+        }
     }
 }
 

@@ -1,29 +1,95 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
 
 class Home extends Component {
     constructor(props){
         super(props);
-        this.signout = this.signout.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
-    signout(e){
+    handleClick(e) {
         e.preventDefault();
-        this.props.logout()
-            .then(() => (this.props.history.push("/signin?verify_email")));
+        const animeTitle = e.target.dataset.anime.split(" ").join("-");
+        this.props.history.push(`/anime?${animeTitle}`);
     }
 
     componentDidMount(){
         this.props.navDropdown(false);
+
+        this.props.fetchAnimeTitles().then(() => {
+            const titlesArray = this.props.anime.allTitles;
+
+            let recs = {};
+            let i= 0;
+
+            while (i < 10){
+                let randomAnime = titlesArray[Math.floor(Math.random() * titlesArray.length)]; //sb an arr of objects (object.values(fetched anime))
+                // if (!recs.includes(randomAnime)){
+                    recs[i] = randomAnime.title;
+                    i++;
+                // }
+            }
+
+            this.props.fetchRecs(recs);
+        });
     }
 
     render(){
+        if(this.props.recs.length === 0) return <h1>Loading...</h1>;
+
+        let recs = [];
+        let deals = [];
+
+        this.props.recs.forEach((anime, idx) => {
+            if(idx < 5){
+                recs.push(
+                    <li className="anime-lis" key={`${idx}${anime.title}`}>
+                        <img src={window.animePH} alt="" data-anime={anime.title} onClick={this.handleClick} />
+                        <h4 data-anime={anime.title} onClick={this.handleClick}>{anime.title}</h4>
+                        <span className="details"><h6>Price:</h6><h5>${anime.price.toFixed(2)}</h5></span>
+                    </li>
+                )
+            } else {
+                deals.push(
+                    <li className="anime-lis" key={`${idx}${anime.title}`}>
+                        <img src={window.animePH} alt="" data-anime={anime.title} onClick={this.handleClick} />
+                        <h4 data-anime={anime.title} onClick={this.handleClick}>{anime.title}</h4>
+                        <span id="list-price"><h6>List Price:</h6>${((anime.price * 1.25) + 0.99).toFixed(2)}</span>
+                        <span className="details"><h6>Price:</h6><h5 id="amount">${anime.price.toFixed(2)}</h5></span>
+                    </li>
+                )
+            }
+        })
+
+        if(deals.length === 0) deals = "No deals to display, DON'T FORGET TO SEED THE DATABASE!";
+
         const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
 
+        const recLang = (this.props.language === "EN") ? "Recommended items" : "オススメ"
+        const dealLang = (this.props.language === "EN") ? "Discounted items" : "割り引き"
+
         return (
-            <div className="outermost">
+            <div className="home-page">
                 <div className={modalToggle}>.</div>
-                <h1>Aにmezon Home Page</h1>
+                <h2>{recLang}</h2>
+                <ul>
+                    {recs}
+                    <li className="anime-lis" key={`fdxgchvbjn`}>
+                        <img src={window.animePH} alt="" onClick={this.handleClick} />
+                    </li>
+                </ul>
+
+                <h2>{dealLang}</h2>
+                <ul>
+                    {deals}
+                    <li className="anime-lis" key={`fdxgchvbjn`}>
+                        <img src={window.animePH} alt="" onClick={this.handleClick} />
+                        <span id="list-price"><h6>List Price:</h6>${((35 * 1.5) + 0.99).toFixed(2)}</span>
+                        <span className="details"><h6>Price:</h6><h5 id="amount">${(35).toFixed(2)}</h5></span>
+                    </li>
+                    <li className="anime-lis" key={`fdxgcfbhvbjn`}>
+                        <img src={window.animePH} alt="" onClick={this.handleClick} />
+                    </li>
+                </ul>
             </div>
         )
     }

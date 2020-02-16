@@ -1,0 +1,56 @@
+.home-page h2 {
+    padding: 0px;
+    margin: 30px 20px 10px 20px;
+}
+.home-page ul {
+    width: 90%;
+    padding: 0px;
+    border-bottom: 1px solid #e7e7e7;
+    margin: 0px auto;
+}
+
+.home-page ul li {
+    margin-top: 0px;
+}
+
+.home-page h5 {
+    font-size: 18px;
+    color: #B12704;
+    display: inline-block;
+    margin-left: 10px;
+    margin: 0;
+}
+
+.home-page .details h6 {
+    vertical-align: top;
+    margin: 0;
+    margin-right: 5px;
+}
+
+.home-page .details {
+    height: fit-content;
+    width: fit-content;
+    min-width: fit-content;
+    margin: 0;
+}
+
+.home-page p {
+    margin: 5px 0;
+}
+
+.home-page #list-price {
+    font-size: 14px;
+    color: #555555;
+    display: inline-block;
+    margin: 0;
+    margin-top: 10px;
+    text-decoration: line-through;
+}
+
+.home-page #list-price h6 {
+    font-size: 14px;
+    color: #555555;
+    display: inline-block;
+    margin: 0;
+    margin-right: 5px;
+}

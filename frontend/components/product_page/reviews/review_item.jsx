@@ -31,11 +31,13 @@ class ReviewItem extends Component{
 
         const options = (
             <ul id="review-options">
-                <img src={window.ellipsis}/>
-                <span>
-                    <li key="edit1"><a onClick={this.handleEdit}>Edit Review</a></li>
-                    <li key="delete1"><a onClick={this.handleDelete}>Delete Review</a></li>
-                </span>
+                <section id="review-options-section">
+                    <img src={window.ellipsis}/>
+                    <span>
+                        <li key="edit1"><a onClick={this.handleEdit}>Edit Review</a></li>
+                        <li key="delete1"><a onClick={this.handleDelete}>Delete Review</a></li>
+                    </span>
+                </section>
             </ul>
         )
 

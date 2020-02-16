@@ -365,11 +365,6 @@ a.create-review:hover {
 
 #review-options {
     list-style: none;
-    background-image: linear-gradient(rgb(247, 248, 250), rgb(231, 233, 236));
-    border-radius: 3px;
-    border-color: #adb1b8 #a2a6ac #8d9096;
-    border-style: solid;
-    border-width: 1px;
     padding: 5px;
     width: 50px;
     box-sizing: border-box;
@@ -382,7 +377,6 @@ a.create-review:hover {
 
 #review-options:hover {
     cursor: pointer;
-    background-image: linear-gradient(rgb(231, 234, 240), rgb(217, 220, 225));
 }
 
 #review-options img {
@@ -390,6 +384,7 @@ a.create-review:hover {
     left: 4px;
     top: -8px;
     position: relative;
+    opacity: 65%;
 }
 
 #review-options:hover span {
@@ -397,6 +392,44 @@ a.create-review:hover {
 }
 #review-options:hover li {
     display: block;
+}
+
+#review-options:after{
+    content: "";
+    display: block;
+    position: absolute;
+    right: -2px;
+    transform: translateX(-50%);
+    top: 20px;
+    border-top: 0;
+    z-index: 9000;
+    border-bottom: 14px solid rgb(255, 255, 255);
+    border-right: 14px solid transparent;
+    border-left: 14px solid transparent;
+    opacity: 0%;
+}
+
+#review-options:hover:after{
+    opacity: 100%; 
+}
+
+#review-options-section:before{
+    content: "";
+    display: block;
+    position: absolute;
+    right: -8px;
+    transform: translateX(-50%);
+    top: 17px;
+    border-top: 0;
+    z-index: 9000;
+    border-bottom: 17px solid #adb1b865 ;
+    border-right: 17px solid transparent;
+    border-left: 17px solid transparent;
+    opacity: 0%;
+}
+
+#review-options-section:hover:before{
+    opacity: 100%; 
 }
 
 #review-options span {
@@ -409,7 +442,8 @@ a.create-review:hover {
     padding: 5px 1px;
     border-radius: 4px;
     position: relative;
-    top: -13px;
+    top: -5px;
+    right: 37px;
     box-sizing: border-box;
 }
 

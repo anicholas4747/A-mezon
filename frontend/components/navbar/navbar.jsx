@@ -18,7 +18,6 @@ class NavBar extends Component {
         // same logic as search bar, only care about names until you actually search
         // search by studio and search by filters will give all details (limit 12) displaying grid like studio show page or block (default), make a toggle in ui slice of state to switch onclick of a button
         this.props.fetchAnimeTitles().then(() => {
-            console.log(this.props.anime.allTitles);
             const titlesArray = this.props.anime.allTitles;
             const randomAnime = titlesArray[Math.floor(Math.random() * titlesArray.length)]; //sb an arr of objects (object.values(fetched anime))
             this.props.fetchOneAnime(randomAnime.title.split(" ").join("-"))
@@ -38,45 +37,83 @@ class NavBar extends Component {
     render(){
         let profileLink = null;
         if (this.props.isLoggedIn){
-            const profileLinkText = `${this.props.currentUser.username}'s Aにmezon.com`;
-            profileLink = <Link to="/profile">{profileLinkText}</Link>;
+            const profileLinkText = (this.props.language === "EN") ? `${this.props.currentUser.username}'s Aにmezon.com` : `${this.props.currentUser.username} の Aにmezon.com`;
+            profileLink = <Link to={`/profile?${this.props.currentUser.username}`}>{profileLinkText}</Link>;
         }
 
-        return(
-            <>
-                <div className="nav-top-line" ref={this.myRef}>
-                    <img id="sidebar" src={window.hamburgerMenu} alt="SideBar"/>
-                    <Link to="/"><div id="logo-div"></div></Link>
-                    
-                    <img className="logo" src={window.logoWhite} alt="Amezon Logo"/>
-                    <SearchBar />
-                    <LangToggle/>
-                    <AccountDropdown />
-                    <Link to="/order-history" id="order-history">
-                        <p>Returns</p>
-                        <h4>& Orders</h4>
-                    </Link>
-                    <div id="try-prime" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
-                        <Link to="/" id="prime">
-                            {/* <p>.</p> */}
-                            <h4>Try Prime ▾</h4>
-                        </Link>
-                        <ul><li><Link to="/">Feature Coming Soon...</Link></li></ul>
-                    </div>
-                    <Link to="/cart" id="cart">
-                        <h4>0</h4>
-                        <img src={window.cart} alt="cart"/>
-                    </Link>
-                </div>
+        if (this.props.language === "EN"){
+            return (
+                <>
+                    <div className="nav-top-line" ref={this.myRef}>
+                        <img id="sidebar" src={window.hamburgerMenu} alt="SideBar" />
+                        <Link to="/"><div id="logo-div"></div></Link>
 
-                <div className="nav-bottom-line">
-                    <StudioDropdown />
-                    {profileLink}
-                    <Link to="/s" >Search by Filters</Link>
-                    <a href="#" onClick={this.randomAnimePage}>Surprise Me!</a>
-                </div>
-            </>
-        )
+                        <img className="logo" src={window.logoWhite} alt="Amezon Logo" />
+                        <SearchBar />
+                        <LangToggle />
+                        <AccountDropdown />
+                        <a id="order-history">
+                            <p>Returns</p>
+                            <h4>& Orders</h4>
+                        </a>
+                        <div id="try-prime" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
+                            <Link to="/" id="prime">
+                                {/* <p>.</p> */}
+                                <h4>Try Prime ▾</h4>
+                            </Link>
+                            <ul><li><Link to="/">Feature Coming Soon...</Link></li></ul>
+                        </div>
+                        <Link to="/cart" id="cart">
+                            <h4>0</h4>
+                            <img src={(this.props.language === "EN") ? window.cart : window.cartJP} alt="cart" />
+                        </Link>
+                    </div>
+
+                    <div className="nav-bottom-line">
+                        <StudioDropdown />
+                        {profileLink}
+                        <Link to="/s" >Search by Filters</Link>
+                        <a href="#" onClick={this.randomAnimePage}>Surprise Me!</a>
+                    </div>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <div className="nav-top-line" ref={this.myRef}>
+                        <img id="sidebar" src={window.hamburgerMenu} alt="SideBar" />
+                        <Link to="/"><div id="logo-div"></div></Link>
+
+                        <img className="logo" src={window.logoWhite} alt="Amezon Logo" />
+                        <SearchBar />
+                        <LangToggle />
+                        <AccountDropdown />
+                        <a id="order-history">
+                            <p>返品</p>
+                            <h4>& 注文</h4>
+                        </a>
+                        <div id="try-prime" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
+                            <Link to="/" id="prime">
+                                {/* <p>.</p> */}
+                                <h4>プライムを ▾</h4>
+                            </Link>
+                            <ul><li><Link to="/">もうすぐ来る...</Link></li></ul>
+                        </div>
+                        <Link to="/cart" id="cart">
+                            <h4>0</h4>
+                            <img src={(this.props.language === "EN") ? window.cart : window.cartJP} alt="cart" />
+                        </Link>
+                    </div>
+
+                    <div className="nav-bottom-line">
+                        <StudioDropdown />
+                        {profileLink}
+                        <Link to="/s" >フィルターで探して</Link>
+                        <a href="#" onClick={this.randomAnimePage}>ランダムのを見せて!</a>
+                    </div>
+                </>
+            )
+        }
     }
 }
 

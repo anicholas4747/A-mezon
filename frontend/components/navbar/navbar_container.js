@@ -7,7 +7,8 @@ import { navDropdown, navLiClicked } from "../../actions/ui_actions";
 const mapStateToProps = (state) => ({
     isLoggedIn: Boolean(state.session.currentUser.id),
     currentUser: state.session.currentUser,
-    anime: state.entities.anime
+    anime: state.entities.anime,
+    language: state.ui.language
 });
 
 const mapDispatchToProps = (dispatch) => ({

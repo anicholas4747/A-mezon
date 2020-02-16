@@ -42,15 +42,27 @@ class StudioDropdown extends Component{
 
         const ulClass = (this.props.liClicked) ? "search-by-studio-ul HIDDEN" : "search-by-studio-ul";
         
-        return (
-            <div className="search-by-studio">
-                <span id="search-by-studio-span" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
-                    <Link to="/s" id="search-by-studio">Search by Studio ▾</Link>
-                    <ul className={ulClass}>{studios}</ul>
-                </span>
-                <div id="nav-bump">.</div>
-            </div>
-        )
+        if (this.props.language === "EN") {
+            return (
+                <div className="search-by-studio">
+                    <span id="search-by-studio-span" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
+                        <Link to="/s" id="search-by-studio">Search by Studio ▾</Link>
+                        <ul className={ulClass}>{studios}</ul>
+                    </span>
+                    <div id="nav-bump">.</div>
+                </div>
+            )
+            } else {
+                return (
+                    <div className="search-by-studio">
+                        <span id="search-by-studio-span" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
+                            <Link to="/s" id="search-by-studio">スタジオで探して ▾</Link>
+                            <ul className={ulClass}>{studios}</ul>
+                        </span>
+                        <div id="nav-bump">.</div>
+                    </div>
+                )
+            }
     }
 }
 

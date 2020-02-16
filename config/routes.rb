@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :anime, only: [:index]
     get "/anime/titles", to: "anime#titles"
+    get "/anime/recs", to: "anime#recs"
     get "/anime/:title", to: "anime#show"
 
     get "/studio/:name", to: "studios#show"
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
     get "/anime/:title/reviews", to: "reviews#index"
 
     get "/users/exists", to: "users#exists"
+    get "/user/:username/reviews", to: "users#reviews"
     resources :users, only: [:create, :show]
     
     resource :session, only: [:create, :destroy]

@@ -34115,3 +34115,8 @@ Completed 200 OK in 63ms (Views: 36.2ms | ActiveRecord: 26.4ms)
 
   [1m[36mReview Load (1.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
   [1m[36mReview Load (0.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  [1m[36mAnime Load (1.6ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Kill la Kill','Tengan Toppa Gurren Lagann'))[0m
+  [1m[36mAnime Load (0.6ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Kill la Kill','Tengen Toppa Gurren Lagann'))[0m
+  [1m[36mAnime Load (13.8ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN 'Kill la Kill','Tengen Toppa Gurren Lagann')[0m
+  [1m[36mAnime Load (3.9ms)[0m  [1m[34mSELECT  "anime".* FROM "anime" WHERE (title IN 'Kill la Kill','Tengen Toppa Gurren Lagann') LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mAnime Load (1.5ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Kill la Kill','Tengen Toppa Gurren Lagann','Kill la Kill'))[0m

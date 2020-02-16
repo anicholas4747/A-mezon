@@ -6,7 +6,8 @@ import { navDropdown, navLiClicked } from "../../../actions/ui_actions";
 
 const mSTP = (state) => ({
     studios: state.entities.studios,
-    liClicked: Boolean(state.ui.navLiClicked)
+    liClicked: Boolean(state.ui.navLiClicked),
+    language: state.ui.language
 });
 
 const mDTP = (dispatch) => ({
