@@ -15,9 +15,19 @@ class Api::AnimeController < ApplicationController
         render :recs
     end
 
+    def search
+        @results = Anime.search_for(search_params)
+        render :search_results
+    end
+
     def show
         formatted_title = params[:title].split("-").join(" ")
         @anime = Anime.includes(:studio, reviews: [:author]).find_by(title: formatted_title)
         render :show
+    end
+
+    private
+    def search_params
+        params.require(:search).permit(:search_term, :page)
     end
 end

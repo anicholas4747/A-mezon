@@ -8,7 +8,9 @@ const mSTP = state => ({
     formType: "Edit Review",
     review: state.entities.reviews.display,
     anime: state.entities.anime.display,
-    shouldGreyOut: Boolean(state.ui.navDropdown)
+    shouldGreyOut: Boolean(state.ui.navDropdown),
+    profileReviews: state.entities.profile.reviews
+
 });
 
 const mDTP = dispatch => ({

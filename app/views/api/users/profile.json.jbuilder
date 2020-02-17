@@ -1,7 +1,8 @@
 json.extract! @user, :username, :email, :created_at
 json.reviews do 
     json.array! @user.authored_reviews do |review|
-        json.extract! review, :title, :body, :rating, :updated_at
+        json.extract! review, :id, :title, :body, :rating, :updated_at
         json.anime review.anime.title
+        json.anime_id review.anime.id
     end
 end

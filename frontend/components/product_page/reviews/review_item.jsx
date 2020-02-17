@@ -23,7 +23,10 @@ class ReviewItem extends Component{
                         behavior: 'smooth',
                         block: 'start',
                     });
-                };
+                }
+                if (this.props.match.path === "/profile"){
+                    this.props.fetchProfile(this.props.history.location.search.slice(1));
+                }
             });
     }
 
@@ -57,14 +60,22 @@ class ReviewItem extends Component{
         }
 
         const reviewTimestamp = new Date(review.updated_at).toDateString();
+        
+        const pageLink = (this.props.match.path === "/anime") ? (
+            <Link to={`/profile?${review.author.split(" ").join("-")}`}>
+                {review.author}
+            </Link>
+        ) : (
+            <Link to={`/anime?${review.anime.split(" ").join("-")}`}>
+                {review.anime}
+            </Link>
+        )
 
         return (
             <div>
-                {(this.props.review.author === this.props.currentUser) ? options : null}
+                {(this.props.review.author === this.props.currentUser || this.props.history.location.search.slice(1) === this.props.currentUser) ? options : null}
                 <section className="review-item">
-                    <Link to={`/profile?${review.author.split(" ").join("-")}`}>    
-                        {review.author}
-                    </Link>
+                    {pageLink}
                     <span>
                         {stars}
                         <h3>{review.title}</h3>

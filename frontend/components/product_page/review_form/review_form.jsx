@@ -13,6 +13,12 @@ class ReviewForm extends Component{
                 rating: ""
             }
         };
+        this.animeTitle = "";
+        if (this.props.profileReviews !== undefined){
+            this.props.profileReviews.forEach((rev) => {
+                if (rev.id === this.props.review.id) this.animeTitle = rev.anime;
+            });
+        }
     }
 
     handleStarClicked(num){
@@ -54,11 +60,19 @@ class ReviewForm extends Component{
 
     handleSubmit(e){
         e.preventDefault();
+        
+        let animeIdSource = this.props.anime.id;
+        if (animeIdSource === undefined){
+            this.props.profileReviews.forEach((rev) => {
+                if (rev.id === this.props.review.id) animeIdSource = rev.anime_id;
+            });
+        }
+
         const reviewForm = {
             title: this.state.reviewInfo.title,
             body: this.state.reviewInfo.body,
             rating: this.state.reviewInfo.rating,
-            animeId: this.props.anime.id
+            animeId: animeIdSource
         };
 
         if (this.props.formType === "Edit Review") reviewForm.id = this.props.review.id;
@@ -89,9 +103,14 @@ class ReviewForm extends Component{
             }
         })
 
-        if (errs === 0) {
+        if (errs === 0 && this.props.anime.title !== undefined) {
             this.props.action(reviewForm)
-                .then(this.props.history.push(`/anime?${this.props.anime.title.split(" ").join("-")}`));
+                .then(() => this.props.history.push(`/anime?${this.props.anime.title.split(" ").join("-")}`));
+        } else {
+            this.props.action(reviewForm)
+                .then(() => {
+                    this.props.history.push(`/anime?${this.animeTitle.split(" ").join("-")}`)
+                });
         }
     }
 
@@ -102,23 +121,32 @@ class ReviewForm extends Component{
                 block: 'start',
             });
         };
-        if(this.props.review.title === undefined){
-            // edit form data
-            this.props.fetchReview(this.props.history.location.search.slice(1))
-                .then(() => this.props.fetchOneAnime(this.props.review.anime) 
-                    .then(() => this.setState({ reviewInfo: this.props.review })));
-        } else if(this.props.anime.title === undefined){
+
+        let alpha = "abcdefghijklmnopqrstuvwxyz";
+
+        if (alpha.includes(this.props.history.location.search[1])){
             // new form data
             this.props.fetchOneAnime(this.props.history.location.search.slice(1))
                 .then(() => this.setState({ reviewInfo: this.props.review }));
+        } else {
+            // edit form data
+            this.props.fetchReview(this.props.history.location.search.slice(1))
+                .then(() => {
+                    if (this.props.review.anime){
+                        this.props.fetchOneAnime(this.props.review.anime) 
+                        .then(() => this.setState({ reviewInfo: this.props.review }))
+                    } else {
+                        this.props.fetchOneAnime(this.animeTitle)
+                            .then(() => this.setState({ reviewInfo: this.props.review }))
+                    }
+                });
         }
     }
 
     render(){
         if (Boolean(this.props.review) === false) {
-            return <div>Loading...</div>;
+            return <h1>Loading...</h1>;
         }
-
 
         let stars = [];
         for (let i = 1; i < 6; i++){

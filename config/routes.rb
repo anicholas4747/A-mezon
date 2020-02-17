@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api, defaults: {format: :json} do
     resources :anime, only: [:index]
+    get "/anime/search", to: "anime#search"
     get "/anime/titles", to: "anime#titles"
     get "/anime/recs", to: "anime#recs"
     get "/anime/:title", to: "anime#show"

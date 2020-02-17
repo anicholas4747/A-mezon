@@ -14,6 +14,7 @@ import Footer from './footer/footer';
 import ProfilePage from './profile_page/profile_page_container';
 import LangSelect from './lang_select_page/lang_select_container';
 import EditProfileForm from './profile_page/edit_profile/edit_profile_form_container';
+import SearchResults from './search_results_page/search_results_container';
 
 const App = () => {
 
@@ -32,6 +33,7 @@ const App = () => {
                 <AuthRoute path="/register" component={SignUp} />
                 <AuthRoute path="/signin" component={LogIn} />
                 <Route path="/studio" render={(props) => <StudioShow refPos= { ref } {...props} />} />
+                <Route path="/s" render={(props) => <SearchResults refPos= { ref } {...props} />} />
                 <Route path="/anime" render={(props) => <AnimeShow refPos= { ref } {...props} />} />
                 <Route path="/language-select" render={(props) => <LangSelect refPos= { ref } {...props} />} />
                 <ProtectedRoute path="/profile/edit-profile" render={(props) => <EditProfileForm refPos= { ref } {...props} />} />

@@ -27,7 +27,7 @@ class Footer extends Component {
                         <li><a href="https://github.com/anicholas4747">GitHub</a></li>
                     </ul>
                 </span>
-                <Link className="logo" to="/"><img className="logo" src={window.logoWhite} alt="Amezon Logo" /></Link>
+                <Link className="logo" to="/"><img className="logo" src={window.logoWhite} alt="Amezon Logo" onClick={this.handleClick}/></Link>
             </div>
         )
     }

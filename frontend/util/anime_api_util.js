@@ -19,3 +19,28 @@ export const fetchRecs = (recs) => (
         data: { recs }
     })
 );
+
+export const searchAnime = (searchTerm, page) => (
+    $.ajax({
+        method: "GET",
+        url: "/api/anime/search",
+        data: {
+            search: {
+                search_term : searchTerm,
+                page: page 
+            }
+        }
+    })
+);
+
+export const searchAllAnime = (page) => (
+    $.ajax({
+        method: "GET",
+        url: "/api/anime/search",
+        data: {
+            search: {
+                page: page 
+            }
+        }
+    })
+);

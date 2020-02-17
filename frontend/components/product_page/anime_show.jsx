@@ -22,7 +22,7 @@ class AnimeShow  extends Component{
                 behavior: 'smooth',
                 block: 'start',
             });
-        };
+        }
         this.props.fetchOneAnime(this.props.history.location.search.slice(1));
     }
 
@@ -98,7 +98,7 @@ class AnimeShow  extends Component{
                     <p>Share your thoughts with other customers</p>
                     {reviewButton}
                 </section>
-                <Reviews reviews={this.props.reviews} refPos={this.props.refPos}/>
+                <Reviews match={this.props.match} reviews={this.props.reviews} refPos={this.props.refPos}/>
             </div>
         )
     }

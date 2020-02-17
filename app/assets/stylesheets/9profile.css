@@ -1,0 +1,64 @@
+#profile-info {
+    width: 80%;
+    height: fit-content;
+    border: 1px #ddd solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 20px 26px;
+    margin: 20px auto;
+    margin-bottom: 8%;
+    position: relative;
+}
+
+#profile-info img {
+    width: 300px;
+    max-width: 300px;
+    height: 300px;
+    max-height: 300px;
+    border-radius: 50%;
+    border: 5px solid #cccaca;
+    margin-right: 10%;
+}
+
+#profile-info img, #profile-info div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#profile-info h2 {
+    font-size: 28px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#profile-info h3 {
+    font-size: 20px;
+}
+
+#profile-info h4 {
+    font-size: 16px;
+    color: #a6a6a6;
+    margin-bottom: 40px;
+}
+
+#profile-info button {
+    max-width: 225px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.profile-page #cust-reviews {
+    width: 40%;
+    margin: 15px 30%;
+    height: fit-content;
+    border: 1px #ddd solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 20px 26px;
+}
+
+.profile-page #cust-reviews > h3 {
+    font-size: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e7e7e7;
+}

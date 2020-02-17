@@ -19,6 +19,24 @@ class Anime < ApplicationRecord
         Anime.where("title IN (?)",titles)
     end
 
+    def self.search_for(search_params)
+        search_term = search_params[:search_term]
+        offset = ( search_params[:page].to_i - 1 ) * 10
+
+        if search_term == nil
+            Anime
+                .offset(offset)
+                .limit(10)
+                .order("title ASC")
+        else
+            Anime
+                .where("UPPER(title) LIKE ?", "#{search_term.upcase}%")
+                .offset(offset)
+                .limit(10)
+                .order("title ASC")
+        end
+    end
+
     has_many :reviews,
     class_name: :Review,
     primary_key: :id,

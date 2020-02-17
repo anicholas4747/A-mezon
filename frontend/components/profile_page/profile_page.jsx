@@ -23,7 +23,7 @@ class ProfilePage extends Component{
     }
 
     render(){
-        if(this.props.user.id === null) return <div>Loading...</div>
+        if(this.props.user.id === null) return <h1>Loading...</h1>
 
         const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
         
@@ -36,12 +36,15 @@ class ProfilePage extends Component{
                 <div className={modalToggle}>.</div>
 
                 <section id="profile-info">
-                    <h2>{username}</h2>
-                    {emailShow}
-                    <h3>Aにmezon Member since: {new Date(created_at).toDateString()}</h3>
-                    {editProfileButton}
+                    <img src={window.profilePic}/>
+                    <div>
+                        <h2>{username}</h2>
+                        {emailShow}
+                        <h4>Aにmezon Member since: {new Date(created_at).toDateString()}</h4>
+                    </div>
+                        {editProfileButton}
                 </section>
-                {/* <Reviews reviews={reviews} refPos={this.props.refPos} /> */}
+                <Reviews match={this.props.match} reviews={reviews} refPos={this.props.refPos} />
                 
             </div>
         )
