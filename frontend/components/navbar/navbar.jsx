@@ -12,6 +12,14 @@ class NavBar extends Component {
         this.handleMouseOver = this.handleMouseOver.bind(this);
         this.handleProfileClick = this.handleProfileClick.bind(this);
         this.handlePrimeClick = this.handlePrimeClick.bind(this);
+        this.handleCreatorClick = this.handleCreatorClick.bind(this);
+    }
+
+    handleCreatorClick() {
+        this.props.refPos.current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+        });
     }
 
     randomAnimePage(e){
@@ -85,6 +93,7 @@ class NavBar extends Component {
                         {profileLink}
                         <Link to="/s" >Search by Filters</Link>
                         <a href="#" onClick={this.randomAnimePage}>Surprise Me!</a>
+                        <a onClick={this.handleCreatorClick} id="meet-creator">Meet The Creator!</a>
                     </div>
                 </nav>
             )
@@ -101,7 +110,7 @@ class NavBar extends Component {
                         <AccountDropdown />
                         <a id="order-history">
                             <p>返品</p>
-                            <h4>& 注文</h4>
+                            <h4 id="chumon">& 注文</h4>
                         </a>
                         <div id="try-prime" onClick={this.handlePrimeClick} onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
                             <Link to="/" id="prime">
@@ -121,6 +130,7 @@ class NavBar extends Component {
                         {profileLink}
                         <Link to="/s" >フィルターで探して</Link>
                         <a href="#" onClick={this.randomAnimePage}>ランダムのを見せて!</a>
+                        <a onClick={this.handleCreatorClick} id="meet-creator">作成者を紹介する！</a>
                     </div>
                 </nav>
             )

@@ -1,0 +1,237 @@
+.search-results {
+    padding: 20px 0;
+    min-width: 100%;
+    margin: 0;
+    position: relative;
+}
+
+.search-results > span {
+    font-size: 15px;
+    display: inline-block;
+    margin: 0;
+    padding: 0 25px;
+    color: #111;
+    width: 100%;
+    vertical-align: top;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+#search-term {
+    font-size: 15px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    color: #c45500;
+    vertical-align: top;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#filter-bar {
+    font-size: 15px;
+    display: inline-block;
+    margin: 15px 0;
+    padding: 30px;
+    color: #111;
+    width: 20%;
+    height: fit-content;
+    vertical-align: top;
+    border-right: 2px solid #e7e7e7;
+    height: 600px;
+    position: sticky;
+    top: 10px;
+}
+
+#filter-bar div {
+    padding-bottom: 25px;
+    height: fit-content;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#filter-bar h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    color: #111;
+    padding-bottom: 5px;
+}
+
+#filter-bar label {
+    padding: 2px 5px;
+    display: block;
+}
+
+#filter-bar img {
+    min-width: 15px;
+    min-height: 15px;
+    max-width: 15px;
+    max-height: 15px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 0;
+    padding: 0;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+#filter-bar h5:hover {
+    color: #e77600;
+}
+
+#filter-bar h5 {
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+    color: #111;
+    cursor: pointer;
+}
+
+#results-ul {
+    padding: 15px 25px;
+    margin: 0;
+    width: 65%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#results-ul li {
+    padding: 30px 0px;
+    margin: 0 25px;
+    width: 100%;
+    height: fit-content;
+    display: inline-block;
+    vertical-align: top;
+    border-bottom: 2px solid #e7e7e7;
+}
+
+#results-ul li img {
+    padding: 0;
+    margin: 0 15px;
+    width: 200px;
+    height: 230px;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #a6a6a6;
+    border-radius: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+#results-ul li span {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 5px 15px;
+    width: fit-content;
+    height: fit-content;
+}
+
+#results-ul a:hover {
+    cursor: pointer;
+}
+
+#results-ul li h3 {
+    margin: 0;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    font-family: 'Open Sans', sans-serif;
+    padding-right: 0;
+}
+
+#results-ul li h3:hover {
+    color: #C60;
+}
+
+#results-ul li h4 {
+    margin: 0;
+    padding: 5px 15px;
+    color: #111;
+}
+
+#results-ul li h5 {
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 21px;
+    padding: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}   
+
+#results-ul .details {
+    cursor: pointer;
+}
+
+#results-ul li p {
+    margin: 0;
+    padding: 5px 15px;
+    font-size: 13px;
+    color: #555555;
+}
+
+#page-change {
+    margin: 15px 0;
+    margin-left: 45%;
+    display: inline-block;
+    width: fit-content;
+    vertical-align: top;
+}
+
+#page-change a {
+    font-family: 'Lato', sans-serif;
+    display: inline-block;
+    width: 90px;
+    font-size: 13px;
+    vertical-align: top;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    color: #111;
+    box-sizing: border-box;
+    margin-right: 10px;
+    border-color: transparent;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#page-change a:hover {
+    border-color: #adb1b8 #a2a6ac #8d9096;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#page-change button {
+    font-family: 'Lato', sans-serif;
+    display: inline-block;
+    width: 80px;
+    font-size: 13px;
+    vertical-align: top;
+    background-image: linear-gradient(rgb(247, 248, 250), rgb(231, 233, 236));
+    border-radius: 3px;
+    border-color: #adb1b8 #a2a6ac #8d9096;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    color: #111;
+}
+
+#page-change button:hover {
+    text-decoration: none;
+    background-image: linear-gradient(rgb(231, 234, 240), rgb(217, 220, 225));
+    cursor: pointer;
+}

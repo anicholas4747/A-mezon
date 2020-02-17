@@ -198,7 +198,7 @@
     color: #a6a6a6;
     background-color: transparent;
     text-decoration: none;
-    margin-right: 45px;
+    margin-right: 5%;
     border: 1px solid transparent;
     vertical-align: center;
     min-width: fit-content;
@@ -270,11 +270,13 @@ div.search-by-studio {
     height: 40px;
     padding: 2px 5px;
     padding-left: 0px;
-    color: #a6a6a6;
     border: 1px solid transparent;
+    color: #a6a6a6;
     font-size: 12px;
     box-sizing: border-box;
     margin-right: 10px;
+    position: relative;
+    top: -15px;
 }
 
 .lang-toggle-div img {
@@ -294,6 +296,15 @@ div.search-by-studio {
     display: flex;
     align-items: center;
     padding-left: 2px;
+}
+
+#language-toggle p {
+        color: #a6a6a6;
+    font-size: 12px;
+    box-sizing: border-box;
+    margin: 0;
+    padding-right: 25px;
+    width: 35px;
 }
 
 .lang-toggle-div:hover {
@@ -380,8 +391,8 @@ div.search-by-studio {
     float: left;
     list-style: none;
     position: relative;
-    padding: 20px;
-    top: -14px;
+    padding: 5px;
+    top: -11px;
     left: -260px;
     background-color: rgb(255, 255, 255);
     border: 1px solid #ddd;
@@ -391,6 +402,9 @@ div.search-by-studio {
     width: 500px;
     min-width: 500px;
     transition: 0.125s ease;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    max-height: 650px;
 }
 
 #account-dropdown:hover #account-dropdown-ul{
@@ -399,18 +413,55 @@ div.search-by-studio {
 }
 
 #account-dropdown-ul li {
-    padding: 5px;
+    margin: 10px;
     box-sizing: border-box;
     text-align: center;
+    border-bottom: 1px solid #e7e7e7;
 }
 
-#account-dropdown-ul li > a {
+#account-dropdown-ul button {
+    height: 37px;
+    width: 200px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#account-dropdown-ul li div p {
+    font-size: 12px;
+    padding: 5px 0 10px 0;
+    color: #111;
+}
+
+
+
+#account-dropdown-ul a {
     margin: 0 auto;
     box-sizing: border-box;
-    font-size: 17px;
-    display: inline-block;
-    color: rgba(1, 1, 1, 0.904);
+    font-size: 13px;
+    display: block;
+    color: #333333ee;
     border: none;
+    padding-bottom: 5px;
+}
+
+#account-dropdown-ul a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #e77600;
+}
+
+#account-dropdown-ul h3 {
+    cursor: text;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-bottom: 5px;
+    font-size: 15px;
+    display: block;
+    color: #111;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    padding-left: 10px;
 }
 
 #account-dropdown-ul li > a:hover {
@@ -431,6 +482,48 @@ div.search-by-studio {
     font-size: 12px;
     margin: 0px;
     padding: 0px;
+    display: inline-block;
+}
+
+#account-dropdown-ul #your-lists li {
+    text-align: left;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+#account-dropdown-ul #your-lists a {
+    margin-left: 10px;
+    padding: auto 0;
+    cursor: not-allowed;
+}
+
+#account-dropdown-ul #your-acct a {
+    margin-left: 10px;
+    padding: auto 0;
+    cursor: not-allowed;
+}
+
+#account-dropdown-ul #your-lists {
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+#account-dropdown-ul #your-acct #ok {
+    cursor: pointer;
+}
+
+#account-dropdown-ul #your-acct {
+    padding: 10px;
+    width: 50%;
+    height: fit-content;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    border-left: 1px solid #e7e7e7;
 }
 
 h4 {
@@ -441,13 +534,34 @@ h4 {
     font-family: 'Open Sans', sans-serif;
 }
 
+#en-acct p {
+    padding-top: 0px;
+    position: relative;
+    top: -4px;
+}
+
+#en-acct h4 {
+    padding-top: 0px;
+    position: relative;
+    top: -4px;
+}
+
 #jp-acct p {
     font-size: 10px;
-    padding-top: 5px;
+    padding-top: 4px;
+    position: relative;
+    top: -2px;
+}
+
+#chumon {
+    position: relative;
+    top: -1px;
 }
 
 #jp-acct h4 {
     font-size: 12.5px;
+    position: relative;
+    top: -1px;
 }
 
 #order-history {
@@ -542,16 +656,16 @@ h4 {
     float: left;
     list-style: none;
     position: absolute;
-    padding: 15px;
+    padding: 7px;
     top: 50%;
-    left: 2%;
+    left: 3%;
     background-color: rgb(255, 255, 255);
     border: 1px solid #ddd;
     box-shadow: 0 0 1px 1px #ddd inset;
     border-radius: 4px;
     box-sizing: border-box;
-    width: 250px;
-    min-width: 250px;
+    width: 200px;
+    min-width: 200px;
     transition: 0.125s ease;
 }
 
@@ -566,7 +680,7 @@ h4 {
 }
 
 .search-by-studio-ul li {
-    padding: 5px;
+    padding: 0px;
     box-sizing: border-box;
     text-align: center;
 }
@@ -574,10 +688,11 @@ h4 {
 .search-by-studio-ul li > a {
     margin: 0 auto;
     box-sizing: border-box;
-    font-size: 17px;
+    font-size: 16px;
     display: inline-block;
     color: rgba(1, 1, 1, 0.904);
     border: none;
+    padding: 5px;
 }
 
 .search-by-studio-ul li > a:hover {
@@ -589,11 +704,11 @@ h4 {
 
 #language-toggle:before{
     content: "";
-    display: block;    
+    display: block;
     position: absolute;
-    right: 414px;
+    right: -40px;
     transform: translateX(-50%);
-    top: 42px;
+    top: 46px;
     border-top: 0;
     z-index: 9005;
     border-bottom: 10px solid rgb(255, 255, 255);
@@ -614,7 +729,7 @@ h4 {
     transform: translateX(-50%);
     top: 43px;
     border-top: 0;
-    z-index: 9005;
+    z-index: 9009;
     border-bottom: 10px solid rgb(255, 255, 255);
     border-right: 10px solid transparent;
     border-left: 10px solid transparent;
@@ -681,4 +796,21 @@ h4 {
 
 #accts-adotcom {
     cursor: pointer;
+}
+
+#account-dropdown-ul #start-here {
+    color: #0066c0;
+    display: inline-block;
+}
+
+#meet-creator {
+    cursor: pointer;
+    margin: 0px;
+    font-size: 18px;
+    padding: 5px 10px;
+    font-family: 'Open Sans', sans-serif;
+    z-index: 5;
+    margin-left: 10%;
+    color: #dddddd;
+    text-decoration: underline;
 }

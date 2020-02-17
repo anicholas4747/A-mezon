@@ -16,7 +16,15 @@ class Anime < ApplicationRecord
 
     def self.pull_recs(recs_hash)
         titles = recs_hash.values
-        Anime.where("title IN (?)",titles)
+        anime = Anime.where("title IN (?)",titles)
+        
+        return_anime = []
+        until return_anime.length == anime.length
+            random = anime.sample
+            return_anime.push(random) unless return_anime.include?(random)
+        end
+
+        return_anime
     end
 
     def self.search_for(search_params)
@@ -25,11 +33,13 @@ class Anime < ApplicationRecord
 
         if search_term == nil
             Anime
+                .includes(:studio)
                 .offset(offset)
                 .limit(10)
                 .order("title ASC")
         else
             Anime
+                .includes(:studio)
                 .where("UPPER(title) LIKE ?", "#{search_term.upcase}%")
                 .offset(offset)
                 .limit(10)

@@ -21,7 +21,7 @@ class LangToggle extends  Component{
         return (
             <div className="lang-toggle-div" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
                 <Link to="/language-select" id="language-toggle">
-                    {lang}
+                    <p>{lang}</p>
                     <div>
                         <img src={window.globe} alt="" />
                         {"▾"}
