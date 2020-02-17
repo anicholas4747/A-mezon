@@ -122,7 +122,7 @@ class ReviewForm extends Component{
             });
         };
 
-        let alpha = "abcdefghijklmnopqrstuvwxyz";
+        let alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         if (alpha.includes(this.props.history.location.search[1])){
             // new form data

@@ -235,3 +235,30 @@
     background-image: linear-gradient(rgb(231, 234, 240), rgb(217, 220, 225));
     cursor: pointer;
 }
+
+.show-partial-matches {
+    visibility: visible;
+    transition: 0.4s ease;
+    position: fixed;
+    z-index: 5;
+}
+
+.hide-partial-matches {
+    position: fixed;
+    visibility: hidden;
+    transition: 0.125s ease; 
+    z-index: 5;
+}
+
+.partial-match {
+    outline: none;
+    background-color: whitesmoke;
+    border-color: transparent;
+    font-size: 13px;
+    padding: 5px;
+    width: 100%;
+    height: inherit;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 500;
+}

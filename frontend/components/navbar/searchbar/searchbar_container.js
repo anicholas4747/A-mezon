@@ -3,7 +3,8 @@ import SearchBar from "./searchbar";
 import { navDropdown, navLiClicked } from "../../../actions/ui_actions";
 
 const mapStateToProps = (state) => ({
-    genres: []
+    genres: [],
+    titles: state.entities.anime.allTitles
 });
 
 const mapDispatchToProps = (dispatch) => ({

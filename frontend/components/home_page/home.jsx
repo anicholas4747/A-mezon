@@ -21,7 +21,7 @@ class Home extends Component {
             let recs = {};
             let i= 0;
 
-            while (i < 7){
+            while (i < 8){
                 let randomAnime = titlesArray[Math.floor(Math.random() * titlesArray.length)]; //sb an arr of objects (object.values(fetched anime))
                 if (!Object.values(recs).includes(randomAnime.title)){
                     recs[i] = randomAnime.title;
