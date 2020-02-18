@@ -1,9 +1,10 @@
 import { RECEIVE_STUDIO } from "../actions/studio_actions";
-import { RECEIEVE_ONE_ANIME, RECEIVE_ANIME_TITLES, RECEIVE_SEARCH_RESULTS } from "../actions/anime_actions";
+import { RECEIEVE_ONE_ANIME, RECEIVE_ANIME_TITLES, RECEIVE_SEARCH_RESULTS, RECEIVE_GENRES } from "../actions/anime_actions";
 
 const defaultState = {
     display: {},
     allTitles: [],
+    genres: [],
     results: []
 };
 
@@ -20,6 +21,9 @@ const animeReducer = (state = defaultState, action) => {
         case (RECEIVE_ANIME_TITLES):
             newState.allTitles = null;
             return Object.assign({}, newState, { allTitles: action.allTitles});
+        case (RECEIVE_GENRES):
+            newState.genres = null;
+            return Object.assign({}, newState, { genres: action.genres});
         case (RECEIVE_SEARCH_RESULTS):
             newState.results = null;
             return Object.assign({}, newState, { results: action.results.anime});

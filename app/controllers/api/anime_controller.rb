@@ -9,6 +9,11 @@ class Api::AnimeController < ApplicationController
         @anime = Anime.all
         render :titles
     end
+    
+    def genres
+        @genres = Anime.get_genres
+        render :genres
+    end
 
     def recs
         @recs = Anime.pull_recs(params[:recs])
@@ -28,6 +33,6 @@ class Api::AnimeController < ApplicationController
 
     private
     def search_params
-        params.require(:search).permit(:search_term, :page)
+        params.require(:search).permit(:title, :genres, :studios, :years, :page)
     end
 end

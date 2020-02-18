@@ -3,6 +3,7 @@ import * as AnimeAPIUtil from '../util/anime_api_util';
 export const RECEIEVE_ONE_ANIME = "RECEIEVE_ONE_ANIME";
 export const RECEIVE_ANIME_TITLES = "RECEIVE_ANIME_TITLES";
 export const RECEIVE_RECS = "RECEIVE_RECS";
+export const RECEIVE_GENRES = "RECEIVE_GENRES";
 export const RECEIVE_SEARCH_RESULTS = "RECEIVE_SEARCH_RESULTS";
 
 export const receiveOneAnime = (anime) => ({
@@ -18,6 +19,11 @@ export const receiveAnimeTitles = (allTitles) => ({
 export const receiveRecs = (recs) => ({
     type: RECEIVE_RECS,
     recs
+});
+
+export const receiveGenres = (genres) => ({
+    type: RECEIVE_GENRES,
+    genres
 });
 
 export const receiveSearchResults = (results) => ({
@@ -40,12 +46,17 @@ export const fetchRecs = (recs) => dispatch => (
         .then((recs) => dispatch(receiveRecs(recs)))
 );
 
-export const searchAnime = (searchTerm, page) => dispatch => (
-    AnimeAPIUtil.searchAnime(searchTerm, page)
+export const searchAnime = (searchParams) => dispatch => (
+    AnimeAPIUtil.searchAnime(searchParams)
         .then((results) => dispatch(receiveSearchResults(results)))
 );
 
 export const searchAllAnime = (page) => dispatch => (
     AnimeAPIUtil.searchAllAnime(page)
         .then((results) => dispatch(receiveSearchResults(results)))
+);
+
+export const fetchGenres = () => dispatch => (
+    AnimeAPIUtil.fetchGenres()
+        .then((genres) => dispatch(receiveGenres(genres)))
 );

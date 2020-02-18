@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 import SearchBar from "./searchbar";
 import { navDropdown, navLiClicked } from "../../../actions/ui_actions";
-import { fetchOneAnime, searchAnime } from "../../../actions/anime_actions";
+import { fetchOneAnime, searchAnime, fetchGenres } from "../../../actions/anime_actions";
 
 const mapStateToProps = (state) => ({
-    genres: [],
+    genres: state.entities.anime.genres,
     liClicked: Boolean(state.ui.navLiClicked),
     titles: state.entities.anime.allTitles
 });
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     startSearch: (bool) => dispatch(navDropdown(bool)),
     fetchOneAnime: (animeTitle) => dispatch(fetchOneAnime(animeTitle)),
-    searchAnime: (searchTerm, page) => dispatch(searchAnime(searchTerm, page)),
+    fetchGenres: () => dispatch(fetchGenres()),
+    searchAnime: (searchParams) => dispatch(searchAnime(searchParams)),
     navLiClicked: (bool) => dispatch(navLiClicked(bool)),
     navDropdown: (bool) => dispatch(navDropdown(bool))
 });

@@ -11,7 +11,7 @@ const mSTP = state => ({
 
 const mDTP = dispatch => ({
     navDropdown: (bool) => dispatch(navDropdown(bool)),
-    searchAnime: (searchTerm, page) => dispatch(searchAnime(searchTerm, page)),
+    searchAnime: (searchParams) => dispatch(searchAnime(searchParams)),
     searchAllAnime: (page) => dispatch(searchAllAnime(page))
 });
 

@@ -62372,3 +62372,1227 @@ Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 1.4ms)
 Completed 200 OK in 38ms (Views: 12.2ms | ActiveRecord: 15.6ms)
 
 
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 14:44:16 -0500
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (1.7ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (5.7ms)
+Completed 200 OK in 18ms (Views: 15.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B1%5D=Kill+la+Kill&recs%5B2%5D=Angel+Beats!&recs%5B3%5D=Shirobako&recs%5B4%5D=Little+Witch+Academia&recs%5B5%5D=Darling+in+the+FranXX&recs%5B6%5D=Tengen+Toppa+Gurren+Lagann&recs%5B7%5D=Samurai+Champloo" for ::1 at 2020-02-18 14:44:16 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Miss Kobayashi's Dragon Maid", "1"=>"Kill la Kill", "2"=>"Angel Beats!", "3"=>"Shirobako", "4"=>"Little Witch Academia", "5"=>"Darling in the FranXX", "6"=>"Tengen Toppa Gurren Lagann", "7"=>"Samurai Champloo"}}
+  [1m[36mAnime Load (2.3ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Miss Kobayashi''s Dragon Maid','Kill la Kill','Angel Beats!','Shirobako','Little Witch Academia','Darling in the FranXX','Tengen Toppa Gurren Lagann','Samurai Champloo'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (2.3ms)
+Completed 200 OK in 17ms (Views: 11.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:03:16 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.7ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 629ms (Views: 566.0ms | ActiveRecord: 62.1ms)
+
+
+Started GET "/api/studios" for ::1 at 2020-02-18 15:03:17 -0500
+Processing by Api::StudiosController#index as JSON
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:03:17 -0500
+  Rendering api/studios/index.json.jbuilder
+  [1m[36mStudio Load (3.4ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (24.3ms)
+Completed 200 OK in 44ms (Views: 18.0ms | ActiveRecord: 14.4ms)
+
+
+Processing by Api::AnimeController#titles as JSON
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected &
+            .map (&:downcase)
+                  ^:
+  app/models/anime.rb:35:in `'
+  app/controllers/api/anime_controller.rb:9:in `titles'
+
+Started GET "/" for ::1 at 2020-02-18 15:03:51 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.3ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 146ms (Views: 132.5ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/api/studios" for ::1 at 2020-02-18 15:03:52 -0500
+Processing by Api::StudiosController#index as JSON
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:03:52 -0500
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/studios/index.json.jbuilder
+  [1m[36mStudio Load (8.5ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (0.9ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (25.5ms)
+Completed 200 OK in 65ms (Views: 26.3ms | ActiveRecord: 17.8ms)
+
+
+  Rendered api/anime/titles.json.jbuilder (28.9ms)
+Completed 200 OK in 60ms (Views: 24.5ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:04:33 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 86ms (Views: 85.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/studios" for ::1 at 2020-02-18 15:04:34 -0500
+Processing by Api::StudiosController#index as JSON
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:04:34 -0500
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/studios/index.json.jbuilder
+  [1m[36mStudio Load (7.0ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (15.2ms)
+  Rendering api/anime/titles.json.jbuilder
+Completed 200 OK in 54ms (Views: 28.3ms | ActiveRecord: 7.0ms)
+
+
+  [1m[36mAnime Load (2.2ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (18.6ms)
+Completed 200 OK in 51ms (Views: 27.7ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:06:37 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.6ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 464ms (Views: 462.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/studios" for ::1 at 2020-02-18 15:06:38 -0500
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:06:38 -0500
+Processing by Api::AnimeController#titles as JSON
+Processing by Api::StudiosController#index as JSON
+  Rendering api/anime/titles.json.jbuilder
+  Rendering api/studios/index.json.jbuilder
+  [1m[36mStudio Load (9.1ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (11.3ms)
+Completed 200 OK in 31ms (Views: 22.0ms | ActiveRecord: 9.1ms)
+
+
+  [1m[36mAnime Load (20.7ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (22.8ms)
+Completed 200 OK in 38ms (Views: 16.5ms | ActiveRecord: 20.7ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:06:58 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 472ms (Views: 471.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/studios" for ::1 at 2020-02-18 15:06:59 -0500
+Processing by Api::StudiosController#index as JSON
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:06:59 -0500
+  Rendering api/studios/index.json.jbuilder
+  [1m[36mStudio Load (27.9ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (29.7ms)
+Completed 200 OK in 50ms (Views: 21.8ms | ActiveRecord: 27.9ms)
+
+
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (0.9ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (2.9ms)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:08:17 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 504ms (Views: 503.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/studios" for ::1 at 2020-02-18 15:08:18 -0500
+Processing by Api::StudiosController#index as JSON
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:08:18 -0500
+  Rendering api/studios/index.json.jbuilder
+  [1m[36mStudio Load (0.4ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (2.3ms)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.4ms)
+
+
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (0.4ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (1.6ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:16:31 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (4.9ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 652ms (Views: 648.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/studios" for ::1 at 2020-02-18 15:16:32 -0500
+Processing by Api::StudiosController#index as JSON
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:16:32 -0500
+  Rendering api/studios/index.json.jbuilder
+  [1m[36mStudio Load (8.6ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (14.0ms)
+Completed 200 OK in 26ms (Views: 17.1ms | ActiveRecord: 8.6ms)
+
+
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (1.3ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (3.3ms)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:17:38 -0500
+  [1m[35m (5.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/keemie/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (1.3ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2132ms (Views: 2121.9ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/api/studios" for ::1 at 2020-02-18 15:17:41 -0500
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:17:41 -0500
+Processing by Api::StudiosController#index as JSON
+  Rendering api/studios/index.json.jbuilder
+  [1m[36mStudio Load (1.9ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (28.6ms)
+Completed 200 OK in 43ms (Views: 19.7ms | ActiveRecord: 21.0ms)
+
+
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (1.5ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (30.8ms)
+Completed 200 OK in 46ms (Views: 16.2ms | ActiveRecord: 22.2ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:18:05 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.5ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 494ms (Views: 492.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/studios" for ::1 at 2020-02-18 15:18:06 -0500
+Processing by Api::StudiosController#index as JSON
+  Rendering api/studios/index.json.jbuilder
+  [1m[36mStudio Load (3.5ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (5.0ms)
+Completed 200 OK in 15ms (Views: 11.5ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:26:13 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (1.9ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 154ms (Views: 151.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/studios" for ::1 at 2020-02-18 15:26:13 -0500
+Processing by Api::StudiosController#index as JSON
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:26:13 -0500
+  Rendering api/studios/index.json.jbuilder
+  [1m[36mStudio Load (6.9ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (10.9ms)
+Completed 200 OK in 28ms (Views: 20.4ms | ActiveRecord: 6.9ms)
+
+
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (1.0ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (3.2ms)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:27:45 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.5ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 782ms (Views: 778.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/studios" for ::1 at 2020-02-18 15:28:03 -0500
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:28:03 -0500
+Processing by Api::StudiosController#index as JSON
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/studios/index.json.jbuilder
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mStudio Load (11.0ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (13.6ms)
+Completed 200 OK in 31ms (Views: 20.0ms | ActiveRecord: 11.0ms)
+
+
+  [1m[36mAnime Load (8.2ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (10.4ms)
+Completed 200 OK in 33ms (Views: 24.5ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:29:17 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 458ms (Views: 456.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 15:29:29 -0500
+Started GET "/api/studios" for ::1 at 2020-02-18 15:29:29 -0500
+Processing by Api::AnimeController#genres as JSON
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:29:29 -0500
+Processing by Api::StudiosController#index as JSON
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `get_genres' for #<Class:0x00007fafc9eedd08>:
+  app/controllers/api/anime_controller.rb:14:in `genres'
+
+  Rendering api/studios/index.json.jbuilder
+  [1m[36mStudio Load (6.1ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (8.6ms)
+Completed 200 OK in 35ms (Views: 28.8ms | ActiveRecord: 6.1ms)
+
+
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (1.7ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (4.1ms)
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:30:32 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (1.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 116ms (Views: 100.8ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Shirobako&recs%5B1%5D=Little+Witch+Academia&recs%5B2%5D=Kill+la+Kill&recs%5B3%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B4%5D=Angel+Beats!&recs%5B5%5D=Samurai+Champloo&recs%5B6%5D=Darling+in+the+FranXX&recs%5B7%5D=Tengen+Toppa+Gurren+Lagann" for ::1 at 2020-02-18 15:30:32 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Shirobako", "1"=>"Little Witch Academia", "2"=>"Kill la Kill", "3"=>"Miss Kobayashi's Dragon Maid", "4"=>"Angel Beats!", "5"=>"Samurai Champloo", "6"=>"Darling in the FranXX", "7"=>"Tengen Toppa Gurren Lagann"}}
+  [1m[36mAnime Load (0.8ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Shirobako','Little Witch Academia','Kill la Kill','Miss Kobayashi''s Dragon Maid','Angel Beats!','Samurai Champloo','Darling in the FranXX','Tengen Toppa Gurren Lagann'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (1.8ms)
+Completed 200 OK in 38ms (Views: 11.9ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 15:30:36 -0500
+Processing by Api::AnimeController#genres as JSON
+Started GET "/api/studios" for ::1 at 2020-02-18 15:30:36 -0500
+  [1m[36mAnime Load (7.9ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+  ↳ app/models/anime.rb:33
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 7.9ms)
+
+
+
+NoMethodError - undefined method `split' for #<Anime id: nil, genre: "Action/Adventure">:
+  app/models/anime.rb:33:in `block in get_genres'
+  app/models/anime.rb:33:in `get_genres'
+  app/controllers/api/anime_controller.rb:14:in `genres'
+
+Processing by Api::StudiosController#index as JSON
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:30:36 -0500
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (13.0ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (15.0ms)
+Completed 200 OK in 26ms (Views: 12.3ms | ActiveRecord: 13.0ms)
+
+
+  Rendering api/studios/index.json.jbuilder
+  [1m[36mStudio Load (0.9ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (27.8ms)
+Completed 200 OK in 63ms (Views: 25.4ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:32:03 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 86ms (Views: 85.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:32:41 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (1.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 145ms (Views: 143.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 15:32:42 -0500
+Started GET "/api/studios" for ::1 at 2020-02-18 15:32:42 -0500
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:32:42 -0500
+Processing by Api::AnimeController#genres as JSON
+Processing by Api::StudiosController#index as JSON
+Processing by Api::AnimeController#titles as JSON
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+  ↳ app/models/anime.rb:32
+  Rendering api/studios/index.json.jbuilder
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mStudio Load (5.1ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  [1m[36mAnime Load (0.7ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (17.2ms)
+Completed 200 OK in 38ms (Views: 25.2ms | ActiveRecord: 6.8ms)
+
+
+  Rendered api/studios/index.json.jbuilder (27.9ms)
+Completed 200 OK in 44ms (Views: 14.1ms | ActiveRecord: 21.2ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Shirobako&recs%5B1%5D=Darling+in+the+FranXX&recs%5B2%5D=Tengen+Toppa+Gurren+Lagann&recs%5B3%5D=Angel+Beats!&recs%5B4%5D=Little+Witch+Academia&recs%5B5%5D=Kill+la+Kill&recs%5B6%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B7%5D=Samurai+Champloo" for ::1 at 2020-02-18 15:32:42 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Shirobako", "1"=>"Darling in the FranXX", "2"=>"Tengen Toppa Gurren Lagann", "3"=>"Angel Beats!", "4"=>"Little Witch Academia", "5"=>"Kill la Kill", "6"=>"Miss Kobayashi's Dragon Maid", "7"=>"Samurai Champloo"}}
+  [1m[36mAnime Load (1.0ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Shirobako','Darling in the FranXX','Tengen Toppa Gurren Lagann','Angel Beats!','Little Witch Academia','Kill la Kill','Miss Kobayashi''s Dragon Maid','Samurai Champloo'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (1.0ms)
+Completed 200 OK in 20ms (Views: 12.6ms | ActiveRecord: 1.0ms)
+
+
+  Rendering api/anime/genres.json.jbuilder
+Started GET "/" for ::1 at 2020-02-18 15:35:49 -0500
+  Rendered api/anime/genres.json.jbuilder (0.5ms)
+Started GET "/" for ::1 at 2020-02-18 15:35:49 -0500
+Started GET "/" for ::1 at 2020-02-18 15:35:49 -0500
+Completed 200 OK in 187231ms (Views: 15.0ms | ActiveRecord: 3.7ms)
+
+
+Processing by RootController#root as HTML
+Processing by RootController#root as HTML
+Started GET "/" for ::1 at 2020-02-18 15:35:49 -0500
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.3ms)
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.4ms)
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.1ms)
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.0ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+Completed 200 OK in 143ms (Views: 141.4ms | ActiveRecord: 0.9ms)
+
+
+  ↳ app/controllers/application_controller.rb:5
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 158ms (Views: 157.6ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+Completed 200 OK in 168ms (Views: 166.9ms | ActiveRecord: 0.7ms)
+
+
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 120ms (Views: 116.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 15:35:50 -0500
+Processing by Api::AnimeController#genres as JSON
+Started GET "/api/studios" for ::1 at 2020-02-18 15:35:50 -0500
+Processing by Api::StudiosController#index as JSON
+  [1m[35m (7.8ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+  ↳ app/models/anime.rb:32
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:35:55 -0500
+  Rendering api/anime/genres.json.jbuilder
+  Rendered api/anime/genres.json.jbuilder (0.4ms)
+  Rendering api/studios/index.json.jbuilder
+Completed 200 OK in 4677ms (Views: 17.8ms | ActiveRecord: 7.8ms)
+
+
+  [1m[36mStudio Load (0.8ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (4.1ms)
+Completed 200 OK in 4678ms (Views: 4676.9ms | ActiveRecord: 0.8ms)
+
+
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (0.4ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (2.0ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B1%5D=Shirobako&recs%5B2%5D=Darling+in+the+FranXX&recs%5B3%5D=Samurai+Champloo&recs%5B4%5D=Little+Witch+Academia&recs%5B5%5D=Angel+Beats!&recs%5B6%5D=Tengen+Toppa+Gurren+Lagann&recs%5B7%5D=Kill+la+Kill" for ::1 at 2020-02-18 15:35:55 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Miss Kobayashi's Dragon Maid", "1"=>"Shirobako", "2"=>"Darling in the FranXX", "3"=>"Samurai Champloo", "4"=>"Little Witch Academia", "5"=>"Angel Beats!", "6"=>"Tengen Toppa Gurren Lagann", "7"=>"Kill la Kill"}}
+  [1m[36mAnime Load (0.5ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Miss Kobayashi''s Dragon Maid','Shirobako','Darling in the FranXX','Samurai Champloo','Little Witch Academia','Angel Beats!','Tengen Toppa Gurren Lagann','Kill la Kill'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (1.0ms)
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:36:05 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 90ms (Views: 89.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 15:36:13 -0500
+Started GET "/api/studios" for ::1 at 2020-02-18 15:36:13 -0500
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:36:13 -0500
+Processing by Api::AnimeController#genres as JSON
+Processing by Api::StudiosController#index as JSON
+  Rendering api/studios/index.json.jbuilder
+Processing by Api::AnimeController#titles as JSON
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+  [1m[36mStudio Load (3.0ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (5.2ms)
+  ↳ app/models/anime.rb:32
+Completed 200 OK in 22ms (Views: 18.5ms | ActiveRecord: 3.0ms)
+
+
+  Rendering api/anime/titles.json.jbuilder
+  Rendering api/anime/genres.json.jbuilder
+  Rendered api/anime/genres.json.jbuilder (0.4ms)
+Completed 200 OK in 19349ms (Views: 12.2ms | ActiveRecord: 3.6ms)
+
+
+  [1m[36mAnime Load (6.9ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (11.5ms)
+Completed 200 OK in 19329ms (Views: 19321.5ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Kill+la+Kill&recs%5B1%5D=Darling+in+the+FranXX&recs%5B2%5D=Tengen+Toppa+Gurren+Lagann&recs%5B3%5D=Samurai+Champloo&recs%5B4%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B5%5D=Shirobako&recs%5B6%5D=Little+Witch+Academia&recs%5B7%5D=Angel+Beats!" for ::1 at 2020-02-18 15:36:49 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Kill la Kill", "1"=>"Darling in the FranXX", "2"=>"Tengen Toppa Gurren Lagann", "3"=>"Samurai Champloo", "4"=>"Miss Kobayashi's Dragon Maid", "5"=>"Shirobako", "6"=>"Little Witch Academia", "7"=>"Angel Beats!"}}
+  [1m[36mAnime Load (3.5ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Kill la Kill','Darling in the FranXX','Tengen Toppa Gurren Lagann','Samurai Champloo','Miss Kobayashi''s Dragon Maid','Shirobako','Little Witch Academia','Angel Beats!'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (0.8ms)
+Completed 200 OK in 37ms (Views: 8.5ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:36:54 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 113ms (Views: 104.9ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 15:36:58 -0500
+Started GET "/api/studios" for ::1 at 2020-02-18 15:36:58 -0500
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:36:58 -0500
+Processing by Api::AnimeController#genres as JSON
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+  ↳ app/models/anime.rb:32
+  Rendering api/anime/genres.json.jbuilder
+  Rendered api/anime/genres.json.jbuilder (0.9ms)
+Completed 200 OK in 22ms (Views: 19.6ms | ActiveRecord: 0.8ms)
+
+
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+Processing by Api::StudiosController#index as JSON
+  [1m[36mAnime Load (18.2ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (23.2ms)
+Completed 200 OK in 42ms (Views: 23.8ms | ActiveRecord: 18.2ms)
+
+
+  Rendering api/studios/index.json.jbuilder
+  [1m[36mStudio Load (2.0ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (21.2ms)
+Completed 200 OK in 41ms (Views: 16.3ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Shirobako&recs%5B1%5D=Angel+Beats!&recs%5B2%5D=Kill+la+Kill&recs%5B3%5D=Darling+in+the+FranXX&recs%5B4%5D=Tengen+Toppa+Gurren+Lagann&recs%5B5%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B6%5D=Little+Witch+Academia&recs%5B7%5D=Samurai+Champloo" for ::1 at 2020-02-18 15:37:40 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Shirobako", "1"=>"Angel Beats!", "2"=>"Kill la Kill", "3"=>"Darling in the FranXX", "4"=>"Tengen Toppa Gurren Lagann", "5"=>"Miss Kobayashi's Dragon Maid", "6"=>"Little Witch Academia", "7"=>"Samurai Champloo"}}
+  [1m[36mAnime Load (5.7ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Shirobako','Angel Beats!','Kill la Kill','Darling in the FranXX','Tengen Toppa Gurren Lagann','Miss Kobayashi''s Dragon Maid','Little Witch Academia','Samurai Champloo'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (2.7ms)
+Completed 200 OK in 32ms (Views: 21.6ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:37:42 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 461ms (Views: 460.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 15:37:43 -0500
+Processing by Api::AnimeController#genres as JSON
+Started GET "/api/studios" for ::1 at 2020-02-18 15:37:43 -0500
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:37:43 -0500
+  [1m[35m (47.6ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+  ↳ app/models/anime.rb:32
+  Rendering api/anime/genres.json.jbuilder
+  Rendered api/anime/genres.json.jbuilder (0.6ms)
+Completed 200 OK in 61ms (Views: 11.7ms | ActiveRecord: 47.6ms)
+
+
+Processing by Api::AnimeController#titles as JSON
+Processing by Api::StudiosController#index as JSON
+  Rendering api/anime/titles.json.jbuilder
+  Rendering api/studios/index.json.jbuilder
+  [1m[36mAnime Load (6.6ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (9.0ms)
+Completed 200 OK in 22ms (Views: 15.5ms | ActiveRecord: 6.6ms)
+
+
+  [1m[36mStudio Load (3.3ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (4.8ms)
+Completed 200 OK in 22ms (Views: 18.6ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Shirobako&recs%5B1%5D=Kill+la+Kill&recs%5B2%5D=Little+Witch+Academia&recs%5B3%5D=Angel+Beats!&recs%5B4%5D=Tengen+Toppa+Gurren+Lagann&recs%5B5%5D=Darling+in+the+FranXX&recs%5B6%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B7%5D=Samurai+Champloo" for ::1 at 2020-02-18 15:37:43 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Shirobako", "1"=>"Kill la Kill", "2"=>"Little Witch Academia", "3"=>"Angel Beats!", "4"=>"Tengen Toppa Gurren Lagann", "5"=>"Darling in the FranXX", "6"=>"Miss Kobayashi's Dragon Maid", "7"=>"Samurai Champloo"}}
+  [1m[36mAnime Load (3.5ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Shirobako','Kill la Kill','Little Witch Academia','Angel Beats!','Tengen Toppa Gurren Lagann','Darling in the FranXX','Miss Kobayashi''s Dragon Maid','Samurai Champloo'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (0.8ms)
+Completed 200 OK in 18ms (Views: 12.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/api/user/anime_lover123/reviews" for ::1 at 2020-02-18 15:37:52 -0500
+Processing by Api::UsersController#reviews as JSON
+  Parameters: {"username"=>"anime_lover123"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "anime_lover123"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:33
+  [1m[36mReview Load (1.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_id" = $1[0m  [["author_id", 11]]
+  ↳ app/controllers/api/users_controller.rb:33
+  [1m[36mAnime Load (2.8ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE "anime"."id" IN ($1, $2)[0m  [["id", 29], ["id", 31]]
+  ↳ app/controllers/api/users_controller.rb:33
+  Rendering api/users/profile.json.jbuilder
+  Rendered api/users/profile.json.jbuilder (1.3ms)
+Completed 200 OK in 76ms (Views: 8.6ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/api/user/anime_lover123/reviews" for ::1 at 2020-02-18 15:37:52 -0500
+Processing by Api::UsersController#reviews as JSON
+  Parameters: {"username"=>"anime_lover123"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "anime_lover123"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:33
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."author_id" = $1[0m  [["author_id", 11]]
+  ↳ app/controllers/api/users_controller.rb:33
+  [1m[36mAnime Load (2.7ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE "anime"."id" IN ($1, $2)[0m  [["id", 29], ["id", 31]]
+  ↳ app/controllers/api/users_controller.rb:33
+  Rendering api/users/profile.json.jbuilder
+  Rendered api/users/profile.json.jbuilder (0.9ms)
+Completed 200 OK in 19ms (Views: 10.8ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:39:07 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (2.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 216ms (Views: 215.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 15:39:07 -0500
+Started GET "/api/studios" for ::1 at 2020-02-18 15:39:07 -0500
+Processing by Api::AnimeController#genres as JSON
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:39:07 -0500
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+  ↳ app/models/anime.rb:32
+Processing by Api::StudiosController#index as JSON
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/genres.json.jbuilder
+  Rendered api/anime/genres.json.jbuilder (0.4ms)
+Completed 200 OK in 19ms (Views: 11.8ms | ActiveRecord: 4.1ms)
+
+
+  Rendering api/studios/index.json.jbuilder
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (0.7ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (2.2ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mStudio Load (1.5ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (4.6ms)
+Completed 200 OK in 25ms (Views: 23.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Shirobako&recs%5B1%5D=Little+Witch+Academia&recs%5B2%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B3%5D=Angel+Beats!&recs%5B4%5D=Tengen+Toppa+Gurren+Lagann&recs%5B5%5D=Kill+la+Kill&recs%5B6%5D=Darling+in+the+FranXX&recs%5B7%5D=Samurai+Champloo" for ::1 at 2020-02-18 15:39:07 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Shirobako", "1"=>"Little Witch Academia", "2"=>"Miss Kobayashi's Dragon Maid", "3"=>"Angel Beats!", "4"=>"Tengen Toppa Gurren Lagann", "5"=>"Kill la Kill", "6"=>"Darling in the FranXX", "7"=>"Samurai Champloo"}}
+  [1m[36mAnime Load (5.1ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Shirobako','Little Witch Academia','Miss Kobayashi''s Dragon Maid','Angel Beats!','Tengen Toppa Gurren Lagann','Kill la Kill','Darling in the FranXX','Samurai Champloo'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (1.0ms)
+Completed 200 OK in 18ms (Views: 11.2ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/api/anime/Angel%20Beats!" for ::1 at 2020-02-18 15:40:31 -0500
+Processing by Api::AnimeController#show as JSON
+  Parameters: {"title"=>"Angel Beats!"}
+  [1m[36mAnime Load (1.4ms)[0m  [1m[34mSELECT  "anime".* FROM "anime" WHERE "anime"."title" = $1 LIMIT $2[0m  [["title", "Angel Beats!"], ["LIMIT", 1]]
+  ↳ app/controllers/api/anime_controller.rb:30
+  [1m[36mStudio Load (0.7ms)[0m  [1m[34mSELECT "studios".* FROM "studios" WHERE "studios"."id" = $1[0m  [["id", 17]]
+  ↳ app/controllers/api/anime_controller.rb:30
+  [1m[36mReview Load (0.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."anime_id" = $1[0m  [["anime_id", 30]]
+  ↳ app/controllers/api/anime_controller.rb:30
+  Rendering api/anime/show.json.jbuilder
+  Rendered api/anime/show.json.jbuilder (1.0ms)
+Completed 200 OK in 31ms (Views: 9.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/anime/Angel-Beats!" for ::1 at 2020-02-18 15:40:31 -0500
+Processing by Api::AnimeController#show as JSON
+  Parameters: {"title"=>"Angel-Beats!"}
+  [1m[36mAnime Load (4.5ms)[0m  [1m[34mSELECT  "anime".* FROM "anime" WHERE "anime"."title" = $1 LIMIT $2[0m  [["title", "Angel Beats!"], ["LIMIT", 1]]
+  ↳ app/controllers/api/anime_controller.rb:30
+  [1m[36mStudio Load (0.4ms)[0m  [1m[34mSELECT "studios".* FROM "studios" WHERE "studios"."id" = $1[0m  [["id", 17]]
+  ↳ app/controllers/api/anime_controller.rb:30
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."anime_id" = $1[0m  [["anime_id", 30]]
+  ↳ app/controllers/api/anime_controller.rb:30
+  Rendering api/anime/show.json.jbuilder
+  Rendered api/anime/show.json.jbuilder (2.4ms)
+Completed 200 OK in 23ms (Views: 13.3ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/api/anime/search?search%5Bsearch_term%5D=a&search%5Bpage%5D=1" for ::1 at 2020-02-18 15:40:34 -0500
+Processing by Api::AnimeController#search as JSON
+  Parameters: {"search"=>{"search_term"=>"a", "page"=>"1"}}
+  Rendering api/anime/search_results.json.jbuilder
+  [1m[36mAnime Load (12.0ms)[0m  [1m[34mSELECT  "anime".* FROM "anime" WHERE (UPPER(title) LIKE 'A%') ORDER BY title ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/api/anime/search_results.json.jbuilder:2
+  [1m[36mStudio Load (0.3ms)[0m  [1m[34mSELECT "studios".* FROM "studios" WHERE "studios"."id" = $1[0m  [["id", 17]]
+  ↳ app/views/api/anime/search_results.json.jbuilder:2
+  Rendered api/anime/search_results.json.jbuilder (15.8ms)
+Completed 200 OK in 25ms (Views: 12.5ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/api/anime/search?search%5Bsearch_term%5D=a&search%5Bpage%5D=1" for ::1 at 2020-02-18 15:40:34 -0500
+Processing by Api::AnimeController#search as JSON
+  Parameters: {"search"=>{"search_term"=>"a", "page"=>"1"}}
+  Rendering api/anime/search_results.json.jbuilder
+  [1m[36mAnime Load (1.0ms)[0m  [1m[34mSELECT  "anime".* FROM "anime" WHERE (UPPER(title) LIKE 'A%') ORDER BY title ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/api/anime/search_results.json.jbuilder:2
+  [1m[36mStudio Load (0.4ms)[0m  [1m[34mSELECT "studios".* FROM "studios" WHERE "studios"."id" = $1[0m  [["id", 17]]
+  ↳ app/views/api/anime/search_results.json.jbuilder:2
+  Rendered api/anime/search_results.json.jbuilder (6.1ms)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/anime/search?search%5Bsearch_term%5D=c&search%5Bpage%5D=1" for ::1 at 2020-02-18 15:40:37 -0500
+Processing by Api::AnimeController#search as JSON
+  Parameters: {"search"=>{"search_term"=>"c", "page"=>"1"}}
+  Rendering api/anime/search_results.json.jbuilder
+  [1m[36mAnime Load (0.6ms)[0m  [1m[34mSELECT  "anime".* FROM "anime" WHERE (UPPER(title) LIKE 'C%') ORDER BY title ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/api/anime/search_results.json.jbuilder:2
+  Rendered api/anime/search_results.json.jbuilder (2.0ms)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/anime/search?search%5Bsearch_term%5D=d&search%5Bpage%5D=1" for ::1 at 2020-02-18 15:40:40 -0500
+Processing by Api::AnimeController#search as JSON
+  Parameters: {"search"=>{"search_term"=>"d", "page"=>"1"}}
+  Rendering api/anime/search_results.json.jbuilder
+  [1m[36mAnime Load (0.6ms)[0m  [1m[34mSELECT  "anime".* FROM "anime" WHERE (UPPER(title) LIKE 'D%') ORDER BY title ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/api/anime/search_results.json.jbuilder:2
+  [1m[36mStudio Load (0.3ms)[0m  [1m[34mSELECT "studios".* FROM "studios" WHERE "studios"."id" = $1[0m  [["id", 15]]
+  ↳ app/views/api/anime/search_results.json.jbuilder:2
+  Rendered api/anime/search_results.json.jbuilder (3.4ms)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/anime/search?search%5Bsearch_term%5D=s&search%5Bpage%5D=1" for ::1 at 2020-02-18 15:40:44 -0500
+Processing by Api::AnimeController#search as JSON
+  Parameters: {"search"=>{"search_term"=>"s", "page"=>"1"}}
+  Rendering api/anime/search_results.json.jbuilder
+  [1m[36mAnime Load (26.8ms)[0m  [1m[34mSELECT  "anime".* FROM "anime" WHERE (UPPER(title) LIKE 'S%') ORDER BY title ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/api/anime/search_results.json.jbuilder:2
+  [1m[36mStudio Load (1.7ms)[0m  [1m[34mSELECT "studios".* FROM "studios" WHERE "studios"."id" IN ($1, $2)[0m  [["id", 18], ["id", 17]]
+  ↳ app/views/api/anime/search_results.json.jbuilder:2
+  Rendered api/anime/search_results.json.jbuilder (33.7ms)
+Completed 200 OK in 47ms (Views: 17.0ms | ActiveRecord: 28.5ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:44:09 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (4.6ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 550ms (Views: 544.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 15:44:10 -0500
+Started GET "/api/studios" for ::1 at 2020-02-18 15:44:10 -0500
+Processing by Api::AnimeController#genres as JSON
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:44:10 -0500
+Processing by Api::StudiosController#index as JSON
+  Rendering api/studios/index.json.jbuilder
+  [1m[36mStudio Load (2.1ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (5.3ms)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 2.1ms)
+
+
+  [1m[35m (50.9ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+  ↳ app/models/anime.rb:32
+  Rendering api/anime/genres.json.jbuilder
+  Rendered api/anime/genres.json.jbuilder (0.5ms)
+Completed 200 OK in 66ms (Views: 10.7ms | ActiveRecord: 50.9ms)
+
+
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (0.9ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (3.5ms)
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Darling+in+the+FranXX&recs%5B1%5D=Shirobako&recs%5B2%5D=Tengen+Toppa+Gurren+Lagann&recs%5B3%5D=Angel+Beats!&recs%5B4%5D=Kill+la+Kill&recs%5B5%5D=Little+Witch+Academia&recs%5B6%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B7%5D=Samurai+Champloo" for ::1 at 2020-02-18 15:44:10 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Darling in the FranXX", "1"=>"Shirobako", "2"=>"Tengen Toppa Gurren Lagann", "3"=>"Angel Beats!", "4"=>"Kill la Kill", "5"=>"Little Witch Academia", "6"=>"Miss Kobayashi's Dragon Maid", "7"=>"Samurai Champloo"}}
+  [1m[36mAnime Load (0.9ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Darling in the FranXX','Shirobako','Tengen Toppa Gurren Lagann','Angel Beats!','Kill la Kill','Little Witch Academia','Miss Kobayashi''s Dragon Maid','Samurai Champloo'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (1.2ms)
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 15:45:37 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 537ms (Views: 535.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 15:45:38 -0500
+Started GET "/api/studios" for ::1 at 2020-02-18 15:45:38 -0500
+Processing by Api::AnimeController#genres as JSON
+Processing by Api::StudiosController#index as JSON
+  Rendering api/studios/index.json.jbuilder
+  [1m[35m (13.3ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+  ↳ app/models/anime.rb:32
+  [1m[36mStudio Load (3.3ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (5.4ms)
+Completed 200 OK in 16ms (Views: 12.9ms | ActiveRecord: 3.3ms)
+
+
+  Rendering api/anime/genres.json.jbuilder
+  Rendered api/anime/genres.json.jbuilder (0.7ms)
+Completed 200 OK in 27ms (Views: 12.1ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 15:45:38 -0500
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (10.9ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (15.8ms)
+Completed 200 OK in 23ms (Views: 12.2ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Darling+in+the+FranXX&recs%5B1%5D=Little+Witch+Academia&recs%5B2%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B3%5D=Shirobako&recs%5B4%5D=Tengen+Toppa+Gurren+Lagann&recs%5B5%5D=Samurai+Champloo&recs%5B6%5D=Kill+la+Kill&recs%5B7%5D=Angel+Beats!" for ::1 at 2020-02-18 15:45:38 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Darling in the FranXX", "1"=>"Little Witch Academia", "2"=>"Miss Kobayashi's Dragon Maid", "3"=>"Shirobako", "4"=>"Tengen Toppa Gurren Lagann", "5"=>"Samurai Champloo", "6"=>"Kill la Kill", "7"=>"Angel Beats!"}}
+  [1m[36mAnime Load (1.3ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Darling in the FranXX','Little Witch Academia','Miss Kobayashi''s Dragon Maid','Shirobako','Tengen Toppa Gurren Lagann','Samurai Champloo','Kill la Kill','Angel Beats!'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (1.1ms)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 16:07:08 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (6.6ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 638ms (Views: 633.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 16:07:09 -0500
+Started GET "/api/studios" for ::1 at 2020-02-18 16:07:09 -0500
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 16:07:09 -0500
+Processing by Api::AnimeController#genres as JSON
+  [1m[35m (24.2ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+  ↳ app/models/anime.rb:32
+  Rendering api/anime/genres.json.jbuilder
+  Rendered api/anime/genres.json.jbuilder (11.5ms)
+Completed 200 OK in 52ms (Views: 24.1ms | ActiveRecord: 24.2ms)
+
+
+Processing by Api::AnimeController#titles as JSON
+Processing by Api::StudiosController#index as JSON
+  Rendering api/studios/index.json.jbuilder
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mStudio Load (5.8ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  [1m[36mAnime Load (5.0ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (7.5ms)
+  Rendered api/studios/index.json.jbuilder (9.8ms)
+Completed 200 OK in 31ms (Views: 25.4ms | ActiveRecord: 5.0ms)
+
+
+Completed 200 OK in 28ms (Views: 21.8ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B1%5D=Tengen+Toppa+Gurren+Lagann&recs%5B2%5D=Darling+in+the+FranXX&recs%5B3%5D=Kill+la+Kill&recs%5B4%5D=Samurai+Champloo&recs%5B5%5D=Little+Witch+Academia&recs%5B6%5D=Shirobako&recs%5B7%5D=Angel+Beats!" for ::1 at 2020-02-18 16:07:09 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Miss Kobayashi's Dragon Maid", "1"=>"Tengen Toppa Gurren Lagann", "2"=>"Darling in the FranXX", "3"=>"Kill la Kill", "4"=>"Samurai Champloo", "5"=>"Little Witch Academia", "6"=>"Shirobako", "7"=>"Angel Beats!"}}
+  [1m[36mAnime Load (4.7ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Miss Kobayashi''s Dragon Maid','Tengen Toppa Gurren Lagann','Darling in the FranXX','Kill la Kill','Samurai Champloo','Little Witch Academia','Shirobako','Angel Beats!'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (1.5ms)
+Completed 200 OK in 19ms (Views: 11.4ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 16:07:40 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 544ms (Views: 542.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 16:07:40 -0500
+Processing by Api::AnimeController#genres as JSON
+Started GET "/api/studios" for ::1 at 2020-02-18 16:07:40 -0500
+Processing by Api::StudiosController#index as JSON
+  [1m[35m (9.4ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+  ↳ app/models/anime.rb:32
+  Rendering api/studios/index.json.jbuilder
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 16:07:40 -0500
+  Rendering api/anime/genres.json.jbuilder
+  Rendered api/anime/genres.json.jbuilder (0.6ms)
+Completed 200 OK in 32ms (Views: 13.9ms | ActiveRecord: 9.4ms)
+
+
+  [1m[36mStudio Load (8.5ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (13.5ms)
+Completed 200 OK in 27ms (Views: 18.4ms | ActiveRecord: 8.5ms)
+
+
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (0.8ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (3.3ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Little+Witch+Academia&recs%5B1%5D=Angel+Beats!&recs%5B2%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B3%5D=Shirobako&recs%5B4%5D=Darling+in+the+FranXX&recs%5B5%5D=Samurai+Champloo&recs%5B6%5D=Kill+la+Kill&recs%5B7%5D=Tengen+Toppa+Gurren+Lagann" for ::1 at 2020-02-18 16:07:40 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Little Witch Academia", "1"=>"Angel Beats!", "2"=>"Miss Kobayashi's Dragon Maid", "3"=>"Shirobako", "4"=>"Darling in the FranXX", "5"=>"Samurai Champloo", "6"=>"Kill la Kill", "7"=>"Tengen Toppa Gurren Lagann"}}
+  [1m[36mAnime Load (5.2ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Little Witch Academia','Angel Beats!','Miss Kobayashi''s Dragon Maid','Shirobako','Darling in the FranXX','Samurai Champloo','Kill la Kill','Tengen Toppa Gurren Lagann'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (1.0ms)
+Completed 200 OK in 16ms (Views: 8.5ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 16:08:29 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 514ms (Views: 513.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 16:08:30 -0500
+Processing by Api::AnimeController#genres as JSON
+Started GET "/api/studios" for ::1 at 2020-02-18 16:08:30 -0500
+  [1m[35m (10.5ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+  ↳ app/models/anime.rb:32
+Processing by Api::StudiosController#index as JSON
+  Rendering api/anime/genres.json.jbuilder
+  Rendered api/anime/genres.json.jbuilder (0.5ms)
+Completed 200 OK in 35ms (Views: 22.6ms | ActiveRecord: 10.5ms)
+
+
+  Rendering api/studios/index.json.jbuilder
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 16:08:30 -0500
+  [1m[36mStudio Load (19.6ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (22.8ms)
+Completed 200 OK in 43ms (Views: 22.6ms | ActiveRecord: 19.6ms)
+
+
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (0.3ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (1.8ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Tengen+Toppa+Gurren+Lagann&recs%5B1%5D=Little+Witch+Academia&recs%5B2%5D=Kill+la+Kill&recs%5B3%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B4%5D=Shirobako&recs%5B5%5D=Angel+Beats!&recs%5B6%5D=Darling+in+the+FranXX&recs%5B7%5D=Samurai+Champloo" for ::1 at 2020-02-18 16:08:30 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Tengen Toppa Gurren Lagann", "1"=>"Little Witch Academia", "2"=>"Kill la Kill", "3"=>"Miss Kobayashi's Dragon Maid", "4"=>"Shirobako", "5"=>"Angel Beats!", "6"=>"Darling in the FranXX", "7"=>"Samurai Champloo"}}
+  [1m[36mAnime Load (0.4ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Tengen Toppa Gurren Lagann','Little Witch Academia','Kill la Kill','Miss Kobayashi''s Dragon Maid','Shirobako','Angel Beats!','Darling in the FranXX','Samurai Champloo'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (0.6ms)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 16:08:56 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 457ms (Views: 456.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 16:08:57 -0500
+Started GET "/api/studios" for ::1 at 2020-02-18 16:08:57 -0500
+Processing by Api::StudiosController#index as JSON
+Processing by Api::AnimeController#genres as JSON
+  Rendering api/studios/index.json.jbuilder
+  [1m[35m (7.0ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+  ↳ app/models/anime.rb:32
+  [1m[36mStudio Load (4.4ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (6.2ms)
+  Rendering api/anime/genres.json.jbuilder
+Completed 200 OK in 23ms (Views: 18.5ms | ActiveRecord: 4.4ms)
+
+
+  Rendered api/anime/genres.json.jbuilder (0.4ms)
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 16:08:57 -0500
+Completed 200 OK in 24ms (Views: 14.8ms | ActiveRecord: 7.0ms)
+
+
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (0.4ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (1.7ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Darling+in+the+FranXX&recs%5B1%5D=Little+Witch+Academia&recs%5B2%5D=Samurai+Champloo&recs%5B3%5D=Tengen+Toppa+Gurren+Lagann&recs%5B4%5D=Kill+la+Kill&recs%5B5%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B6%5D=Shirobako&recs%5B7%5D=Angel+Beats!" for ::1 at 2020-02-18 16:08:57 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Darling in the FranXX", "1"=>"Little Witch Academia", "2"=>"Samurai Champloo", "3"=>"Tengen Toppa Gurren Lagann", "4"=>"Kill la Kill", "5"=>"Miss Kobayashi's Dragon Maid", "6"=>"Shirobako", "7"=>"Angel Beats!"}}
+  [1m[36mAnime Load (1.9ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Darling in the FranXX','Little Witch Academia','Samurai Champloo','Tengen Toppa Gurren Lagann','Kill la Kill','Miss Kobayashi''s Dragon Maid','Shirobako','Angel Beats!'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (0.7ms)
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 16:09:34 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.5ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 447ms (Views: 444.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 16:09:35 -0500
+Started GET "/api/studios" for ::1 at 2020-02-18 16:09:35 -0500
+Processing by Api::AnimeController#genres as JSON
+Processing by Api::StudiosController#index as JSON
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+  ↳ app/models/anime.rb:32
+  Rendering api/studios/index.json.jbuilder
+  Rendering api/anime/genres.json.jbuilder
+  [1m[36mStudio Load (7.2ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  ↳ app/views/api/studios/index.json.jbuilder:1
+  Rendered api/studios/index.json.jbuilder (9.3ms)
+Completed 200 OK in 21ms (Views: 13.3ms | ActiveRecord: 7.2ms)
+
+
+  Rendered api/anime/genres.json.jbuilder (0.4ms)
+Completed 200 OK in 23ms (Views: 14.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 16:09:35 -0500
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (0.7ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (2.4ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Darling+in+the+FranXX&recs%5B1%5D=Samurai+Champloo&recs%5B2%5D=Little+Witch+Academia&recs%5B3%5D=Tengen+Toppa+Gurren+Lagann&recs%5B4%5D=Shirobako&recs%5B5%5D=Kill+la+Kill&recs%5B6%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B7%5D=Angel+Beats!" for ::1 at 2020-02-18 16:09:35 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Darling in the FranXX", "1"=>"Samurai Champloo", "2"=>"Little Witch Academia", "3"=>"Tengen Toppa Gurren Lagann", "4"=>"Shirobako", "5"=>"Kill la Kill", "6"=>"Miss Kobayashi's Dragon Maid", "7"=>"Angel Beats!"}}
+  [1m[36mAnime Load (2.1ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Darling in the FranXX','Samurai Champloo','Little Witch Academia','Tengen Toppa Gurren Lagann','Shirobako','Kill la Kill','Miss Kobayashi''s Dragon Maid','Angel Beats!'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (1.3ms)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 16:10:10 -0500
+Processing by RootController#root as HTML
+  Rendering root/root.html within layouts/application
+  Rendered root/root.html within layouts/application (0.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E_CxoGThJyk1x9lqsUESlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 454ms (Views: 453.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/anime/genres" for ::1 at 2020-02-18 16:10:11 -0500
+Processing by Api::AnimeController#genres as JSON
+Started GET "/api/studios" for ::1 at 2020-02-18 16:10:11 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+Processing by Api::StudiosController#index as JSON
+  ↳ app/models/anime.rb:32
+  Rendering api/studios/index.json.jbuilder
+  Rendering api/anime/genres.json.jbuilder
+  [1m[36mStudio Load (4.7ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  Rendered api/anime/genres.json.jbuilder (0.4ms)
+  ↳ app/views/api/studios/index.json.jbuilder:1
+Completed 200 OK in 20ms (Views: 14.5ms | ActiveRecord: 0.6ms)
+
+
+  Rendered api/studios/index.json.jbuilder (8.5ms)
+Completed 200 OK in 20ms (Views: 14.8ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/api/anime/titles" for ::1 at 2020-02-18 16:10:11 -0500
+Processing by Api::AnimeController#titles as JSON
+  Rendering api/anime/titles.json.jbuilder
+  [1m[36mAnime Load (0.4ms)[0m  [1m[34mSELECT "anime".* FROM "anime"[0m
+  ↳ app/views/api/anime/titles.json.jbuilder:1
+  Rendered api/anime/titles.json.jbuilder (1.7ms)
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/anime/recs?recs%5B0%5D=Samurai+Champloo&recs%5B1%5D=Tengen+Toppa+Gurren+Lagann&recs%5B2%5D=Angel+Beats!&recs%5B3%5D=Miss+Kobayashi%27s+Dragon+Maid&recs%5B4%5D=Little+Witch+Academia&recs%5B5%5D=Shirobako&recs%5B6%5D=Kill+la+Kill&recs%5B7%5D=Darling+in+the+FranXX" for ::1 at 2020-02-18 16:10:11 -0500
+Processing by Api::AnimeController#recs as JSON
+  Parameters: {"recs"=>{"0"=>"Samurai Champloo", "1"=>"Tengen Toppa Gurren Lagann", "2"=>"Angel Beats!", "3"=>"Miss Kobayashi's Dragon Maid", "4"=>"Little Witch Academia", "5"=>"Shirobako", "6"=>"Kill la Kill", "7"=>"Darling in the FranXX"}}
+  [1m[36mAnime Load (0.5ms)[0m  [1m[34mSELECT "anime".* FROM "anime" WHERE (title IN ('Samurai Champloo','Tengen Toppa Gurren Lagann','Angel Beats!','Miss Kobayashi''s Dragon Maid','Little Witch Academia','Shirobako','Kill la Kill','Darling in the FranXX'))[0m
+  ↳ app/models/anime.rb:22
+  Rendering api/anime/recs.json.jbuilder
+  Rendered api/anime/recs.json.jbuilder (1.0ms)
+Completed 200 OK in 12ms (Views: 8.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/anime/search?search%5Bsearch_term%5D=s&search%5Bpage%5D=1" for ::1 at 2020-02-18 16:23:27 -0500
+Processing by Api::AnimeController#search as JSON
+  Parameters: {"search"=>{"search_term"=>"s", "page"=>"1"}}
+  Rendering api/anime/search_results.json.jbuilder
+  [1m[36mAnime Load (12.6ms)[0m  [1m[34mSELECT  "anime".* FROM "anime" WHERE (UPPER(title) LIKE 'S%') ORDER BY title ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/api/anime/search_results.json.jbuilder:2
+  [1m[36mStudio Load (4.1ms)[0m  [1m[34mSELECT "studios".* FROM "studios" WHERE "studios"."id" IN ($1, $2)[0m  [["id", 18], ["id", 17]]
+  ↳ app/views/api/anime/search_results.json.jbuilder:2
+  Rendered api/anime/search_results.json.jbuilder (46.5ms)
+Completed 200 OK in 71ms (Views: 42.8ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/api/anime/search?search%5Bsearch_term%5D=s&search%5Bpage%5D=1" for ::1 at 2020-02-18 16:23:28 -0500
+Processing by Api::AnimeController#search as JSON
+  Parameters: {"search"=>{"search_term"=>"s", "page"=>"1"}}
+  Rendering api/anime/search_results.json.jbuilder
+  [1m[36mAnime Load (1.0ms)[0m  [1m[34mSELECT  "anime".* FROM "anime" WHERE (UPPER(title) LIKE 'S%') ORDER BY title ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/api/anime/search_results.json.jbuilder:2
+  [1m[36mStudio Load (0.5ms)[0m  [1m[34mSELECT "studios".* FROM "studios" WHERE "studios"."id" IN ($1, $2)[0m  [["id", 18], ["id", 17]]
+  ↳ app/views/api/anime/search_results.json.jbuilder:2
+  Rendered api/anime/search_results.json.jbuilder (7.5ms)
+Completed 200 OK in 25ms (Views: 21.9ms | ActiveRecord: 1.5ms)
+
+
+  [1m[36mStudio Load (0.7ms)[0m  [1m[34mSELECT "studios".* FROM "studios"[0m
+  [1m[35mSQL (4.5ms)[0m  [1m[34mSELECT  "anime"."id" AS t0_r0, "anime"."title" AS t0_r1, "anime"."description" AS t0_r2, "anime"."genre" AS t0_r3, "anime"."release_year" AS t0_r4, "anime"."price" AS t0_r5, "anime"."studio_id" AS t0_r6, "studios"."id" AS t1_r0, "studios"."name" AS t1_r1, "studios"."description" AS t1_r2, "studios"."site_url" AS t1_r3 FROM "anime" LEFT OUTER JOIN "studios" ON "studios"."id" = "anime"."studio_id" WHERE (studios.name IN ('Studio Trigger','Kyoto Animation')) AND (release_year IN (2013)) ORDER BY title ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35mSQL (1.3ms)[0m  [1m[34mSELECT  "anime"."id" AS t0_r0, "anime"."title" AS t0_r1, "anime"."description" AS t0_r2, "anime"."genre" AS t0_r3, "anime"."release_year" AS t0_r4, "anime"."price" AS t0_r5, "anime"."studio_id" AS t0_r6, "studios"."id" AS t1_r0, "studios"."name" AS t1_r1, "studios"."description" AS t1_r2, "studios"."site_url" AS t1_r3 FROM "anime" LEFT OUTER JOIN "studios" ON "studios"."id" = "anime"."studio_id" WHERE (studios.name IN ('Studio Trigger','Kyoto Animation')) ORDER BY title ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "anime"."genre" FROM "anime"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "anime"."title" FROM "anime"[0m
+  [1m[36mAnime Load (0.5ms)[0m  [1m[34mSELECT "anime"."title" FROM "anime" WHERE (genre IN ('%Comedy%'))[0m
+  [1m[36mAnime Load (0.9ms)[0m  [1m[34mSELECT "anime"."title" FROM "anime" WHERE (genre LIKE '%Comedy%')[0m
+  [1m[36mAnime Load (4.1ms)[0m  [1m[34mSELECT "anime"."title" FROM "anime" WHERE (genre LIKE '%Comedy%' OR genre LIKE '%Action%')[0m

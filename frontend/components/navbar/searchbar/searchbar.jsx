@@ -11,10 +11,18 @@ class SearchBar extends Component{
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleAnimeClick = this.handleAnimeClick.bind(this);
+        this.handleGenreChange = this.handleGenreChange.bind(this);
     }
 
     componentDidMount(){
-        // this.props.fetchGenres();
+        if(this.props.genres.length === 0) {
+            this.props.fetchGenres();
+        }
+    }
+
+    handleGenreChange(e){
+        e.preventDefault();
+        this.setState({genre: e.target.value});
     }
 
     handleAnimeClick(title){
@@ -33,19 +41,27 @@ class SearchBar extends Component{
         this.props.navDropdown(false);
         //format search params
         const searchParams = {
-            title: this.state.searchTerm
+            title: this.state.searchTerm,
+            genres: [this.state.genre],
+            page: 1
         };
 
         let searchQuery = "";
         if (searchParams.title !== null) {
             searchQuery = searchQuery.concat("title=", searchParams.title);
         }
+        if (searchParams.genre !== "") {
+            searchQuery = searchQuery.concat("&genre=", searchParams.genre);
+        }
+        if (typeof searchParams.page === "number") {
+            searchQuery = searchQuery.concat("&page=", searchParams.page);
+        }
 
 
         if(this.state.searchTerm === ""){
             this.props.history.push("/");
         } else {
-            this.props.searchAnime(searchParams.title, 1)
+            this.props.searchAnime(searchParams)
                 .then(() => this.props.history.push(`/s?${searchQuery}`));
         }
     }
@@ -82,8 +98,6 @@ class SearchBar extends Component{
                         
                         <select id="genre-select">
                             <option value="All" defaultValue="selected">All ▾</option>
-                            <option value="Action Adventure">A/A - Action/Adventure</option>
-                            <option value="Comedy">Cm - Comedy</option>
                         </select>
                         
                         <div>
@@ -95,17 +109,18 @@ class SearchBar extends Component{
                         {partialMatches}
                     </ul>
                 </div>
-        )}
+            )
+        }
 
         const genreOptions = this.props.genres.map((genre) => (
-            <option value={genre}>{genre}</option>
+            <option value={genre} key={`1${genre}`}>{genre}</option>
         ))
 
         return (
-            <div>
+            <div className="searchbar">
                 <form className="searchbar" onSubmit={this.handleSubmit}>
-                    <select id="genre-select">
-                        <option value="All" defaultValue="selected">All  ▾</option>
+                    <select id="genre-select" onChange={this.handleGenreChange} value={this.state.genre}>
+                        <option value="" defaultValue="selected">All  ▾</option>
                         {genreOptions}
                     </select>
                     <div>
