@@ -27,4 +27,29 @@ export const checkUser = (un_or_email) => (
         url: "/api/users/exists",
         data: { un_or_email }
     })
-)
+);
+
+export const checkPassword = ({ un, pw }) => (
+    $.ajax({
+        method: "GET",
+        url: "/api/users/exists",
+        data: { 
+            username: un,
+            password : pw 
+        }
+    })
+);
+
+export const updateUser = ({id, username, email, password }) => (
+    $.ajax({
+        method: "PATCH",
+        url: `/api/users/${id}`,
+        data: { 
+            user: {
+                username: username,
+                email: email,
+                password : password 
+            }
+        }
+    })
+);

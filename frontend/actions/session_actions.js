@@ -1,11 +1,11 @@
-import * as APIUtil from "../util/session_api_util";
+import * as SessionAPIUtil from "../util/session_api_util";
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
-export const recieveCurrentUser = (user) => {
+export const receiveCurrentUser = (user) => {
     return ({
         type: RECEIVE_CURRENT_USER,
         user
@@ -32,23 +32,33 @@ export const switchPage = () => {
 };
 
 export const signup = (user) => dispatch => {
-    return APIUtil.signup(user)
-        .then( user => dispatch(recieveCurrentUser(user)) );
+    return SessionAPIUtil.signup(user)
+        .then( user => dispatch(receiveCurrentUser(user)) );
 };
 
 export const login = (user) => dispatch => {
-    return APIUtil.login(user)
-        .then( user => dispatch(recieveCurrentUser(user)) );
+    return SessionAPIUtil.login(user)
+        .then( user => dispatch(receiveCurrentUser(user)) );
 };
 
 export const logout = () => dispatch => {
-    return APIUtil.logout()
+    return SessionAPIUtil.logout()
         .then( () => dispatch(logoutCurrentUser()) );
 };
 
 export const checkUser = (un_or_email) => dispatch => {
-    return APIUtil.checkUser(un_or_email)
+    return SessionAPIUtil.checkUser(un_or_email)
         .then(result => {
-            dispatch(recieveCurrentUser(result));
+            dispatch(receiveCurrentUser(result));
         });
 };
+
+export const verifyPassword = (creds) => dispatch => {
+    return SessionAPIUtil.checkPassword(creds)
+        .then(result => dispatch(receiveCurrentUser(result)));
+};
+
+export const updateUser = (userInfo) => dispatch => (
+    SessionAPIUtil.updateUser(userInfo)
+        .then(user => dispatch(receiveCurrentUser(user)))
+);

@@ -40,6 +40,15 @@ button:focus {
     box-shadow: 0 0 2px 4px rgb(224, 153, 47);
 }
 
+.auth-form button:focus {
+    -webkit-appearance: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: transparent;
+    outline: none;
+    box-shadow: none;
+}
+
 button:hover{
     cursor: pointer;
     background-image: linear-gradient(rgb(247, 213, 165), rgb(240, 187, 75));    
@@ -53,7 +62,7 @@ button:hover{
 }
 
 #demo-button:focus {
-    box-shadow: 0 0 2px 4px rgb(47, 189, 224);
+    box-shadow: 0 0 3px 3px rgb(47, 189, 224);
 }
 
 #demo-button:hover {
@@ -301,4 +310,13 @@ h4.no-entry {
 input.no-entry {
     border: 1px solid #c40000;
     box-shadow: 0 0 0 3px rgba(221,0,0,.1) inset;
+}
+
+#auth-email p {
+    color: #555555;
+    margin: 0;
+    padding: 5px 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    cursor: text;
 }

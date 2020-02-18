@@ -26,6 +26,7 @@ const App = () => {
             <Switch>
                 <AuthRoute path="/register" component={() => (null)} />
                 <AuthRoute path="/signin" component={() => (null)} />
+                <ProtectedRoute path="/profile/edit-profile" component={() => (null)} />
                 <Route render={(props) => <NavBar refPos={bottom} {...props} />} />
             </Switch>
 
@@ -47,6 +48,7 @@ const App = () => {
             <Switch>
                 <AuthRoute path="/register" component={() => (null)} />
                 <AuthRoute path="/signin" component={() => (null)} />
+                <ProtectedRoute path="/profile/edit-profile" component={() => (null)} />
                 <Route render={() => <Footer refPos={ top } />}/>
             </Switch>
             <div ref={ bottom }></div>

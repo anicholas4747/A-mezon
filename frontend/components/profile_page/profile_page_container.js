@@ -9,7 +9,8 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-    fetchProfile: (username) => dispatch(fetchProfile(username))
+    fetchProfile: (username) => dispatch(fetchProfile(username)),
+    verifyUser: (password) => dispatch((password))
 });
 
 export default connect(mSTP,mDTP)(ProfilePage);

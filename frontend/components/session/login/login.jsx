@@ -22,14 +22,16 @@ class LogIn extends Component {
                     userInfo: {
                         [field]: e.target.value,
                         password: this.state.userInfo.password
-                    }
+                    },
+                    errors: ""
                 });
             } else {
                 this.setState({
                     userInfo: {
                         username: this.state.userInfo.username,
                         [field]: e.target.value
-                    }
+                    },
+                    errors: ""
                 });
             }
         });
@@ -110,9 +112,6 @@ class LogIn extends Component {
                         });
                     } else {
                         this.setState({
-                            userInfo: {
-                                un_or_email: ""
-                            },
                             errors: ""
                         }, () => (this.props.history.push({
                             pathname: "/signin?verify_email"

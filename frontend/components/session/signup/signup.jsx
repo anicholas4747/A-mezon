@@ -20,6 +20,7 @@ class SignUp extends Component {
             }
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInput = this.handleInput.bind(this);
     }
 
     handleInput(field){
@@ -31,6 +32,13 @@ class SignUp extends Component {
                         email: this.state.userInfo.email,
                         password: this.state.userInfo.password,
                         passwordRe: this.state.userInfo.passwordRe
+                    },
+                    errors: {
+                        username: "",
+                        email: this.state.errors.email,
+                        password: this.state.errors.password,
+                        passwordRe: this.state.errors.passwordRe,
+                        match: this.state.errors.match
                     }
                 });
             } else if (field === "email") {
@@ -40,6 +48,13 @@ class SignUp extends Component {
                         email: e.target.value,
                         password: this.state.userInfo.password,
                         passwordRe: this.state.userInfo.passwordRe
+                    },
+                    errors: {
+                        username: this.state.errors.username,
+                        email: "",
+                        password: this.state.errors.password,
+                        passwordRe: this.state.errors.passwordRe,
+                        match: this.state.errors.match
                     }
                 });
             } else if (field === "password") {
@@ -49,6 +64,13 @@ class SignUp extends Component {
                         email: this.state.userInfo.email,
                         password: e.target.value,
                         passwordRe: this.state.userInfo.passwordRe
+                    },
+                    errors: {
+                        username: this.state.errors.username,
+                        email: this.state.errors.email,
+                        password: "",
+                        passwordRe: this.state.errors.passwordRe,
+                        match: this.state.errors.match
                     }
                 });
             } else if (field === "passwordRe") {
@@ -58,6 +80,13 @@ class SignUp extends Component {
                         email: this.state.userInfo.email,
                         password: this.state.userInfo.password,
                         passwordRe: e.target.value
+                    },
+                    errors: {
+                        username: this.state.errors.username,
+                        email: this.state.errors.email,
+                        password: this.state.errors.password,
+                        passwordRe: "",
+                        match: ""
                     }
                 });
             }

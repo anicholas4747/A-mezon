@@ -62,3 +62,43 @@
     padding-bottom: 15px;
     border-bottom: 1px solid #e7e7e7;
 }
+
+.auth-form #cancel {
+    font-family: 'Lato', sans-serif;
+    display: inline-block;
+    width: 89px;
+    font-size: 13px;
+    vertical-align: top;
+    background-image: linear-gradient(rgb(247, 248, 250), rgb(231, 233, 236));
+    border-radius: 3px;
+    border-color: #adb1b8 #a2a6ac #8d9096;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    text-align: center;
+    padding: 4px;
+    color: #111;
+    margin-right: 10px;
+    height: 28px;
+}
+
+.auth-form #cancel:hover {
+    text-decoration: none;
+    background-image: linear-gradient(rgb(231, 234, 240), rgb(217, 220, 225));
+    cursor: pointer;
+}
+
+#save-changes {
+    display: inline-block;
+    width: 197px;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    box-sizing: border-box;
+    height: 28px;
+}
+
+.auth-form p {
+    margin: 0px;
+    padding: 5px 0;
+    font-family: 'Lato', sans-serif;
+}

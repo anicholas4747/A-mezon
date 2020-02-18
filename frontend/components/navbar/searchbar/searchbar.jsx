@@ -29,19 +29,24 @@ class SearchBar extends Component{
 
     handleSubmit(e){
         e.preventDefault();
+        this.props.navLiClicked(true);
+        this.props.navDropdown(false);
         //format search params
         const searchParams = {
             title: this.state.searchTerm
         };
 
         let searchQuery = "";
-        if(searchParams.title !== null)
+        if (searchParams.title !== null) {
+            searchQuery = searchQuery.concat("title=", searchParams.title);
+        }
 
 
         if(this.state.searchTerm === ""){
             this.props.history.push("/");
         } else {
-            this.props.history.push(`/s?${searchQuery}`);
+            this.props.searchAnime(searchParams.title, 1)
+                .then(() => this.props.history.push(`/s?${searchQuery}`));
         }
     }
 

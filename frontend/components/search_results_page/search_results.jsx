@@ -46,7 +46,7 @@ class SearchResults extends Component{
             //display relevant anime based on search term
             const searchTerms = {};
             this.props.history.location.search.slice(1).split("&").forEach((term) => {
-                let kv = term.slice("=");
+                let kv = term.split("=");
                 searchTerms[kv[0]] = kv[1];
             });
             // implement search by title, genre, studio, and release year
