@@ -688,6 +688,10 @@ h4 {
     display: none;
 }
 
+#SEARCH-HIDDEN{
+    visibility: hidden;
+}
+
 .search-by-studio-ul li {
     padding: 0px;
     box-sizing: border-box;

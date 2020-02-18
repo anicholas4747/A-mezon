@@ -238,27 +238,49 @@
 
 .show-partial-matches {
     visibility: visible;
-    transition: 0.4s ease;
-    position: fixed;
+    transition: 0.125s ease;
+    position: absolute;
+    top: 46px;
     z-index: 5;
+    list-style: none;
+    width: inherit;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ddd;
+    box-shadow: 0 0 1px 1px #ddd inset;
+    border-radius: 2px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .hide-partial-matches {
-    position: fixed;
     visibility: hidden;
-    transition: 0.125s ease; 
+    transition: 0.125s ease;
+    position: absolute;
+    top: 46px;
     z-index: 5;
+    list-style: none;
+    width: inherit;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ddd;
+    box-shadow: 0 0 1px 1px #ddd inset;
+    border-radius: 2px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .partial-match {
     outline: none;
-    background-color: whitesmoke;
-    border-color: transparent;
     font-size: 13px;
-    padding: 5px;
+    padding: 10px 50px;
     width: 100%;
     height: inherit;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
-    font-size: 500;
+    cursor: pointer;
+}
+
+.partial-match:hover {
+    background-color: #ddd;
 }

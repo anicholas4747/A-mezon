@@ -1,26 +1,53 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 class SearchBar extends Component{
     constructor(props){
         super(props);
         this.state = {
-            searchTerm: ""
+            searchTerm: "",
+            genre: ""
         };
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleAnimeClick = this.handleAnimeClick.bind(this);
     }
 
     componentDidMount(){
         // this.props.fetchGenres();
     }
 
+    handleAnimeClick(title){
+        return (e) => {
+            e.preventDefault();
+            this.props.navLiClicked(true);
+            this.props.navDropdown(false);
+            this.props.fetchOneAnime(title)
+                .then(() => (this.props.history.push(`/anime?${title.split(" ").join("-")}`)));
+        };
+    }
+
     handleSubmit(e){
         e.preventDefault();
         //format search params
+        const searchParams = {
+            title: this.state.searchTerm
+        };
+
+        let searchQuery = "";
+        if(searchParams.title !== null)
+
+
+        if(this.state.searchTerm === ""){
+            this.props.history.push("/");
+        } else {
+            this.props.history.push(`/s?${searchQuery}`);
+        }
     }
 
     handleInput(field){
         return (e) => {
+            this.props.navLiClicked(false);
             (e.target.value === "") ? this.props.startSearch(false) : this.props.startSearch(true);
             this.setState({
                 [field]: e.target.value
@@ -32,12 +59,16 @@ class SearchBar extends Component{
         let partialMatches = this.props.titles.filter( (obj) => (
             obj.title.toUpperCase().slice(0,this.state.searchTerm.length) === this.state.searchTerm.toUpperCase()
         )).slice(0,11).map(({title}) => (
-            <li className="partial-match" key={`${title}1`}>{title}</li>
+            <li className="partial-match" key={`${title}1`} onClick={this.handleAnimeClick(title)}>
+                {title}
+            </li>
         ));
 
         const ulShow = (partialMatches.length > 0 && this.state.searchTerm !== "") ? "show-partial-matches" : "hide-partial-matches";
         
         if(this.state.searchTerm === "") partialMatches = null;
+
+        const ulId = (this.props.liClicked) ? "SEARCH-HIDDEN" : null;
 
         if (this.props.genres.length === 0) {
             return (
@@ -55,7 +86,7 @@ class SearchBar extends Component{
                             <button><img id="search-icon" src={window.magnifyingGlass} alt="Search" /></button>
                         </div>            
                     </form>
-                    <ul className={ulShow}>
+                    <ul className={ulShow} id={ulId}>
                         {partialMatches}
                     </ul>
                 </div>
@@ -77,7 +108,7 @@ class SearchBar extends Component{
                         <button><img id="search-icon" src={window.magnifyingGlass} alt="Search" /></button>
                     </div>
                 </form>
-                <ul className={ulShow}>
+                <ul className={ulShow} id={ulId}>
                     {partialMatches}
                 </ul>
             </div>
@@ -85,4 +116,4 @@ class SearchBar extends Component{
     }
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);
