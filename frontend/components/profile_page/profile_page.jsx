@@ -4,12 +4,18 @@ import Reviews from '../product_page/reviews/reviews';
 class ProfilePage extends Component{
     constructor(props){
         super(props);
-        this.handleClick = this.handleClick.bind(this);
+        this.handleProfClick = this.handleProfClick.bind(this);
+        this.handleLangClick = this.handleLangClick.bind(this);
     }
 
-    handleClick(e){
+    handleProfClick(e){
         e.preventDefault();
         this.props.history.push("/profile/edit-profile?verify_password");
+    }
+
+    handleLangClick(e){
+        e.preventDefault();
+        this.props.history.push("/language-select");
     }
 
     componentDidMount() {
@@ -29,7 +35,8 @@ class ProfilePage extends Component{
         
         const {username, email, created_at, reviews} = this.props.user;
         const emailShow = (this.props.user.username === this.props.currentUser.username) ? <h3>Email: {email}</h3> : null;
-        const editProfileButton = (this.props.user.username === this.props.currentUser.username) ? <button onClick={this.handleClick}>Edit your profile</button> : null;
+        const editProfileButton = (this.props.user.username === this.props.currentUser.username) ? <button onClick={this.handleProfClick}>Edit your profile</button> : null;
+        const langButton = (this.props.user.username === this.props.currentUser.username) ? <button onClick={this.handleLangClick} id="change-lang-settings">Change language settings</button> : null;
 
         return (
             <div className="profile-page">
@@ -42,6 +49,7 @@ class ProfilePage extends Component{
                         {emailShow}
                         <h4>Aにmezon Member since: {new Date(created_at).toDateString()}</h4>
                     </div>
+                        {langButton}
                         {editProfileButton}
                 </section>
                 <Reviews match={this.props.match} reviews={reviews} refPos={this.props.refPos} />

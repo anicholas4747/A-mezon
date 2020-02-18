@@ -47,6 +47,25 @@
     right: 20px;
 }
 
+#profile-info button#change-lang-settings {
+    max-width: 225px;
+    position: absolute;
+    bottom: 60px;
+    right: 20px;
+    background-image: linear-gradient(rgb(247, 248, 250), rgb(231, 233, 236));
+    border-radius: 3px;
+    border-color: #adb1b8 #a2a6ac #8d9096;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+#profile-info button#change-lang-settings:hover {
+    text-decoration: none;
+    background-image: linear-gradient(rgb(231, 234, 240), rgb(217, 220, 225));
+    cursor: pointer;
+}
+
 .profile-page #cust-reviews {
     width: 40%;
     margin: 15px 30%;

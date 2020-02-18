@@ -563,8 +563,12 @@ h4 {
 }
 
 #chumon {
+    color: #ffffff;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
     position: relative;
-    top: -1px;
+    top: 2px;
 }
 
 #jp-acct h4 {
@@ -826,4 +830,48 @@ h4 {
     margin-left: 10%;
     color: #dddddd;
     text-decoration: underline;
+}
+
+#your-acct a {
+    text-align: left;
+}
+
+#your-acct > a#ok {
+    text-align: left;
+    margin-left: 20px;
+}
+
+#your-acct > li#ok {
+    margin-top: 0;
+}
+
+.oh-jp p#henpin {
+    color: #a6a6a6;
+    font-size: 10px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    top: 2px;
+}
+
+#order-history .oh-jp h4 {
+    color: #ffffff;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    top: 2px;
+}
+
+#your-acct h3 {
+    cursor: text;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-bottom: 5px;
+    font-size: 15px;
+    display: block;
+    color: #111;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    padding-left: 20px;
 }
