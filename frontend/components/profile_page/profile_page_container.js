@@ -5,7 +5,8 @@ import { fetchProfile } from "../../actions/profile_actions";
 const mSTP = state => ({
     shouldGreyOut: Boolean(state.ui.navDropdown),
     currentUser: state.session.currentUser,
-    user: state.entities.profile
+    user: state.entities.profile,
+    lang: state.ui.language
 });
 
 const mDTP = dispatch => ({

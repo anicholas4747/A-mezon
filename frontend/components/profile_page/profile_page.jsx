@@ -34,25 +34,43 @@ class ProfilePage extends Component{
         const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
         
         const {username, email, created_at, reviews} = this.props.user;
-        const emailShow = (this.props.user.username === this.props.currentUser.username) ? <h3>Email: {email}</h3> : null;
+        const emailShow = (this.props.user.username === this.props.currentUser.username) ? <div><h3>Email</h3> <h3 id="h3-val">{email}</h3></div> : null;
         const editProfileButton = (this.props.user.username === this.props.currentUser.username) ? <button onClick={this.handleProfClick}>Edit your profile</button> : null;
-        const langButton = (this.props.user.username === this.props.currentUser.username) ? <button onClick={this.handleLangClick} id="change-lang-settings">Change language settings</button> : null;
+        const langSection = (this.props.user.username === this.props.currentUser.username) ? (
+            <span id="profile-lang">
+                <h3>Current Language</h3>
+                <h3 id="h3-val">{(this.props.lang === "EN") ? "English" : "Japanese"}</h3>
+                <br/><br/>
+                <button onClick={this.handleLangClick} id="change-lang-settings">Change language preferences</button>
+            </span>
+        ) : null;
 
         return (
             <div className="profile-page">
                 <div className={modalToggle}>.</div>
-
+                <section id="grey-box">.</section>
                 <section id="profile-info">
                     <img src={window.profilePic}/>
                     <div>
                         <h2>{username}</h2>
-                        {emailShow}
-                        <h4>Aにmezon Member since: {new Date(created_at).toDateString()}</h4>
                     </div>
-                        {langButton}
-                        {editProfileButton}
                 </section>
-                <Reviews match={this.props.match} reviews={reviews} refPos={this.props.refPos} />
+                <section>
+                    <section id="user-info">
+                        <span id="about">
+                            <h2>About</h2>
+                            <h3>Aにmezon Member since</h3>
+                            <h3 id="h3-val">{new Date(created_at).toDateString()}</h3>
+                            {emailShow}
+                            <br/><br/>
+                            {editProfileButton}
+                        </span>
+                        {langSection}
+                    </section>
+                    <span id="revs">
+                        <Reviews match={this.props.match} reviews={reviews} refPos={this.props.refPos} />
+                    </span>
+                </section>
                 
             </div>
         )

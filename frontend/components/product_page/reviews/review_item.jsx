@@ -54,7 +54,7 @@ class ReviewItem extends Component{
                 starStatus = window.starClicked;
             }
 
-            let star = <img src={starStatus} key={i}/>;
+            let star = <img id="star" src={starStatus} key={i}/>;
 
             stars.push(star);
         }
@@ -63,10 +63,12 @@ class ReviewItem extends Component{
         
         const pageLink = (this.props.match.path === "/anime") ? (
             <Link to={`/profile?${review.author.split(" ").join("-")}`}>
+                <img src={window.profilePic}/>
                 {review.author}
             </Link>
         ) : (
             <Link to={`/anime?${review.anime.split(" ").join("-")}`}>
+                <img id="small-anime" src={window.animePH}/>
                 {review.anime}
             </Link>
         )
@@ -78,9 +80,10 @@ class ReviewItem extends Component{
                     {pageLink}
                     <span>
                         {stars}
+                        {(this.props.history.location.pathname === "/profile") ? <br/> : null}
                         <h3>{review.title}</h3>
                     </span>
-                    <h4>{reviewTimestamp}</h4>
+                    <h4>Reviewed on: {reviewTimestamp}</h4>
                     <p>{review.body}</p>
                 </section>
             </div>

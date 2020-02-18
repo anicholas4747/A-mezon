@@ -1,23 +1,40 @@
 #profile-info {
     width: 80%;
-    height: fit-content;
+    height: 140px;
     border: 1px #ddd solid;
-    border-radius: 4px;
+    border-radius: 0 0 4px 4px;
     box-sizing: border-box;
     padding: 20px 26px;
-    margin: 20px auto;
-    margin-bottom: 8%;
+    margin: 10px auto;
+    margin-top: 0;
     position: relative;
 }
 
+#grey-box {
+    width: 80%;
+    height: 260px;
+    border: 1px #ddd solid;
+    background-image: linear-gradient(rgb(247, 248, 250), rgb(231, 233, 236));
+    box-sizing: border-box;
+    padding: 20px 26px;
+    margin: 0px auto;
+    margin-bottom: 0;
+    position: relative;
+    color: transparent;
+
+}
+
 #profile-info img {
-    width: 300px;
-    max-width: 300px;
-    height: 300px;
-    max-height: 300px;
+    width: 200px;
+    max-width: 200px;
+    height: 200px;
+    max-height: 200px;
     border-radius: 50%;
     border: 5px solid #cccaca;
     margin-right: 10%;
+    position: relative;
+    bottom: 120px;
+    left: 10px;
 }
 
 #profile-info img, #profile-info div {
@@ -28,10 +45,12 @@
 #profile-info h2 {
     font-size: 28px;
     font-family: 'Open Sans', sans-serif;
+    margin-top: 0;
 }
 
 #profile-info h3 {
     font-size: 20px;
+    margin-bottom: 10px;
 }
 
 #profile-info h4 {
@@ -40,18 +59,32 @@
     margin-bottom: 40px;
 }
 
-#profile-info button {
-    max-width: 225px;
+#about button {
+    max-width: 175px;
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 0px;
+    right: 10px;
+    margin: 20px 0;
 }
 
-#profile-info button#change-lang-settings {
-    max-width: 225px;
+#about h2 {
+    margin-top: 0;
+}
+
+#about h3 {
+    margin-bottom: 10px;
+}
+
+#profile-lang h3 {
+    margin-bottom: 10px;
+}
+
+#profile-lang button#change-lang-settings {
+    max-width: 200px;
     position: absolute;
-    bottom: 60px;
-    right: 20px;
+    bottom: 0px;
+    right: 10px;
+    margin: 20px 0;
     background-image: linear-gradient(rgb(247, 248, 250), rgb(231, 233, 236));
     border-radius: 3px;
     border-color: #adb1b8 #a2a6ac #8d9096;
@@ -60,26 +93,108 @@
     cursor: pointer;
 }
 
-#profile-info button#change-lang-settings:hover {
+#about #h3-val{
+    margin-top: 0px;
+    font-size: 16px;
+    color: #555555;
+}
+
+#profile-lang #h3-val{
+    margin-top: 0px;
+    font-size: 16px;
+    color: #555555;
+}
+
+#profile-lang button#change-lang-settings:hover {
     text-decoration: none;
     background-image: linear-gradient(rgb(231, 234, 240), rgb(217, 220, 225));
     cursor: pointer;
 }
 
-.profile-page #cust-reviews {
-    width: 40%;
-    margin: 15px 30%;
+#about {
+    background: #f5f7f5;
+    box-shadow: 0 1px 2px 0 #eaeded;
+    color: #111;
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    box-sizing: border-box;
+    margin-right: 0;
     height: fit-content;
+    position: relative;
     border: 1px #ddd solid;
     border-radius: 4px;
     box-sizing: border-box;
     padding: 20px 26px;
 }
 
+#profile-lang {
+    /* background: transparent; */
+    background-color: #f7f9f7;
+    box-shadow: 0 1px 2px 0 #eaeded;
+    color: #111;
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    box-sizing: border-box;
+    margin-right: 0;
+    height: fit-content;
+    position: relative;
+    border: 1px #ddd solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 20px 26px;
+    margin-top: 10px;
+}
+
+#user-info {
+    background: transparent;
+    color: #111;
+    display: inline-block;
+    vertical-align: top;
+    width: 32%;
+    margin-left: 10%;
+    box-sizing: border-box;
+    margin-right: 10px;
+    height: fit-content;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+#revs {
+    vertical-align: top;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    width: 47%;
+    margin-top: 10px;
+
+}
+
+.profile-page #cust-reviews {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    width: 100%;
+    height: fit-content;
+    border: 1px #ddd solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 20px 26px;
+    margin-top: 71px;
+}
+
 .profile-page #cust-reviews > h3 {
     font-size: 20px;
     padding-bottom: 15px;
     border-bottom: 1px solid #e7e7e7;
+}
+
+.profile-page #review-items{
+    top: 30px;
 }
 
 .auth-form #cancel {

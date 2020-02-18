@@ -468,3 +468,45 @@ a.create-review:hover {
     cursor: pointer;
     color: #c45500;
 }
+
+.review-item a > img {
+    width: 30px;
+    max-width: 30px;
+    height: 30px;
+    max-height: 30px;
+    border-radius: 50%;
+    border: 5px solid #cccaca;
+    margin-right: 10px;
+}
+
+
+.review-item span img#star {
+    height: 18px;
+    margin-left: 2px;
+}
+
+.review-item span:first-of-type {
+    margin-left: 0px;
+}
+
+.review-item a {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: #111;
+}
+
+.review-item a > img#small-anime {
+    width: 30px;
+    max-width: 30px;
+    height: 30px;
+    max-height: 30px;
+    border-radius: 3px;
+    border: 1px solid #cccaca;
+    margin-right: 10px;
+}
+
+.review-item a:hover {
+    color: #e77600;
+    text-decoration: none;
+}
