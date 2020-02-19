@@ -59,14 +59,12 @@ class Anime < ApplicationRecord
                         Anime
                         .includes(:studio)
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     else # year filter
                         Anime
                         .includes(:studio)
                         .where("release_year IN (?)",years)
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     end
                 else # studio filter
@@ -76,7 +74,6 @@ class Anime < ApplicationRecord
                         .includes(:studio)
                         .where("studios.name IN (?)",studios).references(:studio)
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     else # year filter
                         Anime
@@ -84,7 +81,6 @@ class Anime < ApplicationRecord
                         .where("studios.name IN (?)",studios).references(:studio)
                         .where("release_year IN (?)",years)
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     end
                 end
@@ -97,7 +93,6 @@ class Anime < ApplicationRecord
                         .includes(:studio)
                         .where(genres_search)
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     else # year filter
                         Anime
@@ -105,7 +100,6 @@ class Anime < ApplicationRecord
                         .where(genres_search)
                         .where("release_year IN (?)",years)
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     end
                 else # studio filter
@@ -116,7 +110,6 @@ class Anime < ApplicationRecord
                         .where(genres_search)
                         .where("studios.name IN (?)",studios).references(:studio)
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     else # year filter
                         Anime
@@ -125,7 +118,6 @@ class Anime < ApplicationRecord
                         .where("studios.name IN (?)",studios).references(:studio)
                         .where("release_year IN (?)",years)
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     end
                 end
@@ -141,7 +133,6 @@ class Anime < ApplicationRecord
                         .includes(:studio)
                         .where("UPPER(title) LIKE ?", "#{title.upcase}%")
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     else # year filter
                         Anime
@@ -149,7 +140,6 @@ class Anime < ApplicationRecord
                         .where("UPPER(title) LIKE ?", "#{title.upcase}%")
                         .where("release_year IN (?)",years)
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     end
                 else # studio filter
@@ -160,7 +150,6 @@ class Anime < ApplicationRecord
                         .where("UPPER(title) LIKE ?", "#{title.upcase}%")
                         .where("studios.name IN (?)",studios).references(:studio)
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     else # year filter
                         Anime
@@ -169,7 +158,6 @@ class Anime < ApplicationRecord
                         .where("studios.name IN (?)",studios).references(:studio)
                         .where("release_year IN (?)",years)
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     end
                 end
@@ -183,7 +171,6 @@ class Anime < ApplicationRecord
                         .where("UPPER(title) LIKE ?", "#{title.upcase}%")
                         .where(genres_search)
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     else # year filter
                         Anime
@@ -192,7 +179,6 @@ class Anime < ApplicationRecord
                         .where(genres_search)
                         .where("release_year IN (?)",years)
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     end
                 else # studio filter
@@ -204,7 +190,6 @@ class Anime < ApplicationRecord
                         .where(genres_search)
                         .where("studios.name IN (?)",studios).references(:studio)
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     else # year filter
                         Anime
@@ -214,7 +199,6 @@ class Anime < ApplicationRecord
                         .where("studios.name IN (?)",studios).references(:studio)
                         .where("release_year IN (?)",years)
                         .offset(offset)
-                        .limit(10)
                         .order("title ASC")
                     end
                 end

@@ -12,11 +12,26 @@ class NavBar extends Component {
         this.handleMouseOver = this.handleMouseOver.bind(this);
         this.handleProfileClick = this.handleProfileClick.bind(this);
         this.handlePrimeClick = this.handlePrimeClick.bind(this);
+        this.handleSearchAll = this.handleSearchAll.bind(this);
         this.handleCreatorClick = this.handleCreatorClick.bind(this);
     }
 
+    handleSearchAll(e){
+        e.preventDefault();
+        this.props.searchAnime({page: "1"})
+            .then(() => {
+                this.props.history.push("/s?all&page=1");
+                if (this.props.top.current !== null) {
+                    this.props.top.current.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                    });
+                }
+            });
+    }
+
     handleCreatorClick() {
-        this.props.refPos.current.scrollIntoView({
+        this.props.bottom.current.scrollIntoView({
             behavior: 'smooth',
             block: 'start',
         });
@@ -45,6 +60,7 @@ class NavBar extends Component {
     handleMouseOver() {
         this.props.navDropdown(true);
         this.props.navLiClicked(false);
+        this.props.searchDropdownHide(true);
     }
 
     handlePrimeClick(){
@@ -89,9 +105,9 @@ class NavBar extends Component {
                     </div>
 
                     <div className="nav-bottom-line">
-                        <StudioDropdown />
+                        <StudioDropdown refPos={this.props.top}/>
                         {profileLink}
-                        <Link to="/s" >Search by Filters</Link>
+                        <a onClick={this.handleSearchAll} >Search by Filters</a>
                         <a href="#" onClick={this.randomAnimePage}>Surprise Me!</a>
                         <a onClick={this.handleCreatorClick} id="meet-creator">Meet The Creator!</a>
                     </div>
@@ -126,9 +142,9 @@ class NavBar extends Component {
                     </div>
 
                     <div className="nav-bottom-line">
-                        <StudioDropdown />
+                        <StudioDropdown refPos={this.props.top}/>
                         {profileLink}
-                        <Link to="/s" >フィルターで探して</Link>
+                        <a onClick={this.handleSearchAll} >フィルターで探して</a>
                         <a href="#" onClick={this.randomAnimePage}>ランダムのを見せて!</a>
                         <a onClick={this.handleCreatorClick} id="meet-creator">作成者を紹介する！</a>
                     </div>

@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import SearchResults from "./search_results";
-import { searchAnime, searchAllAnime } from "../../actions/anime_actions";
-import { navDropdown } from "../../actions/ui_actions";
+import { searchAnime } from "../../actions/anime_actions";
+import { navDropdown, searchDropdownHide, navLiClicked } from "../../actions/ui_actions";
 
 
 const mSTP = state => ({
@@ -10,9 +10,10 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
+    navLiClicked: (bool) => dispatch(navLiClicked(bool)),
     navDropdown: (bool) => dispatch(navDropdown(bool)),
-    searchAnime: (searchParams) => dispatch(searchAnime(searchParams)),
-    searchAllAnime: (page) => dispatch(searchAllAnime(page))
+    searchDropdownHide: (bool) => dispatch(searchDropdownHide(bool)),
+    searchAnime: (searchParams) => dispatch(searchAnime(searchParams))
 });
 
 export default connect(mSTP,mDTP)(SearchResults);

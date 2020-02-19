@@ -36,18 +36,6 @@ export const searchAnime = (searchParams) => (
     })
 );
 
-export const searchAllAnime = (page) => (
-    $.ajax({
-        method: "GET",
-        url: "/api/anime/search",
-        data: {
-            search: {
-                page: page 
-            }
-        }
-    })
-);
-
 export const fetchGenres = () => (
     $.ajax({
         method: "GET",

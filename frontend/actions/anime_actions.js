@@ -51,11 +51,6 @@ export const searchAnime = (searchParams) => dispatch => (
         .then((results) => dispatch(receiveSearchResults(results)))
 );
 
-export const searchAllAnime = (page) => dispatch => (
-    AnimeAPIUtil.searchAllAnime(page)
-        .then((results) => dispatch(receiveSearchResults(results)))
-);
-
 export const fetchGenres = () => dispatch => (
     AnimeAPIUtil.fetchGenres()
         .then((genres) => dispatch(receiveGenres(genres)))

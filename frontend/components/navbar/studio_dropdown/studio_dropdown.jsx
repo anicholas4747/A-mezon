@@ -6,6 +6,21 @@ class StudioDropdown extends Component{
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleMouseOver = this.handleMouseOver.bind(this);
+        this.handleSearchAll = this.handleSearchAll.bind(this);
+    }
+
+    handleSearchAll(e) {
+        e.preventDefault();
+        this.props.searchAnime({ page: "1" })
+            .then(() => {
+                this.props.history.push("/s?all&page=1");
+                if (this.props.refPos.current !== null) {
+                    this.props.refPos.current.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                    });
+                }
+            });
     }
 
     handleClick(e){
@@ -22,6 +37,7 @@ class StudioDropdown extends Component{
     handleMouseOver(){
         this.props.navDropdown(true);
         this.props.navLiClicked(false);
+        this.props.searchDropdownHide(true);
     }
 
     componentDidMount(){
@@ -46,7 +62,7 @@ class StudioDropdown extends Component{
             return (
                 <div className="search-by-studio">
                     <span id="search-by-studio-span" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
-                        <Link to="/s" id="search-by-studio">Search by Studio ▾</Link>
+                        <a onClick={this.handleSearchAll} id="search-by-studio">Search by Studio ▾</a>
                         <ul className={ulClass}>{studios}</ul>
                     </span>
                     <div id="nav-bump">.</div>
@@ -56,7 +72,7 @@ class StudioDropdown extends Component{
                 return (
                     <div className="search-by-studio">
                         <span id="search-by-studio-span" onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
-                            <Link to="/s" id="search-by-studio">スタジオで探して ▾</Link>
+                            <a onClick={this.handleSearchAll} id="search-by-studio">スタジオで探して ▾</a>
                             <ul className={ulClass}>{studios}</ul>
                         </span>
                         <div id="nav-bump">.</div>

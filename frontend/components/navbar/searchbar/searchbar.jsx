@@ -15,7 +15,6 @@ class SearchBar extends Component{
     }
 
     componentDidMount(){
-        console.log(this.state)
         if(this.props.genres.length === 0) {
             this.props.fetchGenres();
         }
@@ -31,6 +30,7 @@ class SearchBar extends Component{
             e.preventDefault();
             this.props.navLiClicked(true);
             this.props.navDropdown(false);
+            this.props.searchDropdownHide(true);
             this.props.fetchOneAnime(title)
                 .then(() => (this.props.history.push(`/anime?${title.split(" ").join("-")}`)));
         };
@@ -40,6 +40,7 @@ class SearchBar extends Component{
         e.preventDefault();
         this.props.navLiClicked(true);
         this.props.navDropdown(false);
+        this.props.searchDropdownHide(true);
         //format search params
         const searchParams = {
             title: this.state.searchTerm,
@@ -48,12 +49,16 @@ class SearchBar extends Component{
         };
 
         let searchQuery = "";
-        if (searchParams.title !== null) {
+        if (searchParams.title !== null && searchParams.title !== "") {
             searchQuery = searchQuery.concat("title=", searchParams.title);
         }
-        if (searchParams.genres[0] !== "") {
+        if (searchParams.genres[0] !== "" && searchParams.title !== "") {
             searchParams.genres.forEach((g) => {
-                searchQuery = searchQuery.concat("&genre=", g);
+                searchQuery = searchQuery.concat("&genres=", g);
+            });
+        } else if (searchParams.genres[0] !== "" && searchParams.title === "") {
+            searchParams.genres.forEach((g) => {
+                searchQuery = searchQuery.concat("genres=", g);
             });
         }
         if (typeof searchParams.page === "number") {
@@ -61,18 +66,18 @@ class SearchBar extends Component{
         }
 
 
-        if(this.state.searchTerm === ""){
+        if(this.state.searchTerm === "" & this.state.genre === ""){
             this.props.history.push("/");
         } else {
-                this.props.history.push(`/s?${searchQuery}`);
-            // this.props.searchAnime(searchParams)
-            //     .then(() => this.props.history.push(`/s?${searchQuery}`));
+            this.props.searchAnime(searchParams)
+                .then(() => this.props.history.push(`/s?${searchQuery}`));
         }
     }
 
     handleInput(field){
         return (e) => {
             this.props.navLiClicked(false);
+            this.props.searchDropdownHide(false);
             (e.target.value === "") ? this.props.startSearch(false) : this.props.startSearch(true);
             this.setState({
                 [field]: e.target.value
@@ -93,7 +98,7 @@ class SearchBar extends Component{
         
         if(this.state.searchTerm === "") partialMatches = null;
 
-        const ulId = (this.props.liClicked) ? "SEARCH-HIDDEN" : null;
+        const ulId = (this.props.searchDropdownHidden) ? "SEARCH-HIDDEN" : null;
 
         if (this.props.genres.length === 0) {
             return (

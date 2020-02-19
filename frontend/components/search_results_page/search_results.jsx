@@ -4,11 +4,24 @@ import FilterOptions from './filter_options/filter_options_container';
 class SearchResults extends Component{
     constructor(props){
         super(props);
-        this.searchTerms = {};
+        this.searchTerms = {
+            title: "",
+            genres: [],
+            years: [],
+            studios: []
+        };
         this.handleAnimeClick = this.handleAnimeClick.bind(this);
         this.handleStudioClick = this.handleStudioClick.bind(this);
         this.handleGenreClick = this.handleGenreClick.bind(this);
         this.handleYearClick = this.handleYearClick.bind(this);
+        this.handleModalOff = this.handleModalOff.bind(this);
+    }
+
+    handleModalOff(e){
+        e.preventDefault();
+        this.props.navLiClicked(true);
+        this.props.navDropdown(false);
+        this.props.searchDropdownHide(true);
     }
 
     handleAnimeClick(e){
@@ -23,12 +36,46 @@ class SearchResults extends Component{
 
     handleGenreClick(e){
         e.preventDefault();
-
+        const searchGenre = e.target.text;
+        this.props.searchAnime({ genres: [searchGenre] })
+            .then(() => {
+                this.searchTerms = {
+                    title: "",
+                    genres: [searchGenre],
+                    years: [],
+                    studios: [],
+                    page: 1
+                };
+                this.props.history.push(`/s?genres=${searchGenre.split(" ").join("%20")}&page=1`);
+                if (this.props.refPos.current !== null) {
+                    this.props.refPos.current.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                    });
+                }
+            });
     }
 
     handleYearClick(e){
         e.preventDefault();
-
+        const searchYear = e.target.text;
+        this.props.searchAnime({ years: [searchYear] })
+            .then(() => {
+                this.searchTerms = {
+                    title: "",
+                    genres: [],
+                    years: [searchYear],
+                    studios: [],
+                    page: 1
+                };
+                this.props.history.push(`/s?years=${searchYear.split(" ").join("%20")}&page=1`);
+                if (this.props.refPos.current !== null) {
+                    this.props.refPos.current.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                    });
+                }
+            });
     }
 
     componentDidMount(){
@@ -40,17 +87,24 @@ class SearchResults extends Component{
             });
         }
         
-        if(this.props.history.location.search.length === 0){
-            //display all anime (limit 10)
-            this.props.searchAllAnime(1);
-        } else if (this.props.history.location.search.includes("=")) {
-            debugger
+        if (this.props.history.location.search.includes("=")) {
             //display relevant anime based on search term
+            this.searchTerms = {
+                title: "",
+                genres: [],
+                years: [],
+                studios: [],
+                page: 1
+            };
+
             this.props.history.location.search.slice(1).split("&").forEach((term) => {
                 let kv = term.split("=");
-                this.searchTerms[kv[0]] = kv[1];
+                if (kv[0] === "years" || kv[0] === "genres" || kv[0] === "studios"){
+                    this.searchTerms[kv[0]].push(kv[1]);
+                } else {
+                    this.searchTerms[kv[0]] = kv[1];
+                }
             });
-            debugger
             // implement search by title, genre, studio, and release year
             this.props.searchAnime(this.searchTerms);
         }
@@ -60,39 +114,72 @@ class SearchResults extends Component{
     render(){
         const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
 
+        this.searchTerms = {
+            title: "",
+            genres: [],
+            years: [],
+            studios: [],
+            page: 1
+        };
+
+        this.props.history.location.search.slice(1).split("&").forEach((term) => {
+            let kv = term.split("=");
+            if (kv[0] === "years" || kv[0] === "genres" || kv[0] === "studios") {
+                this.searchTerms[kv[0]].push(kv[1]);
+            } else {
+                this.searchTerms[kv[0]] = kv[1];
+            }
+        });
+
+        if (this.props.history.location.search.includes("all")) {
+            this.searchTerms.title = "";
+        }
+
+        let fullSearch = "";
+        if (this.searchTerms.title !== "") fullSearch = fullSearch.concat(` for "${this.searchTerms.title}"`);
+        if (this.searchTerms.genres.length > 0) fullSearch = fullSearch.concat(` in these genres: ${this.searchTerms.genres.join(", ").split("%20").join(", ")}`);
+        if (this.searchTerms.years.length > 0) fullSearch = fullSearch.concat(` in these years: ${this.searchTerms.years.join(", ").split("%20").join(", ")}`);
+        if (this.searchTerms.studios.length > 0) fullSearch = fullSearch.concat(` by these studios: ${this.searchTerms.studios.join(", ").split("%20").join(", ")}`);
+
         let pageChange = null;
         
-        if (this.props.results.length !== 0 && this.searchTerms.page !== 1) {
+        if (this.props.results.length !== 0 && this.props.results.length > 10 && this.searchTerms.page !== "1") {
             pageChange = (
             <div id="page-change">
                 <a>← Previous</a>
                 <button>Next →</button>
             </div>
             )
-        } else if (this.props.results.length !== 0 && this.searchTerms.page === 1) {
+        } else if (this.props.results.length !== 0 && this.props.results.length > 10 && this.searchTerms.page === "1") {
             pageChange = (
                 <div id="page-change">
                     <button>Next →</button>
                 </div>
             )
+        } else if (this.props.results.length !== 0 && this.props.results.length < 10 && this.searchTerms.page !== "1") {
+            pageChange = (
+                <div id="page-change">
+                    <a>← Previous</a>
+                </div>
+            )
         };
-
+        
         if(this.props.results.length === 0) {
             return (
                 <div className="search-results">
                     <div className={modalToggle}>.</div>
-                    <span>Displaying X-Y of Z results for <p id="search-term">"searchTerm"</p></span>
+                    <span>No results to display <p id="search-term">{fullSearch}</p></span>
                     <FilterOptions />
                     <ul id="results-ul">
                         {pageChange}
-                        <h1>No results to display</h1>
+                        <h1>Sorry,  no results to display . . .</h1>
                         {pageChange}
                     </ul>
                 </div>
             )
         } else {
             // clicking on the price, title, or img take you to the show page
-            const results = this.props.results.map((anime) => {
+            const results = this.props.results.slice(0,11).map((anime) => {
                 return (
                     <li key={`${anime.title}uwu${anime.price}`}>
                         <img onClick={() => this.props.history.push(`/anime?${anime.title.split(" ").join("-")}`)} src={window.animePH} />
@@ -108,10 +195,14 @@ class SearchResults extends Component{
                 )
             });
 
+            const total = this.props.results.length + ((parseInt(this.searchTerms.page) - 1) * 10);
+            const numShownStart = (((parseInt(this.searchTerms.page) - 1) * 10) + 1);
+            const numShownEnd = (total > (numShownStart + 10)) ? (numShownStart + 10) : total;
+
             return (
                 <div className="search-results">
-                    <div className={modalToggle}>.</div>
-                    <span>Displaying X-Y of Z results for <p id="search-term">"searchTerm"</p></span>
+                    <div className={modalToggle} onClick={this.handleModalOff}>.</div>
+                    <span>Displaying {numShownStart}-{numShownEnd} of {total} result(s) <p id="search-term">{fullSearch}</p></span>
                     <FilterOptions />
                     <ul id="results-ul">
                         {pageChange}

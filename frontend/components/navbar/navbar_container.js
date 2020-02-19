@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import NavBar from "./navbar";
-import { fetchAnimeTitles, fetchOneAnime } from "../../actions/anime_actions";
-import { navDropdown, navLiClicked } from "../../actions/ui_actions";
+import { fetchAnimeTitles, fetchOneAnime, searchAnime } from "../../actions/anime_actions";
+import { navDropdown, navLiClicked, searchDropdownHide } from "../../actions/ui_actions";
 import { fetchProfile } from "../../actions/profile_actions";
 
 
@@ -18,7 +18,9 @@ const mapDispatchToProps = (dispatch) => ({
     fetchOneAnime: (animeTitle) => dispatch(fetchOneAnime(animeTitle)),
     navDropdown: (bool) => dispatch(navDropdown(bool)),
     navLiClicked: (bool) => dispatch(navLiClicked(bool)),
-    fetchProfile: (username) => dispatch(fetchProfile(username))
+    searchDropdownHide: (bool) => dispatch(searchDropdownHide(bool)),
+    fetchProfile: (username) => dispatch(fetchProfile(username)),
+    searchAnime: (searchParams) => dispatch(searchAnime(searchParams))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

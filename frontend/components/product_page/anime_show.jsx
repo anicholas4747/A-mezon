@@ -62,8 +62,8 @@ class AnimeShow  extends Component{
                         <h3>{title}</h3>
                         <h4>by<a onClick={this.handleStudioClick}>{studioName}</a></h4>
                         <span id="pricing"><h6>Price:</h6><h5 id="amount">${price.toFixed(2)}</h5><h4>& FREE Shipping</h4></span>
-                        <h4>Release Year: <Link to={`/s?year=${release_year}`}>{release_year}</Link></h4>
-                        <h4>Genre: <Link to={`/s?genre=${genre}`}>{genre}</Link></h4>
+                        <h4>Release Year: <Link to={`/s?years=${release_year}&page=1`}>{release_year}</Link></h4>
+                        <h4>Genre: <Link to={`/s?genres=${genre}&page=1`}>{genre}</Link></h4>
                         <ul id="description-ul">{descriptionLis}</ul>
                     </span>
                     <span className="purchase-actions">

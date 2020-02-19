@@ -216,6 +216,7 @@ form.searchbar {
 .nav-bottom-line a:hover {
     border: 1px solid #f1f1f1;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 #search-by-studio {
@@ -234,6 +235,10 @@ div.search-by-studio {
     margin-left: 40px;
     width: 160px;
     min-width: 160px;
+}
+
+#search-by-studio-span > a {
+    cursor: pointer;
 }
 
 #nav-bump {

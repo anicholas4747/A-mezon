@@ -10,6 +10,7 @@ class LangToggle extends  Component{
     handleMouseOver() {
         this.props.navDropdown(true);
         this.props.navLiClicked(false);
+        this.props.searchDropdownHide(true);
     }
 
     render(){

@@ -1,4 +1,4 @@
-import { navDropdown, navLiClicked } from "../../../actions/ui_actions";
+import { navDropdown, navLiClicked, searchDropdownHide } from "../../../actions/ui_actions";
 import { connect } from "react-redux";
 import LangToggle from "./lang_toggle";
 
@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     navDropdown: (bool) => dispatch(navDropdown(bool)),
-    navLiClicked: (bool) => dispatch(navLiClicked(bool))
+    navLiClicked: (bool) => dispatch(navLiClicked(bool)),
+    searchDropdownHide: (bool) => dispatch(searchDropdownHide(bool))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(LangToggle);

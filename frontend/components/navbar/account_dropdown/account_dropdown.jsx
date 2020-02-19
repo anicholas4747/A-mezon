@@ -27,6 +27,7 @@ class AccountDropdown extends Component{
     }
 
     handleMouseOver() {
+        this.props.searchDropdownHide(true);
         this.props.navDropdown(true);
         this.props.navLiClicked(false);
     }

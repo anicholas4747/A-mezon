@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import AccountDropdown from "./account_dropdown";
 import { withRouter } from "react-router-dom";
-import { navDropdown, navLiClicked } from "../../../actions/ui_actions";
+import { navDropdown, navLiClicked, searchDropdownHide } from "../../../actions/ui_actions";
 import { logout } from "../../../actions/session_actions";
 import { fetchProfile } from "../../../actions/profile_actions";
 
@@ -16,6 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
     logout: () => dispatch(logout()),
     navDropdown: (bool) => dispatch(navDropdown(bool)),
     navLiClicked: (bool) => dispatch(navLiClicked(bool)),
+    searchDropdownHide: (bool) => dispatch(searchDropdownHide(bool)),
     fetchProfile: (username) => dispatch(fetchProfile(username))
 });
 
