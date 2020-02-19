@@ -86,13 +86,26 @@ class SearchBar extends Component{
     }
 
     render(){
-        let partialMatches = this.props.titles.filter( (obj) => (
-            obj.title.toUpperCase().slice(0,this.state.searchTerm.length) === this.state.searchTerm.toUpperCase()
-        )).slice(0,11).map(({title}) => (
-            <li className="partial-match" key={`${title}1`} onClick={this.handleAnimeClick(title)}>
-                {title}
-            </li>
-        ));
+        let partialMatches = [];
+        
+        if (this.state.genre === "") {
+            partialMatches = this.props.titles.filter((obj) => (
+                (obj.title.toUpperCase().slice(0, this.state.searchTerm.length) === this.state.searchTerm.toUpperCase())
+            )).slice(0, 11).map(({ title }) => (
+                <li className="partial-match" key={`${title}1`} onClick={this.handleAnimeClick(title)}>
+                    {title}
+                </li>
+            ));
+        } else {
+            partialMatches = this.props.titles.filter( (obj) => (
+                (obj.title.toUpperCase().slice(0,this.state.searchTerm.length) === this.state.searchTerm.toUpperCase()
+                    && obj.genre.toUpperCase().includes(this.state.genre.toUpperCase()))
+            )).slice(0,11).map(({title}) => (
+                <li className="partial-match" key={`${title}1`} onClick={this.handleAnimeClick(title)}>
+                    {title}
+                </li>
+            ));
+        }
 
         const ulShow = (partialMatches.length > 0 && this.state.searchTerm !== "") ? "show-partial-matches" : "hide-partial-matches";
         
