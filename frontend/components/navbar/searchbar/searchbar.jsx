@@ -15,6 +15,7 @@ class SearchBar extends Component{
     }
 
     componentDidMount(){
+        console.log(this.state)
         if(this.props.genres.length === 0) {
             this.props.fetchGenres();
         }
@@ -50,8 +51,10 @@ class SearchBar extends Component{
         if (searchParams.title !== null) {
             searchQuery = searchQuery.concat("title=", searchParams.title);
         }
-        if (searchParams.genre !== "") {
-            searchQuery = searchQuery.concat("&genre=", searchParams.genre);
+        if (searchParams.genres[0] !== "") {
+            searchParams.genres.forEach((g) => {
+                searchQuery = searchQuery.concat("&genre=", g);
+            });
         }
         if (typeof searchParams.page === "number") {
             searchQuery = searchQuery.concat("&page=", searchParams.page);
@@ -61,8 +64,9 @@ class SearchBar extends Component{
         if(this.state.searchTerm === ""){
             this.props.history.push("/");
         } else {
-            this.props.searchAnime(searchParams)
-                .then(() => this.props.history.push(`/s?${searchQuery}`));
+                this.props.history.push(`/s?${searchQuery}`);
+            // this.props.searchAnime(searchParams)
+            //     .then(() => this.props.history.push(`/s?${searchQuery}`));
         }
     }
 

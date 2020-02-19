@@ -43,7 +43,7 @@ class Anime < ApplicationRecord
         years = search_params[:years]
 
         genres = search_params[:genres]
-        genres_search = genres.map {|g| "genre LIKE '%#{g}%'"}.join(" OR ")
+        genres_search = genres.map {|g| "genre LIKE '%#{g}%'"}.join(" OR ") unless genres.nil?
 
         offset = ( search_params[:page].to_i - 1 ) * 10
         offset = 0 if offset < 0

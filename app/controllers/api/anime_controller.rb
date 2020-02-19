@@ -33,6 +33,6 @@ class Api::AnimeController < ApplicationController
 
     private
     def search_params
-        params.require(:search).permit(:title, :genres, :studios, :years, :page)
+        params.require(:search).permit(:title, :page, genres: [], studios: [], years: [])
     end
 end
