@@ -36,6 +36,7 @@ class SearchResults extends Component{
 
     handleGenreClick(e){
         e.preventDefault();
+
         const searchGenre = e.target.text;
         this.props.searchAnime({ genres: [searchGenre] })
             .then(() => {
@@ -46,18 +47,25 @@ class SearchResults extends Component{
                     studios: [],
                     page: 1
                 };
-                this.props.history.push(`/s?genres=${searchGenre.split(" ").join("%20")}&page=1`);
+
+                // reset filter values 
+                // aka CLEAR THEM IF GENRE CLICK RESTRICTS SEARCH IF THERE ARE 2+ GENRES ON AN ANIME
+                const newFilters = (this.searchTerms.genres[0].split(" ").length === 1) ? [{genres: searchGenre}] : [];
+                this.props.preloadFilters(newFilters);
+                // this.props.history.push(`/s?genres=${searchGenre.split(" ").join("%20")}&page=1`);
                 if (this.props.refPos.current !== null) {
                     this.props.refPos.current.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start',
                     });
                 }
+                
             });
     }
 
     handleYearClick(e){
         e.preventDefault();
+
         const searchYear = e.target.text;
         this.props.searchAnime({ years: [searchYear] })
             .then(() => {
@@ -68,7 +76,12 @@ class SearchResults extends Component{
                     studios: [],
                     page: 1
                 };
-                this.props.history.push(`/s?years=${searchYear.split(" ").join("%20")}&page=1`);
+
+                // set filter values
+                // aka SET TO THE ONE YEAR THAT WAS CLICKED
+                const newFilters = [{years: searchYear}];
+                this.props.preloadFilters(newFilters);
+                // this.props.history.push(`/s?years=${searchYear.split(" ").join("%20")}&page=1`);
                 if (this.props.refPos.current !== null) {
                     this.props.refPos.current.scrollIntoView({
                         behavior: 'smooth',
@@ -132,15 +145,15 @@ class SearchResults extends Component{
             }
         });
 
-        if (this.props.history.location.search.includes("all")) {
+        if (this.props.history.location.search.includes("all") && !this.searchTerms.title.includes("all")) {
             this.searchTerms.title = "";
         }
 
         let fullSearch = "";
-        if (this.searchTerms.title !== "") fullSearch = fullSearch.concat(` for "${this.searchTerms.title}"`);
+        if (this.searchTerms.title !== "") fullSearch = fullSearch.concat(` for "${this.searchTerms.title.split("-").join(" ")}"`);
         if (this.searchTerms.genres.length > 0) fullSearch = fullSearch.concat(` in these genres: ${this.searchTerms.genres.join(", ").split("%20").join(", ")}`);
         if (this.searchTerms.years.length > 0) fullSearch = fullSearch.concat(` in these years: ${this.searchTerms.years.join(", ").split("%20").join(", ")}`);
-        if (this.searchTerms.studios.length > 0) fullSearch = fullSearch.concat(` by these studios: ${this.searchTerms.studios.join(", ").split("%20").join(", ")}`);
+        if (this.searchTerms.studios.length > 0) fullSearch = fullSearch.concat(` by these studios: ${this.searchTerms.studios.join(", ").split("%20").join(", ").split("-").join(" ")}`);
 
         let pageChange = null;
         
