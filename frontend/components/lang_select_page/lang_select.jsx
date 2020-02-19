@@ -9,6 +9,14 @@ class LangSelect extends Component{
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleOptionClick = this.handleOptionClick.bind(this);
+        this.handleModalOff = this.handleModalOff.bind(this);
+    }
+
+    handleModalOff(e) {
+        e.preventDefault();
+        this.props.navLiClicked(true);
+        this.props.navDropdown(false);
+        this.props.searchDropdownHide(true);
     }
 
     handleOptionClick(e){
@@ -59,7 +67,7 @@ class LangSelect extends Component{
         
         return (
             <div>
-                <div className={modalToggle}>.</div>
+                <div className={modalToggle} onClick={this.handleModalOff}>.</div>
                 <div id="language-settings">
                     <h2>Language Settings</h2>
                     <p>Select the language you prefer for browsing, shopping, and communications.</p>

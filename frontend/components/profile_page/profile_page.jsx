@@ -6,6 +6,14 @@ class ProfilePage extends Component{
         super(props);
         this.handleProfClick = this.handleProfClick.bind(this);
         this.handleLangClick = this.handleLangClick.bind(this);
+        this.handleModalOff = this.handleModalOff.bind(this);
+    }
+
+    handleModalOff(e) {
+        e.preventDefault();
+        this.props.navLiClicked(true);
+        this.props.navDropdown(false);
+        this.props.searchDropdownHide(true);
     }
 
     handleProfClick(e){
@@ -47,7 +55,7 @@ class ProfilePage extends Component{
 
         return (
             <div className="profile-page">
-                <div className={modalToggle}>.</div>
+                <div className={modalToggle} onClick={this.handleModalOff}>.</div>
                 <section id="grey-box">.</section>
                 <section id="profile-info">
                     <img src={window.profilePic}/>

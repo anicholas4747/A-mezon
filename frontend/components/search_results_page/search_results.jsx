@@ -167,7 +167,7 @@ class SearchResults extends Component{
         if(this.props.results.length === 0) {
             return (
                 <div className="search-results">
-                    <div className={modalToggle}>.</div>
+                    <div className={modalToggle} onClick={this.handleModalOff}>.</div>
                     <span>No results to display <p id="search-term">{fullSearch}</p></span>
                     <FilterOptions />
                     <ul id="results-ul">

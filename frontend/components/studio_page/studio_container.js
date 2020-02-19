@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import StudioShow from "./studio";
 import { fetchOneAnime } from "../../actions/anime_actions";
-import { navLiClicked } from "../../actions/ui_actions";
+import { navLiClicked, navDropdown, searchDropdownHide } from "../../actions/ui_actions";
 import { fetchStudio } from "../../actions/studio_actions";
 
 const mSTP = (state) => ({
@@ -11,9 +11,11 @@ const mSTP = (state) => ({
 });
 
 const mDTP = (dispatch) => ({
+    navLiClicked: (bool) => dispatch(navLiClicked(bool)),
+    navDropdown: (bool) => dispatch(navDropdown(bool)),
+    searchDropdownHide: (bool) => dispatch(searchDropdownHide(bool)),
     fetchStudio: (studioName) => dispatch(fetchStudio(studioName)),
     fetchAnime: (animeTitle) => dispatch(fetchOneAnime(animeTitle)),
-    navLiClicked: (bool) => dispatch(navLiClicked(bool))
 });
 
 export default connect(mSTP, mDTP)(StudioShow);

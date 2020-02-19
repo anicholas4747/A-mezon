@@ -4,6 +4,14 @@ class Home extends Component {
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleModalOff = this.handleModalOff.bind(this);
+    }
+
+    handleModalOff(e) {
+        e.preventDefault();
+        this.props.navLiClicked(true);
+        this.props.navDropdown(false);
+        this.props.searchDropdownHide(true);
     }
 
     handleClick(e) {
@@ -68,7 +76,7 @@ class Home extends Component {
 
         return (
             <div className="home-page">
-                <div className={modalToggle}>.</div>
+                <div className={modalToggle} onClick={this.handleModalOff}>.</div>
                 <h2>{recLang}</h2>
                 <ul>
                     {recs}

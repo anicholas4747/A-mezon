@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import AnimeShow from "./anime_show";
 import { fetchOneAnime } from "../../actions/anime_actions";
 import { fetchStudio } from "../../actions/studio_actions";
+import { navLiClicked, navDropdown, searchDropdownHide } from "../../actions/ui_actions";
 
 const mSTP = (state) => ({
     shouldGreyOut: Boolean(state.ui.navDropdown),
@@ -12,6 +13,9 @@ const mSTP = (state) => ({
 });
 
 const mDTP = (dispatch) => ({
+    navLiClicked: (bool) => dispatch(navLiClicked(bool)),
+    navDropdown: (bool) => dispatch(navDropdown(bool)),
+    searchDropdownHide: (bool) => dispatch(searchDropdownHide(bool)),
     fetchOneAnime: (animeTitle) => dispatch(fetchOneAnime(animeTitle)),
     fetchStudio: (studioName) => dispatch(fetchStudio(studioName))
 });

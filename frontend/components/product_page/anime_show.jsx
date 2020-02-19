@@ -7,6 +7,14 @@ class AnimeShow  extends Component{
         super(props);
         this.handleStudioClick = this.handleStudioClick.bind(this);
         this.ref = React.createRef();
+        this.handleModalOff = this.handleModalOff.bind(this);
+    }
+
+    handleModalOff(e) {
+        e.preventDefault();
+        this.props.navLiClicked(true);
+        this.props.navDropdown(false);
+        this.props.searchDropdownHide(true);
     }
 
     handleStudioClick(e) {
@@ -50,7 +58,7 @@ class AnimeShow  extends Component{
 
         return (
             <div className="outermost">
-                <div className={modalToggle}>.</div>
+                <div className={modalToggle} onClick={this.handleModalOff}>.</div>
                 
                 <section id="product-top-line">
                     <section className="media">

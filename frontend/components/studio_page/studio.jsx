@@ -4,6 +4,14 @@ class StudioShow extends Component{
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleModalOff = this.handleModalOff.bind(this);
+    }
+
+    handleModalOff(e) {
+        e.preventDefault();
+        this.props.navLiClicked(true);
+        this.props.navDropdown(false);
+        this.props.searchDropdownHide(true);
     }
 
     handleClick(e){
@@ -38,7 +46,7 @@ class StudioShow extends Component{
 
         return (
             <div className="outermost">
-                <div className={modalToggle}>.</div>
+                <div className={modalToggle} onClick={this.handleModalOff}>.</div>
                 <h1>Studio Show Page</h1>
                 <a href={site_url}><h2>{name}</h2></a>
                 <h3>{description}</h3>
