@@ -130,7 +130,7 @@ form.searchbar {
     border-right: 1px solid #a6a6a685;
     height: inherit;
     box-sizing: border-box;
-    width: 48px;
+    /* width: 48px; */
     min-width: 48px;
 }
 

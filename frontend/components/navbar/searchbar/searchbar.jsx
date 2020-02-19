@@ -113,12 +113,14 @@ class SearchBar extends Component{
 
         const ulId = (this.props.searchDropdownHidden) ? "SEARCH-HIDDEN" : null;
 
+        const selectSize = {"width": `${(12 * this.state.genre.length) + 8}px`}
+
         if (this.props.genres.length === 0) {
             return (
                 <div className="searchbar">
                     <form className="searchbar" onSubmit={this.handleSubmit}>
                         
-                        <select id="genre-select">
+                        <select id="genre-select" style={selectSize}>
                             <option value="All" defaultValue="selected">All ▾</option>
                         </select>
                         
@@ -141,7 +143,7 @@ class SearchBar extends Component{
         return (
             <div className="searchbar">
                 <form className="searchbar" onSubmit={this.handleSubmit}>
-                    <select id="genre-select" onChange={this.handleGenreChange} value={this.state.genre}>
+                    <select id="genre-select" style={selectSize} onChange={this.handleGenreChange} value={this.state.genre}>
                         <option value="" defaultValue="selected">All  ▾</option>
                         {genreOptions}
                     </select>
