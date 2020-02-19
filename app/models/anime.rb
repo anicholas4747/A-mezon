@@ -37,6 +37,13 @@ class Anime < ApplicationRecord
             .map { |g| g.split("/").map(&:capitalize).join("/") }
     end
 
+    def self.get_years
+        Anime
+            .distinct
+            .order("release_year ASC")
+            .pluck(:release_year)
+    end
+
     def self.search_for(search_params)
         title = search_params[:title]
         studios = search_params[:studios]

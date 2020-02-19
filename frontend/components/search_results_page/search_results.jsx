@@ -80,6 +80,7 @@ class SearchResults extends Component{
 
     componentDidMount(){
         this.props.navDropdown(false);
+        this.props.fetchYears();
         if (this.props.refPos.current !== null) {
             this.props.refPos.current.scrollIntoView({
                 behavior: 'smooth',

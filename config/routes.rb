@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :anime, only: [:index]
     get "/anime/genres", to: "anime#genres"
     get "/anime/search", to: "anime#search"
+    get "/anime/years", to: "anime#years"
     get "/anime/titles", to: "anime#titles"
     get "/anime/recs", to: "anime#recs"
     get "/anime/:title", to: "anime#show"

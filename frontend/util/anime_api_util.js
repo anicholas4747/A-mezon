@@ -42,3 +42,10 @@ export const fetchGenres = () => (
         url: "/api/anime/genres"
     })
 );
+
+export const fetchYears = () => (
+    $.ajax({
+        method: "GET",
+        url: "/api/anime/years"
+    })
+);

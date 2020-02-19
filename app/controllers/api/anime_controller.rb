@@ -14,6 +14,11 @@ class Api::AnimeController < ApplicationController
         @genres = Anime.get_genres
         render :genres
     end
+    
+    def years
+        @years = Anime.get_years
+        render :years
+    end
 
     def recs
         @recs = Anime.pull_recs(params[:recs])
