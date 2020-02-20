@@ -142,6 +142,50 @@ h4#calc-price {
     right: 0px;
 }
 
+.added-to-cart {
+    width: fit-content;
+    margin: 0;
+    border: 1px #007600 solid;
+    box-shadow: 0 0 2px 2px #0076008f inset;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 2px 20px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 35%;
+    top: -450px;
+    height: 45px;
+    box-sizing: border-box;
+    opacity: 0%;
+}
+
+.added-to-cart #stock {
+    font-size: 15px;
+}
+
+.added-to-cart img {
+    height: 25px;
+    width: 25px;
+    max-height: 25px;
+    max-width: 25px;
+    min-height: 25px;
+    min-width: 25px;
+    object-fit: contain;
+}
+
+.added-to-cart p, .added-to-cart button {
+    display: inline-block;
+    margin: 2px;
+}
+
+.SHOW {
+    top: -45px;
+    opacity: 100%;
+    transition: 0.2s ease;
+}
+
 .purchase-actions button {
     display: block;
     margin: 5px 0;

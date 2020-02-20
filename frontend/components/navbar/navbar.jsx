@@ -66,6 +66,10 @@ class NavBar extends Component {
     handlePrimeClick(){
         this.props.navLiClicked(true);
     }
+
+    componentDidMount(){
+        this.props.fetchCart(this.props.currentUser.cartId);
+    }
     
     render(){
         let profileLink = null;
@@ -75,6 +79,21 @@ class NavBar extends Component {
         }
 
         const hiddenEl = (this.props.liClicked) ? "HIDDEN" : null;
+        
+        let cartNumLeft = {
+            "position": "relative",
+            fontSize: "18px",
+            "color": "#f08804",
+            zIndex: "2"
+        };
+
+        if (this.props.cart.length < 10) {
+            cartNumLeft["left"] = "30px";
+        } else if (this.props.cart.length < 20) {
+            cartNumLeft["left"] = "34px";
+        } else {
+            cartNumLeft["left"] = "36px";
+        }
         
         if (this.props.language === "EN"){
             return (
@@ -99,7 +118,7 @@ class NavBar extends Component {
                             <ul className={hiddenEl}><li><Link to="/">Feature Coming Soon...</Link></li></ul>
                         </div>
                         <Link to="/cart" id="cart">
-                            <h4>0</h4>
+                            <h4 style={cartNumLeft}>{this.props.cart.length}</h4>
                             <img src={(this.props.language === "EN") ? window.cart : window.cartJP} alt="cart" />
                         </Link>
                     </div>
@@ -136,7 +155,7 @@ class NavBar extends Component {
                             <ul className={hiddenEl}><li><Link to="/">もうすぐ来る...</Link></li></ul>
                         </div>
                         <Link to="/cart" id="cart">
-                            <h4>0</h4>
+                            <h4 style={cartNumLeft}>{this.props.cart.length}</h4>
                             <img src={(this.props.language === "EN") ? window.cart : window.cartJP} alt="cart" />
                         </Link>
                     </div>

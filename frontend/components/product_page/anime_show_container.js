@@ -3,6 +3,7 @@ import AnimeShow from "./anime_show";
 import { fetchOneAnime } from "../../actions/anime_actions";
 import { fetchStudio } from "../../actions/studio_actions";
 import { navLiClicked, navDropdown, searchDropdownHide } from "../../actions/ui_actions";
+import { addToCart } from "../../actions/cart_actions";
 
 const mSTP = (state) => ({
     shouldGreyOut: Boolean(state.ui.navDropdown),
@@ -17,7 +18,8 @@ const mDTP = (dispatch) => ({
     navDropdown: (bool) => dispatch(navDropdown(bool)),
     searchDropdownHide: (bool) => dispatch(searchDropdownHide(bool)),
     fetchOneAnime: (animeTitle) => dispatch(fetchOneAnime(animeTitle)),
-    fetchStudio: (studioName) => dispatch(fetchStudio(studioName))
+    fetchStudio: (studioName) => dispatch(fetchStudio(studioName)),
+    addToCart: (purchaseForm) => dispatch(addToCart(purchaseForm))
 });
 
 export default connect(mSTP,mDTP)(AnimeShow);

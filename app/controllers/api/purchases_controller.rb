@@ -3,8 +3,9 @@ class Api::PurchasesController < ApplicationController
     
     def create
         purchase = Purchase.new(purchase_params)
+        purchase.cart_id = current_user.cart.id
         if purchase.save
-            @cart = Cart.includes(:purchases, :anime).find_by(id: purchase.cart_id)
+            @cart = Cart.includes(purchases: [anime: :studio]).find_by(id: purchase.cart_id)
             render "api/carts/show"
         else
             render json: ["Missing Info, could not create new cart item"], status: 422
@@ -14,7 +15,7 @@ class Api::PurchasesController < ApplicationController
     def update
         purchase = Purchase.find_by(id: params[:id])
         if purchase.update(purchase_params)
-            @cart = Cart.includes(:purchases, :anime).find_by(id: purchase.cart_id)
+            @cart = Cart.includes(purchases: [anime: :studio]).find_by(id: purchase.cart_id)
             render "api/carts/show"
         else
             render json: {message: purchase.errors.full_messages}, status: 422
@@ -23,7 +24,7 @@ class Api::PurchasesController < ApplicationController
 
     def destroy
         purchase = Purchase.find_by(id: params[:id]).destroy
-        @cart = Cart.includes(:purchases, :anime).find_by(id: purchase.cart_id)
+        @cart = Cart.includes(purchases: [anime: :studio]).find_by(id: purchase.cart_id)
         render "api/carts/show"
     end
 

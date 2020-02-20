@@ -6,8 +6,14 @@ class AnimeShow  extends Component{
     constructor(props){
         super(props);
         this.handleStudioClick = this.handleStudioClick.bind(this);
-        this.ref = React.createRef();
         this.handleModalOff = this.handleModalOff.bind(this);
+        this.handleAddToCart = this.handleAddToCart.bind(this);
+        this.handleQuantity = this.handleQuantity.bind(this);
+        this.handleGoToCart = this.handleGoToCart.bind(this);
+        this.state = {
+            quantity: 1,
+            added: false
+        };
     }
 
     handleModalOff(e) {
@@ -15,6 +21,37 @@ class AnimeShow  extends Component{
         this.props.navLiClicked(true);
         this.props.navDropdown(false);
         this.props.searchDropdownHide(true);
+    }
+
+    handleGoToCart(e){
+        e.preventDefault();
+        this.props.history.push("/cart");
+    }
+
+    handleQuantity(e){
+        e.preventDefault();
+        this.setState({
+            quantity: e.target.value
+        });
+    }
+
+    handleAddToCart(e){
+        e.preventDefault();
+        const purchaseForm = {
+            anime_id: this.props.anime.id,
+            quantity: this.state.quantity
+        };
+
+        if(this.props.isLoggedIn) {
+            this.props.addToCart(purchaseForm)
+                .then(() => {
+                    this.setState({
+                        added: true
+                    });
+                });
+        } else {
+            this.props.history.push("/signin?verify_email");
+        }
     }
 
     handleStudioClick(e) {
@@ -35,8 +72,9 @@ class AnimeShow  extends Component{
     }
 
     render(){
-        if (this.props.anime.title === undefined) return <div ref={this.ref}></div>;
+        if (this.props.anime.title === undefined) return <div>Loading...</div>;
 
+        const successAdd = (this.state.added) ? "added-to-cart SHOW" : "added-to-cart";
         const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
         const {title, description, genre, release_year, price} = this.props.anime;
         const studioName = this.props.studio.name;
@@ -52,7 +90,7 @@ class AnimeShow  extends Component{
         )
 
         const qtyOptions = [];
-        for(let i = 1; i <= 10; i++){
+        for(let i = 1; i <= 20; i++){
             qtyOptions.push(<option key={i} value={i}>Qty: {i}</option>)
         }
 
@@ -79,12 +117,12 @@ class AnimeShow  extends Component{
                         <h4>& FREE Shipping</h4>
                         <br/>
                         <p id="stock">In Stock.</p>
-                        <select id="qty">
+                        <select id="qty" onChange={this.handleQuantity}>
                             {qtyOptions}
                         </select>
                         <br/>
-                        <div><h5 id="calc-price">${price.toFixed(2)}</h5><h4 id="calc-price">+ FREE Shipping</h4></div>
-                        <button id="add-to-cart">
+                        <div><h5 id="calc-price">${(price * this.state.quantity).toFixed(2)}</h5><h4 id="calc-price">+ FREE Shipping</h4></div>
+                        <button id="add-to-cart" onClick={this.handleAddToCart}>
                             <img src={window.addToCart}/>
                             <p>Add to Cart</p>   
                         </button>
@@ -93,6 +131,11 @@ class AnimeShow  extends Component{
                             <img src={window.buyNow}/>
                             <p>Buy Now</p>
                         </button>
+                    </span>
+                    <span className={successAdd}>
+                        <img src={window.greenCheck} />
+                        <p id="stock"> Added to your Cart</p>
+                        <button onClick={this.handleGoToCart}>Continue to Cart</button>
                     </span>
                 </section>
 

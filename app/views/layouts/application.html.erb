@@ -29,6 +29,7 @@
       window.checkedCB = "<%= image_url("checked_checkbox.png") %>"
       window.animePH = "<%= image_url("anime-dancing-gif-png-2.gif") %>"
       window.profilePic = "<%= image_url("default_profile_pic.jpg") %>"
+      window.greenCheck = "<%= image_url("green_check.png") %>"
     </script>
 
     <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans:700&display=swap" rel="stylesheet">
@@ -38,7 +39,8 @@
           window.currentUser = {
             id:<%= current_user.id %>,
             username:"<%= current_user.username %>",
-            email:"<%= current_user.email %>"
+            email:"<%= current_user.email %>",
+            cartId:<%= current_user.cart.id %>
           };
       </script>
     <% end%>  

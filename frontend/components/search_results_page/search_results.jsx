@@ -50,9 +50,9 @@ class SearchResults extends Component{
 
                 // reset filter values 
                 // aka CLEAR THEM IF GENRE CLICK RESTRICTS SEARCH IF THERE ARE 2+ GENRES ON AN ANIME
-                const newFilters = (this.searchTerms.genres[0].split(" ").length === 1) ? [{genres: searchGenre}] : [];
+                const newFilters = [{ genres: searchGenre }];
                 this.props.preloadFilters(newFilters);
-                // this.props.history.push(`/s?genres=${searchGenre.split(" ").join("%20")}&page=1`);
+                this.props.history.push(`/s?genres=${searchGenre.split(" ").join("%20")}&page=1`);
                 if (this.props.refPos.current !== null) {
                     this.props.refPos.current.scrollIntoView({
                         behavior: 'smooth',
@@ -81,7 +81,7 @@ class SearchResults extends Component{
                 // aka SET TO THE ONE YEAR THAT WAS CLICKED
                 const newFilters = [{years: searchYear}];
                 this.props.preloadFilters(newFilters);
-                // this.props.history.push(`/s?years=${searchYear.split(" ").join("%20")}&page=1`);
+                this.props.history.push(`/s?years=${searchYear.split(" ").join("%20")}&page=1`);
                 if (this.props.refPos.current !== null) {
                     this.props.refPos.current.scrollIntoView({
                         behavior: 'smooth',

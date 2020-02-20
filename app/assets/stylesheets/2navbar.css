@@ -177,7 +177,6 @@ form.searchbar {
 
 #cart h4 {
     position: relative;
-    left: 30px;
     font-size: 18px;
     color: #f08804;
     z-index: 2;
@@ -188,6 +187,7 @@ form.searchbar {
     height: 40px;
     width: 84px;
     min-width: 84px;
+    position: relative;
 }
 
 .nav-bottom-line {

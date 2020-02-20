@@ -102,7 +102,17 @@ class FilterOptions extends Component{
                     genres: [this.props.preloadedFilters[0].genres],
                     studios: [],
                     years: []
-                }, this.makeSearch);
+                }, () => {
+                    if (this.state.genres[0].split(" ").length === 1){
+                        return this.makeSearch;
+                    } else {
+                        this.setState({
+                            genres: this.state.genres[0].split(" "),
+                            studios: [],
+                            years: []
+                        }, this.makeSearch);
+                    }
+                });
             }
         }
     }
