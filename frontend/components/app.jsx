@@ -15,6 +15,7 @@ import ProfilePage from './profile_page/profile_page_container';
 import LangSelect from './lang_select_page/lang_select_container';
 import EditProfileForm from './profile_page/edit_profile/edit_profile_form_container';
 import SearchResults from './search_results_page/search_results_container';
+import Cart from './cart_page/cart_container';
 
 const App = () => {
 
@@ -37,6 +38,7 @@ const App = () => {
                 <Route path="/studio" render={(props) => <StudioShow refPos= { top } {...props} />} />
                 <Route path="/s" render={(props) => <SearchResults refPos= { top } {...props} />} />
                 <Route path="/anime" render={(props) => <AnimeShow refPos= { top } {...props} />} />
+                <Route path="/cart" render={(props) => <Cart refPos= { top } {...props} />} />
                 <Route path="/language-select" render={(props) => <LangSelect refPos= { top } {...props} />} />
                 <ProtectedRoute path="/profile/edit-profile" render={(props) => <EditProfileForm refPos= { top } {...props} />} />
                 <Route path="/profile" render={(props) => <ProfilePage refPos= { top } {...props} />} />

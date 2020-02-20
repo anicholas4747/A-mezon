@@ -94,6 +94,11 @@ class NavBar extends Component {
         } else {
             cartNumLeft["left"] = "36px";
         }
+
+        let totalCartQty = 0;
+        this.props.cart.forEach(item => {
+            totalCartQty = totalCartQty + item.quantity;
+        });
         
         if (this.props.language === "EN"){
             return (
@@ -118,7 +123,7 @@ class NavBar extends Component {
                             <ul className={hiddenEl}><li><Link to="/">Feature Coming Soon...</Link></li></ul>
                         </div>
                         <Link to="/cart" id="cart">
-                            <h4 style={cartNumLeft}>{this.props.cart.length}</h4>
+                            <h4 style={cartNumLeft}>{totalCartQty}</h4>
                             <img src={(this.props.language === "EN") ? window.cart : window.cartJP} alt="cart" />
                         </Link>
                     </div>
@@ -155,7 +160,7 @@ class NavBar extends Component {
                             <ul className={hiddenEl}><li><Link to="/">もうすぐ来る...</Link></li></ul>
                         </div>
                         <Link to="/cart" id="cart">
-                            <h4 style={cartNumLeft}>{this.props.cart.length}</h4>
+                            <h4 style={cartNumLeft}>{totalCartQty}</h4>
                             <img src={(this.props.language === "EN") ? window.cart : window.cartJP} alt="cart" />
                         </Link>
                     </div>

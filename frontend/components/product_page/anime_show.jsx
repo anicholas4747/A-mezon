@@ -71,8 +71,17 @@ class AnimeShow  extends Component{
         this.props.fetchOneAnime(this.props.history.location.search.slice(1));
     }
 
+    componentDidUpdate(prevProps){
+        if(prevProps.anime.id !== this.props.anime.id){
+            this.setState({
+                quantity: 1,
+                added: false
+            });
+        }
+    }
+
     render(){
-        if (this.props.anime.title === undefined) return <div>Loading...</div>;
+        if (this.props.anime.title === undefined) return <h1>Loading...</h1>;
 
         const successAdd = (this.state.added) ? "added-to-cart SHOW" : "added-to-cart";
         const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");

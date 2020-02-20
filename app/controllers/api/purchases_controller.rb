@@ -23,7 +23,8 @@ class Api::PurchasesController < ApplicationController
     end
 
     def destroy
-        purchase = Purchase.find_by(id: params[:id]).destroy
+        purchase = Purchase.find_by(id: params[:id])
+        Purchase.delete_all_from_cart(params[:id])
         @cart = Cart.includes(purchases: [anime: :studio]).find_by(id: purchase.cart_id)
         render "api/carts/show"
     end

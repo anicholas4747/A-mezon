@@ -17,8 +17,8 @@ const sessionReducer = (state = defaultState, action) => {
         case (CLEAR_ERRORS):
             return Object.assign({}, newState, {
                 exists: undefined,
-                id: state.currentUser.id,
-                username: state.currentUser.username
+                id: state.id,
+                username: state.username
             });
         default:
             return state;
