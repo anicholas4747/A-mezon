@@ -11,7 +11,7 @@ class AnimeShow  extends Component{
         this.handleQuantity = this.handleQuantity.bind(this);
         this.handleGoToCart = this.handleGoToCart.bind(this);
         this.handleBuyNow = this.handleBuyNow.bind(this);
-        this.toggleImg = this.toggleImg.bind(this);
+        this.toggleMedia = this.toggleMedia.bind(this);
         this.handleContinueShopping = this.handleContinueShopping.bind(this);
         this.state = {
             quantity: 1,
@@ -33,11 +33,32 @@ class AnimeShow  extends Component{
         this.props.history.push("/");
     }
 
-    toggleImg(e){
+    toggleMedia(e){
         e.preventDefault();
         this.setState({
             imageClicked: e.target.textContent
         });
+    }
+
+    pickMedia(){
+        switch (this.state.imageClicked) {
+            case ("IMG"):
+                return (<img src={window.animePH} />);
+            case ("VID1"):
+                return (
+                    <span>
+                        <div id="video">Loading...</div>
+                        <iframe width="375" height="315" src="https://www.youtube.com/embed/IXaLo1huGZ0" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    </span>
+                );
+            case ("VID2"):
+                return (
+                    <span>
+                        <div id="video">Loading...</div>
+                        <iframe width="375" height="315" src="https://www.youtube.com/embed/rnQBF2CIygg" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    </span>
+                );
+        }
     }
 
     handleBuyNow(e){
@@ -130,20 +151,18 @@ class AnimeShow  extends Component{
 
         const checkedOut = (this.state.bought) ? "added-to-cart SHOW CONFIRM" : "added-to-cart";
 
+        let media = this.pickMedia();
+
         return (
             <div className="outermost">
                 <div className={modalToggle} onClick={this.handleModalOff}>.</div>
                 
                 <section id="product-top-line">
                     <section className="media">
-                        <button onClick={this.toggleImg}>IMG</button>
-                        <button onClick={this.toggleImg}>VID</button>
-                        {(this.state.imageClicked === "IMG") ? <img src={window.animePH} /> : (
-                            <span>
-                                <div id="video">Loading...</div>
-                                <iframe width="375" height="315" src="https://www.youtube.com/embed/IXaLo1huGZ0" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                            </span>
-                        )}
+                        <button onClick={this.toggleMedia}>IMG</button>
+                        <button onClick={this.toggleMedia}>VID1</button>
+                        <button onClick={this.toggleMedia}>VID2</button>
+                        {media}
                     </section>
                     <span className="details">
                         <h3>{title}</h3>

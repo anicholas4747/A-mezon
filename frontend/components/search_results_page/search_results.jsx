@@ -14,6 +14,8 @@ class SearchResults extends Component{
         this.handleStudioClick = this.handleStudioClick.bind(this);
         this.handleGenreClick = this.handleGenreClick.bind(this);
         this.handleYearClick = this.handleYearClick.bind(this);
+        this.handlePrevious = this.handlePrevious.bind(this);
+        this.handleNext = this.handleNext.bind(this);
         this.handleModalOff = this.handleModalOff.bind(this);
     }
 
@@ -91,6 +93,24 @@ class SearchResults extends Component{
             });
     }
 
+    handlePrevious(e){
+        e.preventDefault();
+        let pathParts = this.props.history.location.search.split("page=");
+        let newPage = (parseInt(pathParts[1]) - 1).toString();
+        let newPath = pathParts[0].concat("page=", newPage);
+        debugger
+        this.props.history.push(`/s${newPath}`);
+    }
+
+    handleNext(e){
+        e.preventDefault();
+        let pathParts = this.props.history.location.search.split("page=");
+        let newPage = (parseInt(pathParts[1]) + 1).toString();
+        let newPath = pathParts[0].concat("page=", newPage);
+        debugger
+        this.props.history.push(`/s${newPath}`);
+    }
+
     componentDidMount(){
         this.props.navDropdown(false);
         this.props.fetchYears();
@@ -160,20 +180,20 @@ class SearchResults extends Component{
         if (this.props.results.length !== 0 && this.props.results.length > 10 && this.searchTerms.page !== "1") {
             pageChange = (
             <div id="page-change">
-                <a>← Previous</a>
-                <button>Next →</button>
+                <a onClick={this.handlePrevious}>← Previous</a>
+                <button onClick={this.handleNext}>Next →</button>
             </div>
             )
         } else if (this.props.results.length !== 0 && this.props.results.length > 10 && this.searchTerms.page === "1") {
             pageChange = (
                 <div id="page-change">
-                    <button>Next →</button>
+                    <button onClick={this.handleNext}>Next →</button>
                 </div>
             )
         } else if (this.props.results.length !== 0 && this.props.results.length < 10 && this.searchTerms.page !== "1") {
             pageChange = (
                 <div id="page-change">
-                    <a>← Previous</a>
+                    <a onClick={this.handlePrevious}>← Previous</a>
                 </div>
             )
         };
