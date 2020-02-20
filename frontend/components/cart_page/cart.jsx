@@ -5,8 +5,12 @@ import { Link } from 'react-router-dom';
 class Cart extends Component{
     constructor(props){
         super(props);
+        this.state = {
+            checkedOut: false
+        };
         this.handleGoToCheckout = this.handleGoToCheckout.bind(this);
         this.handleModalOff = this.handleModalOff.bind(this);
+        this.handleContinueShopping = this.handleContinueShopping.bind(this);
     }
 
     handleModalOff(e) {
@@ -16,9 +20,19 @@ class Cart extends Component{
         this.props.searchDropdownHide(true);
     }
 
+    handleContinueShopping(e){
+        e.preventDefault();
+        this.props.history.push("/");
+    }
+
     handleGoToCheckout(e){
         e.preventDefault();
-        this.props.history.push('/checkout');
+        this.props.cart.forEach((item) => {
+            this.props.deleteCartItem(item.id);
+        });
+        this.setState({
+            checkedOut: true
+        });
     }
 
     componentDidMount(){
@@ -33,6 +47,7 @@ class Cart extends Component{
 
     render(){
         const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
+        const checkedOut = (this.state.checkedOut) ? "added-to-cart SHOW CONFIRM" : "added-to-cart";
 
         let totalCartQty = 0;
         this.props.cart.forEach(item => {
@@ -47,6 +62,11 @@ class Cart extends Component{
                     <p id="empty-cart">Your Shopping Cart lives to serve. Give it purpose — fill it with<Link to="/s?all&page=1">anime</Link>!</p>
                     {(!Boolean(this.props.currentUser.id)) ? <p id="empty-cart">If you already have an account,<Link to="signin?verify_email">Sign In</Link> to see your Cart.</p> : null}
                     <p id="empty-cart-last">Continue shopping on the<Link to="/">Aにmezon.com homepage</Link>.</p>
+                    <span className={checkedOut}>
+                        <img src={window.greenCheck} />
+                        <p id="stock"> Your order is on the way!</p>
+                        <button onClick={this.handleContinueShopping}>Continue Shopping</button>
+                    </span>
                 </div>
             )
         } else {
@@ -131,6 +151,11 @@ class Cart extends Component{
                         </div>
                         <div id="sub">{subTotalLine}</div>
                         <button onClick={this.handleGoToCheckout}>Proceed to checkout</button>
+                    </span>
+                    <span className={checkedOut}>
+                        <img src={window.greenCheck} />
+                        <p id="stock"> Your order is on the way!</p>
+                        <button onClick={this.handleContinueShopping}>Continue Shopping</button>
                     </span>
                 </div>
             )

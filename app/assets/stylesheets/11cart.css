@@ -218,3 +218,12 @@
 #cart-item-bottom-line {
     margin-top: 20px;
 }
+
+.cart-page span.CONFIRM {
+    top: 110px;
+    transition: 0.4s ease;
+}
+
+.cart-page span.CONFIRM #stock {
+    width: 315px;
+}

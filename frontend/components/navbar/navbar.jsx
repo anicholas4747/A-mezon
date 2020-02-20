@@ -87,18 +87,18 @@ class NavBar extends Component {
             zIndex: "2"
         };
 
-        if (this.props.cart.length < 10) {
-            cartNumLeft["left"] = "30px";
-        } else if (this.props.cart.length < 20) {
-            cartNumLeft["left"] = "34px";
-        } else {
-            cartNumLeft["left"] = "36px";
-        }
-
         let totalCartQty = 0;
         this.props.cart.forEach(item => {
             totalCartQty = totalCartQty + item.quantity;
         });
+
+        if (totalCartQty < 10) {
+            cartNumLeft["left"] = "30px";
+        } else if (totalCartQty < 20) {
+            cartNumLeft["left"] = "34px";
+        } else {
+            cartNumLeft["left"] = "36px";
+        }
         
         if (this.props.language === "EN"){
             return (

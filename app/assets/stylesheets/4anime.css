@@ -146,7 +146,7 @@ h4#calc-price {
     width: fit-content;
     margin: 0;
     border: 1px #007600 solid;
-    box-shadow: 0 0 2px 2px #0076008f inset;
+    box-shadow: 0 0 2px 2px #dff7df inset;
     border-radius: 4px;
     box-sizing: border-box;
     margin: 2px 20px;
@@ -553,4 +553,14 @@ a.create-review:hover {
 .review-item a:hover {
     color: #e77600;
     text-decoration: none;
+}
+
+#video {
+    text-align: center;
+    height: 315px;
+    width: 375px;
+    z-index: -3;
+    display: inline-block;
+    position: absolute;
+    opacity: 20%;
 }

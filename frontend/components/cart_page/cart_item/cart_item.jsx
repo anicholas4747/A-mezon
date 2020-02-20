@@ -22,13 +22,7 @@ class CartItem extends Component{
                 anime_id: this.props.item.anime_id,
                 quantity: parseInt(newQty)
             };
-
-            this.props.updateCartItem(purchaseForm)
-                .then(() => {
-                    this.setState({
-                        quantity: newQty
-                    });
-                });
+            this.props.updateCartItem(purchaseForm);
         }
     }
 

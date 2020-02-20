@@ -10,9 +10,14 @@ class AnimeShow  extends Component{
         this.handleAddToCart = this.handleAddToCart.bind(this);
         this.handleQuantity = this.handleQuantity.bind(this);
         this.handleGoToCart = this.handleGoToCart.bind(this);
+        this.handleBuyNow = this.handleBuyNow.bind(this);
+        this.toggleImg = this.toggleImg.bind(this);
+        this.handleContinueShopping = this.handleContinueShopping.bind(this);
         this.state = {
             quantity: 1,
-            added: false
+            added: false,
+            bought: false,
+            imageClicked: "IMG"
         };
     }
 
@@ -21,6 +26,25 @@ class AnimeShow  extends Component{
         this.props.navLiClicked(true);
         this.props.navDropdown(false);
         this.props.searchDropdownHide(true);
+    }
+
+    handleContinueShopping(e) {
+        e.preventDefault();
+        this.props.history.push("/");
+    }
+
+    toggleImg(e){
+        e.preventDefault();
+        this.setState({
+            imageClicked: e.target.textContent
+        });
+    }
+
+    handleBuyNow(e){
+        this.setState({
+            bought: true,
+            added: false
+        });
     }
 
     handleGoToCart(e){
@@ -46,7 +70,8 @@ class AnimeShow  extends Component{
             this.props.addToCart(purchaseForm)
                 .then(() => {
                     this.setState({
-                        added: true
+                        added: true,
+                        bought: false
                     });
                 });
         } else {
@@ -103,15 +128,22 @@ class AnimeShow  extends Component{
             qtyOptions.push(<option key={i} value={i}>Qty: {i}</option>)
         }
 
+        const checkedOut = (this.state.bought) ? "added-to-cart SHOW CONFIRM" : "added-to-cart";
+
         return (
             <div className="outermost">
                 <div className={modalToggle} onClick={this.handleModalOff}>.</div>
                 
                 <section id="product-top-line">
                     <section className="media">
-                        <button>IMG</button>
-                        <button>VID</button>
-                        <img src={window.animePH}/>
+                        <button onClick={this.toggleImg}>IMG</button>
+                        <button onClick={this.toggleImg}>VID</button>
+                        {(this.state.imageClicked === "IMG") ? <img src={window.animePH} /> : (
+                            <span>
+                                <div id="video">Loading...</div>
+                                <iframe width="375" height="315" src="https://www.youtube.com/embed/IXaLo1huGZ0" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            </span>
+                        )}
                     </section>
                     <span className="details">
                         <h3>{title}</h3>
@@ -136,7 +168,7 @@ class AnimeShow  extends Component{
                             <p>Add to Cart</p>   
                         </button>
                         <div id="button-sep">.</div>
-                        <button id="buy-now">
+                        <button id="buy-now" onClick={this.handleBuyNow}>
                             <img src={window.buyNow}/>
                             <p>Buy Now</p>
                         </button>
@@ -145,6 +177,11 @@ class AnimeShow  extends Component{
                         <img src={window.greenCheck} />
                         <p id="stock"> Added to your Cart</p>
                         <button onClick={this.handleGoToCart}>Continue to Cart</button>
+                    </span>
+                    <span className={checkedOut}>
+                        <img src={window.greenCheck} />
+                        <p id="stock"> Your order is on the way!</p>
+                        <button onClick={this.handleContinueShopping}>Continue Shopping</button>
                     </span>
                 </section>
 
