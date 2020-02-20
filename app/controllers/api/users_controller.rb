@@ -1,8 +1,11 @@
 class Api::UsersController < ApplicationController
+    before_action :ensure_logged_in, only: [:update, :destroy]
+
     def create
         @user = User.new(user_params)
         if @user.save
             log_in(@user)
+            Cart.create!(user_id: @user.id)
             render :show
         else
             render json: {message: @user.errors.full_messages}, status: 422
@@ -40,6 +43,12 @@ class Api::UsersController < ApplicationController
             render :show
         else
             render json: {message: @user.errors.full_messages}, status: 422
+        end
+    end
+
+    def destroy
+        if params[:id] == current_user.id
+            user.find_by(id: current_user.id).destroy
         end
     end
 

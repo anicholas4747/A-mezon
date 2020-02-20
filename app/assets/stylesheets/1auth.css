@@ -182,6 +182,20 @@ a:hover {
     box-sizing: border-box;
 }
 
+.leaving-site {
+    line-height: 1;
+    font-size: 12px;
+    color: #767676;
+    font-weight: 400;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 div.new-to-site {
     border-bottom: 0.75px solid #bdbababb;
     height: 1px;
@@ -191,6 +205,16 @@ p.new-to-site {
     position: relative;
     top: -12px;
     left: 120px;
+    padding: 5px;
+    background-color: white;
+    width: auto;    
+    display: inline-block;
+}
+
+p.leaving-site {
+    position: relative;
+    top: -12px;
+    left: 150px;
     padding: 5px;
     background-color: white;
     width: auto;    
@@ -215,6 +239,26 @@ a.new-to-site:hover {
     margin: 0px;
     text-decoration: none;
     background-image: linear-gradient(rgb(231, 234, 240), rgb(217, 220, 225));
+}
+
+a.leaving-site {
+    background-image: linear-gradient(rgb(253, 77, 38), rgb(237, 36, 22));
+    border-radius: 3px;
+    border-color: #b88e8d #aa7b78 #946868;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 13px;
+    margin: 0 auto;
+}
+
+a.leaving-site:hover {
+    text-decoration: none;
+    background-image: linear-gradient(rgb(236, 71, 34), rgb(226, 34, 21));
 }
 
 .already-have-account {

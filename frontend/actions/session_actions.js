@@ -62,3 +62,8 @@ export const updateUser = (userInfo) => dispatch => (
     SessionAPIUtil.updateUser(userInfo)
         .then(user => dispatch(receiveCurrentUser(user)))
 );
+
+export const deleteUser = (userId) => dispatch => (
+    SessionAPIUtil.deleteUser(userId)
+        .then(() => dispatch(logoutCurrentUser()))
+)

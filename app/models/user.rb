@@ -21,7 +21,7 @@ class User < ApplicationRecord
     validates :password_digest, presence: true
     validates :session_token, presence: true, uniqueness: true
     validates :password, length: {minimum: 6}, allow_nil: true
-    
+
     def self.find_by_credentials(un_or_email,pw)
         likeEmail = false
         likeEmail = true if (un_or_email.split("@").length ==  2) && (!un_or_email.split("@")[0].include?(".")) && (un_or_email.split("@")[1].split(".").length == 2)
@@ -68,4 +68,13 @@ class User < ApplicationRecord
     has_many :reviewed_anime,
     through: :reviews,
     source: :anime
+
+    has_one :cart,
+    class_name: :Cart,
+    primary_key: :id,
+    foreign_key: :user_id
+
+    has_many :cart_items,
+    through: :cart,
+    source: :purchases
 end

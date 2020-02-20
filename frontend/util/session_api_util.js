@@ -53,3 +53,10 @@ export const updateUser = ({id, username, email, password }) => (
         }
     })
 );
+
+export const deleteUser = (userId) => (
+    $.ajax({
+        method: "DELETE",
+        url: `api/users/${userId}`
+    })
+);

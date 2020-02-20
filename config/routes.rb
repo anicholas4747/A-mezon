@@ -17,8 +17,11 @@ Rails.application.routes.draw do
 
     get "/users/exists", to: "users#exists"
     get "/user/:username/reviews", to: "users#reviews"
-    resources :users, only: [:create, :show, :update]
+    resources :users, only: [:create, :show, :update, :destroy]
     
+    resources :carts, only: [:show]
+    resources :purchases, only: [:create, :update, :destroy]
+
     resource :session, only: [:create, :destroy]
   end
 

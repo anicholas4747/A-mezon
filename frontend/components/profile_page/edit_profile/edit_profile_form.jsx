@@ -24,6 +24,12 @@ class EditProfileForm extends Component{
         };
     }
 
+    handleDeleteClick(e){
+        e.preventDefault();
+        this.props.deleteUser(this.props.currentUser.id)
+            .then(() => this.props.history.push("/"));
+    }
+
     handleInput(field){
         return (e) => {
             e.preventDefault();
@@ -332,6 +338,10 @@ class EditProfileForm extends Component{
                         <button id="cancel" onClick={()=> this.props.history.push(`/profile?${this.props.currentUser.username.split(" ").join("-")}`)}>Cancel</button>
                         <button onClick={this.handleSubmit} id="save-changes">Save Changes</button>
                     </form>
+                    <div className="new-to-site"></div>
+                    <p className="leaving-site">Leaving?</p>
+                    <br />
+                    <a className="leaving-site">Delete your Aにmezon account</a>
                 </div>
             )
         }

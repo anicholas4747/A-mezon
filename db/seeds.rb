@@ -10,6 +10,8 @@
 
 Studio.destroy_all
 Anime.destroy_all
+Purchase.destroy_all
+Cart.destroy_all
 User.destroy_all
 
 trigger = Studio.create!(
@@ -106,3 +108,5 @@ demo_user = User.new(
 )
     
 demo_user.save!
+
+Cart.create!(user_id: demo_user.id)

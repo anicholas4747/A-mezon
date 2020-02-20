@@ -9,6 +9,7 @@
 #  release_year :integer          not null
 #  price        :float            not null
 #  studio_id    :integer          not null
+#  ave_rating   :float
 #
 
 class Anime < ApplicationRecord 

@@ -116,7 +116,7 @@ class SearchBar extends Component{
 
         const ulId = (this.props.searchDropdownHidden) ? "SEARCH-HIDDEN" : null;
 
-        const selectSize = {"width": `${(12 * this.state.genre.length) + 8}px`}
+        const selectSize = (this.state.genre.length < 10) ? { "width": `${(11 * this.state.genre.length) + 8}px` } : { "width": `${(8 * this.state.genre.length) + 8}px` }
 
         if (this.props.genres.length === 0) {
             return (
