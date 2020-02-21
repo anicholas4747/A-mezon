@@ -30,6 +30,7 @@ class Anime < ApplicationRecord
 
     def self.get_genres
         Anime
+            .order("genre ASC")
             .pluck(:genre)
             .map {|genre_str| genre_str.split(" ")}
             .flatten

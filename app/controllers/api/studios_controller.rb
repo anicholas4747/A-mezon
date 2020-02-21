@@ -1,7 +1,7 @@
 class Api::StudiosController < ApplicationController
 
     def index
-        @studios = Studio.all
+        @studios = Studio.all.order("name ASC")
         render :index
     end
 

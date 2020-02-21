@@ -98,8 +98,29 @@ class SearchResults extends Component{
         let pathParts = this.props.history.location.search.split("page=");
         let newPage = (parseInt(pathParts[1]) - 1).toString();
         let newPath = pathParts[0].concat("page=", newPage);
-        debugger
+    
         this.props.history.push(`/s${newPath}`);
+        if (this.props.history.location.search.includes("=")) {
+            //display relevant anime based on search term
+            this.searchTerms = {
+                title: "",
+                genres: [],
+                years: [],
+                studios: [],
+                page: 1
+            };
+
+            this.props.history.location.search.slice(1).split("&").forEach((term) => {
+                let kv = term.split("=");
+                if (kv[0] === "years" || kv[0] === "genres" || kv[0] === "studios") {
+                    this.searchTerms[kv[0]].push(kv[1]);
+                } else {
+                    this.searchTerms[kv[0]] = kv[1];
+                }
+            });
+            // implement search by title, genre, studio, and release year
+            this.props.searchAnime(this.searchTerms);
+        }
     }
 
     handleNext(e){
@@ -107,8 +128,29 @@ class SearchResults extends Component{
         let pathParts = this.props.history.location.search.split("page=");
         let newPage = (parseInt(pathParts[1]) + 1).toString();
         let newPath = pathParts[0].concat("page=", newPage);
-        debugger
+        
         this.props.history.push(`/s${newPath}`);
+        if (this.props.history.location.search.includes("=")) {
+            //display relevant anime based on search term
+            this.searchTerms = {
+                title: "",
+                genres: [],
+                years: [],
+                studios: [],
+                page: 1
+            };
+
+            this.props.history.location.search.slice(1).split("&").forEach((term) => {
+                let kv = term.split("=");
+                if (kv[0] === "years" || kv[0] === "genres" || kv[0] === "studios") {
+                    this.searchTerms[kv[0]].push(kv[1]);
+                } else {
+                    this.searchTerms[kv[0]] = kv[1];
+                }
+            });
+            // implement search by title, genre, studio, and release year
+            this.props.searchAnime(this.searchTerms);
+        }
     }
 
     componentDidMount(){

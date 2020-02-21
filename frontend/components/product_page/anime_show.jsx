@@ -134,9 +134,12 @@ class AnimeShow  extends Component{
         const {title, description, genre, release_year, price} = this.props.anime;
         const studioName = this.props.studio.name;
 
-        const descriptionLis = description.split(".").map((sent,idx) => {
-            if(sent !== "" && idx < 4) return <li key={`${idx}${sent[0]}`}>{sent}</li>
-        });
+        let descriptionLis = null;
+        if (typeof description === "string") {
+            descriptionLis = description.split(".").map((sent,idx) => {
+                if(sent !== "" && idx < 4) return <li key={`${idx}${sent[0]}`}>{sent}</li>
+            });
+        }
 
         const reviewButton = (this.props.isLoggedIn) ? (
             <Link className="create-review" to={`/review/create-review?${title.split(" ").join("-")}`}>Write a customer review</Link>

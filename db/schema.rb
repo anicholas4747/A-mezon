@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_20_004543) do
+ActiveRecord::Schema.define(version: 2020_02_21_011301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2020_02_20_004543) do
     t.float "price", null: false
     t.integer "studio_id", null: false
     t.float "ave_rating"
+    t.string "title_jp"
+    t.text "image_url"
     t.index ["studio_id"], name: "index_anime_on_studio_id"
   end
 

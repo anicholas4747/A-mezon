@@ -685,6 +685,9 @@ h4 {
     width: 200px;
     min-width: 200px;
     transition: 0.125s ease;
+    overflow:hidden; 
+    overflow-y:scroll;
+    height: 500px;
 }
 
 #search-by-studio-span:hover .search-by-studio-ul{

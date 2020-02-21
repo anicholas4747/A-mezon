@@ -34,13 +34,18 @@ class StudioShow extends Component{
     render(){
         if (this.props.studio === null || this.props.studio.name === undefined) return <div></div>;
         const {name, description, site_url} = this.props.studio;
-        const producedAnime = this.props.anime.map((show) => (
-            <li className="anime-lis" key={`${Date.now()+Math.random()}ani`}>
-                <img src={window.animePH} alt="" data-anime={show.title} onClick={this.handleClick}/>
-                <h4 data-anime={show.title} onClick={this.handleClick}>{show.title}</h4>
-                <p>({show.release_year})</p>
-            </li>
-        ))
+        const producedAnime = this.props.anime.map((show) => {
+            if(typeof show === "object" && show !== null){
+                debugger
+                return (
+                    <li className="anime-lis" key={`${Date.now()+Math.random()}ani`}>
+                        <img src={window.animePH} alt="" data-anime={show.title} onClick={this.handleClick}/>
+                        <h4 data-anime={show.title} onClick={this.handleClick}>{show.title}</h4>
+                        <p>({show.release_year})</p>
+                    </li>
+                )
+            }
+        })
 
         const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
 
