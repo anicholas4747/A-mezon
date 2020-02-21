@@ -22,11 +22,27 @@ class Cart extends Component{
 
     handleContinueShopping(e){
         e.preventDefault();
+
+        if (this.props.refPos.current !== null) {
+            this.props.refPos.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
+        
         this.props.history.push("/");
     }
 
     handleGoToCheckout(e){
         e.preventDefault();
+
+        if (this.props.refPos.current !== null) {
+            this.props.refPos.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
+
         this.props.cart.forEach((item) => {
             this.props.deleteCartItem(item.id);
         });

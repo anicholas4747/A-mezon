@@ -69,6 +69,7 @@ class NavBar extends Component {
 
     componentDidMount(){
         this.props.fetchCart(this.props.currentUser.cartId);
+        this.props.fetchAnimeTitles();
     }
     
     render(){
