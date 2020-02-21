@@ -6,7 +6,8 @@ import { navDropdown, searchDropdownHide, navLiClicked, preloadFilters } from ".
 
 const mSTP = state => ({
     shouldGreyOut: Boolean(state.ui.navDropdown),
-    results: state.entities.anime.results
+    results: state.entities.anime.results,
+    language: state.ui.language
 });
 
 const mDTP = dispatch => ({

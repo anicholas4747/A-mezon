@@ -36,11 +36,34 @@ class StudioShow extends Component{
         const {name, description, site_url} = this.props.studio;
         const producedAnime = this.props.anime.map((show) => {
             if(typeof show === "object" && show !== null){
-                debugger
+                const image = (typeof show.imageURL === "string") ? <img src={show.imageURL} alt="" data-anime={show.title} onClick={this.handleClick} /> : <img src={window.animePHC} alt="" data-anime={show.title} onClick={this.handleClick} />
+
+                let stars = [];
+                for (let i = 1; i < 6; i++) {
+                    let starStatus = window.starUnclicked;
+
+                    if (parseInt(show.rating) >= i) {
+                        starStatus = window.starClicked;
+                    }
+
+                    let star = <img
+                        style={{
+                            "height": "18px",
+                            "width": "18px",
+                            "border": "none",
+                            "margin": "0"
+                        }}
+                        id="star"
+                        src={starStatus}
+                        key={i} />;
+
+                    stars.push(star);
+                }
                 return (
                     <li className="anime-lis" key={`${Date.now()+Math.random()}ani`}>
-                        <img src={window.animePH} alt="" data-anime={show.title} onClick={this.handleClick}/>
+                        {image}
                         <h4 data-anime={show.title} onClick={this.handleClick}>{show.title}</h4>
+                        {stars}
                         <p>({show.release_year})</p>
                     </li>
                 )

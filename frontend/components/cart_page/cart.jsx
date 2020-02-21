@@ -80,7 +80,8 @@ class Cart extends Component{
                         anime_id: item.anime_id,
                         title: item.title,
                         price: item.price,
-                        studioName: item.studioName
+                        studioName: item.studioName,
+                        rating: item.rating
                     };
                 } else {
                     mappingCartObj[item.title] = {
@@ -89,7 +90,8 @@ class Cart extends Component{
                         anime_id: item.anime_id,
                         title: item.title,
                         price: item.price,
-                        studioName: item.studioName
+                        studioName: item.studioName,
+                        rating: item.rating
                     };
                 }
             });

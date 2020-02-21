@@ -43,9 +43,33 @@ class CartItem extends Component{
 
         const subTotal = item.price * item.quantity;
 
+        const image = (typeof item.imageURL === "string") ? <img onClick={() => this.props.history.push(`/anime?${item.title.split(" ").join("-")}`)} src={item.imageURL} /> : <img onClick={() => this.props.history.push(`/anime?${item.title.split(" ").join("-")}`)} src={window.animePHC} />
+
+        let stars = [];
+        for (let i = 1; i < 6; i++) {
+            let starStatus = window.starUnclicked;
+
+            if (parseInt(item.rating) >= i) {
+                starStatus = window.starClicked;
+            }
+
+            let star = <img
+                style={{
+                    "height": "18px",
+                    "width": "18px",
+                    "border": "none",
+                    "margin": "0"
+                }}
+                id="star"
+                src={starStatus}
+                key={i} />;
+
+            stars.push(star);
+        }
+
         return (
             <li id="cart-item" key={`${item.title}${item.quantity}${Date.now()+ Math.random()}`}>
-                <img onClick={() => this.props.history.push(`/anime?${item.title.split(" ").join("-")}`)} src={window.animePH}/>
+                {image}
                 <span id="cart-item-details">
                     <div id="cart-item-title-line">
                         <Link to={`/anime?${item.title.split(" ").join("-")}`}>
@@ -53,6 +77,7 @@ class CartItem extends Component{
                         </Link>
                         <p>by <Link to={`/studio?${item.studioName.split(" ").join("-")}`}>{item.studioName}</Link></p>
                     </div>
+                    {stars}
                     <p id="stock">In Stock</p>
                     <p id="eligible">Eligible for FREE Shipping</p>
                     <div id="cart-item-bottom-line">

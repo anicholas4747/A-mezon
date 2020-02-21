@@ -1,8 +1,8 @@
 json.details do 
     json.extract! @anime, :id, :title, :description, :genre, :release_year, :price
-    json.rating show.ave_rating
-    json.titleJP show.title_jp
-    json.imageURL show.image_url
+    json.rating @anime.ave_rating
+    json.titleJP @anime.title_jp
+    json.imageURL @anime.image_url
 end
 json.studio @anime.studio.name
 json.reviews do

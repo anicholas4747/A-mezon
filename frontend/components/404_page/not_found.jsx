@@ -15,11 +15,13 @@ const NotFoundPage = (props) => {
     
 
     return (
-        <div>
+        <div className="fof">
             <div className={modalToggle}>.</div>
-            <Link to="/">
-                <h1>Sorry</h1>
-                <h3>we couldn't find that page</h3>
+            <Link to="/" id="fof">
+                <h1 id="fof">Sorry</h1>
+                <h2 id="fof">we couldn't find that page</h2>
+                <h3 id="fof">here are some dancing waifus instead ^-^</h3>
+                <img id="fof" src={window.animePH}/>
             </Link>
         </div>
     );

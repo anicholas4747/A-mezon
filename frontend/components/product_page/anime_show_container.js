@@ -10,7 +10,8 @@ const mSTP = (state) => ({
     isLoggedIn: Boolean(state.session.currentUser.id),
     anime: state.entities.anime.display,
     studio: state.entities.studios.display,
-    reviews: state.entities.reviews.animeSpecific
+    reviews: state.entities.reviews.animeSpecific,
+    language: state.ui.language
 });
 
 const mDTP = (dispatch) => ({

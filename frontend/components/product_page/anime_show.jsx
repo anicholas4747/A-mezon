@@ -41,9 +41,10 @@ class AnimeShow  extends Component{
     }
 
     pickMedia(){
+        const image = (typeof this.props.anime.imageURL === "string") ? <img src={this.props.anime.imageURL} /> : <img src={window.animePHC} />
         switch (this.state.imageClicked) {
             case ("IMG"):
-                return (<img src={window.animePH} />);
+                return (image);
             case ("VID1"):
                 return (
                     <span>
@@ -131,7 +132,7 @@ class AnimeShow  extends Component{
 
         const successAdd = (this.state.added) ? "added-to-cart SHOW" : "added-to-cart";
         const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
-        const {title, description, genre, release_year, price} = this.props.anime;
+        const {title, titleJP, description, genre, release_year, price} = this.props.anime;
         const studioName = this.props.studio.name;
 
         let descriptionLis = null;
@@ -156,6 +157,22 @@ class AnimeShow  extends Component{
 
         let media = this.pickMedia();
 
+
+        let stars = [];
+        for (let i = 1; i < 6; i++) {
+            let starStatus = window.starUnclicked;
+
+            if (parseInt(this.props.anime.rating) >= i) {
+                starStatus = window.starClicked;
+            }
+
+            let star = <img style={{ "height": "18px" }} id="star" src={starStatus} key={i} />;
+
+            stars.push(star);
+        }
+
+        const titleLang = (this.props.language === "EN") ? title : titleJP
+
         return (
             <div className="outermost">
                 <div className={modalToggle} onClick={this.handleModalOff}>.</div>
@@ -168,8 +185,9 @@ class AnimeShow  extends Component{
                         {media}
                     </section>
                     <span className="details">
-                        <h3>{title}</h3>
+                        <h3>{titleLang}</h3>
                         <h4>by<a onClick={this.handleStudioClick}>{studioName}</a></h4>
+                        {stars}   {this.props.anime.rating}
                         <span id="pricing"><h6>Price:</h6><h5 id="amount">${price.toFixed(2)}</h5><h4>& FREE Shipping</h4></span>
                         <h4>Release Year: <Link to={`/s?years=${release_year}&page=1`}>{release_year}</Link></h4>
                         <h4>Genre: <Link to={`/s?genres=${genre}&page=1`}>{genre}</Link></h4>

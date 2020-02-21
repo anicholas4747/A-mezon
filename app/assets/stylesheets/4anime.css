@@ -564,3 +564,12 @@ a.create-review:hover {
     position: absolute;
     opacity: 20%;
 }
+
+#product-top-line .media button:focus {
+    -webkit-appearance: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: transparent;
+    outline: none;
+    box-shadow: none;
+}

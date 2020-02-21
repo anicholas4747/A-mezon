@@ -46,11 +46,13 @@
 }
 
 #filter-bar div {
-    padding-bottom: 25px;
+    padding: 15px 0;
     height: fit-content;
     width: 100%;
     box-sizing: border-box;
     margin: 0;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
 }
 
 #filter-bar h4 {
@@ -182,7 +184,7 @@
 
 #page-change {
     margin: 15px 0;
-    margin-left: 45%;
+    margin-left: 30%;
     display: inline-block;
     width: fit-content;
     vertical-align: top;
@@ -231,6 +233,7 @@
     text-align: center;
     padding: 10px;
     color: #111;
+    margin: 0 10px 0 5px;
 }
 
 #page-change button:hover {
@@ -286,4 +289,23 @@
 
 .partial-match:hover {
     background-color: #ddd;
+}
+
+.search-results button:focus {
+    -webkit-appearance: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: transparent;
+    outline: none;
+    box-shadow: none;
+}
+
+#page-change > button#first-last {
+    font-size: 14px;
+    font-weight: 900;
+}
+
+#page-change > a#first-last {
+    font-size: 14px;
+    font-weight: 900;
 }

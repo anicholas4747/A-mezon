@@ -87,7 +87,7 @@ require 'csv'
 
 CSV.foreach(Rails.root.join('./db/anime_seeds.csv'), headers: true) do |row|
 
-    studio_formatted = row[27].split(";").join(" ").split(".").join(" ").split("-").join(" ").split("/").join(" ")
+    studio_formatted = row[27].split(";").join(" ").split(".").join(" ").split("-").join(" ").split("/").join(" ").split("&#039;").join("'").split("é").join("e").split(":").join(" ").split("&").join("and").split(".").join(" ").split("(").join(" ").split(")").join(" ")
     if !all_studios.include?(studio_formatted)
         studio = Studio.create!({
             name: studio_formatted
@@ -95,7 +95,7 @@ CSV.foreach(Rails.root.join('./db/anime_seeds.csv'), headers: true) do |row|
         all_studios << studio_formatted
     end
   
-    anime_formatted = row[2].split(";").join(" ").split(".").join(" ").split("-").join(" ").split("/").join(" ")
+    anime_formatted = row[2].split(";").join(" ").split(".").join(" ").split("-").join(" ").split("/").join(" ").split("&#039;").join("'").split("é").join("e").split(":").join(" ").split("&").join("and").split(".").join(" ").split("(").join(" ").split(")").join(" ")
     if !all_anime.include?(anime_formatted)
         anime = Studio.find_by(name: studio_formatted).produced_anime.create!({
             title: anime_formatted,

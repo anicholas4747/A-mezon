@@ -46,20 +46,48 @@ class Home extends Component {
         let recs = [];
         let deals = [];
 
+        
         this.props.recs.forEach((anime, idx) => {
+            const image = (typeof anime.imageURL === "string") ? <img src={anime.imageURL} alt="" data-anime={anime.title} onClick={this.handleClick} /> : <img src={window.animePHC} alt="" data-anime={anime.title} onClick={this.handleClick} />
+            let stars = [];
+            for (let i = 1; i < 6; i++) {
+                let starStatus = window.starUnclicked;
+
+                if (parseInt(anime.rating) >= i) {
+                    starStatus = window.starClicked;
+                }
+
+                let star = <img
+                    style={{
+                        "height": "18px",
+                        "width": "18px",
+                        "border": "none",
+                        "margin": "0"
+                    }}
+                    id="star"
+                    src={starStatus}
+                    key={i} />;
+
+                stars.push(star);
+            }
+
+            const titleLang = (this.props.language === "EN") ? <h4 data-anime={anime.title} onClick={this.handleClick}>{anime.title}</h4> : <h4 data-anime={anime.title} onClick={this.handleClick}>{anime.titleJP}</h4>
+            
             if(idx < 4){
                 recs.push(
                     <li className="anime-lis" key={`${idx}${anime.title}`}>
-                        <img src={window.animePH} alt="" data-anime={anime.title} onClick={this.handleClick} />
-                        <h4 data-anime={anime.title} onClick={this.handleClick}>{anime.title}</h4>
+                        {image}
+                        {titleLang}
+                        {stars}
                         <span className="details"><h6>Price:</h6><h5>${anime.price.toFixed(2)}</h5></span>
                     </li>
                 )
             } else {
                 deals.push(
                     <li className="anime-lis" key={`${idx}${anime.title}`}>
-                        <img src={window.animePH} alt="" data-anime={anime.title} onClick={this.handleClick} />
-                        <h4 data-anime={anime.title} onClick={this.handleClick}>{anime.title}</h4>
+                        {image}
+                        {titleLang}
+                        {stars}
                         <span id="list-price"><h6>List Price:</h6>${((anime.price * 1.25) + 0.99).toFixed(2)}</span>
                         <span className="details"><h6>Price:</h6><h5 id="amount">${anime.price.toFixed(2)}</h5></span>
                     </li>

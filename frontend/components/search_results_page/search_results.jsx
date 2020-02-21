@@ -16,6 +16,8 @@ class SearchResults extends Component{
         this.handleYearClick = this.handleYearClick.bind(this);
         this.handlePrevious = this.handlePrevious.bind(this);
         this.handleNext = this.handleNext.bind(this);
+        this.handleFirst = this.handleFirst.bind(this);
+        this.handleLast = this.handleLast.bind(this);
         this.handleModalOff = this.handleModalOff.bind(this);
     }
 
@@ -93,6 +95,82 @@ class SearchResults extends Component{
             });
     }
 
+    handleFirst(e){
+        e.preventDefault();
+        let pathParts = this.props.history.location.search.split("page=");
+        let newPage = (1).toString();
+        let newPath = pathParts[0].concat("page=", newPage);
+    
+        this.props.history.push(`/s${newPath}`);
+        if (this.props.history.location.search.includes("=")) {
+            //display relevant anime based on search term
+            this.searchTerms = {
+                title: "",
+                genres: [],
+                years: [],
+                studios: [],
+                page: 1
+            };
+
+            this.props.fetchYears();
+            if (this.props.refPos.current !== null) {
+                this.props.refPos.current.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                });
+            }
+
+            this.props.history.location.search.slice(1).split("&").forEach((term) => {
+                let kv = term.split("=");
+                if (kv[0] === "years" || kv[0] === "genres" || kv[0] === "studios") {
+                    this.searchTerms[kv[0]].push(kv[1]);
+                } else {
+                    this.searchTerms[kv[0]] = kv[1];
+                }
+            });
+            // implement search by title, genre, studio, and release year
+            this.props.searchAnime(this.searchTerms);
+        }
+    }
+
+    handleLast(e){
+        e.preventDefault();
+        let pathParts = this.props.history.location.search.split("page=");
+        let newPage = (parseInt(this.props.results.length / 10) + parseInt(pathParts[1])).toString();
+        let newPath = pathParts[0].concat("page=", newPage);
+    
+        this.props.history.push(`/s${newPath}`);
+        if (this.props.history.location.search.includes("=")) {
+            //display relevant anime based on search term
+            this.searchTerms = {
+                title: "",
+                genres: [],
+                years: [],
+                studios: [],
+                page: 1
+            };
+
+            this.props.fetchYears();
+            if (this.props.refPos.current !== null) {
+                this.props.refPos.current.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                });
+            }
+
+            this.props.history.location.search.slice(1).split("&").forEach((term) => {
+                let kv = term.split("=");
+                if (kv[0] === "years" || kv[0] === "genres" || kv[0] === "studios") {
+                    this.searchTerms[kv[0]].push(kv[1]);
+                } else {
+                    this.searchTerms[kv[0]] = kv[1];
+                }
+            });
+            // implement search by title, genre, studio, and release year
+            this.props.searchAnime(this.searchTerms);
+        }
+    }
+
     handlePrevious(e){
         e.preventDefault();
         let pathParts = this.props.history.location.search.split("page=");
@@ -109,6 +187,14 @@ class SearchResults extends Component{
                 studios: [],
                 page: 1
             };
+
+            this.props.fetchYears();
+            if (this.props.refPos.current !== null) {
+                this.props.refPos.current.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                });
+            }
 
             this.props.history.location.search.slice(1).split("&").forEach((term) => {
                 let kv = term.split("=");
@@ -130,6 +216,14 @@ class SearchResults extends Component{
         let newPath = pathParts[0].concat("page=", newPage);
         
         this.props.history.push(`/s${newPath}`);
+
+        this.props.fetchYears();
+        if (this.props.refPos.current !== null) {
+            this.props.refPos.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
         if (this.props.history.location.search.includes("=")) {
             //display relevant anime based on search term
             this.searchTerms = {
@@ -222,19 +316,23 @@ class SearchResults extends Component{
         if (this.props.results.length !== 0 && this.props.results.length > 10 && this.searchTerms.page !== "1") {
             pageChange = (
             <div id="page-change">
+                <a id="first-last" onClick={this.handleFirst}>← First</a>
                 <a onClick={this.handlePrevious}>← Previous</a>
                 <button onClick={this.handleNext}>Next →</button>
+                <button id="first-last" onClick={this.handleLast}>Last →</button>
             </div>
             )
         } else if (this.props.results.length !== 0 && this.props.results.length > 10 && this.searchTerms.page === "1") {
             pageChange = (
                 <div id="page-change">
                     <button onClick={this.handleNext}>Next →</button>
+                    <button onClick={this.handleLast}>Last →</button>
                 </div>
             )
         } else if (this.props.results.length !== 0 && this.props.results.length < 10 && this.searchTerms.page !== "1") {
             pageChange = (
                 <div id="page-change">
+                    <a onClick={this.handleFirst}>← First</a>
                     <a onClick={this.handlePrevious}>← Previous</a>
                 </div>
             )
@@ -255,13 +353,39 @@ class SearchResults extends Component{
             )
         } else {
             // clicking on the price, title, or img take you to the show page
-            const results = this.props.results.slice(0,11).map((anime) => {
+            const results = this.props.results.slice(0,10).map((anime) => {
+                const image = (typeof anime.imageURL === "string") ? <img onClick={() => this.props.history.push(`/anime?${anime.title.split(" ").join("-")}`)} src={anime.imageURL} /> : <img onClick={() => this.props.history.push(`/anime?${anime.title.split(" ").join("-")}`)} src={window.animePHC} />
+
+                let stars = [];
+                for (let i = 1; i < 6; i++) {
+                    let starStatus = window.starUnclicked;
+
+                    if (parseInt(anime.rating) >= i) {
+                        starStatus = window.starClicked;
+                    }
+
+                    let star = <img 
+                        style={{
+                            "height": "18px", 
+                            "width": "18px",
+                            "border": "none",
+                            "margin": "0" }} 
+                        id="star" 
+                        src={starStatus} 
+                        key={i} />;
+
+                    stars.push(star);
+                }
+
+                const titleLang = (this.props.language === "EN") ? anime.title : anime.titleJP
+
                 return (
                     <li key={`${anime.title}uwu${anime.price}`}>
-                        <img onClick={() => this.props.history.push(`/anime?${anime.title.split(" ").join("-")}`)} src={window.animePH} />
+                        {image}
                         <span>
-                            <h3 onClick={this.handleAnimeClick}>{anime.title}</h3>
+                            <h3 onClick={this.handleAnimeClick}>{titleLang}</h3>
                             <h4>by <a onClick={this.handleStudioClick}>{anime.studio}</a></h4>
+                            <h4>{stars}   {anime.rating}</h4>
                             <h5 onClick={() => this.props.history.push(`/anime?${anime.title.split(" ").join("-")}`)}>${anime.price.toFixed(2)}</h5>
                             <h4>Genre: <a onClick={this.handleGenreClick}>{anime.genre}</a></h4>
                             <h4>Release Year: <a onClick={this.handleYearClick}>{anime.release_year}</a></h4>
@@ -273,7 +397,7 @@ class SearchResults extends Component{
 
             const total = this.props.results.length + ((parseInt(this.searchTerms.page) - 1) * 10);
             const numShownStart = (((parseInt(this.searchTerms.page) - 1) * 10) + 1);
-            const numShownEnd = (total > (numShownStart + 10)) ? (numShownStart + 10) : total;
+            const numShownEnd = (total > (numShownStart + 10)) ? (numShownStart + 10 -1 ) : total;
 
             return (
                 <div className="search-results">

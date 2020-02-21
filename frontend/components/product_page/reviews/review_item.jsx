@@ -60,7 +60,7 @@ class ReviewItem extends Component{
         }
 
         const reviewTimestamp = new Date(review.updated_at).toDateString();
-        
+        const image = (typeof review.imageURL === "string") ? <img id="small-anime" src={review.imageURL} /> : <img id="small-anime" src={window.animePHC} />
         const pageLink = (this.props.match.path === "/anime") ? (
             <Link to={`/profile?${review.author.split(" ").join("-")}`}>
                 <img src={window.profilePic}/>
@@ -68,7 +68,7 @@ class ReviewItem extends Component{
             </Link>
         ) : (
             <Link to={`/anime?${review.anime.split(" ").join("-")}`}>
-                <img id="small-anime" src={window.animePH}/>
+                {image}
                 {review.anime}
             </Link>
         )

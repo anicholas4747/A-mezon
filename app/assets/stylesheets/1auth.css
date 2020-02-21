@@ -364,3 +364,11 @@ input.no-entry {
     font-size: 14px;
     cursor: text;
 }
+
+
+.fof > h1#fof, .fof > h2#fof, .fof > h3#fof, .fof > img#fof {
+    display: inline-block;
+    padding-left: 40px;
+    width: fit-content;
+    margin: 0 auto;
+}
