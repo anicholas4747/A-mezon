@@ -79,6 +79,7 @@ class Home extends Component {
                         {image}
                         {titleLang}
                         {stars}
+                        <br/>
                         <span className="details"><h6>Price:</h6><h5>${anime.price.toFixed(2)}</h5></span>
                     </li>
                 )
@@ -88,6 +89,7 @@ class Home extends Component {
                         {image}
                         {titleLang}
                         {stars}
+                        <br/>
                         <span id="list-price"><h6>List Price:</h6>${((anime.price * 1.25) + 0.99).toFixed(2)}</span>
                         <span className="details"><h6>Price:</h6><h5 id="amount">${anime.price.toFixed(2)}</h5></span>
                     </li>

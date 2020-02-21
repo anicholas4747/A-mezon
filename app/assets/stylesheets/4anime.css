@@ -590,6 +590,10 @@ a.create-review:hover {
     color: #555555;
 }
 
+#review-prod-progress img#prog {
+    object-fit: contain;
+    width: 275px;
+}
 #review-prod-progress {
      margin: 15px;
     width: 300px;

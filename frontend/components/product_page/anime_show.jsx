@@ -235,7 +235,8 @@ class AnimeShow  extends Component{
                     <section id="review-prod-progress">
                         <h3>{stars}   {this.props.anime.rating} out of 5</h3>
                         <p>{numCusts} customer ratings</p>
-                        <label>5 star
+                        <img id="prog" src={window.starBar}/>
+                        {/* <label>5 star
                             <progress id="file" max="100" value="68"></progress>
                                68%
                         </label><br/>
@@ -254,7 +255,7 @@ class AnimeShow  extends Component{
                         <label>1 star
                             <progress id="file" max="100" value="6"></progress>
                                6%
-                        </label><br/>
+                        </label><br/> */}
                     </section>
                     <section id="review-prod">
                         <h3>Review this product</h3>
