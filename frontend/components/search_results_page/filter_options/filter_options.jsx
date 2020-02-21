@@ -83,9 +83,22 @@ class FilterOptions extends Component{
         }
     }
 
+    findFilter(g){
+        switch (g) {
+            case ("Sci-fi"):
+                return "Sci-Fi";
+            case ("Slice-of-life"):
+                return "Slice-of-Life";
+            case ("Martial-arts"):
+                return "Martial-Arts";
+            default:
+                return g;
+        }
+    }
+
     componentDidUpdate(prevProps){
         if (prevProps.preloadedFilters !== this.props.preloadedFilters) {
-            if (this.props.preloadedFilters.length === 0) {
+            if ( this.props.history.location.search.includes("all") || this.props.preloadedFilters.length === 0) {
                 this.setState({
                     genres: [],
                     studios: [],
@@ -119,19 +132,22 @@ class FilterOptions extends Component{
 
     render(){
 
-        const genreOptions = this.props.genres.map((g) => {
+        const genreOptions = this.props.genres.sort().map((g) => {
+
+            let actualFilter = this.findFilter(g);
+
             if (this.state.genres.includes(g)){
                 return (
-                    <label data-field="genres" data-value={g} key={g}>
+                    <label data-field="genres" data-value={actualFilter} key={actualFilter}>
                         <img onClick={this.handleFilterClick} src={window.checkedCB} />
-                        <h5 onClick={this.handleFilterClick}>{g}</h5>
+                        <h5 onClick={this.handleFilterClick}>{actualFilter}</h5>
                     </label>
                 )
             } else {
                 return (
-                    <label data-field="genres" data-value={g} key={g}>
+                    <label data-field="genres" data-value={actualFilter} key={actualFilter}>
                         <img onClick={this.handleFilterClick} src={window.uncheckedCB} />
-                        <h5 onClick={this.handleFilterClick}>{g}</h5>
+                        <h5 onClick={this.handleFilterClick}>{actualFilter}</h5>
                     </label>
                 )
             }

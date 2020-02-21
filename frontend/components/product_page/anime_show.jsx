@@ -171,26 +171,47 @@ class AnimeShow  extends Component{
             stars.push(star);
         }
 
+        let custStars = [];
+        for (let i = 1; i < 6; i++) {
+            let starStatus = window.starUnclicked;
+
+            if (parseInt(this.props.anime.rating) >= i) {
+                starStatus = window.starClicked;
+            }
+
+            let star = <img style={{ "height": "18px" }} id="star" src={starStatus} key={i} />;
+
+            custStars.push(star);
+        }
+
         const numRevs = this.props.reviews.length;
         let num5s = 0;
         let num4s = 0;
         let num3s = 0;
         let num2s = 0;
         let num1s = 0;
+        let totalStars = 0;
 
         this.props.reviews.forEach((rev)=>{
             if(rev.rating === 5){
-                num5s = num5s + 1
+                num5s = num5s + 1;
+                totalStars = totalStars + 5;
             } else if (rev.rating === 4) {
-                num4s = num4s + 1
+                num4s = num4s + 1;
+                totalStars = totalStars + 4;
             } else if (rev.rating === 3) {
-                num3s = num3s + 1
+                num3s = num3s + 1;
+                totalStars = totalStars + 3;
             } else if (rev.rating === 2) {
-                num2s = num2s + 1
+                num2s = num2s + 1;
+                totalStars = totalStars + 2;
             } else if (rev.rating === 1) {
-                num1s = num1s + 1
+                num1s = num1s + 1;
+                totalStars = totalStars + 1;
             }
         })
+
+        const aveCustScore = (totalStars/numRevs).toFixed(2);
 
         const titleLang = (this.props.language === "EN") ? title : titleJP
 
@@ -208,7 +229,7 @@ class AnimeShow  extends Component{
                     <span className="details">
                         <h3>{titleLang}</h3>
                         <h4>by<a onClick={this.handleStudioClick}>{studioName}</a></h4>
-                        {stars}   {this.props.anime.rating}
+                        Aにmezon Score: {stars}   {this.props.anime.rating}
                         <span id="pricing"><h6>Price:</h6><h5 id="amount">${price.toFixed(2)}</h5><h4>& FREE Shipping</h4></span>
                         <h4>Release Year: <Link to={`/s?years=${release_year}&page=1`}>{release_year}</Link></h4>
                         <h4>Genre: <Link to={`/s?genres=${genre}&page=1`}>{genre}</Link></h4>
@@ -253,28 +274,28 @@ class AnimeShow  extends Component{
                 <span id="review-left">
                     <h2>Customer reviews</h2>
                     <section id="review-prod-progress">
-                        <h3>{stars}   {this.props.anime.rating} out of 5</h3>
+                        <h3>{custStars}   {aveCustScore} out of 5</h3>
                         <p>{numRevs} customer ratings</p>
                         {/* <img id="prog" src={window.starBar}/> */}
                         <label>5 star
                             <progress id="file" max="100" value={(num5s/numRevs)*100}></progress>
-                                {`${(num5s/numRevs)*100}%`}
+                                {`${((num5s/numRevs)*100).toFixed(2)}%`}
                         </label><br/>
                         <label>4 star
                             <progress id="file" max="100" value={(num4s/numRevs)*100}></progress>
-                                {`${(num4s/numRevs)*100}%`}
+                            {`${((num4s / numRevs) * 100).toFixed(2)}%`}
                         </label><br/>
                         <label>3 star
                             <progress id="file" max="100" value={(num3s/numRevs)*100}></progress>
-                                {`${(num3s/numRevs)*100}%`}
+                            {`${((num3s / numRevs) * 100).toFixed(2)}%`}
                         </label><br/>
                         <label>2 star
                             <progress id="file" max="100" value={(num2s/numRevs)*100}></progress>
-                                {`${(num2s/numRevs)*100}%`}
+                            {`${((num2s / numRevs) * 100).toFixed(2)}%`}
                         </label><br/>
                         <label>1 star
                             <progress id="file" max="100" value={(num1s/numRevs)*100}></progress>
-                                {`${(num1s/numRevs)*100}%`}
+                            {`${((num1s / numRevs) * 100).toFixed(2)}%`}
                         </label><br/>
                     </section>
                     <section id="review-prod">

@@ -27,7 +27,7 @@ demo_user.save!
 
 Cart.create!(user_id: demo_user.id)
 
-15.times do
+20.times do
     un = Faker::JapaneseMedia::DragonBall.unique.character.split(" ").join("_")
     new_user = User.create!({
         username: un,
@@ -53,7 +53,7 @@ end
     puts new_user.username
 end
 
-15.times do
+16.times do
     un = Faker::JapaneseMedia::OnePiece.unique.character.split(" ").join("_")
     new_user = User.create!({
         username: un,
@@ -110,7 +110,7 @@ CSV.foreach(Rails.root.join('./db/anime_seeds.csv'), headers: true) do |row|
         all_anime << anime_formatted
     end
 
-    rand(2).times do 
+    rand(7).times do 
         all_users.sample.authored_reviews.create!({
             title: Faker::JapaneseMedia::OnePiece.quote,
             body: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote,
@@ -119,7 +119,7 @@ CSV.foreach(Rails.root.join('./db/anime_seeds.csv'), headers: true) do |row|
         })
     end
 
-    rand(3).times do 
+    rand(7).times do 
         all_users.sample.authored_reviews.create!({
             title: Faker::Movies::StarWars.quote,
             body: Faker::Movies::HitchhikersGuideToTheGalaxy.quote,
@@ -128,7 +128,7 @@ CSV.foreach(Rails.root.join('./db/anime_seeds.csv'), headers: true) do |row|
         })
     end
 
-    rand(5).times do 
+    rand(7).times do 
         all_users.sample.authored_reviews.create!({
             title: Faker::Movies::HarryPotter.quote,
             body: Faker::TvShows::MichaelScott.quote,
