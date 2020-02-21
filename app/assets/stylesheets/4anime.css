@@ -609,12 +609,12 @@ a.create-review:hover {
 
 
 progress {
-	-moz-appearance: none;
+	/* -moz-appearance: none;
     -webkit-appearance: none;
-    border: none;
+    border: none; */
     margin: 7px 5px 0px 5px;
-    background-image: linear-gradient(rgb(255, 206, 0), rgb(255, 167, 0));
-    background: linear-gradient(rgb(255, 206, 0), rgb(255, 167, 0));
+    /* background-image: linear-gradient(rgb(255, 206, 0), rgb(255, 167, 0));
+    background: linear-gradient(rgb(255, 206, 0), rgb(255, 167, 0)); */
 }
 
 #review-prod label {

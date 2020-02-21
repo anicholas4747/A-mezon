@@ -171,7 +171,27 @@ class AnimeShow  extends Component{
             stars.push(star);
         }
 
-        const numCusts = Math.floor(Math.random() * 998);
+        const numRevs = this.props.reviews.length;
+        let num5s = 0;
+        let num4s = 0;
+        let num3s = 0;
+        let num2s = 0;
+        let num1s = 0;
+
+        this.props.reviews.forEach((rev)=>{
+            if(rev.rating === 5){
+                num5s = num5s + 1
+            } else if (rev.rating === 4) {
+                num4s = num4s + 1
+            } else if (rev.rating === 3) {
+                num3s = num3s + 1
+            } else if (rev.rating === 2) {
+                num2s = num2s + 1
+            } else if (rev.rating === 1) {
+                num1s = num1s + 1
+            }
+        })
+
         const titleLang = (this.props.language === "EN") ? title : titleJP
 
         return (
@@ -234,28 +254,28 @@ class AnimeShow  extends Component{
                     <h2>Customer reviews</h2>
                     <section id="review-prod-progress">
                         <h3>{stars}   {this.props.anime.rating} out of 5</h3>
-                        <p>{numCusts} customer ratings</p>
-                        <img id="prog" src={window.starBar}/>
-                        {/* <label>5 star
-                            <progress id="file" max="100" value="68"></progress>
-                               68%
+                        <p>{numRevs} customer ratings</p>
+                        {/* <img id="prog" src={window.starBar}/> */}
+                        <label>5 star
+                            <progress id="file" max="100" value={(num5s/numRevs)*100}></progress>
+                                {`${(num5s/numRevs)*100}%`}
                         </label><br/>
                         <label>4 star
-                            <progress id="file" max="100" value="23"></progress>
-                               23%
+                            <progress id="file" max="100" value={(num4s/numRevs)*100}></progress>
+                                {`${(num4s/numRevs)*100}%`}
                         </label><br/>
                         <label>3 star
-                            <progress id="file" max="100" value="1"></progress>
-                               1%
+                            <progress id="file" max="100" value={(num3s/numRevs)*100}></progress>
+                                {`${(num3s/numRevs)*100}%`}
                         </label><br/>
                         <label>2 star
-                            <progress id="file" max="100" value="2"></progress>
-                               2%
+                            <progress id="file" max="100" value={(num2s/numRevs)*100}></progress>
+                                {`${(num2s/numRevs)*100}%`}
                         </label><br/>
                         <label>1 star
-                            <progress id="file" max="100" value="6"></progress>
-                               6%
-                        </label><br/> */}
+                            <progress id="file" max="100" value={(num1s/numRevs)*100}></progress>
+                                {`${(num1s/numRevs)*100}%`}
+                        </label><br/>
                     </section>
                     <section id="review-prod">
                         <h3>Review this product</h3>
