@@ -1,7 +1,8 @@
-# A(ni)mezon
+# Aにmezon
 
 My full-stack project for App Academy is an Amazon.com clone for buying anime. 
 It is called **`Aにmezon`** [A-meh-zon].
+Visit: [a-mezon.com](https://a-mezon.herokuapp.com/#/)
 
 `Features:`
 - Reviews (users will be able to create, read, update, and destroy reviews for individual anime)
