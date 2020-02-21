@@ -354,7 +354,7 @@ class SearchResults extends Component{
         } else {
             // clicking on the price, title, or img take you to the show page
             const results = this.props.results.slice(0,10).map((anime) => {
-                const image = (typeof anime.imageURL === "string") ? <img onClick={() => this.props.history.push(`/anime?${anime.title.split(" ").join("-")}`)} src={anime.imageURL} /> : <img onClick={() => this.props.history.push(`/anime?${anime.title.split(" ").join("-")}`)} src={window.animePHC} />
+                const image = (typeof anime.imageURL === "string") ? <img onClick={() => this.props.history.push(`/anime?${anime.title.split(" ").join("-")}`)} src={anime.imageURL} /> : <img onClick={() => this.props.history.push(`/anime?${anime.title.split(" ").join("-")}`)} id="ph"  src={window.animePHC} />
 
                 let stars = [];
                 for (let i = 1; i < 6; i++) {

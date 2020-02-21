@@ -36,7 +36,7 @@ class StudioShow extends Component{
         const {name, description, site_url} = this.props.studio;
         const producedAnime = this.props.anime.map((show) => {
             if(typeof show === "object" && show !== null){
-                const image = (typeof show.imageURL === "string") ? <img src={show.imageURL} alt="" data-anime={show.title} onClick={this.handleClick} /> : <img src={window.animePHC} alt="" data-anime={show.title} onClick={this.handleClick} />
+                const image = (typeof show.imageURL === "string") ? <img src={show.imageURL} alt="" data-anime={show.title} onClick={this.handleClick} /> : <img id="ph"  src={window.animePHC} alt="" data-anime={show.title} onClick={this.handleClick} />
 
                 let stars = [];
                 for (let i = 1; i < 6; i++) {

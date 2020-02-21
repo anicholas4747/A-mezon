@@ -27,7 +27,7 @@ demo_user.save!
 
 Cart.create!(user_id: demo_user.id)
 
-10.times do
+15.times do
     un = Faker::JapaneseMedia::DragonBall.unique.character.split(" ").join("_")
     new_user = User.create!({
         username: un,
@@ -40,7 +40,7 @@ Cart.create!(user_id: demo_user.id)
     puts new_user.username
 end
 
-10.times do
+15.times do
     un = Faker::Movies::StarWars.unique.character.split(" ").join("_")
     new_user = User.create!({
         username: un,
@@ -53,7 +53,7 @@ end
     puts new_user.username
 end
 
-10.times do
+15.times do
     un = Faker::JapaneseMedia::OnePiece.unique.character.split(" ").join("_")
     new_user = User.create!({
         username: un,
@@ -66,7 +66,7 @@ end
     puts new_user.username
 end
 
-10.times do
+15.times do
     un = Faker::JapaneseMedia::SwordArtOnline.unique.real_name.split(" ").join("_")
     new_user = User.create!({
         username: un,

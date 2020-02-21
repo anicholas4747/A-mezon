@@ -111,10 +111,10 @@ class NavBar extends Component {
                         <SearchBar />
                         <LangToggle />
                         <AccountDropdown />
-                        <a id="order-history">
+                        <Link to="/" id="order-history">
                             <p>Returns</p>
                             <h4>& Orders</h4>
-                        </a>
+                        </Link>
                         <div id="try-prime" onClick={this.handlePrimeClick} onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
                             <Link to="/" id="prime">
                                 {/* <p>.</p> */}
@@ -148,10 +148,10 @@ class NavBar extends Component {
                         <SearchBar />
                         <LangToggle />
                         <AccountDropdown />
-                        <a id="order-history" className="oh-jp">
+                        <Link to="/" id="order-history" className="oh-jp">
                             <p id="henpin">返品もこちら</p>
                             <h4 id="chumon">注文履歴</h4>
-                        </a>
+                        </Link>
                         <div id="try-prime" onClick={this.handlePrimeClick} onMouseOver={this.handleMouseOver} onMouseLeave={() => this.props.navDropdown(false)}>
                             <Link to="/" id="prime">
                                 {/* <p>.</p> */}

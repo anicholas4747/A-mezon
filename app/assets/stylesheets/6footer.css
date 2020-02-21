@@ -63,12 +63,12 @@
 
 #footer a.logo {
     margin-left: 38%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 #footer .logo {
     margin: 0 auto;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 

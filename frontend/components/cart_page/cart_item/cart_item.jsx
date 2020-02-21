@@ -43,7 +43,7 @@ class CartItem extends Component{
 
         const subTotal = item.price * item.quantity;
 
-        const image = (typeof item.imageURL === "string") ? <img onClick={() => this.props.history.push(`/anime?${item.title.split(" ").join("-")}`)} src={item.imageURL} /> : <img onClick={() => this.props.history.push(`/anime?${item.title.split(" ").join("-")}`)} src={window.animePHC} />
+        const image = (typeof item.imageURL === "string") ? <img onClick={() => this.props.history.push(`/anime?${item.title.split(" ").join("-")}`)} src={item.imageURL} /> : <img onClick={() => this.props.history.push(`/anime?${item.title.split(" ").join("-")}`)} id="ph" src={window.animePHC} />
 
         let stars = [];
         for (let i = 1; i < 6; i++) {

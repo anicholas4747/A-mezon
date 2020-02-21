@@ -120,7 +120,7 @@
     margin: 0 15px;
     width: 200px;
     height: 230px;
-    object-fit: contain;
+    object-fit: cover;
     display: inline-block;
     vertical-align: top;
     border: 1px solid #a6a6a6;

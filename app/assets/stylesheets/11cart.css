@@ -41,7 +41,7 @@
     margin: 0 15px;
     width: 150px;
     height: 180px;
-    object-fit: contain;
+    object-fit: cover;
     display: inline-block;
     vertical-align: top;
     border: 1px solid #a6a6a6;
@@ -189,7 +189,7 @@
     max-width: 20px;
     min-height: 20px;
     min-width: 20px;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 #checkout-box-top-line p, #checkout-box-top-line button {

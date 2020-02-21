@@ -41,7 +41,7 @@ class AnimeShow  extends Component{
     }
 
     pickMedia(){
-        const image = (typeof this.props.anime.imageURL === "string") ? <img src={this.props.anime.imageURL} /> : <img src={window.animePHC} />
+        const image = (typeof this.props.anime.imageURL === "string") ? <img src={this.props.anime.imageURL} /> : <img id="ph" src={window.animePHC} />
         switch (this.state.imageClicked) {
             case ("IMG"):
                 return (image);
@@ -171,6 +171,7 @@ class AnimeShow  extends Component{
             stars.push(star);
         }
 
+        const numCusts = Math.floor(Math.random() * 998);
         const titleLang = (this.props.language === "EN") ? title : titleJP
 
         return (
@@ -229,12 +230,38 @@ class AnimeShow  extends Component{
                     <h3>Product description</h3>
                     <p>{description}</p>
                 </section>
-                <h2>Customer reviews</h2>
-                <section id="review-prod">
-                    <h3>Review this product</h3>
-                    <p>Share your thoughts with other customers</p>
-                    {reviewButton}
-                </section>
+                <span id="review-left">
+                    <h2>Customer reviews</h2>
+                    <section id="review-prod-progress">
+                        <h3>{stars}   {this.props.anime.rating} out of 5</h3>
+                        <p>{numCusts} customer ratings</p>
+                        <label>5 star
+                            <progress id="file" max="100" value="68"></progress>
+                               68%
+                        </label><br/>
+                        <label>4 star
+                            <progress id="file" max="100" value="23"></progress>
+                               23%
+                        </label><br/>
+                        <label>3 star
+                            <progress id="file" max="100" value="1"></progress>
+                               1%
+                        </label><br/>
+                        <label>2 star
+                            <progress id="file" max="100" value="2"></progress>
+                               2%
+                        </label><br/>
+                        <label>1 star
+                            <progress id="file" max="100" value="6"></progress>
+                               6%
+                        </label><br/>
+                    </section>
+                    <section id="review-prod">
+                        <h3>Review this product</h3>
+                        <p>Share your thoughts with other customers</p>
+                        {reviewButton}
+                    </section>
+                </span>
                 <Reviews match={this.props.match} reviews={this.props.reviews} refPos={this.props.refPos}/>
             </div>
         )

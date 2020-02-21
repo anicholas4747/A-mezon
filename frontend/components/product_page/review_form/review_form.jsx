@@ -168,7 +168,7 @@ class ReviewForm extends Component{
 
         const modalToggle = ((this.props.shouldGreyOut) ? "modal-on" : "modal-off");
 
-        const image = (typeof this.props.anime.imageURL === "string") ? <img src={this.props.anime.imageURL} /> : <img src={window.animePHC} />
+        const image = (typeof this.props.anime.imageURL === "string") ? <img src={this.props.anime.imageURL} /> : <img id="ph" src={window.animePHC} />
         return (
             <div className="review-form" className="outermost">
                 <div className={modalToggle}>.</div>

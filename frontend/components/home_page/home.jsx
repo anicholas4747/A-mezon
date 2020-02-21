@@ -48,7 +48,7 @@ class Home extends Component {
 
         
         this.props.recs.forEach((anime, idx) => {
-            const image = (typeof anime.imageURL === "string") ? <img src={anime.imageURL} alt="" data-anime={anime.title} onClick={this.handleClick} /> : <img src={window.animePHC} alt="" data-anime={anime.title} onClick={this.handleClick} />
+            const image = (typeof anime.imageURL === "string") ? <img src={anime.imageURL} alt="" data-anime={anime.title} onClick={this.handleClick} /> : <img id="ph"  src={window.animePHC} alt="" data-anime={anime.title} onClick={this.handleClick} />
             let stars = [];
             for (let i = 1; i < 6; i++) {
                 let starStatus = window.starUnclicked;
