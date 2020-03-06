@@ -16,6 +16,6 @@ Visit: [a-mezon.com](https://a-mezon.herokuapp.com/#/)
     - Update Anime's Average Rating
     ![REviews](./app/assets/reviews.gif)
 - Profile
-    ![Profile](./app/assets/profile_page.png)
+    ![Profile](./app/assets/profile_page.gif)
 - Language Toggle (EN - JP)
-    ![Language Toggle](./app/assets/lang_toggle.png)
+    ![Language Toggle](./app/assets/lang_tog.gif)
