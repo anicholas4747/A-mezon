@@ -7,7 +7,10 @@ Visit: [a-mezon.com](https://a-mezon.herokuapp.com/#/)
 `Features:`
 - Search
     - Dynamic Searchbar
-    - Search Results Page w/ Category Filters
+    ![Dynamic Searchbar](https://thumbs.gfycat.com/GrandioseAcrobaticCivet-mobile.mp4)
+    - Search Results Page w/ Category Filters & Page Navigation
+    ![Category Filters](https://thumbs.gfycat.com/GrandioseAcrobaticCivet-mobile.mp4)
+    ![Page Navigation](https://thumbs.gfycat.com/GrandioseAcrobaticCivet-mobile.mp4)
 - Reviews
     - Add/Edit/Delete Reviews
     - Update Anime's Average Rating
