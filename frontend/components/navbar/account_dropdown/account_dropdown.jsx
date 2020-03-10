@@ -46,8 +46,8 @@ class AccountDropdown extends Component{
         )
         let acctOptionsEN = (Boolean(this.props.currentUser.id)) ? (
             <span>
-                <div id="your-lists">
-                    <h3>Your Lists</h3>
+                {/* <div id="your-lists"> */}
+                    {/* <h3>Your Lists</h3>
                     <li>
                         <Link to="/">Wish List</Link>
                         <Link to="/">Shopping List</Link>
@@ -64,15 +64,15 @@ class AccountDropdown extends Component{
                     <Link to="/">Explore Idea Lists</Link>
                     <Link to="/">Explore Showroom</Link>
                     <Link to="/">Discover</Link>
-                    <Link to="/">Take the Home Style Quiz</Link>
-                </div>
+                    <Link to="/">Take the Home Style Quiz</Link> */}
+                {/* </div> */}
             
                 <div id="your-acct">
                     <h3>Your Account</h3>
                     <li id="ok">
                         <Link id="ok" onClick={() => this.props.navLiClicked(true)} to={`/profile?${this.props.currentUser.username.split(" ").join("-")}`}>Your Account</Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to="/">Your Orders</Link>
                         <Link to="/">Your Lists</Link>
                         <Link to="/">Your Recommendations</Link>
@@ -93,14 +93,14 @@ class AccountDropdown extends Component{
                         <Link to="/">Your Watchlist</Link>
                         <Link to="/">Your Video Purchases & Rentals</Link>
                         <Link to="/">Your Android Apps & Devices</Link>
-                    </li>
+                    </li> */}
                     <a id="ok" onClick={this.signout}>Sign Out</a>
                 </div>
             </span>
         ) : (
                 <span>
-                    <div id="your-lists">
-                        <h3>Your Lists</h3>
+                    {/* <div id="your-lists"> */}
+                        {/* <h3>Your Lists</h3>
                         <li>
                             <Link to="/">Wish List</Link>
                             <Link to="/">Shopping List</Link>
@@ -119,15 +119,15 @@ class AccountDropdown extends Component{
                             <Link to="/">Explore Showroom</Link>
                             <Link to="/">Discover</Link>
                             <Link to="/">Take the Home Style Quiz</Link>
-                        </li>
-                    </div>
+                        </li> */}
+                    {/* </div> */}
 
                     <div id="your-acct">
                         <h3 id="ok">Your Account</h3>
                         <li id="ok">
                             <Link to={`/signin?verify_email`}>Your Account</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to="/">Your Orders</Link>
                             <Link to="/">Your Lists</Link>
                             <Link to="/">Your Recommendations</Link>
@@ -148,28 +148,28 @@ class AccountDropdown extends Component{
                             <Link to="/">Your Watchlist</Link>
                             <Link to="/">Your Video Purchases & Rentals</Link>
                             <Link to="/">Your Android Apps & Devices</Link>
-                        </li>
+                        </li> */}
                     </div>
                 </span>
         );
         let acctOptionsJP = (Boolean(this.props.currentUser.id)) ? (
             <span>
-                <div id="your-lists">
-                    <h3>リスト</h3>
+                {/* <div id="your-lists"> */}
+                    {/* <h3>リスト</h3>
                     <li>
                         <Link to="/">新しいリストを作成する</Link>
                         <Link to="/">ギフトアイデア</Link>
                         <Link to="/">ベビーレジストリ</Link>
                         <Link to="/">ショールーム</Link>
-                    </li>
-                </div>
+                    </li> */}
+                {/* </div> */}
             
                 <div id="your-acct">
                     <h3>アカウントサービス</h3>
                     <li id="ok">
                         <Link id="ok" onClick={() => this.props.navLiClicked(true)} to={`/profile?${this.props.currentUser.username.split(" ").join("-")}`}>アカウントサービス</Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to="/">注文履歴</Link>
                         <Link to="/">バーチャルダッシュ</Link>
                         <Link to="/">ほしい物リスト</Link>
@@ -185,26 +185,26 @@ class AccountDropdown extends Component{
                         <Link to="/">マンガ本棚</Link>
                         <Link to="/">ゲーム&PCソフトダウンロードライブラリ</Link>
                         <Link to="/">アプリライブラリとデバイスの管理</Link>
-                    </li>
+                    </li> */}
                     <a id="ok" onClick={this.signout}>ログアウト</a>
                 </div>
             </span>
         ) : (
                 <span>
-                    <div id="your-lists">
-                        <h3>リスト</h3>
+                    {/* <div id="your-lists"> */}
+                        {/* <h3>リスト</h3>
                         <Link to="/">新しいリストを作成する</Link>
                         <Link to="/">ギフトアイデア</Link>
                         <Link to="/">ベビーレジストリ</Link>
-                        <Link to="/">ショールーム</Link>
-                    </div>
+                        <Link to="/">ショールーム</Link> */}
+                    {/* </div> */}
 
                     <div id="your-acct">
                         <h3>アカウントサービス</h3>
                         <li id="ok">
                             <Link to={`/signin?verify_email`}>アカウントサービス</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to="/">注文履歴</Link>
                             <Link to="/">バーチャルダッシュ</Link>
                             <Link to="/">ほしい物リスト</Link>
@@ -220,7 +220,7 @@ class AccountDropdown extends Component{
                             <Link to="/">マンガ本棚</Link>
                             <Link to="/">ゲーム&PCソフトダウンロードライブラリ</Link>
                             <Link to="/">アプリライブラリとデバイスの管理</Link>
-                        </li>
+                        </li> */}
                     </div>
                 </span>
         );

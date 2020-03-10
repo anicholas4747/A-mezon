@@ -206,7 +206,7 @@ class LogIn extends Component {
                         <label>
                             <div id="pw-section">
                                 Password
-                                <Link to="/register">Forgot your Password?</Link>
+                                {/* <Link to="/register">Forgot your Password?</Link> */}
                             </div>
                             <input className={inputColor} type="password" onChange={this.handleInput("password")} value={this.state.userInfo.password} autoFocus />
                         </label>
@@ -215,9 +215,9 @@ class LogIn extends Component {
                         <button onClick={this.handleSubmit}>Sign-In</button>
                         <br/>
                         <br/>
-                        <div id="keep-signed-in">
+                        {/* <div id="keep-signed-in">
                             <input type="checkbox"/><p>Keep me signed in.</p>
-                        </div>
+                        </div> */}
                     </form>
                 </div>
             )

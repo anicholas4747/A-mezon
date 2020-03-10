@@ -5,9 +5,10 @@
     border-radius: 0 0 4px 4px;
     box-sizing: border-box;
     padding: 20px 26px;
-    margin: 10px auto;
-    margin-top: 0;
+    /* margin: 10px auto;
+    margin-top: 0; */
     position: relative;
+    margin: 0 auto;
 }
 
 #grey-box {
@@ -21,7 +22,6 @@
     margin-bottom: 0;
     position: relative;
     color: transparent;
-
 }
 
 #profile-info img {
@@ -126,6 +126,7 @@
     border-radius: 4px;
     box-sizing: border-box;
     padding: 20px 26px;
+    margin-top: 10px;
 }
 
 #profile-lang {
@@ -184,7 +185,7 @@
     border-radius: 4px;
     box-sizing: border-box;
     padding: 20px 26px;
-    margin-top: 71px;
+    /* margin-top: 71px; */
 }
 
 .profile-page #cust-reviews > h3 {
@@ -235,4 +236,8 @@
     margin: 0px;
     padding: 5px 0;
     font-family: 'Lato', sans-serif;
+}
+
+div.outermost {
+    margin-bottom: 300px;
 }

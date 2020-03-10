@@ -407,14 +407,14 @@ div.search-by-studio {
     position: relative;
     padding: 5px;
     top: -11px;
-    left: -260px;
+    left: -30px;
     background-color: rgb(255, 255, 255);
     border: 1px solid #ddd;
     box-shadow: 0 0 1px 1px #ddd inset;
     border-radius: 4px;
     box-sizing: border-box;
-    width: 500px;
-    min-width: 500px;
+    width: 240px;
+    min-width: 240px;
     transition: 0.125s ease;
     margin-top: 10px;
     padding-bottom: 10px;
@@ -532,12 +532,12 @@ div.search-by-studio {
 
 #account-dropdown-ul #your-acct {
     padding: 10px;
-    width: 50%;
+    /* width: 50%; */
     height: fit-content;
     display: inline-block;
     vertical-align: top;
     box-sizing: border-box;
-    border-left: 1px solid #e7e7e7;
+    /* border-left: 1px solid #e7e7e7; */
 }
 
 h4 {
