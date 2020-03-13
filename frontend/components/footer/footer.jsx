@@ -23,8 +23,8 @@ class Footer extends Component {
                 <span id="footer-span">
                     <h3>Akeem Nicholas</h3>
                     <ul>
-                        <li><a href="https://www.linkedin.com/in/akeem-nicholas-2983a6192/">LinkedIn</a></li>
-                        <li><a href="https://github.com/anicholas4747">GitHub</a></li>
+                        <li><a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/akeem-nicholas-2983a6192/">LinkedIn</a></li>
+                        <li><a rel="noopener noreferrer" target="_blank" href="https://github.com/anicholas4747">GitHub</a></li>
                     </ul>
                 </span>
                 <Link className="logo" to="/"><img className="logo" src={window.logoWhite} alt="Amezon Logo" onClick={this.handleClick}/></Link>
