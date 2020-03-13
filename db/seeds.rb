@@ -102,7 +102,7 @@ CSV.foreach(Rails.root.join('./db/anime_seeds.csv'), headers: true) do |row|
             description: row[21],
             genre: row[29],
             release_year: row[33].to_i,
-            price: rand(20..100),
+            price: rand(25..80),
             ave_rating: row[15].to_f / 2,
             title_jp: row[3],
             image_url: row[5],
@@ -114,7 +114,7 @@ CSV.foreach(Rails.root.join('./db/anime_seeds.csv'), headers: true) do |row|
         all_users.sample.authored_reviews.create!({
             title: Faker::JapaneseMedia::OnePiece.quote,
             body: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote,
-            rating: rand(1..5),
+            rating: rand(3..5),
             anime_id: anime.id,
         })
     end
@@ -123,7 +123,7 @@ CSV.foreach(Rails.root.join('./db/anime_seeds.csv'), headers: true) do |row|
         all_users.sample.authored_reviews.create!({
             title: Faker::Movies::StarWars.quote,
             body: Faker::Movies::HitchhikersGuideToTheGalaxy.quote,
-            rating: rand(1..5),
+            rating: rand(3..5),
             anime_id: anime.id,
         })
     end
@@ -132,7 +132,7 @@ CSV.foreach(Rails.root.join('./db/anime_seeds.csv'), headers: true) do |row|
         all_users.sample.authored_reviews.create!({
             title: Faker::Movies::HarryPotter.quote,
             body: Faker::TvShows::MichaelScott.quote,
-            rating: rand(1..5),
+            rating: rand(3..5),
             anime_id: anime.id,
         })
     end

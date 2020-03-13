@@ -58,3 +58,9 @@
 .anime-lis h4:hover{
     color: #c45500;
 }
+
+#studio-name {
+    margin: 25px auto;
+    font-size: 28px;
+    width: fit-content;
+}

@@ -75,10 +75,10 @@ class StudioShow extends Component{
         return (
             <div className="outermost">
                 <div className={modalToggle} onClick={this.handleModalOff}>.</div>
-                <h1>Studio Show Page</h1>
-                <a href={site_url}><h2>{name}</h2></a>
+                {/* <h1>Studio Show Page</h1> */}
+                {/* <a href={site_url}><h2>{name}</h2></a> */}
+                <h2 id="studio-name">{name}</h2>
                 <h3>{description}</h3>
-                <br /><br />
                 <ul>
                     {producedAnime}
                 </ul>
