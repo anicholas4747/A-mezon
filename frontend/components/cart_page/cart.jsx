@@ -97,6 +97,7 @@ class Cart extends Component{
                         title: item.title,
                         price: item.price,
                         studioName: item.studioName,
+                        imageURL: item.imageURL,
                         rating: item.rating
                     };
                 } else {
@@ -107,6 +108,7 @@ class Cart extends Component{
                         title: item.title,
                         price: item.price,
                         studioName: item.studioName,
+                        imageURL: item.imageURL,
                         rating: item.rating
                     };
                 }

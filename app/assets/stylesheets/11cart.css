@@ -41,7 +41,7 @@
     margin: 0 15px;
     width: 150px;
     height: 180px;
-    object-fit: cover;
+    object-fit: fill;
     display: inline-block;
     vertical-align: top;
     border: 1px solid #a6a6a6;

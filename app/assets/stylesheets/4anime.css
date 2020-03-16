@@ -31,7 +31,7 @@
 }
 
 .media img {
-    object-fit: cover;
+    object-fit: fill;
     max-height: 100%;
     max-width: 85%;
     min-width: 250px;

@@ -682,7 +682,7 @@ h4 {
     box-shadow: 0 0 1px 1px #ddd inset;
     border-radius: 4px;
     box-sizing: border-box;
-    width: 200px;
+    width: 275px;
     min-width: 200px;
     transition: 0.125s ease;
     overflow:hidden; 
@@ -707,7 +707,7 @@ h4 {
 .search-by-studio-ul li {
     padding: 0px;
     box-sizing: border-box;
-    text-align: center;
+    text-align: left;
 }
 
 .search-by-studio-ul li > a {
