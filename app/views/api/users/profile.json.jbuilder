@@ -4,5 +4,6 @@ json.reviews do
         json.extract! review, :id, :title, :body, :rating, :updated_at
         json.anime review.anime.title
         json.anime_id review.anime.id
+        json.imageURL review.anime.image_url
     end
 end
