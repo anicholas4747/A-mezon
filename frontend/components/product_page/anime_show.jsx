@@ -240,7 +240,7 @@ class AnimeShow  extends Component{
                         <h4>& FREE Shipping</h4>
                         <br/>
                         <p id="stock">In Stock.</p>
-                        <select id="qty" onChange={this.handleQuantity}>
+                        <select id="qty" onChange={this.handleQuantity} value={this.state.quantity}>
                             {qtyOptions}
                         </select>
                         <br/>
