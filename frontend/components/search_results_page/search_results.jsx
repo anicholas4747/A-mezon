@@ -10,15 +10,20 @@ class SearchResults extends Component{
             years: [],
             studios: []
         };
+        this.beginSearch = this.beginSearch.bind(this);
+
         this.handleAnimeClick = this.handleAnimeClick.bind(this);
         this.handleStudioClick = this.handleStudioClick.bind(this);
         this.handleGenreClick = this.handleGenreClick.bind(this);
         this.handleYearClick = this.handleYearClick.bind(this);
+
         this.handlePrevious = this.handlePrevious.bind(this);
         this.handleNext = this.handleNext.bind(this);
         this.handleFirst = this.handleFirst.bind(this);
         this.handleLast = this.handleLast.bind(this);
+
         this.handleModalOff = this.handleModalOff.bind(this);
+        this.scrollToTop = this.scrollToTop.bind(this);
     }
 
     handleModalOff(e){
@@ -26,6 +31,40 @@ class SearchResults extends Component{
         this.props.navLiClicked(true);
         this.props.navDropdown(false);
         this.props.searchDropdownHide(true);
+    }
+
+    scrollToTop(){
+        if (this.props.refPos.current !== null) {
+            this.props.refPos.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
+    }
+
+    beginSearch(){
+        if (this.props.history.location.search.includes("=")) {
+            //display relevant anime based on search term
+            this.searchTerms = {
+                title: "",
+                genres: [],
+                years: [],
+                studios: []
+            };
+
+            this.props.history.location.search.slice(1).split("&").forEach((term) => {
+                let kv = term.split("=");
+                if (kv[0] === "years" || kv[0] === "genres" || kv[0] === "studios") {
+                    this.searchTerms[kv[0]].push(kv[1]);
+                } else {
+                    this.searchTerms[kv[0]] = kv[1];
+                }
+            });
+            this.searchTerms.page = 1; // always get full results since render handles which anime to display
+            // implement search by title, genre, studio, and release year
+            this.props.searchAnime(this.searchTerms);
+        }
+        this.scrollToTop();
     }
 
     handleAnimeClick(e){
@@ -53,17 +92,11 @@ class SearchResults extends Component{
                 };
 
                 // reset filter values 
-                // aka CLEAR THEM IF GENRE CLICK RESTRICTS SEARCH IF THERE ARE 2+ GENRES ON AN ANIME
+                // aka CLEAR THEM IF GENRE CLICK, RESTRICTS SEARCH IF THERE ARE 2+ GENRES ON AN ANIME
                 const newFilters = [{ genres: searchGenre }];
                 this.props.preloadFilters(newFilters);
                 this.props.history.push(`/s?genres=${searchGenre.split(" ").join("%20")}&page=1`);
-                if (this.props.refPos.current !== null) {
-                    this.props.refPos.current.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start',
-                    });
-                }
-                
+                this.scrollToTop();
             });
     }
 
@@ -86,12 +119,7 @@ class SearchResults extends Component{
                 const newFilters = [{years: searchYear}];
                 this.props.preloadFilters(newFilters);
                 this.props.history.push(`/s?years=${searchYear.split(" ").join("%20")}&page=1`);
-                if (this.props.refPos.current !== null) {
-                    this.props.refPos.current.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start',
-                    });
-                }
+                this.scrollToTop();
             });
     }
 
@@ -102,73 +130,18 @@ class SearchResults extends Component{
         let newPath = pathParts[0].concat("page=", newPage);
     
         this.props.history.push(`/s${newPath}`);
-        if (this.props.history.location.search.includes("=")) {
-            //display relevant anime based on search term
-            this.searchTerms = {
-                title: "",
-                genres: [],
-                years: [],
-                studios: [],
-                page: 1
-            };
-
-            this.props.fetchYears();
-            if (this.props.refPos.current !== null) {
-                this.props.refPos.current.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                });
-            }
-
-            this.props.history.location.search.slice(1).split("&").forEach((term) => {
-                let kv = term.split("=");
-                if (kv[0] === "years" || kv[0] === "genres" || kv[0] === "studios") {
-                    this.searchTerms[kv[0]].push(kv[1]);
-                } else {
-                    this.searchTerms[kv[0]] = kv[1];
-                }
-            });
-            // implement search by title, genre, studio, and release year
-            this.props.searchAnime(this.searchTerms);
-        }
+        this.beginSearch();
     }
 
     handleLast(e){
         e.preventDefault();
         let pathParts = this.props.history.location.search.split("page=");
-        let newPage = (parseInt(this.props.results.length / 10) + parseInt(pathParts[1])).toString();
+        let newPageNum = (this.props.results.length % 10 > 0) ? (parseInt(this.props.results.length / 10) + 1) : (parseInt(this.props.results.length / 10));
+        let newPage = (newPageNum).toString();
         let newPath = pathParts[0].concat("page=", newPage);
     
         this.props.history.push(`/s${newPath}`);
-        if (this.props.history.location.search.includes("=")) {
-            //display relevant anime based on search term
-            this.searchTerms = {
-                title: "",
-                genres: [],
-                years: [],
-                studios: [],
-                page: 1
-            };
-
-            this.props.fetchYears();
-            if (this.props.refPos.current !== null) {
-                this.props.refPos.current.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                });
-            }
-
-            this.props.history.location.search.slice(1).split("&").forEach((term) => {
-                let kv = term.split("=");
-                if (kv[0] === "years" || kv[0] === "genres" || kv[0] === "studios") {
-                    this.searchTerms[kv[0]].push(kv[1]);
-                } else {
-                    this.searchTerms[kv[0]] = kv[1];
-                }
-            });
-            // implement search by title, genre, studio, and release year
-            this.props.searchAnime(this.searchTerms);
-        }
+        this.beginSearch();
     }
 
     handlePrevious(e){
@@ -178,35 +151,7 @@ class SearchResults extends Component{
         let newPath = pathParts[0].concat("page=", newPage);
     
         this.props.history.push(`/s${newPath}`);
-        if (this.props.history.location.search.includes("=")) {
-            //display relevant anime based on search term
-            this.searchTerms = {
-                title: "",
-                genres: [],
-                years: [],
-                studios: [],
-                page: 1
-            };
-
-            this.props.fetchYears();
-            if (this.props.refPos.current !== null) {
-                this.props.refPos.current.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                });
-            }
-
-            this.props.history.location.search.slice(1).split("&").forEach((term) => {
-                let kv = term.split("=");
-                if (kv[0] === "years" || kv[0] === "genres" || kv[0] === "studios") {
-                    this.searchTerms[kv[0]].push(kv[1]);
-                } else {
-                    this.searchTerms[kv[0]] = kv[1];
-                }
-            });
-            // implement search by title, genre, studio, and release year
-            this.props.searchAnime(this.searchTerms);
-        }
+        this.beginSearch();
     }
 
     handleNext(e){
@@ -216,69 +161,14 @@ class SearchResults extends Component{
         let newPath = pathParts[0].concat("page=", newPage);
         
         this.props.history.push(`/s${newPath}`);
-
-        this.props.fetchYears();
-        if (this.props.refPos.current !== null) {
-            this.props.refPos.current.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-            });
-        }
-        if (this.props.history.location.search.includes("=")) {
-            //display relevant anime based on search term
-            this.searchTerms = {
-                title: "",
-                genres: [],
-                years: [],
-                studios: [],
-                page: 1
-            };
-
-            this.props.history.location.search.slice(1).split("&").forEach((term) => {
-                let kv = term.split("=");
-                if (kv[0] === "years" || kv[0] === "genres" || kv[0] === "studios") {
-                    this.searchTerms[kv[0]].push(kv[1]);
-                } else {
-                    this.searchTerms[kv[0]] = kv[1];
-                }
-            });
-            // implement search by title, genre, studio, and release year
-            this.props.searchAnime(this.searchTerms);
-        }
+        this.beginSearch();
     }
 
     componentDidMount(){
         this.props.navDropdown(false);
         this.props.fetchYears();
-        if (this.props.refPos.current !== null) {
-            this.props.refPos.current.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-            });
-        }
-        
-        if (this.props.history.location.search.includes("=")) {
-            //display relevant anime based on search term
-            this.searchTerms = {
-                title: "",
-                genres: [],
-                years: [],
-                studios: [],
-                page: 1
-            };
-
-            this.props.history.location.search.slice(1).split("&").forEach((term) => {
-                let kv = term.split("=");
-                if (kv[0] === "years" || kv[0] === "genres" || kv[0] === "studios"){
-                    this.searchTerms[kv[0]].push(kv[1]);
-                } else {
-                    this.searchTerms[kv[0]] = kv[1];
-                }
-            });
-            // implement search by title, genre, studio, and release year
-            this.props.searchAnime(this.searchTerms);
-        }
-
+        this.scrollToTop();
+        this.beginSearch();
     }
 
     render(){
@@ -311,9 +201,22 @@ class SearchResults extends Component{
         if (this.searchTerms.years.length > 0) fullSearch = fullSearch.concat(` in these years: ${this.searchTerms.years.join(", ").split("%20").join(", ")}`);
         if (this.searchTerms.studios.length > 0) fullSearch = fullSearch.concat(` by these studios: ${this.searchTerms.studios.join(", ").split("%20").join(", ").split("-").join(" ")}`);
 
+
+        let resStart = 0;
+        let curPage = parseInt(this.props.history.location.search.split("page=")[1]);
+        if (curPage > 1) {
+            resStart += ((curPage - 1) * 10);
+        }
+        let total = this.props.results.length;
+        let resEnd = Math.min(total, (resStart + 10));
+
         let pageChange = null;
-        
-        if (this.props.results.length !== 0 && this.props.results.length > 10 && this.searchTerms.page !== "1") {
+
+        let nonEmpty = total !== 0;
+        let firstPage = this.searchTerms.page === "1";
+        let moreToSee = total > resEnd;
+
+        if (nonEmpty && moreToSee && !firstPage) {
             pageChange = (
             <div id="page-change">
                 <a id="first-last" onClick={this.handleFirst}>← First</a>
@@ -322,14 +225,14 @@ class SearchResults extends Component{
                 <button id="first-last" onClick={this.handleLast}>Last →</button>
             </div>
             )
-        } else if (this.props.results.length !== 0 && this.props.results.length > 10 && this.searchTerms.page === "1") {
+        } else if (nonEmpty && moreToSee && firstPage) {
             pageChange = (
                 <div id="page-change">
                     <button onClick={this.handleNext}>Next →</button>
                     <button onClick={this.handleLast}>Last →</button>
                 </div>
             )
-        } else if (this.props.results.length !== 0 && this.props.results.length < 10 && this.searchTerms.page !== "1") {
+        } else if (nonEmpty && !moreToSee && !firstPage) {
             pageChange = (
                 <div id="page-change">
                     <a onClick={this.handleFirst}>← First</a>
@@ -338,7 +241,7 @@ class SearchResults extends Component{
             )
         };
         
-        if(this.props.results.length === 0) {
+        if (total === 0) {
             return (
                 <div className="search-results">
                     <div className={modalToggle} onClick={this.handleModalOff}>.</div>
@@ -353,7 +256,7 @@ class SearchResults extends Component{
             )
         } else {
             // clicking on the price, title, or img take you to the show page
-            const results = this.props.results.slice(0,10).map((anime) => {
+            const results = this.props.results.slice(resStart, resStart + 10).map((anime) => {
                 const image = (typeof anime.imageURL === "string") ? <img onClick={() => this.props.history.push(`/anime?${anime.title.split(" ").join("-")}`)} src={anime.imageURL} /> : <img onClick={() => this.props.history.push(`/anime?${anime.title.split(" ").join("-")}`)} id="ph"  src={window.animePHC} />
 
                 let stars = [];
@@ -395,14 +298,10 @@ class SearchResults extends Component{
                 )
             });
 
-            const total = this.props.results.length + ((parseInt(this.searchTerms.page) - 1) * 10);
-            const numShownStart = (((parseInt(this.searchTerms.page) - 1) * 10) + 1);
-            const numShownEnd = (total > (numShownStart + 10)) ? (numShownStart + 10 -1 ) : total;
-
             return (
                 <div className="search-results">
                     <div className={modalToggle} onClick={this.handleModalOff}>.</div>
-                    <span>Displaying {numShownStart}-{numShownEnd} of {total} result(s) <p id="search-term">{fullSearch}</p></span>
+                    <span>Displaying {resStart+1}-{resEnd} of {total} result(s) <p id="search-term">{fullSearch}</p></span>
                     <FilterOptions />
                     <ul id="results-ul">
                         {pageChange}
