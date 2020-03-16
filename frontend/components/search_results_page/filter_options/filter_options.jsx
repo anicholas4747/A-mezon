@@ -4,12 +4,25 @@ import { withRouter } from 'react-router-dom';
 class FilterOptions extends Component{
     constructor(props){
         super(props);
+        this.filterDisplay = this.filterDisplay.bind(this);
+
         this.handleFilterClick = this.handleFilterClick.bind(this);
         this.makeSearch = this.makeSearch.bind(this);
         this.state = {
             genres: [],
             studios: [],
-            years: []
+            years: [],
+            genreClicked: false,
+            studioClicked: false,
+            yearClicked: false
+        };
+    }
+
+    filterDisplay(field){
+        return () => {
+            this.setState({
+                [field]: !this.state[field]
+            });
         };
     }
 
@@ -192,16 +205,16 @@ class FilterOptions extends Component{
         return (
             <aside id="filter-bar">
                 <div>
-                    <h4>Filter by Genre</h4>
-                    {genreOptions}
+                    <h4 onClick={this.filterDisplay("genreClicked")}>Filter by Genre</h4>
+                    {this.state.genreClicked ? genreOptions : null}
                 </div>
                 <div>
-                    <h4>Filter by Studio</h4>
-                    {studioOptions}
+                    <h4 onClick={this.filterDisplay("studioClicked")}>Filter by Studio</h4>
+                    {this.state.studioClicked ? studioOptions : null}
                 </div>
                 <div>
-                    <h4>Filter by Release Year</h4>
-                    {yearOptions}
+                    <h4 onClick={this.filterDisplay("yearClicked")}>Filter by Release Year</h4>
+                    {this.state.yearClicked ? yearOptions : null}
                 </div>
             </aside>
         )

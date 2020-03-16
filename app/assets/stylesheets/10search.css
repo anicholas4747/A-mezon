@@ -63,6 +63,11 @@
     padding: 0;
     color: #111;
     padding-bottom: 5px;
+    cursor: pointer;
+}
+
+#filter-bar h4:hover {
+    color: #e77600;
 }
 
 #filter-bar label {
