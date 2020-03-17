@@ -13,11 +13,13 @@ class AnimeShow  extends Component{
         this.handleBuyNow = this.handleBuyNow.bind(this);
         this.toggleMedia = this.toggleMedia.bind(this);
         this.handleContinueShopping = this.handleContinueShopping.bind(this);
+        this.handleReviewNum = this.handleReviewNum.bind(this);
         this.state = {
             quantity: 1,
             added: false,
             bought: false,
-            imageClicked: "IMG"
+            imageClicked: "IMG",
+            reviews: this.props.reviews
         };
     }
 
@@ -108,6 +110,15 @@ class AnimeShow  extends Component{
             .then(() => this.props.history.push(`/studio?${studioName}`));
     }
 
+    handleReviewNum(num){
+        let displayReviews = this.props.reviews.filter(rev => rev.rating === num)
+        return () => {
+            this.setState({
+                reviews: displayReviews
+            });
+        }
+    }
+
     componentDidMount(){
         if (this.props.refPos.current !== null) {
             this.props.refPos.current.scrollIntoView({
@@ -122,7 +133,8 @@ class AnimeShow  extends Component{
         if(prevProps.anime.id !== this.props.anime.id){
             this.setState({
                 quantity: 1,
-                added: false
+                added: false,
+                reviews: this.props.reviews
             });
         }
     }
@@ -171,19 +183,6 @@ class AnimeShow  extends Component{
             stars.push(star);
         }
 
-        let custStars = [];
-        for (let i = 1; i < 6; i++) {
-            let starStatus = window.starUnclicked;
-
-            if (parseInt(this.props.anime.rating) >= i) {
-                starStatus = window.starClicked;
-            }
-
-            let star = <img style={{ "height": "18px" }} id="star" src={starStatus} key={i} />;
-
-            custStars.push(star);
-        }
-
         const numRevs = this.props.reviews.length;
         let num5s = 0;
         let num4s = 0;
@@ -212,6 +211,50 @@ class AnimeShow  extends Component{
         })
 
         const aveCustScore = (totalStars/numRevs).toFixed(2);
+
+        let custStars = [];
+        for (let i = 1; i < 6; i++) {
+            let starStatus = window.starUnclicked;
+
+            if (parseInt(aveCustScore) >= i) {
+                starStatus = window.starClicked;
+            }
+
+            let star = <img style={{ "height": "18px" }} id="star" src={starStatus} key={i} />;
+
+            custStars.push(star);
+        }
+
+        let reviewProgress = null;
+        if(this.props.reviews.length > 0) {
+            reviewProgress = (
+                <section id="review-prod-progress">
+                    <h3>{custStars}   {aveCustScore} out of 5</h3>
+                    <p>{numRevs} customer ratings</p>
+                    {/* <img id="prog" src={window.starBar}/> */}
+                    <label onClick={this.handleReviewNum(5)}>5 star
+                            <progress id="file" max="100" value={(num5s / numRevs) * 100}></progress>
+                        {`${((num5s / numRevs) * 100).toFixed(2)}%`}
+                    </label><br />
+                    <label onClick={this.handleReviewNum(4)}>4 star
+                            <progress id="file" max="100" value={(num4s / numRevs) * 100}></progress>
+                        {`${((num4s / numRevs) * 100).toFixed(2)}%`}
+                    </label><br />
+                    <label onClick={this.handleReviewNum(3)}>3 star
+                            <progress id="file" max="100" value={(num3s / numRevs) * 100}></progress>
+                        {`${((num3s / numRevs) * 100).toFixed(2)}%`}
+                    </label><br />
+                    <label onClick={this.handleReviewNum(2)}>2 star
+                            <progress id="file" max="100" value={(num2s / numRevs) * 100}></progress>
+                        {`${((num2s / numRevs) * 100).toFixed(2)}%`}
+                    </label><br />
+                    <label onClick={this.handleReviewNum(1)}>1 star
+                            <progress id="file" max="100" value={(num1s / numRevs) * 100}></progress>
+                        {`${((num1s / numRevs) * 100).toFixed(2)}%`}
+                    </label><br />
+                </section>
+            )
+        }
 
         const titleLang = (this.props.language === "EN") ? title : titleJP
 
@@ -273,38 +316,14 @@ class AnimeShow  extends Component{
                 </section>
                 <span id="review-left">
                     <h2>Customer reviews</h2>
-                    <section id="review-prod-progress">
-                        <h3>{custStars}   {aveCustScore} out of 5</h3>
-                        <p>{numRevs} customer ratings</p>
-                        {/* <img id="prog" src={window.starBar}/> */}
-                        <label>5 star
-                            <progress id="file" max="100" value={(num5s/numRevs)*100}></progress>
-                                {`${((num5s/numRevs)*100).toFixed(2)}%`}
-                        </label><br/>
-                        <label>4 star
-                            <progress id="file" max="100" value={(num4s/numRevs)*100}></progress>
-                            {`${((num4s / numRevs) * 100).toFixed(2)}%`}
-                        </label><br/>
-                        <label>3 star
-                            <progress id="file" max="100" value={(num3s/numRevs)*100}></progress>
-                            {`${((num3s / numRevs) * 100).toFixed(2)}%`}
-                        </label><br/>
-                        <label>2 star
-                            <progress id="file" max="100" value={(num2s/numRevs)*100}></progress>
-                            {`${((num2s / numRevs) * 100).toFixed(2)}%`}
-                        </label><br/>
-                        <label>1 star
-                            <progress id="file" max="100" value={(num1s/numRevs)*100}></progress>
-                            {`${((num1s / numRevs) * 100).toFixed(2)}%`}
-                        </label><br/>
-                    </section>
+                    {reviewProgress}
                     <section id="review-prod">
                         <h3>Review this product</h3>
                         <p>Share your thoughts with other customers</p>
                         {reviewButton}
                     </section>
                 </span>
-                <Reviews match={this.props.match} reviews={this.props.reviews} refPos={this.props.refPos}/>
+                <Reviews match={this.props.match} reviews={this.state.reviews} reviewCountMatch={Boolean(this.props.reviews.length === this.state.reviews.length)}refPos={this.props.refPos}/>
             </div>
         )
     }

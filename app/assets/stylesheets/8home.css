@@ -54,3 +54,7 @@
     margin: 0;
     margin-right: 5px;
 }
+
+img#star {
+    background-color: transparent;
+}

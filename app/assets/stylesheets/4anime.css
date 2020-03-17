@@ -596,7 +596,7 @@ a.create-review:hover {
 }
 #review-prod-progress {
      margin: 15px;
-    width: 300px;
+    width: 305px;
     height: 300px;
     padding: 15px;
     display: inline-block;
@@ -607,6 +607,16 @@ a.create-review:hover {
     height: fit-content;
 }
 
+#review-prod-progress label{
+    color: #0066c0;
+}
+
+#review-prod-progress label:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color: #0066c0;
+    color: #c45500;
+}
 
 progress {
 	/* -moz-appearance: none;

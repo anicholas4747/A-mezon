@@ -1,7 +1,7 @@
 import React from 'react';
 import ReviewItem from './review_item_container';
 
-const Reviews = ({match, reviews, refPos}) => {
+const Reviews = ({ match, reviews, reviewCountMatch, refPos}) => {
     const reviewLis = reviews.map( (review) => {
         return (
             <li key={review.id}>
@@ -9,9 +9,12 @@ const Reviews = ({match, reviews, refPos}) => {
             </li>
         );
     });
+    
+    let starNum = "";
+    if (reviews[0] && !reviewCountMatch) starNum = `(${reviews[0].rating}-star)`;
 
     const reviewsHeading = (match.path === "/anime") ? (
-        <h3>{`${reviews.length} customer review(s)`}</h3>
+        <h3>{`${reviews.length} customer review(s) ${starNum}`}</h3>
     ) : (
         <h3>{`${reviews.length} anime review(s)`}</h3>
     )
