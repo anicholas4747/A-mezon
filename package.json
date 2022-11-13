@@ -13,7 +13,7 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.12"
   },
   "description": "My full-stack project for App Academy is an Amazon.com clone for buying anime.  It is called **`Aにmezon`** [A-meh-zon].",
   "version": "1.0.0",
@@ -32,7 +32,7 @@
   "license": "ISC",
   "devDependencies": {
     "@svgr/webpack": "^5.1.0",
-    "svg-url-loader": "^4.0.0"
+    "svg-url-loader": "^8.0.0"
   },
   "engines": {
     "node": "10.13.0",
